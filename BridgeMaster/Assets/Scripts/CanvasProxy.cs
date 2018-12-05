@@ -1,16 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CanvasProxy : MonoBehaviour {
+public class CanvasProxy : MonoBehaviour
+{
+    public void LoadGame()
+    {
+        GameSingleton.Singleton.GetSceneLoader().LoadNext();
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void LoadScore()
+    {
+        GameSingleton.Singleton.GetSceneLoader().LoadScore();
+    }
+
+    public void LoadStart()
+    {
+        GameSingleton.Singleton.GetSceneLoader().LoadStart();
+    }
 }
