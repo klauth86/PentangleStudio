@@ -1599,6 +1599,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114220347310438700, guid: 50d9b473b50a08f489b68149ec5c6cf9,
+        type: 2}
+      propertyPath: _islands.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4205111776180946, guid: 50d9b473b50a08f489b68149ec5c6cf9, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1651,6 +1656,36 @@ Prefab:
       propertyPath: _ropeText
       value: 
       objectReference: {fileID: 962531080}
+    - target: {fileID: 114220347310438700, guid: 50d9b473b50a08f489b68149ec5c6cf9,
+        type: 2}
+      propertyPath: _islands.Array.data[0]
+      value: 
+      objectReference: {fileID: 660401639}
+    - target: {fileID: 114220347310438700, guid: 50d9b473b50a08f489b68149ec5c6cf9,
+        type: 2}
+      propertyPath: _islands.Array.data[1]
+      value: 
+      objectReference: {fileID: 1088265240}
+    - target: {fileID: 114220347310438700, guid: 50d9b473b50a08f489b68149ec5c6cf9,
+        type: 2}
+      propertyPath: _islands.Array.data[2]
+      value: 
+      objectReference: {fileID: 1445966346}
+    - target: {fileID: 114220347310438700, guid: 50d9b473b50a08f489b68149ec5c6cf9,
+        type: 2}
+      propertyPath: _islands.Array.data[3]
+      value: 
+      objectReference: {fileID: 659994638}
+    - target: {fileID: 114220347310438700, guid: 50d9b473b50a08f489b68149ec5c6cf9,
+        type: 2}
+      propertyPath: _islands.Array.data[4]
+      value: 
+      objectReference: {fileID: 718911478}
+    - target: {fileID: 114220347310438700, guid: 50d9b473b50a08f489b68149ec5c6cf9,
+        type: 2}
+      propertyPath: _islands.Array.data[5]
+      value: 
+      objectReference: {fileID: 908335132}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50d9b473b50a08f489b68149ec5c6cf9, type: 2}
   m_IsPrefabAsset: 0

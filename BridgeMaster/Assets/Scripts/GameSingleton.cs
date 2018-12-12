@@ -7,12 +7,18 @@ public class GameSingleton : MonoBehaviour {
     [SerializeField] private SceneLoader _sceneLoader;
     public SceneLoader GetSceneLoader { get { return _sceneLoader; } }
 
+    // Score
     [SerializeField] private ResourceUnit _resources;
 
+    // UI
     [SerializeField] private TMP_Text _manaText;
     [SerializeField] private TMP_Text _oreText;
     [SerializeField] private TMP_Text _woodText;
     [SerializeField] private TMP_Text _ropeText;
+
+    //Level
+    [SerializeField] private Transform[] _islands;
+    public Transform[] GetIslands { get { return _islands; } }
 
     private void Awake() {
         if (Singleton == null) {

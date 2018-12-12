@@ -133,7 +133,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &70457562332679860
 CapsuleCollider2D:
@@ -189,10 +189,10 @@ MonoBehaviour:
   _velocity: 5
   _jump: 5
   _health: 0
-  _resources: {fileID: 0}
-  _selectedSpell: {fileID: 0}
   _rigidbody: {fileID: 50742368187608546}
+  _collider: {fileID: 0}
   _animator: {fileID: 95756319859977792}
+  _selectedSpell: {fileID: 0}
 --- !u!212 &212970857383312320
 SpriteRenderer:
   m_ObjectHideFlags: 1
