@@ -11,22 +11,6 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1842010529982044}
   m_IsPrefabAsset: 1
---- !u!1 &1443448166601184
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4762526697640566}
-  - component: {fileID: 114335898655713776}
-  m_Layer: 0
-  m_Name: SceneLoader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1842010529982044
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4205111776180946}
   - component: {fileID: 114220347310438700}
-  - component: {fileID: 114060114724134564}
   m_Layer: 0
   m_Name: GameSingleton
   m_TagString: Untagged
@@ -53,36 +36,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4762526697640566}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4762526697640566
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1443448166601184}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4205111776180946}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114060114724134564
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1842010529982044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c3eba6c574132749a77893416898003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneLoader: {fileID: 114335898655713776}
 --- !u!114 &114220347310438700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,15 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3eba6c574132749a77893416898003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneLoader: {fileID: 0}
---- !u!114 &114335898655713776
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1443448166601184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4464f04b339915243bd25531810f0cb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _sceneLoader: {fileID: 114396505671313686, guid: 54e2fc0f435770e43a7a51ff38e279bc,
+    type: 2}
+  _resources: {fileID: 11400000, guid: b2d40853ac8e00e49a4b866bd490ccc5, type: 2}
+  _manaText: {fileID: 0}
+  _oreText: {fileID: 0}
+  _woodText: {fileID: 0}
+  _ropeText: {fileID: 0}

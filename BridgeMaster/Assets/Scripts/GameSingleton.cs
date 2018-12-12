@@ -1,39 +1,67 @@
 ﻿using UnityEngine;
+using TMPro;
 
-public class GameSingleton : MonoBehaviour
-{
+public class GameSingleton : MonoBehaviour {
     public static GameSingleton Singleton;
 
-    [SerializeField] private SceneLoader SceneLoader;
+    [SerializeField] private SceneLoader _sceneLoader;
+    public SceneLoader GetSceneLoader { get { return _sceneLoader; } }
 
-    public SceneLoader GetSceneLoader()
-    {
-        return SceneLoader;
-    }
+    [SerializeField] private ResourceUnit _resources;
 
-    private void Awake()
-    {
-        if (Singleton == null)
-        {
+    [SerializeField] private TMP_Text _manaText;
+    [SerializeField] private TMP_Text _oreText;
+    [SerializeField] private TMP_Text _woodText;
+    [SerializeField] private TMP_Text _ropeText;
+
+    private void Awake() {
+        if (Singleton == null) {
             Singleton = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
+        else {
             gameObject.SetActive(false);
             Destroy(this);
         }
     }
 
     // Use this for initialization
-    void Start()
-    {
-
+    void Start() {
+        UpdateReources();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void TryCast(Spell selectedSpell) {
+        if (selectedSpell) {
+            if (_resources.Mana <= selectedSpell.Cost.Mana &&
+                _resources.Ore <= selectedSpell.Cost.Ore &&
+                _resources.Wood <= selectedSpell.Cost.Wood &&
+                _resources.Rope <= selectedSpell.Cost.Rope) {
+                _resources.Mana = _resources.Mana - selectedSpell.Cost.Mana;
+                _resources.Ore = _resources.Ore - selectedSpell.Cost.Ore;
+                _resources.Wood = _resources.Wood - selectedSpell.Cost.Wood;
+                _resources.Rope = _resources.Rope - selectedSpell.Cost.Rope;
+                selectedSpell.Cast();
+            }
+            UpdateReources();
+        }
+    }
 
+    public void Pickup(ResourceUnit resourceUnit) {
+        _resources.Mana = _resources.Mana + resourceUnit.Mana;
+        _resources.Ore = _resources.Ore + resourceUnit.Ore;
+        _resources.Wood = _resources.Wood + resourceUnit.Wood;
+        _resources.Rope = _resources.Rope + resourceUnit.Rope;
+        UpdateReources();
+    }
+
+    private void UpdateReources() {
+        if (_manaText)
+            _manaText.text = _resources.Mana.ToString();
+        if (_oreText)
+            _oreText.text = _resources.Ore.ToString();
+        if (_woodText)
+            _woodText.text = _resources.Wood.ToString();
+        if (_ropeText)
+            _ropeText.text = _resources.Rope.ToString();
     }
 }
