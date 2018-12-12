@@ -56,12 +56,12 @@ public class GameSingleton : MonoBehaviour {
 
     private void UpdateReources() {
         if (_manaText)
-            _manaText.text = _resources.Mana.ToString();
+            _manaText.text = "Mana: " + _resources.Mana.ToString();
         if (_oreText)
-            _oreText.text = _resources.Ore.ToString();
+            _oreText.text = "Ore: " + _resources.Ore.ToString();
         if (_woodText)
-            _woodText.text = _resources.Wood.ToString();
+            _woodText.text = "Wood: " + _resources.Wood.ToString();
         if (_ropeText)
-            _ropeText.text = _resources.Rope.ToString();
+            _ropeText.text = "Rope: " + _resources.Rope.ToString();
     }
 }
