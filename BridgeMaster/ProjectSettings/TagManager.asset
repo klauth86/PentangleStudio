@@ -20,7 +20,7 @@ TagManager:
   - ForeGround
   - Enemy
   - Player
-  - Pickups
+  - Interactive
   - 
   - 
   - 
@@ -53,6 +53,6 @@ TagManager:
   - name: Player
     uniqueID: 3833159017
     locked: 0
-  - name: Pickups
+  - name: Interactive
     uniqueID: 2197566717
     locked: 0

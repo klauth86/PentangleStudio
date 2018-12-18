@@ -84,7 +84,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 0}
+  m_BackGroundColor: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -190,9 +190,11 @@ MonoBehaviour:
   _jump: 5
   _health: 0
   _rigidbody: {fileID: 50742368187608546}
-  _collider: {fileID: 0}
+  _collider: {fileID: 70457562332679860}
   _animator: {fileID: 95756319859977792}
-  _selectedSpell: {fileID: 0}
+  _selectedSpell: {fileID: 114323457014602694, guid: ab437e4f0e56964419809fc3b8798652,
+    type: 2}
+  _castReTime: 0.8
 --- !u!212 &212970857383312320
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -225,8 +227,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -461808279
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300010, guid: d5112ad83fbe233489fec4d2c0b9e22a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -32,25 +32,25 @@ public class GameSingleton : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start() {
+    private void Start() {
         UpdateReources();
     }
 
-    public void TryCast(Spell selectedSpell) {
-        if (selectedSpell) {
-            if (_resources.Mana <= selectedSpell.Cost.Mana &&
-                _resources.Ore <= selectedSpell.Cost.Ore &&
-                _resources.Wood <= selectedSpell.Cost.Wood &&
-                _resources.Rope <= selectedSpell.Cost.Rope) {
-                _resources.Mana = _resources.Mana - selectedSpell.Cost.Mana;
-                _resources.Ore = _resources.Ore - selectedSpell.Cost.Ore;
-                _resources.Wood = _resources.Wood - selectedSpell.Cost.Wood;
-                _resources.Rope = _resources.Rope - selectedSpell.Cost.Rope;
-                selectedSpell.Cast();
-            }
-            UpdateReources();
-        }
-    }
+    //public void TryCast(Bridge selectedSpell, bool isStart, Vector2 position) {
+    //    if (selectedSpell) {
+    //        if (_resources.Mana >= selectedSpell.Cost.Mana &&
+    //            _resources.Ore >= selectedSpell.Cost.Ore &&
+    //            _resources.Wood >= selectedSpell.Cost.Wood &&
+    //            _resources.Rope >= selectedSpell.Cost.Rope) {
+    //            _resources.Mana = _resources.Mana - selectedSpell.Cost.Mana;
+    //            _resources.Ore = _resources.Ore - selectedSpell.Cost.Ore;
+    //            _resources.Wood = _resources.Wood - selectedSpell.Cost.Wood;
+    //            _resources.Rope = _resources.Rope - selectedSpell.Cost.Rope;
+    //            selectedSpell.Cast(isStart, position);
+    //        }
+    //        UpdateReources();
+    //    }
+    //}
 
     public void Pickup(ResourceUnit resourceUnit) {
         _resources.Mana = _resources.Mana + resourceUnit.Mana;
