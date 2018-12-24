@@ -2,13 +2,13 @@
 
 [CreateAssetMenu(menuName = "BridgeUnit")]
 public class BridgeUnit : ScriptableObject {
-    [SerializeField] private float _radius;
+    [SerializeField] private Vector2 _offset;
     [SerializeField] private float _width;
     [SerializeField] private float _height;
 
-    public float Radius {
-        get { return _radius; }
-        set { _radius = value; }
+    public Vector2 Offset {
+        get { return _offset; }
+        set { _offset = value; }
     }
 
     public float Width {

@@ -192,9 +192,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 50742368187608546}
   _collider: {fileID: 70457562332679860}
   _animator: {fileID: 95756319859977792}
-  _selectedSpell: {fileID: 114323457014602694, guid: ab437e4f0e56964419809fc3b8798652,
-    type: 2}
-  _castReTime: 0.8
+  _selectedSpell: {fileID: 0}
 --- !u!212 &212970857383312320
 SpriteRenderer:
   m_ObjectHideFlags: 1

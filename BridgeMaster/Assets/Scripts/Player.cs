@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour {
     // Configuration
@@ -11,13 +10,10 @@ public class Player : MonoBehaviour {
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private Collider2D _collider;
     [SerializeField] private Animator _animator;
-    [SerializeField] private float _castReTime = 0.8f;
+
+    [SerializeField] private Spell _selectedSpell;
 
     private bool _isJumping;
-
-    // Use this for initialization
-    void Start() {
-    }
 
     // Update is called once per frame
     void Update() {
@@ -53,22 +49,14 @@ public class Player : MonoBehaviour {
     protected Coroutine _coroutine;
 
     protected void Cast() {
-        if (Input.GetButtonDown("Fire2")) {
-            _coroutine = StartCoroutine(CastCoroutine());
+        if (Input.GetButtonDown("Fire2") && _selectedSpell) {
+            Debug.Log("Fire2 GetButtonDown");
+            _selectedSpell.StartCast(transform.position + new Vector3(0.1f, 0.1f, 0),
+                transform.position + new Vector3(10, 10, 0));
         }
-        if (Input.GetButtonUp("Fire2") && _coroutine != null) {
-            StopCoroutine(_coroutine);
+        if (Input.GetButtonUp("Fire2") && _selectedSpell) {
+            Debug.Log("Fire2 GetButtonUp");
+            _selectedSpell.StopCast();
         }
-    }
-
-    protected IEnumerator CastCoroutine() {
-        //    var start = true;
-        //    var vector = new Vector2(185/512, 0);
-        //    while (true) {
-        //        GameSingleton.Singleton.TryCast(_selectedSpell, start, vector);
-        //        vector += new Vector2(212/512, 0);
-        //        yield return new WaitForSeconds(_castReTime);
-        //    }
-        return null;
     }
 }
