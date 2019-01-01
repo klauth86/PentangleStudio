@@ -51,3 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98221833ccc5b834d8c98295179ba90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sizeSlider: {fileID: 0}
+  _pandoraSlider: {fileID: 0}
+  _startButtonText: {fileID: 0}
+  _gameBoardPrefab: {fileID: 114773396368861926, guid: c083bb94ed0e2104fa47006f262aff9c,
+    type: 2}
+  _cardPrefab: {fileID: 114526701594173148, guid: f7fa6e68ffa443149af17f36720c573f,
+    type: 2}

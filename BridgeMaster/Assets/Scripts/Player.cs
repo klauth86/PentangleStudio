@@ -34,6 +34,7 @@ public class Player : MonoBehaviour {
         var horVelocity = _velocity * horAxis;
         _rigidbody.velocity = new Vector2(_velocity * horAxis, _rigidbody.velocity.y);
         _animator.SetBool("IsRunning", Mathf.Abs(horVelocity) > 0);
+        if (Mathf.Abs(horVelocity) > float.Epsilon)
         transform.localScale = new Vector3(Mathf.Sign(horVelocity), 1, 1);
     }
 

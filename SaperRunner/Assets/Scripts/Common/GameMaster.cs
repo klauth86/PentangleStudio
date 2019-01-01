@@ -1,8 +1,8 @@
-﻿public class IGameMaster {
+﻿public class GameMasterBase {
     public GameStatus Status { get; set; }
     public IGameBoard Board { get; set; }
 
-    public IGameMaster() {
+    public GameMasterBase() {
         Status = GameStatus.NoActiveGame;
     }
 
