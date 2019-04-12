@@ -1,0 +1,1 @@
+﻿public enum GameStatus { NoActiveGame, IsActive, Win, GameOver };
