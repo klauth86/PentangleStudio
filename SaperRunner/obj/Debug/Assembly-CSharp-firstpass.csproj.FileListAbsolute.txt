@@ -335,3 +335,4 @@ C:\UnityRep\PentangleStudio\SaperRunner\obj\Debug\Assembly-CSharp-firstpass.cspr
 C:\UnityRep\PentangleStudio\SaperRunner\obj\Debug\Assembly-CSharp-firstpass.csproj.CopyComplete
 C:\UnityRep\PentangleStudio\SaperRunner\obj\Debug\Assembly-CSharp-firstpass.dll
 C:\UnityRep\PentangleStudio\SaperRunner\obj\Debug\Assembly-CSharp-firstpass.pdb
+C:\UnityRep\PentangleStudio\SaperRunner\obj\Debug\Assembly-CSharp-firstpass.csprojAssemblyReference.cache

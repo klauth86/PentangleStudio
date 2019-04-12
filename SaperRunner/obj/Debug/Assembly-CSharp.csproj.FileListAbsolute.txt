@@ -268,7 +268,6 @@ C:\UnityRep\PentangleStudio\SaperRunner\Temp\bin\Debug\Unity.IvyParser.dll
 C:\UnityRep\PentangleStudio\SaperRunner\Temp\bin\Debug\Boo.Lang.PatternMatching.dll
 C:\UnityRep\PentangleStudio\SaperRunner\Temp\bin\Debug\Boo.Lang.Useful.dll
 C:\UnityRep\PentangleStudio\SaperRunner\Temp\bin\Debug\Unity.CecilTools.dll
-C:\UnityRep\PentangleStudio\SaperRunner\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
 C:\UnityRep\PentangleStudio\SaperRunner\Temp\bin\Debug\UnityEngine.xml
 C:\UnityRep\PentangleStudio\SaperRunner\Temp\bin\Debug\UnityEditor.xml
 C:\UnityRep\PentangleStudio\SaperRunner\Temp\bin\Debug\UnityEngine.AIModule.xml
