@@ -8,10 +8,12 @@ public class Player : MonoBehaviour {
 
     private bool _isJumping;
     private Rigidbody2D _rigidbody;
+    private Animator _animator;
 
     // Use this for initialization
     void Start() {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,7 @@ public class Player : MonoBehaviour {
         var horVelocity = _velocity * horAxis;
         _rigidbody.velocity = new Vector2(_velocity * horAxis, _rigidbody.velocity.y);
         Swap(horVelocity);
+        _animator.SetBool("IsRunning", horAxis != 0);
     }
 
     void Swap(float horVelocity) {
