@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _velocity: 12
-  _jump: 2
+  _jump: 7
   _health: 100
 --- !u!212 &212834499689758896
 SpriteRenderer:

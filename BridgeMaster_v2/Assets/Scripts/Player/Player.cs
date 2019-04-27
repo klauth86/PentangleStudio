@@ -20,7 +20,7 @@ public class Player : MonoBehaviour {
     void Update() {
         Run();
         Jump();
-        Land();
+        CastSpell();
     }
 
     void Run() {
@@ -37,13 +37,19 @@ public class Player : MonoBehaviour {
     }
 
     void Jump() {
-        if (Input.GetButtonDown("Fire1") && !_isJumping) {
-            _isJumping = true;
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jump);
+        if (Input.GetButtonDown("Fire1")) {
+            if (!_isJumping) {
+                _isJumping = true;
+                _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jump);
+                _animator.SetBool("IsJumping", true);
+            }
         }
-    }    
+        if (_isJumping && Mathf.Abs(_rigidbody.velocity.y) < float.Epsilon) {
+            _isJumping = false;
+            _animator.SetBool("IsJumping", false);
+        }
+    }
 
-    void Land() {
-        _isJumping = Mathf.Abs(_rigidbody.velocity.y) < float.Epsilon;
+    void CastSpell() {
     }
 }
