@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     [SerializeField] private float _health;
 
     private bool _isJumping;
+
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private Collider2D _collider;
