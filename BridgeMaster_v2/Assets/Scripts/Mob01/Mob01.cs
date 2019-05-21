@@ -1,7 +1,7 @@
 ﻿using Base;
 using UnityEngine;
 
-public class Mob01 : AnimatedCharacter {
+public class Mob01 : CharacterWithAnimation {
     [Header("Movement")]
     [SerializeField] private bool isMoving;
     [SerializeField] private Transform leftPoint;
@@ -18,29 +18,20 @@ public class Mob01 : AnimatedCharacter {
 
     private Transform _nextPoint;
 
-    protected override void Init() {
-        base.Init();
-        if (leftPoint && rightPoint) 
-            DefineNextPoint();        
+    #region Ctor
+
+    public Mob01() {
+        OnStart += () => {
+            if (leftPoint && rightPoint)
+                DefineNextPoint();
+        };
+        OnUpdate += Walk;
+        OnUpdate += Attack;
     }
 
-    private void DefineNextPoint() {
-        var leftDistance = Vector3.Distance(leftPoint.position, transform.position);
-        var rightDistance = Vector3.Distance(rightPoint.position, transform.position);
-        if (leftDistance > rightDistance)
-            _nextPoint = leftPoint;
-        else
-            _nextPoint = rightPoint;
-    }
+    #endregion
 
-    // Update is called once per frame
-    void Update () {
-        Walk();
-        Attack();
-	}
-
-    private void Attack() {
-    }
+    #region Walk
 
     private void Walk() {
         if (isMoving) {
@@ -48,7 +39,7 @@ public class Mob01 : AnimatedCharacter {
             transform.position = new Vector3(transform.position.x + _velocity * direction * Time.deltaTime, transform.position.y, transform.position.z);
             _animator.SetBool("IsWalking", isMoving);
 
-            if (Mathf.Sign(_nextPoint.position.x - transform.position.x)!= direction) {
+            if (Mathf.Sign(_nextPoint.position.x - transform.position.x) != direction) {
                 DefineNextPoint();
                 Swap(-direction);
             }
@@ -60,15 +51,21 @@ public class Mob01 : AnimatedCharacter {
             transform.localScale = new Vector3(Mathf.Sign(horVelocity), 1, 1);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.GetComponent<Player>()) {
-            _nextPoint = collision.gameObject.transform;
-        }
+    private void DefineNextPoint() {
+        var leftDistance = Vector3.Distance(leftPoint.position, transform.position);
+        var rightDistance = Vector3.Distance(rightPoint.position, transform.position);
+        if (leftDistance > rightDistance)
+            _nextPoint = leftPoint;
+        else
+            _nextPoint = rightPoint;
     }
 
-    private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.GetComponent<Player>() && isMoving) {
-            DefineNextPoint();
-        }
+    #endregion
+
+    #region Attack
+
+    private void Attack() {
     }
+
+    #endregion
 }

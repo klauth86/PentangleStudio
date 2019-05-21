@@ -313,6 +313,14 @@ Prefab:
       propertyPath: rightPoint
       value: 
       objectReference: {fileID: 2018388293}
+    - target: {fileID: 4751384159101886, guid: 88516f199fcb5e54093a168d25d8dac1, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382048703468532, guid: 88516f199fcb5e54093a168d25d8dac1, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88516f199fcb5e54093a168d25d8dac1, type: 2}
   m_IsPrefabAsset: 0
@@ -449,7 +457,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4940768144792844, guid: b4dac7a80660b18448687a7bc26587c5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: 5.4
       objectReference: {fileID: 0}
     - target: {fileID: 4940768144792844, guid: b4dac7a80660b18448687a7bc26587c5, type: 2}
       propertyPath: m_LocalPosition.y

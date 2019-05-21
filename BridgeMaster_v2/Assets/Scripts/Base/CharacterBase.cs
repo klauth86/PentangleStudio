@@ -1,11 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Base {
     public abstract class CharacterBase : MonoBehaviour {
+        protected event Action OnStart = delegate { };
+        protected event Action OnUpdate = delegate { };
+
         private void Start() {
-            Init();
+            OnStart();
         }
 
-        protected abstract void Init();
+        private void Update() {
+            OnUpdate();
+        }
     }
 }
