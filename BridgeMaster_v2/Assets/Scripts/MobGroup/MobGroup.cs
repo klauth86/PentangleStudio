@@ -3,7 +3,6 @@ using Base;
 using Dicts;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
 public class MobGroup : MonoBehaviour {
 
     [Header(Header.Mob)]
@@ -38,7 +37,7 @@ public class MobGroup : MonoBehaviour {
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (_mob.Target == collision.gameObject.GetComponent<Player>()) {
+        if (collision.gameObject.GetComponent<Player>() && _mob.Target == collision.gameObject.transform) {
             _mob.Target = GetNextPoint();
         }
     }

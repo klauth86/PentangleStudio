@@ -143,7 +143,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _velocity: 5
-  _health: 100
+  _attackWithMovement: 0
+  _attackDamage:
+    Type: 0
+    Hit: 60
   Target: {fileID: 0}
 --- !u!212 &212554395024760324
 SpriteRenderer:

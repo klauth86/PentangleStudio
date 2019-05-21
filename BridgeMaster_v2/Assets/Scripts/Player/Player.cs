@@ -5,7 +5,9 @@ using UnityEngine;
 public class Player : CharacterWithPhysics {
     [SerializeField] private float _velocity;
     [SerializeField] private float _jump;
-    [SerializeField] private float _health;
+    [SerializeField] public float HitPoints;
+
+    [SerializeField] private GameObject _damageVfx;
 
     private bool _isJumping;
 
@@ -68,4 +70,17 @@ public class Player : CharacterWithPhysics {
     }
 
     #endregion
+
+    public void TakeDamage(Damage damage) {
+        HitPoints -= damage.Hit;
+        if (_damageVfx) {
+            Destroy(Instantiate(_damageVfx), 2f);
+        }
+        if (HitPoints < 0) {
+            OnUpdate -= Walk;
+            OnUpdate -= Jump;
+            OnUpdate -= Attack;
+            _animator.SetTrigger(AnimatorKey.IsDead);
+        }
+    }
 }
