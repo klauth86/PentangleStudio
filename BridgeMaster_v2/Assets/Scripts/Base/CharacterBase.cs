@@ -13,5 +13,9 @@ namespace Base {
         private void Update() {
             OnUpdate();
         }
+
+        protected void Swap() {
+            transform.localScale = new Vector3(-transform.localScale.x, 1, 1);
+        }
     }
 }
