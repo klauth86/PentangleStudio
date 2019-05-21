@@ -1,38 +1,27 @@
-﻿using UnityEngine;
+﻿using Base;
+using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(Animator))]
-public class Player : MonoBehaviour {
+public class Player : PhysicalCharacter {
     [SerializeField] private float _velocity;
     [SerializeField] private float _jump;
     [SerializeField] private float _health;
 
     private bool _isJumping;
 
-    private Rigidbody2D _rigidbody;
-    private Animator _animator;
-    private Collider2D _collider;
-
-    // Use this for initialization
-    void Start() {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-        _collider = GetComponentInChildren<Collider2D>();
-    }
-
     // Update is called once per frame
     void Update() {
-        Run();
+        Walk();
         Jump();
         Attack();
     }
 
-    void Run() {
+    void Walk() {
         var horAxis = Input.GetAxis("Horizontal");
         var horVelocity = _velocity * horAxis;
         _rigidbody.velocity = new Vector2(_velocity * horAxis, _rigidbody.velocity.y);
+        _animator.SetBool("IsWalking", horAxis != 0);
+
         Swap(horVelocity);
-        _animator.SetBool("IsRunning", horAxis != 0);
     }
 
     void Swap(float horVelocity) {

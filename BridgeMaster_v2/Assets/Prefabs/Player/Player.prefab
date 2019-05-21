@@ -27,22 +27,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1399580568770084
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4515444282353476}
-  - component: {fileID: 70179963829855546}
-  m_Layer: 0
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1865328828852454
 GameObject:
   m_ObjectHideFlags: 0
@@ -51,8 +35,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4940768144792844}
-  - component: {fileID: 50801392339493192}
   - component: {fileID: 95735108485689316}
+  - component: {fileID: 70727407223643540}
+  - component: {fileID: 50801392339493192}
   - component: {fileID: 114643590430142754}
   m_Layer: 0
   m_Name: Player
@@ -74,19 +59,6 @@ Transform:
   m_Father: {fileID: 4940768144792844}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4515444282353476
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1399580568770084}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4940768144792844}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4940768144792844
 Transform:
   m_ObjectHideFlags: 1
@@ -98,7 +70,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4180806921584996}
-  - {fileID: 4515444282353476}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -122,12 +93,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &70179963829855546
+--- !u!70 &70727407223643540
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1399580568770084}
+  m_GameObject: {fileID: 1865328828852454}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -167,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _velocity: 10
-  _jump: 8
+  _jump: 4
   _health: 100
 --- !u!212 &212738223759258518
 SpriteRenderer:
