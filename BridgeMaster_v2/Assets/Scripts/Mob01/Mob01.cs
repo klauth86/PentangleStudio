@@ -1,17 +1,18 @@
 ﻿using Base;
+using Dicts;
 using UnityEngine;
 
 public class Mob01 : CharacterWithAnimation {
-    [Header("Movement")]
+    [Header(Header.Movement)]
     [SerializeField] private bool isMoving;
     [SerializeField] private Transform leftPoint;
     [SerializeField] private Transform rightPoint;
     
-    [Header("Stats")]
+    [Header(Header.Stats)]
     [SerializeField] private float _velocity;
     [SerializeField] private float _health;
 
-    [Header("Behaviour")]
+    [Header(Header.Behaviour)]
     [SerializeField] private Collider2D _attackRadius;
     [SerializeField] private Collider2D _tryAttackRadius;
     [SerializeField] private Collider2D _huntRadius;
@@ -37,7 +38,7 @@ public class Mob01 : CharacterWithAnimation {
         if (isMoving) {
             var direction = Mathf.Sign(_nextPoint.position.x - transform.position.x);
             transform.position = new Vector3(transform.position.x + _velocity * direction * Time.deltaTime, transform.position.y, transform.position.z);
-            _animator.SetBool("IsWalking", isMoving);
+            _animator.SetBool(AnimatorKey.IsWalking, isMoving);
 
             if (Mathf.Sign(_nextPoint.position.x - transform.position.x) != direction) {
                 DefineNextPoint();

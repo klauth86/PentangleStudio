@@ -1,4 +1,5 @@
 ﻿using Base;
+using Dicts;
 using UnityEngine;
 
 public class Player : CharacterWithPhysics {
@@ -21,10 +22,10 @@ public class Player : CharacterWithPhysics {
     #region Walk
 
     void Walk() {
-        var horAxis = Input.GetAxis("Horizontal");
+        var horAxis = Input.GetAxis(InputAxis.Horizontal);
         var horVelocity = _velocity * horAxis;
         _rigidbody.velocity = new Vector2(_velocity * horAxis, _rigidbody.velocity.y);
-        _animator.SetBool("IsWalking", horAxis != 0);
+        _animator.SetBool(AnimatorKey.IsWalking, horAxis != 0);
 
         Swap(horVelocity);
     }
@@ -39,17 +40,17 @@ public class Player : CharacterWithPhysics {
     #region Jump
 
     void Jump() {
-        if (Input.GetButtonDown("Fire1") && !_isJumping) {
+        if (Input.GetButtonDown(Button.Fire1) && !_isJumping) {
             _isJumping = true;
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jump);
-            _animator.SetBool("IsJumping", true);
+            _animator.SetBool(AnimatorKey.IsJumping, true);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (_isJumping) {
             _isJumping = false;
-            _animator.SetBool("IsJumping", false);
+            _animator.SetBool(AnimatorKey.IsJumping, false);
         }
     }
 
@@ -58,11 +59,11 @@ public class Player : CharacterWithPhysics {
     #region Attack
 
     void Attack() {
-        if (Input.GetButtonDown("Fire2")) {
-            _animator.SetBool("IsAttacking", true);
+        if (Input.GetButtonDown(Button.Fire2)) {
+            _animator.SetBool(AnimatorKey.IsAttacking, true);
         }
-        else if (Input.GetButtonUp("Fire2")) {
-            _animator.SetBool("IsAttacking", false);
+        else if (Input.GetButtonUp(Button.Fire2)) {
+            _animator.SetBool(AnimatorKey.IsAttacking, false);
         }
     }
 
