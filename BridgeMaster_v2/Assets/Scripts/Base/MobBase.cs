@@ -54,16 +54,5 @@ namespace Base {
                 _animator.SetBool(AnimatorKey.IsAttacking, false);
             }
         }
-
-        private void OnTriggerStay2D(Collider2D collision) {
-            if (collision.gameObject.GetComponent<Player>()) {
-                if (_player.HitPoints < 0) {
-                    _isAttacking = false;
-                    _animator.SetBool(AnimatorKey.IsAttacking, false);
-                    _animator.SetBool(AnimatorKey.IsWalking, false);
-                    Target = null;
-                }
-            }
-        }
     }
 }

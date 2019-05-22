@@ -71,7 +71,7 @@ public class Player : CharacterWithPhysics {
 
     #endregion
 
-    public void TakeDamage(Damage damage) {
+    public bool TakeDamage(Damage damage) {
         HitPoints -= damage.Hit;
         if (_damageVfx) {
             Destroy(Instantiate(_damageVfx), 2f);
@@ -83,5 +83,6 @@ public class Player : CharacterWithPhysics {
             _rigidbody.velocity = Vector3.zero;
             _animator.SetTrigger(AnimatorKey.IsDead);
         }
+        return HitPoints > 0;
     }
 }
