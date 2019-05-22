@@ -54,8 +54,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotation: 17280
   _focusDurationTime: 2
-  _targetScale: 3
-  _iterationsCount: 48
+  _targetScale: 2
+  _iterationsCount: 96
 --- !u!331 &331665853141999792
 SpriteMask:
   m_ObjectHideFlags: 1
