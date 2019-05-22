@@ -17,6 +17,17 @@ public class Player : CharacterWithPhysics {
         OnUpdate += Walk;
         OnUpdate += Jump;
         OnUpdate += Attack;
+
+        OnPause += () => {
+            OnUpdate -= Walk;
+            OnUpdate -= Jump;
+            OnUpdate -= Attack;
+        };
+        OnUnpause += () => {
+            OnUpdate += Walk;
+            OnUpdate += Jump;
+            OnUpdate += Attack;
+        };
     }
 
     #endregion

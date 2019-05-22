@@ -1,9 +1,14 @@
-﻿using Base;
+﻿using System;
+using Base;
 using Dicts;
 using UnityEngine;
 
 public class Mob01 : MobBase {
     public void Attack() {
+        OnFixedUpdate += MakeAnAttack;
+    }
+
+    private void MakeAnAttack() {
         var playerCollider = _player.GetComponent<Collider2D>();
         var mobCollider = GetComponent<BoxCollider2D>();
         if (mobCollider.IsTouching(playerCollider)) {
@@ -14,5 +19,7 @@ public class Mob01 : MobBase {
                 Target = null;
             }
         }
+
+        OnFixedUpdate -= MakeAnAttack;
     }
 }

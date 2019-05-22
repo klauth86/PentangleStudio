@@ -1,4 +1,5 @@
-﻿using Dicts;
+﻿using Base;
+using Dicts;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -13,6 +14,9 @@ public class LocationExitVfx : MonoBehaviour {
     [SerializeField] private int _iterationsCount;
 
     public void LoadLocation(Location nextLocation) {
+        foreach (var character in FindObjectsOfType<CharacterBase>()) {
+            character.PauseCharacter();
+        }
         StartCoroutine(FocusOnPlayerRoutine(nextLocation));
     }
 

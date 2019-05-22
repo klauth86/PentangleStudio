@@ -1,9 +1,8 @@
-﻿using System;
-using Dicts;
+﻿using Dicts;
 using UnityEngine;
 
 namespace Base {
-    public abstract class MobBase: CharacterWithAnimation {
+    public abstract class MobBase: CharacterWithPhysics {
         [Header(Header.Stats)]
         [SerializeField] protected float _velocity;
         [SerializeField] protected bool _attackWithMovement;
@@ -19,6 +18,13 @@ namespace Base {
 
         public MobBase() {
             OnUpdate += Walk;
+
+            OnPause += ()=>{
+                OnUpdate -= Walk;
+            };
+            OnUnpause += () => {
+                OnUpdate += Walk;
+            };
         }
 
         #endregion
@@ -26,16 +32,31 @@ namespace Base {
         #region Walk
 
         private void Walk() {
-            if (Target && !_isAttacking) {
-                var direction = Mathf.Sign(Target.position.x - transform.position.x);
-                transform.position = new Vector3(transform.position.x + _velocity * direction * Time.deltaTime, transform.position.y, transform.position.z);
-                _animator.SetBool(AnimatorKey.IsWalking, true);
+            var direction = 0.0f;
+            if (Target) {
+                direction = Mathf.Sign(Target.position.x - transform.position.x);
+            }
 
-                if (direction * transform.localScale.x <0) {
-                    Swap();
-                }
+            var isWalking = !_isAttacking && direction != 0.0f;
+            _rigidbody.velocity = isWalking ? new Vector3(_velocity * direction, 0, 0) : Vector3.zero;
+            _animator.SetBool(AnimatorKey.IsWalking, isWalking);
+
+            if (direction * transform.localScale.x < 0) {
+                Swap();
             }
         }
+
+        //private void Walk() {
+        //    if (Target && !_isAttacking) {
+        //        var direction = Mathf.Sign(Target.position.x - transform.position.x);
+        //        transform.position = new Vector3(transform.position.x + _velocity * direction * Time.deltaTime, transform.position.y, transform.position.z);
+        //        _animator.SetBool(AnimatorKey.IsWalking, true);
+
+        //        if (direction * transform.localScale.x < 0) {
+        //            Swap();
+        //        }
+        //    }
+        //}
 
         #endregion
 

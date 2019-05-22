@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Base {
     [RequireComponent(typeof(Collider2D))]
@@ -6,6 +7,8 @@ namespace Base {
     public abstract class CharacterWithPhysics : CharacterWithAnimation {
         protected Collider2D _collider;
         protected Rigidbody2D _rigidbody;
+
+        protected event Action OnFixedUpdate = delegate { };
 
         #region Ctor
 
@@ -25,6 +28,10 @@ namespace Base {
         }
 
         #endregion
+
+        private void FixedUpdate() {
+            OnFixedUpdate();
+        }
 
         protected void FreezePosition() {
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
