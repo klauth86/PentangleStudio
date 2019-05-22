@@ -22,7 +22,7 @@ public class LocationExitVfx : MonoBehaviour {
 
     private IEnumerator FocusOnPlayerRoutine(Location nextLocation) {
         var delta = (transform.localScale.x - _targetScale) / _iterationsCount;
-        while (transform.localScale.x != 3) {
+        while (transform.localScale.x > _targetScale) {
             transform.localScale = new Vector3(transform.localScale.x - delta,
                 transform.localScale.y - delta, transform.localScale.z);
             transform.Rotate(Vector3.negativeInfinity, _rotation / _iterationsCount);

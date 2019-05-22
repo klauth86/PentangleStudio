@@ -22,11 +22,11 @@ namespace Base {
         protected event Action OnUnpause = delegate { };
 
         public void PauseCharacter() {
-
+            OnPause();
         }
 
         public void UnpauseCharacter() {
-
+            OnUnpause();
         }
     }
 }
