@@ -80,6 +80,7 @@ public class Player : CharacterWithPhysics {
             OnUpdate -= Walk;
             OnUpdate -= Jump;
             OnUpdate -= Attack;
+            _rigidbody.velocity = Vector3.zero;
             _animator.SetTrigger(AnimatorKey.IsDead);
         }
     }
