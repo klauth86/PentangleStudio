@@ -17,5 +17,16 @@ namespace Base {
         protected void Swap() {
             transform.localScale = new Vector3(-transform.localScale.x, 1, 1);
         }
+
+        protected event Action OnPause = delegate { };
+        protected event Action OnUnpause = delegate { };
+
+        public void PauseCharacter() {
+
+        }
+
+        public void UnpauseCharacter() {
+
+        }
     }
 }

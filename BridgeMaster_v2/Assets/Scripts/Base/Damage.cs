@@ -1,8 +1,6 @@
-﻿namespace Base {
-    public enum DamageType {
-        Nonmagic, Air, Earth, Fire, Water
-    }
+﻿using Dicts;
 
+namespace Base {
     [System.Serializable]
     public class Damage {
         public DamageType Type;

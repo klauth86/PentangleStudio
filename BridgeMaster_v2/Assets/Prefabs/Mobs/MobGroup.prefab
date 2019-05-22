@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mobPrefab: {fileID: 1033996733854624, guid: 88516f199fcb5e54093a168d25d8dac1, type: 2}
-  _isHunting: 0
+  _isHunting: 1
   _points:
   - {fileID: 4843329983771644}
   - {fileID: 4340210673798646}
