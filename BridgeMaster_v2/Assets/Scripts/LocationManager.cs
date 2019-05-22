@@ -1,20 +1,18 @@
-﻿using Dicts;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class LocationManager : MonoBehaviour {
-    [SerializeField] private Location _prevLocation;
-    [SerializeField] private Location _nextLocation;
+
+    public static LocationManager Instance;
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-
+    void Start() {
+        if (Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+    }
 }
