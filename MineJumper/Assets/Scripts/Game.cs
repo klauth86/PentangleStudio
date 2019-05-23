@@ -1,16 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Base;
 using UnityEngine;
 
 public class Game : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField] private int _size;
+    [SerializeField] private int _bombs;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    void CreateBoard() {
+        var board = new Board(2, _size, _bombs);
+
+    }
 }

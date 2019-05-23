@@ -16,13 +16,56 @@ namespace Base {
                 var card = new Card();
                 if (i < bombs)
                     card.HasBomb = true;
+
+                card.OnMark += OnMark;
+                card.OnReveal += OnReveal;
             }
 
             Shuffle();
+            CountIndexes();
+        }
+
+        private void OnMark(Card card) {
+            card.IsMarked = true;
+        }
+
+        private void OnReveal(Card card) {
+            card.IsMarked = true;
         }
 
         private void Shuffle() {
-            throw new NotImplementedException();
+            var rnd = new Random();
+            for (int i = 0; i < BoardSize; i++) {
+                var index = rnd.Next(0, BoardSize);
+
+                var tmp = Cards[index];
+                Cards[index] = Cards[i];
+                Cards[i] = tmp;
+            }
+        }
+
+        private void CountIndexes() {
+            for (int i = 0; i < BoardSize; i++) {
+                if (i - 1 >= 0 && Cards[i - 1].HasBomb)
+                    Cards[i].BombIndex++;
+                if (i + 1 < BoardSize && Cards[i + 1].HasBomb)
+                    Cards[i].BombIndex++;
+
+                if (i - Size >= 0 && Cards[i - Size].HasBomb)
+                    Cards[i].BombIndex++;
+                if (i + Size < BoardSize && Cards[i + Size].HasBomb)
+                    Cards[i].BombIndex++;
+
+                if (i - 1 >= 0 && i - 1 - Size >= 0 && Cards[i - 1 - Size].HasBomb)
+                    Cards[i].BombIndex++;
+                if (i - 1 >= 0 && i - 1 + Size < BoardSize && Cards[i - 1 + Size].HasBomb)
+                    Cards[i].BombIndex++;
+
+                if (i + 1 < BoardSize && i + 1 - Size >= 0 && Cards[i + 1 - Size].HasBomb)
+                    Cards[i].BombIndex++;
+                if (i + 1 < BoardSize && i + 1 + Size < BoardSize && Cards[i + 1 + Size].HasBomb)
+                    Cards[i].BombIndex++;
+            }
         }
     }
 }
