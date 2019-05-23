@@ -249,13 +249,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &672444904
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,8 +267,9 @@ GameObject:
   - component: {fileID: 672444907}
   - component: {fileID: 672444906}
   - component: {fileID: 672444905}
+  - component: {fileID: 672444909}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: GameCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,6 +342,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &672444909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 672444904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc6faa0d071f3f41b9496773583e3b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _materials:
+  - {fileID: 2100000, guid: d5821c29700751046836f8d5981a9b88, type: 2}
+  - {fileID: 2100000, guid: d7b9ebe557991084dabecac40337d252, type: 2}
+  - {fileID: 2100000, guid: d8b7a169648252d4b862ff6718df4f69, type: 2}
+  - {fileID: 2100000, guid: d55c3b251ebae1640986ea1796fba1be, type: 2}
+  - {fileID: 2100000, guid: 43486902173b09d4c91c9d1be69cae8a, type: 2}
+  - {fileID: 2100000, guid: 908343c3427314848ba97d052c52a305, type: 2}
+  - {fileID: 2100000, guid: af6e32dffa168504b8d7e693e8533de0, type: 2}
+  _markedMaterial: {fileID: 2100000, guid: 639fe7cb09c6356438b563e3c32139c7, type: 2}
 --- !u!1 &2116138570
 GameObject:
   m_ObjectHideFlags: 0

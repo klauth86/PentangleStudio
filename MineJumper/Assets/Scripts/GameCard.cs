@@ -1,12 +1,18 @@
 ﻿using Base;
 using UnityEngine;
 
-[RequireComponent(typeof(MeshRenderer)]
+[RequireComponent(typeof(MeshRenderer))]
 public class GameCard : MonoBehaviour {
 
     [SerializeField] private Material[] _materials;
+    [SerializeField] private Material _markedMaterial;
 
     private MeshRenderer _meshRenderer;
+    private MeshRenderer MeshRenderer {
+        get {
+            return _meshRenderer ?? (_meshRenderer = GetComponent<MeshRenderer>());
+        }
+    }
 
     private Card card;
 
@@ -26,8 +32,7 @@ public class GameCard : MonoBehaviour {
         if (card == null)
             return;
 
-        var mr = _meshRenderer ?? (_meshRenderer = GetComponent<MeshRenderer>());
-        mr.material = _materials[card.BombIndex];
+        MeshRenderer.material = _materials[card.BombIndex];
 
         card.OnMark += OnMark;
         card.OnReveal += OnReveal;
@@ -41,9 +46,11 @@ public class GameCard : MonoBehaviour {
         card.OnReveal -= OnReveal;
     }
 
-    private void OnMark() {        
+    private void OnMark(Card card) {
+        MeshRenderer.material = card.IsMarked ? _markedMaterial : _materials[card.BombIndex];
     }
 
-    private void OnReveal() {
+    private void OnReveal(Card card) {
+
     }
 }

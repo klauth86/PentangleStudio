@@ -4,33 +4,28 @@ namespace Base {
     public class Board {
         public int Dim;
         public int Size;
+        public int Bombs;
 
         public int BoardSize { get { return (int)Math.Pow(Size, Dim); } }
 
         public Card[] Cards;
 
         public Board(int dim, int size, int bombs) {
+            Dim = dim;
+            Size = size;
+            Bombs = bombs;
+
             Cards = new Card[BoardSize];
 
             for (int i = 0; i < BoardSize; i++) {
                 var card = new Card();
                 if (i < bombs)
                     card.HasBomb = true;
-
-                card.OnMark += OnMark;
-                card.OnReveal += OnReveal;
+                Cards[i] = card;
             }
 
             Shuffle();
             CountIndexes();
-        }
-
-        private void OnMark(Card card) {
-            card.IsMarked = true;
-        }
-
-        private void OnReveal(Card card) {
-            card.IsMarked = true;
         }
 
         private void Shuffle() {
