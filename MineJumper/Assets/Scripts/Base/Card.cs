@@ -7,16 +7,16 @@ namespace Base {
         public bool HasBomb;
         public int BombIndex;
 
-        public event Action<Card> OnReveal = delegate { };
+        public event Action OnReveal = delegate { };
 
         public void Reveal() {
-            OnReveal(this);
+            OnReveal();
         }
 
-        public event Action<Card> OnMark = delegate { };
+        public event Action OnMark = delegate { };
 
         public void Mark() {
-            OnMark(this);
+            OnMark();
         }
     }
 }
