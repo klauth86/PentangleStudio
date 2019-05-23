@@ -96,7 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc6faa0d071f3f41b9496773583e3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _materials:
+  _unrevealedMaterial: {fileID: 0}
+  _markedMaterial: {fileID: 2100000, guid: 639fe7cb09c6356438b563e3c32139c7, type: 2}
+  _indexMaterials:
   - {fileID: 2100000, guid: d5821c29700751046836f8d5981a9b88, type: 2}
   - {fileID: 2100000, guid: d7b9ebe557991084dabecac40337d252, type: 2}
   - {fileID: 2100000, guid: d8b7a169648252d4b862ff6718df4f69, type: 2}
@@ -104,7 +106,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 43486902173b09d4c91c9d1be69cae8a, type: 2}
   - {fileID: 2100000, guid: 908343c3427314848ba97d052c52a305, type: 2}
   - {fileID: 2100000, guid: af6e32dffa168504b8d7e693e8533de0, type: 2}
-  _markedMaterial: {fileID: 2100000, guid: 639fe7cb09c6356438b563e3c32139c7, type: 2}
+  _rotationVelocity: 360
 --- !u!135 &135477184908061886
 SphereCollider:
   m_ObjectHideFlags: 1
