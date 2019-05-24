@@ -11,6 +11,15 @@ public class GameCard : MonoBehaviour {
     [SerializeField] private float _rotationVelocity;
     [SerializeField] private float _stiffnessKoefficient;
 
+    public static GameCard _selectedGameCard;
+    public bool IsSelected {
+        set {
+            
+            _selectedGameCard = this;
+            OnSelect(_selectedGameCard);
+        }
+    }
+
     private MeshRenderer _meshRenderer;
     private MeshRenderer MeshRenderer {
         get {
