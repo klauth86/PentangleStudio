@@ -14,6 +14,9 @@ public class Game : MonoBehaviour {
     [SerializeField] private int _bombs;
     [SerializeField] private float _scaleFactor;
 
+    [SerializeField] private float _coroutineTimeStep;
+    [SerializeField] private float _axisTimeSensitivity;
+
     // Use this for initialization
     private void Start() {
         var board = new Board(2, _size, _bombs);
@@ -57,10 +60,10 @@ public class Game : MonoBehaviour {
         gameBoard[i, j].IsSelected = true;
 
         var endTurn = false;
-        var keyTimeout = 0.0f;
+        float keyTimeout = 0;
 
         while(!endTurn) {
-            yield return new WaitForSeconds(0.025f);
+            yield return new WaitForSeconds(_coroutineTimeStep);
             var x = CrossPlatformInputManager.GetAxisRaw("Horizontal");
             var y = CrossPlatformInputManager.GetAxisRaw("Vertical");
 
@@ -68,17 +71,17 @@ public class Game : MonoBehaviour {
                 keyTimeout -= Time.deltaTime;
                 gameBoard[i, j].IsSelected = false;
                 if (x != 0 && i + (int)Mathf.Sign(x) >=0 && i + (int)Mathf.Sign(x) < size && keyTimeout <=0) {
-                    keyTimeout = 0.25f;
+                    keyTimeout = _axisTimeSensitivity;
                     i = i + (int)Mathf.Sign(x);
                 }
                 if (y != 0 && j + (int)Mathf.Sign(y) >=0 && j + (int)Mathf.Sign(y) < size && keyTimeout <= 0) {
-                    keyTimeout = 0.25f;
+                    keyTimeout = _axisTimeSensitivity;
                     j = j + (int)Mathf.Sign(y);
                 }
                 gameBoard[i, j].IsSelected = true;
             }
             else {
-                keyTimeout = 0.0f;
+                keyTimeout = 0;
             }
             endTurn = CrossPlatformInputManager.GetButton("Jump");
         }

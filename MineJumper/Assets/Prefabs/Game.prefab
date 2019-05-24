@@ -100,3 +100,5 @@ MonoBehaviour:
   _size: 7
   _bombs: 9
   _scaleFactor: 1.5
+  _coroutineTimeStep: 0.0125
+  _axisTimeSensitivity: 0.125
