@@ -8,6 +8,7 @@ public class Game : MonoBehaviour {
 
     [SerializeField] private GameObject _gameCardPrefab;
     [SerializeField] private GameObject _touchPlane;
+    [SerializeField] private Player _player;
 
     [SerializeField] private int _size;
     [SerializeField] private int _bombs;
@@ -49,7 +50,7 @@ public class Game : MonoBehaviour {
     }
 
     private IEnumerator PlayerTurnRoutine(GameCard[,] gameBoard, int size) {
-        //Time.timeScale = 0.0f;
+        _player.Freeze();
 
         var i = size / 2;
         var j = size / 2;
@@ -57,22 +58,34 @@ public class Game : MonoBehaviour {
 
         var _endTurn = false;
         while(!_endTurn) {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.025f);
             var x = CrossPlatformInputManager.GetAxis("Horizontal");
             var y = CrossPlatformInputManager.GetAxis("Vertical");
             if (x != 0 || y != 0) {
                 gameBoard[i, j].IsSelected = false;
-                i = i + (int)Mathf.Sign(x);
-                j = j + (int)Mathf.Sign(y);
+                if (x != 0)
+                    i = i + (int)Mathf.Sign(x);
+                if (y != 0)
+                    j = j + (int)Mathf.Sign(y);
                 gameBoard[i, j].IsSelected = true;
             }
             _endTurn = CrossPlatformInputManager.GetButton("Jump");
         }
 
-        Time.timeScale = 1.0f;
+        _player.Unfreeze();
     }
 
     private void OnSelectionChanged(GameCard card, bool isSelected) {
-        card.transform.localScale = Vector3.Lerp(card.transform.localScale, card.transform.localScale * (isSelected ? 1.25f : 0.8f), 1.2f);
+        StartCoroutine(CardScaleRoutine(card, isSelected));
+    }
+
+    private IEnumerator CardScaleRoutine(GameCard card, bool isSelected) {
+        var from = 1.0f;
+        var to = isSelected ? 1.25f : 0.8f;
+        var iterationCount = 40;
+        for (int i = 1; i <= iterationCount; i++) {
+            yield return new WaitForSeconds(0.025f);
+            card.transform.localScale = Vector3.one * (from * (iterationCount - i) / iterationCount + i / iterationCount * to);
+        }
     }
 }

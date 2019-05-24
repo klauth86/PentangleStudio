@@ -96,6 +96,7 @@ MonoBehaviour:
   _gameCardPrefab: {fileID: 1791701891392338, guid: d2a43fefc4a34c24aa7e721c26e986d8,
     type: 2}
   _touchPlane: {fileID: 1202273269983372}
+  _player: {fileID: 0}
   _size: 7
   _bombs: 9
   _scaleFactor: 1.5
