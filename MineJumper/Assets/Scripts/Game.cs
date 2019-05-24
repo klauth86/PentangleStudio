@@ -56,20 +56,31 @@ public class Game : MonoBehaviour {
         var j = size / 2;
         gameBoard[i, j].IsSelected = true;
 
-        var _endTurn = false;
-        while(!_endTurn) {
+        var endTurn = false;
+        var keyTimeout = 0.0f;
+
+        while(!endTurn) {
             yield return new WaitForSeconds(0.025f);
             var x = CrossPlatformInputManager.GetAxisRaw("Horizontal");
             var y = CrossPlatformInputManager.GetAxisRaw("Vertical");
+
             if (x != 0 || y != 0) {
+                keyTimeout -= Time.deltaTime;
                 gameBoard[i, j].IsSelected = false;
-                if (x != 0 && i + (int)Mathf.Sign(x) >=0 && i + (int)Mathf.Sign(x) < size)
+                if (x != 0 && i + (int)Mathf.Sign(x) >=0 && i + (int)Mathf.Sign(x) < size && keyTimeout <=0) {
+                    keyTimeout = 0.25f;
                     i = i + (int)Mathf.Sign(x);
-                if (y != 0 && j + (int)Mathf.Sign(y) >=0 && j + (int)Mathf.Sign(y) < size)
+                }
+                if (y != 0 && j + (int)Mathf.Sign(y) >=0 && j + (int)Mathf.Sign(y) < size && keyTimeout <= 0) {
+                    keyTimeout = 0.25f;
                     j = j + (int)Mathf.Sign(y);
+                }
                 gameBoard[i, j].IsSelected = true;
             }
-            _endTurn = CrossPlatformInputManager.GetButton("Jump");
+            else {
+                keyTimeout = 0.0f;
+            }
+            endTurn = CrossPlatformInputManager.GetButton("Jump");
         }
 
         _player.Unfreeze();
@@ -79,12 +90,12 @@ public class Game : MonoBehaviour {
         //StartCoroutine(CardScaleRoutine(card, isSelected));
     }
 
-    private IEnumerator CardScaleRoutine(GameCard card, bool isSelected) {
-        var to = isSelected ? 1.5f : 1.0f;
-        var iterationCount = 40;
-        for (int i = 1; i <= iterationCount; i++) {
-            yield return new WaitForSeconds(0.0125f);
-            card.transform.localScale = Vector3.one * (1.0f * (iterationCount - i) / iterationCount + to * i / iterationCount);
-        }
-    }
+    //private IEnumerator CardScaleRoutine(GameCard card, bool isSelected) {
+    //    var to = isSelected ? 1.5f : 1.0f;
+    //    var iterationCount = 40;
+    //    for (int i = 1; i <= iterationCount; i++) {
+    //        yield return new WaitForSeconds(0.0125f);
+    //        card.transform.localScale = Vector3.one * (1.0f * (iterationCount - i) / iterationCount + to * i / iterationCount);
+    //    }
+    //}
 }
