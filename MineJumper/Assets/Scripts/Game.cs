@@ -24,6 +24,7 @@ public class Game : MonoBehaviour {
     }
 
     private void AdjustCamera(Board board) {
-        Camera.main.transform.position = new Vector3(0, (board.Size / 2 + 1) /Mathf.Tan(Mathf.PI/6), 0);
+        var offset = (board.Size / 2 + 1) / Mathf.Tan(Mathf.PI / 6);
+        Camera.main.transform.position = new Vector3(0, offset, -offset);
     }
 }
