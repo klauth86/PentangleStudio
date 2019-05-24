@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1786676617281288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9251059, y: 2.578937, z: -3.1263626}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,5 +53,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCardPrefab: {fileID: 1791701891392338, guid: d2a43fefc4a34c24aa7e721c26e986d8,
     type: 2}
-  _size: 6
+  _size: 7
   _bombs: 9
+  _scaleFactor: 2

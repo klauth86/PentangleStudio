@@ -355,8 +355,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 10
+  m_CollisionDetection: 1
 --- !u!1001 &2031091149
 Prefab:
   m_ObjectHideFlags: 0
@@ -366,15 +366,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4799143755499332, guid: c2a288714ddb2b84d8592a970b0c0c8b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.9251059
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4799143755499332, guid: c2a288714ddb2b84d8592a970b0c0c8b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.578937
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4799143755499332, guid: c2a288714ddb2b84d8592a970b0c0c8b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3.1263626
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4799143755499332, guid: c2a288714ddb2b84d8592a970b0c0c8b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -395,6 +395,11 @@ Prefab:
     - target: {fileID: 4799143755499332, guid: c2a288714ddb2b84d8592a970b0c0c8b, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114567200256251198, guid: c2a288714ddb2b84d8592a970b0c0c8b,
+        type: 2}
+      propertyPath: _scaleFactor
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2a288714ddb2b84d8592a970b0c0c8b, type: 2}
