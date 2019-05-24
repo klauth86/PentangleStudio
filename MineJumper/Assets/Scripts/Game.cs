@@ -1,22 +1,25 @@
-﻿using Base;
+﻿using System;
+using Base;
 using UnityEngine;
 
 public class Game : MonoBehaviour {
 
     [SerializeField] private GameObject _gameCardPrefab;
+    [SerializeField] private GameObject _touchPlane;
 
     [SerializeField] private int _size;
     [SerializeField] private int _bombs;
     [SerializeField] private float _scaleFactor;
 
     // Use this for initialization
-    void Start() {
+    private void Start() {
         var board = new Board(2, _size, _bombs);
         CreateBoard(board);
         AdjustCamera(board);
+        AdjustTouchPlane(board);
     }
 
-    void CreateBoard(Board board) {
+    private void CreateBoard(Board board) {
         var offset = board.Size % 2 == 0 ? 0.5f : 0.0f;
         for (int i = 0; i < board.BoardSize; i++) {
             var gameCard = Instantiate(_gameCardPrefab,
@@ -29,5 +32,12 @@ public class Game : MonoBehaviour {
     private void AdjustCamera(Board board) {
         var offset = _scaleFactor * board.Size / 2 * (1 + Mathf.Tan(Mathf.PI / 12)) + 0.5f;
         Camera.main.transform.position = new Vector3(0, offset, -offset);
+    }
+
+    private void AdjustTouchPlane(Board board) {
+        var scaleInUnits = _scaleFactor*board.Size;
+        _touchPlane.transform.localScale = new Vector3(scaleInUnits,
+            _touchPlane.transform.localScale.y,
+            scaleInUnits);
     }
 }

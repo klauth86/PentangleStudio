@@ -11,6 +11,22 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1786676617281288}
   m_IsPrefabAsset: 1
+--- !u!1 &1202273269983372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4077912218287722}
+  - component: {fileID: 65934117984009056}
+  m_Layer: 0
+  m_Name: TouchPlane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1786676617281288
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,6 +43,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4077912218287722
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202273269983372}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalScale: {x: 1, y: 0.045, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4799143755499332}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4799143755499332
 Transform:
   m_ObjectHideFlags: 1
@@ -36,10 +65,23 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4077912218287722}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65934117984009056
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202273269983372}
+  m_Material: {fileID: 13400000, guid: 84acab962e939934da443e87d7a5adeb, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114567200256251198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCardPrefab: {fileID: 1791701891392338, guid: d2a43fefc4a34c24aa7e721c26e986d8,
     type: 2}
+  _touchPlane: {fileID: 1202273269983372}
   _size: 7
   _bombs: 9
-  _scaleFactor: 2
+  _scaleFactor: 1.5
