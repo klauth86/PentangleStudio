@@ -1,5 +1,7 @@
 ﻿using Base;
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(Rigidbody))]
@@ -11,14 +13,14 @@ public class GameCard : MonoBehaviour {
     [SerializeField] private float _rotationVelocity;
     [SerializeField] private float _stiffnessKoefficient;
 
-    public static GameCard _selectedGameCard;
+
     public bool IsSelected {
         set {
-            
-            _selectedGameCard = this;
-            OnSelect(_selectedGameCard);
+            OnSelectionChanged(this, value);
         }
     }
+
+    public event Action<GameCard, bool> OnSelectionChanged = delegate { };
 
     private MeshRenderer _meshRenderer;
     private MeshRenderer MeshRenderer {

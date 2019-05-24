@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Base;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -22,13 +23,15 @@ public class Game : MonoBehaviour {
     }
 
     private GameCard[,] CreateBoard(Board board) {
-        var gameBoard = new GameCard[board.Size,board.Size];
+        var gameBoard = new GameCard[board.Size, board.Size];
         var offset = board.Size % 2 == 0 ? 0.5f : 0.0f;
         for (int i = 0; i < board.BoardSize; i++) {
             var gameCard = Instantiate(_gameCardPrefab,
                 new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset), 0,
                 _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity, transform).GetComponent<GameCard>();
             gameCard.Card = board.Cards[i];
+            gameCard.OnSelectionChanged += OnSelectionChanged;
+            gameBoard[i % board.Size, i / board.Size] = gameCard;
         }
         return gameBoard;
     }
@@ -46,19 +49,30 @@ public class Game : MonoBehaviour {
     }
 
     private IEnumerator PlayerTurnRoutine(GameCard[,] gameBoard, int size) {
-        Time.timeScale = 0.0f;
+        //Time.timeScale = 0.0f;
+
+        var i = size / 2;
+        var j = size / 2;
+        gameBoard[i, j].IsSelected = true;
 
         var _endTurn = false;
         while(!_endTurn) {
-            yield return new WaitForSeconds(0.2f);
-            if (CrossPlatformInputManager.GetAxis("Horizontal") != 0) {
-
+            yield return new WaitForSeconds(0.5f);
+            var x = CrossPlatformInputManager.GetAxis("Horizontal");
+            var y = CrossPlatformInputManager.GetAxis("Vertical");
+            if (x != 0 || y != 0) {
+                gameBoard[i, j].IsSelected = false;
+                i = i + (int)Mathf.Sign(x);
+                j = j + (int)Mathf.Sign(y);
+                gameBoard[i, j].IsSelected = true;
             }
-            if (CrossPlatformInputManager.GetAxis("Vertical") != 0) {
-
-            }
+            _endTurn = CrossPlatformInputManager.GetButton("Jump");
         }
 
         Time.timeScale = 1.0f;
+    }
+
+    private void OnSelectionChanged(GameCard card, bool isSelected) {
+        card.transform.localScale = Vector3.Lerp(card.transform.localScale, card.transform.localScale * (isSelected ? 1.25f : 0.8f), 1.2f);
     }
 }
