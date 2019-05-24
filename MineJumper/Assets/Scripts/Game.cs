@@ -59,13 +59,13 @@ public class Game : MonoBehaviour {
         var _endTurn = false;
         while(!_endTurn) {
             yield return new WaitForSeconds(0.025f);
-            var x = CrossPlatformInputManager.GetAxis("Horizontal");
-            var y = CrossPlatformInputManager.GetAxis("Vertical");
+            var x = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+            var y = CrossPlatformInputManager.GetAxisRaw("Vertical");
             if (x != 0 || y != 0) {
                 gameBoard[i, j].IsSelected = false;
-                if (x != 0)
+                if (x != 0 && i + (int)Mathf.Sign(x) >=0 && i + (int)Mathf.Sign(x) < size)
                     i = i + (int)Mathf.Sign(x);
-                if (y != 0)
+                if (y != 0 && j + (int)Mathf.Sign(y) >=0 && j + (int)Mathf.Sign(y) < size)
                     j = j + (int)Mathf.Sign(y);
                 gameBoard[i, j].IsSelected = true;
             }
@@ -80,12 +80,11 @@ public class Game : MonoBehaviour {
     }
 
     private IEnumerator CardScaleRoutine(GameCard card, bool isSelected) {
-        var from = 1.0f;
-        var to = isSelected ? 1.25f : 0.8f;
+        var to = isSelected ? 1.5f : 1.0f;
         var iterationCount = 40;
         for (int i = 1; i <= iterationCount; i++) {
-            yield return new WaitForSeconds(0.025f);
-            card.transform.localScale = Vector3.one * (from * (iterationCount - i) / iterationCount + i / iterationCount * to);
+            yield return new WaitForSeconds(0.0125f);
+            card.transform.localScale = Vector3.one * (1.0f * (iterationCount - i) / iterationCount + to * i / iterationCount);
         }
     }
 }
