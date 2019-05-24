@@ -2,12 +2,14 @@
 using UnityEngine;
 
 [RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(Rigidbody))]
 public class GameCard : MonoBehaviour {
     [SerializeField] private Material _unrevealedMaterial;
     [SerializeField] private Material _markedMaterial;
     [SerializeField] private Material[] _indexMaterials;
 
     [SerializeField] private float _rotationVelocity;
+    [SerializeField] private float _stiffnessKoefficient;
 
     private MeshRenderer _meshRenderer;
     private MeshRenderer MeshRenderer {
@@ -16,7 +18,15 @@ public class GameCard : MonoBehaviour {
         }
     }
 
+    private Rigidbody _rigidbody;
+    private Rigidbody Rigidbody {
+        get {
+            return _rigidbody ?? (_rigidbody = GetComponent<Rigidbody>());
+        }
+    }
+
     private Vector3 _rotationVector;
+    private Vector3 _initPosition;
 
     private Card card;
     public Card Card {
@@ -62,9 +72,14 @@ public class GameCard : MonoBehaviour {
                 Random.Range(0.0f, 1.0f),
                 Random.Range(0.0f, 1.0f),
                 Random.Range(0.0f, 1.0f)).normalized;
+        _initPosition = transform.position;
     }
 
     private void Update() {
         transform.Rotate(_rotationVector * Time.deltaTime * _rotationVelocity);
+    }
+
+    private void FixedUpdate() {
+        Rigidbody.AddForce(-_stiffnessKoefficient * (transform.position - _initPosition));
     }
 }

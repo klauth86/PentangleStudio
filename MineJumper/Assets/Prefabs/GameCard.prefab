@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33101543696786976}
   - component: {fileID: 23887356196972250}
   - component: {fileID: 135477184908061886}
+  - component: {fileID: 54710863416643664}
   - component: {fileID: 114419652661379766}
   m_Layer: 0
   m_Name: GameCard
@@ -85,6 +86,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1791701891392338}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54710863416643664
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791701891392338}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114419652661379766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,6 +123,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 908343c3427314848ba97d052c52a305, type: 2}
   - {fileID: 2100000, guid: af6e32dffa168504b8d7e693e8533de0, type: 2}
   _rotationVelocity: 360
+  _stiffnessKoefficient: 100
 --- !u!135 &135477184908061886
 SphereCollider:
   m_ObjectHideFlags: 1
