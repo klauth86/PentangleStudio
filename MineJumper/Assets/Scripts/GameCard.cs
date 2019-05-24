@@ -13,9 +13,11 @@ public class GameCard : MonoBehaviour {
     [SerializeField] private float _rotationVelocity;
     [SerializeField] private float _stiffnessKoefficient;
 
+    [SerializeField] private GameObject _selectionObject; 
 
     public bool IsSelected {
         set {
+            _selectionObject.SetActive(value);
             OnSelectionChanged(this, value);
         }
     }

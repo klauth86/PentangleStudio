@@ -76,7 +76,7 @@ public class Game : MonoBehaviour {
     }
 
     private void OnSelectionChanged(GameCard card, bool isSelected) {
-        StartCoroutine(CardScaleRoutine(card, isSelected));
+        //StartCoroutine(CardScaleRoutine(card, isSelected));
     }
 
     private IEnumerator CardScaleRoutine(GameCard card, bool isSelected) {
