@@ -10,7 +10,7 @@ public class Mob01 : MobBase {
 
     private void MakeAnAttack() {
         var playerCollider = _player.GetComponent<Collider2D>();
-        var mobCollider = GetComponent<BoxCollider2D>();
+        var mobCollider = GetComponentInChildren<BoxCollider2D>();
         if (mobCollider.IsTouching(playerCollider)) {
             if (!_player.TakeDamage(_attackDamage)) {
                 _isAttacking = false;
