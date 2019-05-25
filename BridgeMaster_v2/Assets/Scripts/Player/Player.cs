@@ -1,4 +1,5 @@
-﻿using Base;
+﻿using System.Collections;
+using Base;
 using Dicts;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class Player : CharacterWithPhysics {
     [SerializeField] private float _velocity;
     [SerializeField] private float _jump;
     [SerializeField] public float HitPoints;
+
+    [SerializeField] private UnityEngine.UI.Image _healthImage;
 
     [SerializeField] private GameObject _damageVfx;
 
@@ -84,6 +87,7 @@ public class Player : CharacterWithPhysics {
 
     public bool TakeDamage(Damage damage) {
         HitPoints -= damage.Hit;
+        StartCoroutine(DecreaseHealthRoutine());
         if (_damageVfx) {
             Destroy(Instantiate(_damageVfx), 2f);
         }
@@ -95,5 +99,13 @@ public class Player : CharacterWithPhysics {
             _animator.SetTrigger(AnimatorKey.IsDead);
         }
         return HitPoints > 0;
+    }
+
+    private IEnumerator DecreaseHealthRoutine() {
+        for (int i = 1; i <= 48; i++) {
+            var rt = _healthImage.GetComponent<RectTransform>();
+            rt.localScale = new Vector3(rt.localScale.x * (48 - i)/48 + HitPoints / 100 * i / 48, rt.localScale.y, rt.localScale.z);
+            yield return new WaitForSeconds(0.5f / 48);
+        }
     }
 }

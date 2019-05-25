@@ -140,6 +140,7 @@ MonoBehaviour:
   _velocity: 10
   _jump: 8
   HitPoints: 100
+  _healthImage: {fileID: 0}
   _damageVfx: {fileID: 0}
 --- !u!212 &212738223759258518
 SpriteRenderer:
