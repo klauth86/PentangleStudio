@@ -98,4 +98,11 @@ public class GameCard : MonoBehaviour {
     private void FixedUpdate() {
         Rigidbody.AddForce(-_stiffnessKoefficient * (transform.position - _initPosition));
     }
+
+    private void OnMouseDown() {
+        if (SelectedCard != this) {
+            SelectedCard.IsSelected = false;
+            IsSelected = true;
+        }
+    }
 }
