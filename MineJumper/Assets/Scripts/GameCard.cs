@@ -15,8 +15,11 @@ public class GameCard : MonoBehaviour {
 
     [SerializeField] private GameObject _selectionObject; 
 
+
+    public static GameCard SelectedCard;
     public bool IsSelected {
         set {
+            SelectedCard = value ? this : null;
             _selectionObject.SetActive(value);
             OnSelectionChanged(this, value);
         }

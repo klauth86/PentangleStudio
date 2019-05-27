@@ -69,7 +69,6 @@ public class Game : MonoBehaviour {
 
             if (x != 0 || y != 0) {
                 keyTimeout -= Time.deltaTime;
-                gameBoard[i, j].IsSelected = false;
                 if (x != 0 && i + (int)Mathf.Sign(x) >=0 && i + (int)Mathf.Sign(x) < size && keyTimeout <=0) {
                     keyTimeout = _axisTimeSensitivity;
                     i = i + (int)Mathf.Sign(x);
@@ -78,10 +77,26 @@ public class Game : MonoBehaviour {
                     keyTimeout = _axisTimeSensitivity;
                     j = j + (int)Mathf.Sign(y);
                 }
+
+                GameCard.SelectedCard.IsSelected = false;
                 gameBoard[i, j].IsSelected = true;
             }
             else {
                 keyTimeout = 0;
+            }
+
+            if (Input.touchCount > 0) {
+                var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit)) {
+                    var gameCard = hit.collider.GetComponent<GameCard>();
+                    if (gameCard && GameCard.SelectedCard != gameCard) {
+
+                        GameCard.SelectedCard.IsSelected = false;
+                        gameCard.IsSelected = true;
+                    }
+                }
+                Debug.Log(ray);
             }
             endTurn = CrossPlatformInputManager.GetButton("Jump");
         }

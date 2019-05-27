@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4077912218287722}
   - component: {fileID: 65934117984009056}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TouchPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
