@@ -21,7 +21,7 @@ public class Game : MonoBehaviour {
     private void Start() {
         var board = new Board(2, _size, _bombs);
         var gameBoard = CreateBoard(board);
-        AdjustCamera(board);
+        AdjustCamera90(board);
         AdjustTouchPlane(board);
         StartCoroutine(PlayerTurnRoutine(gameBoard, board.Size));
     }
@@ -40,9 +40,16 @@ public class Game : MonoBehaviour {
         return gameBoard;
     }
 
-    private void AdjustCamera(Board board) {
+    private void AdjustCamera45(Board board) {
         var offset = _scaleFactor * board.Size / 2 * (1 + Mathf.Tan(Mathf.PI / 12)) + 0.5f;
         Camera.main.transform.position = new Vector3(0, offset, -offset);
+        Camera.main.transform.LookAt(Vector3.zero);
+    }
+
+    private void AdjustCamera90(Board board) {
+        var offset = _scaleFactor * board.Size / 2 / Mathf.Tan(Mathf.PI / 6) + 0.5f;
+        Camera.main.transform.position = new Vector3(0, offset, 0);
+        Camera.main.transform.LookAt(Vector3.zero);
     }
 
     private void AdjustTouchPlane(Board board) {
