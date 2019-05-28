@@ -97,8 +97,8 @@ MonoBehaviour:
     type: 2}
   _touchPlane: {fileID: 1202273269983372}
   _player: {fileID: 0}
-  _size: 7
-  _bombs: 9
+  _size: 9
+  _bombs: 10
   _scaleFactor: 1.5
   _coroutineTimeStep: 0.0125
   _axisTimeSensitivity: 0.125

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Base {
     public class Board {
@@ -22,10 +24,19 @@ namespace Base {
                 if (i < bombs)
                     card.HasBomb = true;
                 Cards[i] = card;
+                Cards[i].OnReveal += OnReveal;
             }
 
             Shuffle();
             CountIndexes();
+        }
+
+        private void OnReveal(Card card) {
+            if (card.BombIndex == 0)
+                foreach (var item in GetNeighbourCards(card)) {
+                    if (!item.IsRevealed)
+                        item.Reveal();
+                }
         }
 
         private void Shuffle() {
@@ -46,25 +57,33 @@ namespace Base {
                     continue;
                 }
 
-                if (i - 1 >= 0 && Cards[i - 1].HasBomb)
-                    Cards[i].BombIndex++;
-                if (i + 1 < BoardSize && Cards[i + 1].HasBomb)
-                    Cards[i].BombIndex++;
+                foreach (var item in GetNeighbourCards(Cards[i], true)) {
+                    if (item.HasBomb)
+                        Cards[i].BombIndex++;
+                }                
+            }            
+        }
 
-                if (i - Size >= 0 && Cards[i - Size].HasBomb)
-                    Cards[i].BombIndex++;
-                if (i + Size < BoardSize && Cards[i + Size].HasBomb)
-                    Cards[i].BombIndex++;
+        private IEnumerable<Card> GetNeighbourCards(Card card, bool withDiagonals = false) {
+            var i = Array.IndexOf(Cards, card);
+            if (i - 1 >= 0 && (i - 1)/Size == i / Size)
+                yield return Cards[i - 1];
+            if (i + 1 < BoardSize && (i + 1) / Size == i / Size)
+                yield return Cards[i + 1];
+            if (i - Size >= 0)
+                yield return Cards[i - Size];
+            if (i + Size < BoardSize)
+                yield return Cards[i + Size];
 
-                if (i - 1 >= 0 && i - 1 - Size >= 0 && Cards[i - 1 - Size].HasBomb)
-                    Cards[i].BombIndex++;
-                if (i - 1 >= 0 && i - 1 + Size < BoardSize && Cards[i - 1 + Size].HasBomb)
-                    Cards[i].BombIndex++;
-
-                if (i + 1 < BoardSize && i + 1 - Size >= 0 && Cards[i + 1 - Size].HasBomb)
-                    Cards[i].BombIndex++;
-                if (i + 1 < BoardSize && i + 1 + Size < BoardSize && Cards[i + 1 + Size].HasBomb)
-                    Cards[i].BombIndex++;
+            if (withDiagonals) {
+                if (i - 1 >= 0 && (i - 1) / Size == i / Size && i - 1 - Size >= 0)
+                    yield return Cards[i - 1 - Size];
+                if (i - 1 >= 0 && (i - 1) / Size == i / Size && i - 1 + Size < BoardSize)
+                    yield return Cards[i - 1 + Size];
+                if (i + 1 < BoardSize && (i + 1) / Size == i / Size && i + 1 - Size >= 0)
+                    yield return Cards[i + 1 - Size];
+                if (i + 1 < BoardSize && (i + 1) / Size == i / Size && i + 1 + Size < BoardSize)
+                    yield return Cards[i + 1 + Size];
             }
         }
     }
