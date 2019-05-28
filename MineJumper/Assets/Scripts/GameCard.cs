@@ -61,7 +61,7 @@ public class GameCard : MonoBehaviour {
         if (card == null)
             return;
 
-        MeshRenderer.material = _indexMaterials[card.BombIndex];
+        MeshRenderer.material = _unrevealedMaterial;
 
         card.OnMark += OnMark;
         card.OnReveal += OnReveal;

@@ -60,7 +60,7 @@ public class Game : MonoBehaviour {
     }
 
     private IEnumerator PlayerTurnRoutine(GameCard[,] gameBoard, int size) {
-        _player.Freeze();
+        //_player.Freeze();
 
         var i = size / 2;
         var j = size / 2;
@@ -105,10 +105,14 @@ public class Game : MonoBehaviour {
                 }
                 Debug.Log(ray);
             }
-            endTurn = CrossPlatformInputManager.GetButton("Jump");
-        }
 
-        _player.Unfreeze();
+            if (CrossPlatformInputManager.GetButton("Jump")) {
+                GameCard.SelectedCard.Card.Reveal();
+            }
+
+            //endTurn = CrossPlatformInputManager.GetButton("Jump");
+        }
+       //_player.Unfreeze();
     }
 
     private void OnSelectionChanged(GameCard card, bool isSelected) {
