@@ -76,7 +76,7 @@ public class GameCard : MonoBehaviour {
     }
 
     private void OnMark(Card card) {
-        MeshRenderer.material = card.IsMarked ? _markedMaterial : (card.IsRevealed ? _indexMaterials[card.BombIndex] : _unrevealedMaterial);
+        MeshRenderer.material = card.IsMarked ? _markedMaterial : _unrevealedMaterial;
     }
 
     private void OnReveal(Card card) {

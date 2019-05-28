@@ -201,6 +201,7 @@ MonoBehaviour:
   _unrevealedMaterial: {fileID: 2100000, guid: 166f2b54120a38e4495eebb53fa7a3c4, type: 2}
   _markedMaterial: {fileID: 2100000, guid: 945d8f59b9907ff4593f5cb1fb23d4de, type: 2}
   _indexMaterials:
+  - {fileID: 2100000, guid: cc4b38c21ca93e344ad87180cbec1993, type: 2}
   - {fileID: 2100000, guid: fa190f77d78e98f40a49e164058e3376, type: 2}
   - {fileID: 2100000, guid: 319f11c786dd68749a01da10de386812, type: 2}
   - {fileID: 2100000, guid: 7b1b7e34e991c9f49ad344032a469286, type: 2}
@@ -209,6 +210,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: fc9156075f49fc74fac8264517d96897, type: 2}
   - {fileID: 2100000, guid: fa22aee4c86d8a441b14062cdc030637, type: 2}
   - {fileID: 2100000, guid: d680a7103c89fe14e8adcc89b599728c, type: 2}
+  - {fileID: 2100000, guid: 44d539a80834dd84f9799d5fddeba451, type: 2}
   _rotationVelocity: 360
   _stiffnessKoefficient: 100
   _selectionObject: {fileID: 1465334126979750}

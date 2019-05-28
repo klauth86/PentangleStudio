@@ -41,6 +41,11 @@ namespace Base {
 
         private void CountIndexes() {
             for (int i = 0; i < BoardSize; i++) {
+                if (Cards[i].HasBomb) {
+                    Cards[i].BombIndex = 9;
+                    continue;
+                }
+
                 if (i - 1 >= 0 && Cards[i - 1].HasBomb)
                     Cards[i].BombIndex++;
                 if (i + 1 < BoardSize && Cards[i + 1].HasBomb)
