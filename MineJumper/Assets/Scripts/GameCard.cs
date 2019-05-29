@@ -36,13 +36,9 @@ public class GameCard : MonoBehaviour {
     private Vector3 _initPosition;
 
     public GameCard up { get; set; }
-    public GameCard up_right { get; set; }
     public GameCard right { get; set; }
-    public GameCard right_down { get; set; }
     public GameCard down { get; set; }
-    public GameCard down_left { get; set; }
     public GameCard left { get; set; }
-    public GameCard left_up { get; set; }
 
     private Card card;
     public Card Card {
@@ -82,8 +78,22 @@ public class GameCard : MonoBehaviour {
 
     private void OnReveal(Card card) {
         MeshRenderer.material = _indexMaterials[card.BombIndex];
-        if (card.BombIndex == 0)
+        if (card.BombIndex == 0) {
+            if (up != null) {
+                up.down = down;
+            }
+            if (down != null) {
+                down.up = up;
+            }
+            if (left != null) {
+                left.right = right;
+            }
+            if (right != null) {
+                right.left = left;
+            }
+
             StartCoroutine(CollapseRoutine());
+        }
     }
 
     private void Start() {

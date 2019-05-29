@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using Base;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -16,21 +17,36 @@ public class Game : MonoBehaviour {
 
     // Use this for initialization
     private void Start() {
-        CreateBoard(new Board(2, LevelManager.Instance.Size, LevelManager.Instance.Bombs));
+        var gameBoard = CreateBoard(new Board(2, LevelManager.Instance.Size, LevelManager.Instance.Bombs));
         AdjustCamera90();
         AdjustTouchPlane();
-        StartCoroutine(PlayerTurnRoutine());
+        StartCoroutine(PlayerTurnRoutine(gameBoard));
     }
 
-    private void CreateBoard(Board board) {
-        var gameBoard = new GameCard[board.Size, board.Size];
+    private GameCard[] CreateBoard(Board board) {
+        var gameBoard = new GameCard[board.BoardSize];
         var offset = board.Size % 2 == 0 ? 0.5f : 0.0f;
         for (int i = 0; i < board.BoardSize; i++) {
             var gameCard = Instantiate(_gameCardPrefab,
                 new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset), 0,
                 _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity, transform).GetComponent<GameCard>();
             gameCard.Card = board.Cards[i];
-            gameBoard[i % board.Size, i / board.Size] = gameCard;
+            gameBoard[i] = gameCard;
+        }
+
+        for (int i = 0; i < board.BoardSize; i++) {
+            if (i - board.Size >= 0) {
+                gameBoard[i].down = gameBoard[i - board.Size];
+            }
+            if (i + board.Size < board.BoardSize) {
+                gameBoard[i].up = gameBoard[i + board.Size];
+            }
+            if (i - 1 >= 0 && (i - 1) / board.Size == i / board.Size) {
+                gameBoard[i].left = gameBoard[i - 1];
+            }
+            if (i + 1 < board.BoardSize && (i + 1) / board.Size == i / board.Size) {
+                gameBoard[i].right = gameBoard[i + 1];
+            }
         }
         return gameBoard;
     }
@@ -54,10 +70,8 @@ public class Game : MonoBehaviour {
             scaleInUnits);
     }
 
-    private IEnumerator PlayerTurnRoutine() {
-        var i = 0;
-        var j = 0;
-        var hasSelectedGameCard = false;
+    private IEnumerator PlayerTurnRoutine(GameCard[] gameBoard) {
+        GameCard selected = null;
 
         float keyTimeout = 0;
         while (true) {
@@ -69,25 +83,29 @@ public class Game : MonoBehaviour {
 
                 if (x != 0 || y != 0) {
                     keyTimeout -= Time.deltaTime;
-                    if (x != 0 && i + (int)Mathf.Sign(x) >= 0 && i + (int)Mathf.Sign(x) < size && keyTimeout <= 0) {
+
+                    if (keyTimeout <= 0) {
                         keyTimeout = _axisTimeSensitivity;
-                        gameBoard[i, j].SelectionObject.SetActive(false);
-                        var dx = (int)Mathf.Sign(x);
-                        i = hasSelectedGameCard ? i + dx : (dx + size) % size;
+                        if (selected == null) {
+                            selected = gameBoard.First(item => item != null);
+                        }
+                        else {
+                            selected.SelectionObject.SetActive(false);
+                            if (x != 0) {
+                                selected = (x > 0 ? selected.right : selected.left) ?? selected;
+                            }
+                            if (y != 0) {
+                                selected = (y > 0 ? selected.up : selected.down) ?? selected;
+                            }
+                        }
+                        selected.SelectionObject.SetActive(true);
                     }
-                    if (y != 0 && j + (int)Mathf.Sign(y) >= 0 && j + (int)Mathf.Sign(y) < size && keyTimeout <= 0) {
-                        keyTimeout = _axisTimeSensitivity;
-                        gameBoard[i, j].SelectionObject.SetActive(false);
-                        j = j + (int)Mathf.Sign(y);
-                    }
-                    gameBoard[i, j].SelectionObject.SetActive(true);
                 }
                 else {
                     keyTimeout = 0;
                 }
-
                 if (CrossPlatformInputManager.GetButton("Jump")) {
-                    gameBoard[i, j].Card.Reveal();
+                    selected.Card.Reveal();
                 }
             }           
 
