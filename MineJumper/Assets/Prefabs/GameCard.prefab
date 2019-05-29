@@ -213,7 +213,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 44d539a80834dd84f9799d5fddeba451, type: 2}
   _rotationVelocity: 360
   _stiffnessKoefficient: 100
-  _selectionObject: {fileID: 1465334126979750}
+  _coroutineTimeStep: 0.0125
+  _collapseTime: 0.25
+  SelectionObject: {fileID: 1465334126979750}
 --- !u!135 &135434704080563528
 SphereCollider:
   m_ObjectHideFlags: 1

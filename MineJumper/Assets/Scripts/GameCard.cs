@@ -1,5 +1,6 @@
 ﻿using Base;
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,19 +14,10 @@ public class GameCard : MonoBehaviour {
     [SerializeField] private float _rotationVelocity;
     [SerializeField] private float _stiffnessKoefficient;
 
-    [SerializeField] private GameObject _selectionObject; 
+    [SerializeField] private float _coroutineTimeStep;
+    [SerializeField] private float _collapseTime;
 
-
-    public static GameCard SelectedCard;
-    public bool IsSelected {
-        set {
-            SelectedCard = value ? this : null;
-            _selectionObject.SetActive(value);
-            OnSelectionChanged(this, value);
-        }
-    }
-
-    public event Action<GameCard, bool> OnSelectionChanged = delegate { };
+    [SerializeField] public GameObject SelectionObject;
 
     private MeshRenderer _meshRenderer;
     private MeshRenderer MeshRenderer {
@@ -81,6 +73,8 @@ public class GameCard : MonoBehaviour {
 
     private void OnReveal(Card card) {
         MeshRenderer.material = _indexMaterials[card.BombIndex];
+        if (card.BombIndex == 0)
+            StartCoroutine(CollapseRoutine());
     }
 
     private void Start() {
@@ -100,9 +94,16 @@ public class GameCard : MonoBehaviour {
     }
 
     private void OnMouseDown() {
-        if (SelectedCard != this) {
-            SelectedCard.IsSelected = false;
-            IsSelected = true;
+        if (!card.IsMarked)
+            card.Reveal();
+    }
+
+    private IEnumerator CollapseRoutine() {
+        var n = _collapseTime / _coroutineTimeStep;
+        for (int i = 1; i <= n; i++) {
+            transform.localScale = (transform.localScale * (n-i))/n;
+            yield return new WaitForSeconds(_coroutineTimeStep);
         }
+        Destroy(gameObject);
     }
 }

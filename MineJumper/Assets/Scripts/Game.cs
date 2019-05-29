@@ -17,6 +17,8 @@ public class Game : MonoBehaviour {
     [SerializeField] private float _coroutineTimeStep;
     [SerializeField] private float _axisTimeSensitivity;
 
+    public InputDevice InputDevice;
+
     // Use this for initialization
     private void Start() {
         var board = new Board(2, _size, _bombs);
@@ -34,7 +36,6 @@ public class Game : MonoBehaviour {
                 new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset), 0,
                 _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity, transform).GetComponent<GameCard>();
             gameCard.Card = board.Cards[i];
-            gameCard.OnSelectionChanged += OnSelectionChanged;
             gameBoard[i % board.Size, i / board.Size] = gameCard;
         }
         return gameBoard;
@@ -60,71 +61,53 @@ public class Game : MonoBehaviour {
     }
 
     private IEnumerator PlayerTurnRoutine(GameCard[,] gameBoard, int size) {
-        //_player.Freeze();
+        var i = 0;
+        var j = 0;
+        var hasSelectedGameCard = false;
 
-        var i = size / 2;
-        var j = size / 2;
-        gameBoard[i, j].IsSelected = true;
-
-        var endTurn = false;
         float keyTimeout = 0;
-
-        while(!endTurn) {
+        while (true) {
             yield return new WaitForSeconds(_coroutineTimeStep);
-            var x = CrossPlatformInputManager.GetAxisRaw("Horizontal");
-            var y = CrossPlatformInputManager.GetAxisRaw("Vertical");
 
-            if (x != 0 || y != 0) {
-                keyTimeout -= Time.deltaTime;
-                if (x != 0 && i + (int)Mathf.Sign(x) >=0 && i + (int)Mathf.Sign(x) < size && keyTimeout <=0) {
-                    keyTimeout = _axisTimeSensitivity;
-                    i = i + (int)Mathf.Sign(x);
+            if (InputDevice.Keyboard == InputDevice) {
+                var x = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+                var y = CrossPlatformInputManager.GetAxisRaw("Vertical");
+
+                if (x != 0 || y != 0) {
+                    keyTimeout -= Time.deltaTime;
+                    if (x != 0 && i + (int)Mathf.Sign(x) >= 0 && i + (int)Mathf.Sign(x) < size && keyTimeout <= 0) {
+                        keyTimeout = _axisTimeSensitivity;
+                        gameBoard[i, j].SelectionObject.SetActive(false);
+                        var dx = (int)Mathf.Sign(x);
+                        i = hasSelectedGameCard ? i + dx : (dx + size) % size;
+                    }
+                    if (y != 0 && j + (int)Mathf.Sign(y) >= 0 && j + (int)Mathf.Sign(y) < size && keyTimeout <= 0) {
+                        keyTimeout = _axisTimeSensitivity;
+                        gameBoard[i, j].SelectionObject.SetActive(false);
+                        j = j + (int)Mathf.Sign(y);
+                    }
+                    gameBoard[i, j].SelectionObject.SetActive(true);
                 }
-                if (y != 0 && j + (int)Mathf.Sign(y) >=0 && j + (int)Mathf.Sign(y) < size && keyTimeout <= 0) {
-                    keyTimeout = _axisTimeSensitivity;
-                    j = j + (int)Mathf.Sign(y);
+                else {
+                    keyTimeout = 0;
                 }
 
-                GameCard.SelectedCard.IsSelected = false;
-                gameBoard[i, j].IsSelected = true;
-            }
-            else {
-                keyTimeout = 0;
-            }
+                if (CrossPlatformInputManager.GetButton("Jump")) {
+                    gameBoard[i, j].Card.Reveal();
+                }
+            }           
 
-            if (Input.touchCount > 0) {
+            if (InputDevice.Touch == InputDevice && Input.touchCount > 0) {
                 var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit)) {
                     var gameCard = hit.collider.GetComponent<GameCard>();
-                    if (gameCard && GameCard.SelectedCard != gameCard) {
-
-                        GameCard.SelectedCard.IsSelected = false;
-                        gameCard.IsSelected = true;
+                    if (gameCard) {
+                        gameCard.Card.Reveal();
                     }
                 }
                 Debug.Log(ray);
             }
-
-            if (CrossPlatformInputManager.GetButton("Jump")) {
-                GameCard.SelectedCard.Card.Reveal();
-            }
-
-            //endTurn = CrossPlatformInputManager.GetButton("Jump");
         }
-       //_player.Unfreeze();
     }
-
-    private void OnSelectionChanged(GameCard card, bool isSelected) {
-        //StartCoroutine(CardScaleRoutine(card, isSelected));
-    }
-
-    //private IEnumerator CardScaleRoutine(GameCard card, bool isSelected) {
-    //    var to = isSelected ? 1.5f : 1.0f;
-    //    var iterationCount = 40;
-    //    for (int i = 1; i <= iterationCount; i++) {
-    //        yield return new WaitForSeconds(0.0125f);
-    //        card.transform.localScale = Vector3.one * (1.0f * (iterationCount - i) / iterationCount + to * i / iterationCount);
-    //    }
-    //}
 }
