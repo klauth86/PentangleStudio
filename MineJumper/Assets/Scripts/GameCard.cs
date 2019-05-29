@@ -1,5 +1,4 @@
 ﻿using Base;
-using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -36,8 +35,18 @@ public class GameCard : MonoBehaviour {
     private Vector3 _rotationVector;
     private Vector3 _initPosition;
 
+    public GameCard up { get; set; }
+    public GameCard up_right { get; set; }
+    public GameCard right { get; set; }
+    public GameCard right_down { get; set; }
+    public GameCard down { get; set; }
+    public GameCard down_left { get; set; }
+    public GameCard left { get; set; }
+    public GameCard left_up { get; set; }
+
     private Card card;
     public Card Card {
+
         get {
             return card;
         }

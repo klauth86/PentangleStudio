@@ -4,7 +4,9 @@ public class LevelManager : MonoBehaviour {
 
     public static LevelManager Instance;
 
-    public InputDevice InputDevice { get; set; }
+    [SerializeField] public InputDevice InputDevice;
+    [SerializeField] public int Size;
+    [SerializeField] public int Bombs;
 
     // Use this for initialization
     void Start () {

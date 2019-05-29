@@ -20,5 +20,4 @@ public class Player : MonoBehaviour {
         Rigidbody.constraints &= ~RigidbodyConstraints.FreezePositionY;
         Rigidbody.velocity = new Vector3(Rigidbody.velocity.x, _velocity, Rigidbody.velocity.z);
     }
-
 }
