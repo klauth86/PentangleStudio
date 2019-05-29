@@ -91,7 +91,6 @@ public class GameCard : MonoBehaviour {
             if (right != null) {
                 right.left = left;
             }
-
             StartCoroutine(CollapseRoutine());
         }
     }
@@ -112,11 +111,6 @@ public class GameCard : MonoBehaviour {
         Rigidbody.AddForce(-_stiffnessKoefficient * (transform.position - _initPosition));
     }
 
-    private void OnMouseDown() {
-        if (InputDevice.Mouse == LevelManager.Instance.InputDevice)
-            card.Reveal();
-    }
-
     private IEnumerator CollapseRoutine() {
         var n = _collapseTime / _coroutineTimeStep;
         for (int i = 1; i <= n; i++) {
@@ -124,5 +118,18 @@ public class GameCard : MonoBehaviour {
             yield return new WaitForSeconds(_coroutineTimeStep);
         }
         Destroy(gameObject);
+    }
+
+    private void OnMouseOver() {
+        if (InputDevice.Mouse != LevelManager.Instance.InputDevice)
+            return;
+
+        if (Input.GetMouseButtonDown(0)) {
+            card.Reveal();
+        }
+
+        if (Input.GetMouseButtonDown(1)) {
+            card.Mark();
+        }
     }
 }

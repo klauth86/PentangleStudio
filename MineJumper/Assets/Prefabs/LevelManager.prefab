@@ -52,5 +52,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputDevice: 0
-  Size: 3
-  Bombs: 1
+  Size: 4
+  Bombs: 3

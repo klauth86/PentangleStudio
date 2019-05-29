@@ -214,7 +214,7 @@ MonoBehaviour:
   _rotationVelocity: 360
   _stiffnessKoefficient: 100
   _coroutineTimeStep: 0.0125
-  _collapseTime: 0.25
+  _collapseTime: 0.5
   SelectionObject: {fileID: 1465334126979750}
 --- !u!135 &135434704080563528
 SphereCollider:

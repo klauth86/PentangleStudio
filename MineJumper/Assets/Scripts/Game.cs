@@ -59,6 +59,8 @@ public class Game : MonoBehaviour {
 
     private void AdjustCamera90() {
         var offset = _scaleFactor * LevelManager.Instance.Size / 2 / Mathf.Tan(Mathf.PI / 6) + 0.5f;
+        if (Camera.main.aspect < 1)
+            offset /= Camera.main.aspect;
         Camera.main.transform.position = new Vector3(0, offset, 0);
         Camera.main.transform.LookAt(Vector3.zero);
     }
@@ -72,40 +74,49 @@ public class Game : MonoBehaviour {
 
     private IEnumerator PlayerTurnRoutine(GameCard[] gameBoard) {
         GameCard selected = null;
-
         float keyTimeout = 0;
+
         while (true) {
             yield return new WaitForSeconds(_coroutineTimeStep);
 
             if (InputDevice.Keyboard == LevelManager.Instance.InputDevice) {
+                keyTimeout -= Time.deltaTime;
+
                 var x = CrossPlatformInputManager.GetAxisRaw("Horizontal");
                 var y = CrossPlatformInputManager.GetAxisRaw("Vertical");
+                var fire = CrossPlatformInputManager.GetButton("Fire1");
 
-                if (x != 0 || y != 0) {
-                    keyTimeout -= Time.deltaTime;
-
+                if (x != 0 || y != 0 || fire) {
                     if (keyTimeout <= 0) {
                         keyTimeout = _axisTimeSensitivity;
+
                         if (selected == null) {
                             selected = gameBoard.First(item => item != null);
                         }
                         else {
-                            selected.SelectionObject.SetActive(false);
                             if (x != 0) {
+                                selected.SelectionObject.SetActive(false);
                                 selected = (x > 0 ? selected.right : selected.left) ?? selected;
+                                selected.SelectionObject.SetActive(true);
                             }
-                            if (y != 0) {
+                            else if (y != 0) {
+                                selected.SelectionObject.SetActive(false);
                                 selected = (y > 0 ? selected.up : selected.down) ?? selected;
+                                selected.SelectionObject.SetActive(true);
                             }
-                        }
-                        selected.SelectionObject.SetActive(true);
+                            else if (CrossPlatformInputManager.GetButton("Fire1")) {
+                                selected.Card.Mark();
+                            }
+                        }                        
                     }
                 }
                 else {
                     keyTimeout = 0;
                 }
-                if (CrossPlatformInputManager.GetButton("Jump")) {
-                    selected.Card.Reveal();
+
+                if (selected != null && CrossPlatformInputManager.GetButton("Jump")) {
+                    if (selected.Card.Reveal())
+                        selected = null;
                 }
             }           
 

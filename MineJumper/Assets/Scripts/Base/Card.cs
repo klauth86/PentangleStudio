@@ -9,12 +9,13 @@ namespace Base {
 
         public event Action<Card> OnReveal = delegate { };
 
-        public void Reveal() {
+        public bool Reveal() {
             if (IsMarked)
-                return;
+                return false;
 
             IsRevealed = true;
             OnReveal(this);
+            return BombIndex == 0;
         }
 
         public event Action<Card> OnMark = delegate { };
