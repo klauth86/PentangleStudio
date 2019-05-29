@@ -94,7 +94,7 @@ public class GameCard : MonoBehaviour {
     }
 
     private void OnMouseDown() {
-        if (!card.IsMarked)
+        if (InputDevice.Mouse == LevelManager.Instance.InputDevice)
             card.Reveal();
     }
 

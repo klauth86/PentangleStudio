@@ -10,6 +10,9 @@ namespace Base {
         public event Action<Card> OnReveal = delegate { };
 
         public void Reveal() {
+            if (IsMarked)
+                return;
+
             IsRevealed = true;
             OnReveal(this);
         }

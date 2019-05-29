@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Base {
     public class Board {
         public int Dim;
         public int Size;
         public int Bombs;
+
+        public event Action<BoardStatus> OnBoardStatusChanged = delegate { };
 
         public int BoardSize { get { return (int)Math.Pow(Size, Dim); } }
 
@@ -25,6 +27,7 @@ namespace Base {
                     card.HasBomb = true;
                 Cards[i] = card;
                 Cards[i].OnReveal += OnReveal;
+                Cards[i].OnMark += OnMark;
             }
 
             Shuffle();
@@ -32,11 +35,19 @@ namespace Base {
         }
 
         private void OnReveal(Card card) {
-            if (card.BombIndex == 0)
+            if (card.HasBomb) {
+                ChangeBoardStatus(BoardStatus.Lose);
+            }
+            else if (card.BombIndex == 0)
                 foreach (var item in GetNeighbourCards(card)) {
                     if (!item.IsRevealed)
                         item.Reveal();
                 }
+        }
+
+        private void OnMark(Card card) {
+            if (card.IsMarked && Cards.Where(item => item.HasBomb).All(item => item.IsMarked))
+                ChangeBoardStatus(BoardStatus.Win);
         }
 
         private void Shuffle() {
@@ -85,6 +96,10 @@ namespace Base {
                 if (i + 1 < BoardSize && (i + 1) / Size == i / Size && i + 1 + Size < BoardSize)
                     yield return Cards[i + 1 + Size];
             }
+        }
+
+        private void ChangeBoardStatus(BoardStatus status) {
+            OnBoardStatusChanged(status);
         }
     }
 }

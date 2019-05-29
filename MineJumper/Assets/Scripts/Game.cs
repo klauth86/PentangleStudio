@@ -17,8 +17,6 @@ public class Game : MonoBehaviour {
     [SerializeField] private float _coroutineTimeStep;
     [SerializeField] private float _axisTimeSensitivity;
 
-    public InputDevice InputDevice;
-
     // Use this for initialization
     private void Start() {
         var board = new Board(2, _size, _bombs);
@@ -69,7 +67,7 @@ public class Game : MonoBehaviour {
         while (true) {
             yield return new WaitForSeconds(_coroutineTimeStep);
 
-            if (InputDevice.Keyboard == InputDevice) {
+            if (InputDevice.Keyboard == LevelManager.Instance.InputDevice) {
                 var x = CrossPlatformInputManager.GetAxisRaw("Horizontal");
                 var y = CrossPlatformInputManager.GetAxisRaw("Vertical");
 
@@ -97,7 +95,7 @@ public class Game : MonoBehaviour {
                 }
             }           
 
-            if (InputDevice.Touch == InputDevice && Input.touchCount > 0) {
+            if (InputDevice.Touch == LevelManager.Instance.InputDevice && Input.touchCount > 0) {
                 var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit)) {
