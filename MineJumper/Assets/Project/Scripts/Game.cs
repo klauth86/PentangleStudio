@@ -29,9 +29,10 @@ public class Game : MonoBehaviour {
     private GameCard[] CreateBoard(Board board) {
         var notTouch = LevelManager.Instance.InputDevice != InputDevice.Touch;
         if (notTouch)
-            Destroy(_markedCard);
+            Destroy(_markedCard.gameObject);
         else
             _markedCard.ChangeState(false);
+        
 
         var gameBoard = new GameCard[board.BoardSize];
         var offset = board.Size % 2 == 0 ? 0.5f : 0.0f;
@@ -136,11 +137,8 @@ public class Game : MonoBehaviour {
                             gameCard.Card.Reveal();
                     }
                     else {
-                        var markCard = hit.collider.GetComponent<RotatingCard>();
-                        if (markCard) {
-                            isMarking = !isMarking;
-                            markCard.ChangeState(isMarking);
-                        }
+                        isMarking = !isMarking;
+                        _markedCard.ChangeState(isMarking);
                     }
                 }
             }
