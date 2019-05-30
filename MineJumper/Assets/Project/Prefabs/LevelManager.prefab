@@ -123,9 +123,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ad5d4abdc489b4da3f42697aeefabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BoardStatus: 0
   InputDevice: 0
   Size: 9
   Bombs: 10
+  _panel: {fileID: 0}
+  _text: {fileID: 0}
 --- !u!114 &114607147170137870
 MonoBehaviour:
   m_ObjectHideFlags: 1

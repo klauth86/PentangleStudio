@@ -121,7 +121,7 @@ public class GameCard : MonoBehaviour {
     }
 
     private void OnMouseOver() {
-        if (InputDevice.Mouse != LevelManager.Instance.InputDevice)
+        if (InputDevice.Mouse != LevelManager.Instance.InputDevice || LevelManager.Instance.BoardStatus != BoardStatus.Active)
             return;
 
         if (Input.GetMouseButtonDown(0)) {

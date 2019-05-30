@@ -1,12 +1,17 @@
-﻿using UnityEngine;
+﻿using Base;
+using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
 
     public static LevelManager Instance;
-
+    [SerializeField] public BoardStatus BoardStatus;
     [SerializeField] public InputDevice InputDevice;
     [SerializeField] public int Size;
     [SerializeField] public int Bombs;
+
+    [SerializeField] private GameObject _panel;
+    [SerializeField] private TMPro.TMP_Text _text;
+
 
     // Use this for initialization
     void Start () {
@@ -24,4 +29,10 @@ public class LevelManager : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    internal void OnBoardStatusChanged(BoardStatus status) {
+        BoardStatus = status;
+        _text.text = status.ToString();
+        _panel.SetActive(true);
+    }
 }

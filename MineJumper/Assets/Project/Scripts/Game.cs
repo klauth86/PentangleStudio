@@ -17,7 +17,10 @@ public class Game : MonoBehaviour {
 
     // Use this for initialization
     private void Start() {
-        var gameBoard = CreateBoard(new Board(2, LevelManager.Instance.Size, LevelManager.Instance.Bombs));
+        var board = new Board(2, LevelManager.Instance.Size, LevelManager.Instance.Bombs);
+        board.OnBoardStatusChanged += LevelManager.Instance.OnBoardStatusChanged;
+
+        var gameBoard = CreateBoard(board);
         AdjustCamera90();
         AdjustTouchPlane();
         StartCoroutine(PlayerTurnRoutine(gameBoard));
@@ -76,7 +79,7 @@ public class Game : MonoBehaviour {
         GameCard selected = null;
         float keyTimeout = 0;
 
-        while (true) {
+        while (LevelManager.Instance.BoardStatus == BoardStatus.Active) {
             yield return new WaitForSeconds(_coroutineTimeStep);
 
             if (InputDevice.Keyboard == LevelManager.Instance.InputDevice) {
@@ -132,5 +135,7 @@ public class Game : MonoBehaviour {
                 Debug.Log(ray);
             }
         }
+        if (selected != null)
+            selected.SelectionObject.SetActive(false);
     }
 }
