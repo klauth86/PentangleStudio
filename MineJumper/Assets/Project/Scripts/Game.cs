@@ -7,6 +7,9 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Game : MonoBehaviour {
 
     [SerializeField] private GameObject _gameCardPrefab;
+    [SerializeField] private GameObject _bombCardPrefab;
+    [SerializeField] private GameObject _markedCardPrefab;
+
     [SerializeField] private GameObject _touchPlane;
     [SerializeField] private Player _player;
 
@@ -31,10 +34,14 @@ public class Game : MonoBehaviour {
         var offset = board.Size % 2 == 0 ? 0.5f : 0.0f;
         for (int i = 0; i < board.BoardSize; i++) {
             var gameCard = Instantiate(_gameCardPrefab,
-                new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset), 0,
+                new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset + 1), 0,
                 _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity, transform).GetComponent<GameCard>();
             gameCard.Card = board.Cards[i];
             gameBoard[i] = gameCard;
+        }
+
+        if (LevelManager.Instance.InputDevice == InputDevice.Touch) {
+            var marked = Instantiate(_markedCardPrefab, new Vector3(0, 0, 0), Quaternion.identity, transform);
         }
 
         for (int i = 0; i < board.BoardSize; i++) {
@@ -61,7 +68,7 @@ public class Game : MonoBehaviour {
     //}
 
     private void AdjustCamera90() {
-        var offset = _scaleFactor * LevelManager.Instance.Size / 2 / Mathf.Tan(Mathf.PI / 6) + 0.5f;
+        var offset = _scaleFactor * LevelManager.Instance.Size / 2 / Mathf.Tan(Mathf.PI / 6) + 2.5f;
         if (Camera.main.aspect < 1)
             offset /= Camera.main.aspect;
         Camera.main.transform.position = new Vector3(0, offset, 0);

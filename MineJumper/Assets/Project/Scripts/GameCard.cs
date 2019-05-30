@@ -10,7 +10,6 @@ public class GameCard : MonoBehaviour {
     [SerializeField] private Material _markedMaterial;
     [SerializeField] private Material[] _indexMaterials;
 
-    [SerializeField] private float _rotationVelocity;
     [SerializeField] private float _stiffnessKoefficient;
 
     [SerializeField] private float _coroutineTimeStep;
@@ -32,7 +31,6 @@ public class GameCard : MonoBehaviour {
         }
     }
 
-    private Vector3 _rotationVector;
     private Vector3 _initPosition;
 
     public GameCard up { get; set; }
@@ -96,15 +94,7 @@ public class GameCard : MonoBehaviour {
     }
 
     private void Start() {
-        _rotationVector = new Vector3(
-                Random.Range(0.0f, 1.0f),
-                Random.Range(0.0f, 1.0f),
-                Random.Range(0.0f, 1.0f)).normalized;
         _initPosition = transform.position;
-    }
-
-    private void Update() {
-        transform.Rotate(_rotationVector * Time.deltaTime * _rotationVelocity);
     }
 
     private void FixedUpdate() {

@@ -11,33 +11,33 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1908679217409072}
   m_IsPrefabAsset: 1
---- !u!1 &1335994037480376
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4429026646397722}
-  - component: {fileID: 114607147170137870}
-  m_Layer: 0
-  m_Name: Game
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1389459481372606
+--- !u!1 &1042972578202778
 GameObject:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4781142836135268}
-  - component: {fileID: 65841200698873272}
+  - component: {fileID: 4918950822641708}
+  - component: {fileID: 65705338413118000}
   m_Layer: 2
   m_Name: TouchPlane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1693185620401282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4403159331371770}
+  - component: {fileID: 114767145150908166}
+  m_Layer: 0
+  m_Name: Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,43 +69,43 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4429026646397722}
+  - {fileID: 4403159331371770}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4429026646397722
+--- !u!4 &4403159331371770
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1335994037480376}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 0}
+  m_GameObject: {fileID: 1693185620401282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4781142836135268}
+  - {fileID: 4918950822641708}
   m_Father: {fileID: 4291402468192574}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4781142836135268
+--- !u!4 &4918950822641708
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1389459481372606}
+  m_GameObject: {fileID: 1042972578202778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 0.045, z: 1}
   m_Children: []
-  m_Father: {fileID: 4429026646397722}
+  m_Father: {fileID: 4403159331371770}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &65841200698873272
+--- !u!65 &65705338413118000
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1389459481372606}
+  m_GameObject: {fileID: 1042972578202778}
   m_Material: {fileID: 13400000, guid: 84acab962e939934da443e87d7a5adeb, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -124,17 +124,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoardStatus: 0
-  InputDevice: 0
+  InputDevice: 1
   Size: 9
   Bombs: 10
   _panel: {fileID: 0}
   _text: {fileID: 0}
---- !u!114 &114607147170137870
+--- !u!114 &114767145150908166
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1335994037480376}
+  m_GameObject: {fileID: 1693185620401282}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 050bd928519ecec478f3967b68e1b759, type: 3}
@@ -142,7 +142,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCardPrefab: {fileID: 1317360043755698, guid: d2a43fefc4a34c24aa7e721c26e986d8,
     type: 2}
-  _touchPlane: {fileID: 1389459481372606}
+  _bombCardPrefab: {fileID: 1188274964371908, guid: df9315c62c92a2e43b49e1b67cfcc597,
+    type: 2}
+  _markedCardPrefab: {fileID: 1592068458337996, guid: 7b9856af668adf14f880bb8ec49e4615,
+    type: 2}
+  _touchPlane: {fileID: 1042972578202778}
   _player: {fileID: 0}
   _scaleFactor: 1.5
   _coroutineTimeStep: 0.0125

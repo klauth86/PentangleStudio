@@ -95,10 +95,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameCardPrefab: {fileID: 1317360043755698, guid: d2a43fefc4a34c24aa7e721c26e986d8,
     type: 2}
+  _bombCardPrefab: {fileID: 1188274964371908, guid: df9315c62c92a2e43b49e1b67cfcc597,
+    type: 2}
+  _markedCardPrefab: {fileID: 1592068458337996, guid: 7b9856af668adf14f880bb8ec49e4615,
+    type: 2}
   _touchPlane: {fileID: 1202273269983372}
   _player: {fileID: 0}
-  _size: 3
-  _bombs: 1
   _scaleFactor: 1.5
   _coroutineTimeStep: 0.0125
   _axisTimeSensitivity: 0.125
