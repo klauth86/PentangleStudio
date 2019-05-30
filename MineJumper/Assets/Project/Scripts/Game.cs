@@ -41,6 +41,7 @@ public class Game : MonoBehaviour {
                 _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity, transform).GetComponent<GameCard>();
             gameCard.Card = board.Cards[i];
             gameBoard[i] = gameCard;
+            gameCard.ChangeState(true);
         }
 
         for (int i = 0; i < board.BoardSize; i++) {

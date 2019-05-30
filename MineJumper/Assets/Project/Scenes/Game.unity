@@ -519,7 +519,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 791
@@ -1104,28 +1104,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4291402468192574, guid: 710fa5e7c074aa84bad5ea285dee2ca0, type: 2}
       propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114767145150908166, guid: 710fa5e7c074aa84bad5ea285dee2ca0,
-        type: 2}
-      propertyPath: _markedCard
-      value: 
-      objectReference: {fileID: 1247306012}
-    - target: {fileID: 114767145150908166, guid: 710fa5e7c074aa84bad5ea285dee2ca0,
-        type: 2}
-      propertyPath: _touchPlane
-      value: 
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114500772704656480, guid: 710fa5e7c074aa84bad5ea285dee2ca0,
         type: 2}
       propertyPath: _panel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 416727923}
     - target: {fileID: 114500772704656480, guid: 710fa5e7c074aa84bad5ea285dee2ca0,
         type: 2}
       propertyPath: _text
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1767634614}
+    - target: {fileID: 114767145150908166, guid: 710fa5e7c074aa84bad5ea285dee2ca0,
+        type: 2}
+      propertyPath: _markedCard
+      value: 
+      objectReference: {fileID: 1247306012}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 710fa5e7c074aa84bad5ea285dee2ca0, type: 2}
   m_IsPrefabAsset: 0
@@ -1223,7 +1218,7 @@ RectTransform:
   - {fileID: 185527176}
   - {fileID: 416727924}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoardStatus: 0
-  InputDevice: 2
+  InputDevice: 1
   Size: 9
   Bombs: 10
   _panel: {fileID: 0}
@@ -101,7 +101,6 @@ MonoBehaviour:
   _gameCardPrefab: {fileID: 1317360043755698, guid: d2a43fefc4a34c24aa7e721c26e986d8,
     type: 2}
   _markedCard: {fileID: 0}
-  _touchPlane: {fileID: 0}
   _player: {fileID: 0}
   _scaleFactor: 1.5
   _coroutineTimeStep: 0.0125

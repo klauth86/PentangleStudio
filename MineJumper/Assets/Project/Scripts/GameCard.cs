@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class GameCard : RotatingCard {
+[RequireComponent(typeof(MeshRenderer))]
+public class GameCard : MonoBehaviour {
     [SerializeField] private Material _unrevealedMaterial;
     [SerializeField] private Material _markedMaterial;
     [SerializeField] private Material[] _indexMaterials;
@@ -14,6 +15,18 @@ public class GameCard : RotatingCard {
     [SerializeField] private float _collapseTime;
 
     [SerializeField] public GameObject SelectionObject;
+
+    private bool _isRotating;
+
+    [SerializeField] private float _rotationVelocity;
+    private Vector3 _rotationVector;
+
+    private MeshRenderer _meshRenderer;
+    protected MeshRenderer MeshRenderer {
+        get {
+            return _meshRenderer ?? (_meshRenderer = GetComponent<MeshRenderer>());
+        }
+    }
 
     private Rigidbody _rigidbody;
     private Rigidbody Rigidbody {
@@ -31,7 +44,6 @@ public class GameCard : RotatingCard {
 
     private Card card;
     public Card Card {
-
         get {
             return card;
         }
@@ -84,9 +96,16 @@ public class GameCard : RotatingCard {
         }
     }
 
-    protected override void Init() {
-        base.Init();
+    void Start() {
+        _rotationVector = new Vector3(Random.Range(0.0f, 1.0f),
+        Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f)).normalized;
         _initPosition = transform.position;
+    }
+
+    // Update is called once per frame
+    void Update() {
+        if (_isRotating)
+            transform.Rotate(_rotationVector * Time.deltaTime * _rotationVelocity);
     }
 
     private void FixedUpdate() {
@@ -96,7 +115,7 @@ public class GameCard : RotatingCard {
     private IEnumerator CollapseRoutine() {
         var n = _collapseTime / _coroutineTimeStep;
         for (int i = 1; i <= n; i++) {
-            transform.localScale = (transform.localScale * (n-i))/n;
+            transform.localScale = (transform.localScale * (n - i)) / n;
             yield return new WaitForSeconds(_coroutineTimeStep);
         }
         Destroy(gameObject);
@@ -113,5 +132,10 @@ public class GameCard : RotatingCard {
         if (Input.GetMouseButtonDown(1)) {
             card.Mark();
         }
+    }
+
+    internal void ChangeState(bool isMarking) {
+        _isRotating = isMarking;
+        MeshRenderer.material.color = isMarking ? Color.white : Color.gray;
     }
 }
