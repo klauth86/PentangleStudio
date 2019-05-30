@@ -7,10 +7,8 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Game : MonoBehaviour {
 
     [SerializeField] private GameObject _gameCardPrefab;
-    [SerializeField] private GameObject _bombCardPrefab;
-    [SerializeField] private GameObject _markedCardPrefab;
 
-    [SerializeField] private GameObject _touchPlane;
+    [SerializeField] private RotatingCard _markedCard;
     [SerializeField] private Player _player;
 
     [SerializeField] private float _scaleFactor;
@@ -25,23 +23,24 @@ public class Game : MonoBehaviour {
 
         var gameBoard = CreateBoard(board);
         AdjustCamera90();
-        AdjustTouchPlane();
         StartCoroutine(PlayerTurnRoutine(gameBoard));
     }
 
     private GameCard[] CreateBoard(Board board) {
+        var notTouch = LevelManager.Instance.InputDevice != InputDevice.Touch;
+        if (notTouch)
+            Destroy(_markedCard);
+        else
+            _markedCard.ChangeState(false);
+
         var gameBoard = new GameCard[board.BoardSize];
         var offset = board.Size % 2 == 0 ? 0.5f : 0.0f;
         for (int i = 0; i < board.BoardSize; i++) {
             var gameCard = Instantiate(_gameCardPrefab,
-                new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset + 1), 0,
+                new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset + (notTouch ? 0 : 1)), 0,
                 _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity, transform).GetComponent<GameCard>();
             gameCard.Card = board.Cards[i];
             gameBoard[i] = gameCard;
-        }
-
-        if (LevelManager.Instance.InputDevice == InputDevice.Touch) {
-            var marked = Instantiate(_markedCardPrefab, new Vector3(0, 0, 0), Quaternion.identity, transform);
         }
 
         for (int i = 0; i < board.BoardSize; i++) {
@@ -75,16 +74,10 @@ public class Game : MonoBehaviour {
         Camera.main.transform.LookAt(Vector3.zero);
     }
 
-    private void AdjustTouchPlane() {
-        var scaleInUnits = _scaleFactor * LevelManager.Instance.Size;
-        _touchPlane.transform.localScale = new Vector3(scaleInUnits,
-            _touchPlane.transform.localScale.y,
-            scaleInUnits);
-    }
-
     private IEnumerator PlayerTurnRoutine(GameCard[] gameBoard) {
         GameCard selected = null;
         float keyTimeout = 0;
+        bool isMarking = false;
 
         while (LevelManager.Instance.BoardStatus == BoardStatus.Active) {
             yield return new WaitForSeconds(_coroutineTimeStep);
@@ -136,10 +129,19 @@ public class Game : MonoBehaviour {
                 if (Physics.Raycast(ray, out hit)) {
                     var gameCard = hit.collider.GetComponent<GameCard>();
                     if (gameCard) {
-                        gameCard.Card.Reveal();
+                        if (isMarking)
+                            gameCard.Card.Mark();
+                        else
+                            gameCard.Card.Reveal();
+                    }
+                    else {
+                        var markCard = hit.collider.GetComponent<RotatingCard>();
+                        if (markCard) {
+                            isMarking = !isMarking;
+                            markCard.ChangeState(isMarking);
+                        }
                     }
                 }
-                Debug.Log(ray);
             }
         }
         if (selected != null)

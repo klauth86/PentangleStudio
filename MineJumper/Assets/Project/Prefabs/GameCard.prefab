@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 135434704080563528}
   - component: {fileID: 54039890467532638}
   - component: {fileID: 114832875666628180}
-  - component: {fileID: 114332029065018830}
   m_Layer: 9
   m_Name: GameCard
   m_TagString: Untagged
@@ -188,18 +187,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114332029065018830
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1317360043755698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f120bf6ecc552b4a807759e1d5ececa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotationVelocity: 360
 --- !u!114 &114832875666628180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -211,6 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc6faa0d071f3f41b9496773583e3b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsRotating: 1
+  _rotationVelocity: 360
   _unrevealedMaterial: {fileID: 2100000, guid: 166f2b54120a38e4495eebb53fa7a3c4, type: 2}
   _markedMaterial: {fileID: 2100000, guid: 945d8f59b9907ff4593f5cb1fb23d4de, type: 2}
   _indexMaterials:

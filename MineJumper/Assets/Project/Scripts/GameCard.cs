@@ -1,11 +1,9 @@
 ﻿using Base;
 using System.Collections;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-[RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(Rigidbody))]
-public class GameCard : MonoBehaviour {
+public class GameCard : RotatingCard {
     [SerializeField] private Material _unrevealedMaterial;
     [SerializeField] private Material _markedMaterial;
     [SerializeField] private Material[] _indexMaterials;
@@ -16,13 +14,6 @@ public class GameCard : MonoBehaviour {
     [SerializeField] private float _collapseTime;
 
     [SerializeField] public GameObject SelectionObject;
-
-    private MeshRenderer _meshRenderer;
-    private MeshRenderer MeshRenderer {
-        get {
-            return _meshRenderer ?? (_meshRenderer = GetComponent<MeshRenderer>());
-        }
-    }
 
     private Rigidbody _rigidbody;
     private Rigidbody Rigidbody {
@@ -93,7 +84,8 @@ public class GameCard : MonoBehaviour {
         }
     }
 
-    private void Start() {
+    protected override void Init() {
+        base.Init();
         _initPosition = transform.position;
     }
 
