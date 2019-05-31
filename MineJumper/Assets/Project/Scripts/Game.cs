@@ -77,23 +77,22 @@ public class Game : MonoBehaviour {
     }
 
     private IEnumerator PlayerTurnRoutine(GameCard[] gameBoard) {
-        GameCard selected = null;
-        float keyTimeout = 0;
+        float inputTimeout = 0;
         bool isMarking = false;
+        GameCard selected = null;
 
         while (LevelManager.Instance.BoardStatus == BoardStatus.Active) {
             yield return new WaitForSeconds(_coroutineTimeStep);
+            inputTimeout -= Time.deltaTime;
 
             if (InputDevice.Keyboard == LevelManager.Instance.InputDevice) {
-                keyTimeout -= Time.deltaTime;
-
                 var x = CrossPlatformInputManager.GetAxisRaw("Horizontal");
                 var y = CrossPlatformInputManager.GetAxisRaw("Vertical");
                 var fire = CrossPlatformInputManager.GetButton("Fire1");
 
                 if (x != 0 || y != 0 || fire) {
-                    if (keyTimeout <= 0) {
-                        keyTimeout = _axisTimeSensitivity;
+                    if (inputTimeout <= 0) {
+                        inputTimeout = _axisTimeSensitivity;
 
                         if (selected == null) {
                             selected = gameBoard.First(item => item != null);
@@ -116,7 +115,7 @@ public class Game : MonoBehaviour {
                     }
                 }
                 else {
-                    keyTimeout = 0;
+                    inputTimeout = 0;
                 }
 
                 if (selected != null && CrossPlatformInputManager.GetButton("Jump")) {
@@ -126,20 +125,28 @@ public class Game : MonoBehaviour {
             }           
 
             if (InputDevice.Touch == LevelManager.Instance.InputDevice && Input.touchCount > 0) {
+
                 var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit)) {
-                    var gameCard = hit.collider.GetComponent<GameCard>();
-                    if (gameCard) {
-                        if (isMarking)
-                            gameCard.Card.Mark();
-                        else
-                            gameCard.Card.Reveal();
+                    if (inputTimeout <= 0) {
+                        inputTimeout = _axisTimeSensitivity;
+
+                        var gameCard = hit.collider.GetComponent<GameCard>();
+                        if (gameCard) {
+                            if (isMarking)
+                                gameCard.Card.Mark();
+                            else
+                                gameCard.Card.Reveal();
+                        }
+                        else {
+                            isMarking = !isMarking;
+                            _markedCard.ChangeState(isMarking);
+                        }
                     }
-                    else {
-                        isMarking = !isMarking;
-                        _markedCard.ChangeState(isMarking);
-                    }
+                }
+                else {
+                    inputTimeout = 0;
                 }
             }
         }
