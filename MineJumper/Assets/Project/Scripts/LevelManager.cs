@@ -16,13 +16,18 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private GameObject _menuPanel;
 
     [SerializeField] private GameObject _gamePanel;
-    [SerializeField] private TMPro.TMP_Text _text;
+    [SerializeField] private TMPro.TMP_Text _bombsLeftText;
+
+    [SerializeField] private GameObject _gameOverPanel;
+    [SerializeField] private TMPro.TMP_Text _statusText;
 
     [SerializeField] private Image _keyboardButtonImage;
     [SerializeField] private Image _mouseButtonImage;
     [SerializeField] private Image _touchButtonImage;
 
     [SerializeField] private GameObject _playButton;
+
+    [SerializeField] private TMPro.TMP_Text _helpText;
 
     private InputDevice _selectedInputDevice;
 
@@ -33,8 +38,8 @@ public class LevelManager : MonoBehaviour {
 
     internal void OnBoardStatusChanged(BoardStatus status) {
         InputDevice = InputDevice.None;
-        _text.text = GetBoardStatusDescription(status);
-        _gamePanel.SetActive(true);
+        _statusText.text = GetBoardStatusDescription(status);
+        _gameOverPanel.SetActive(true);
     }
 
     private void UpdateInputDevice() {
@@ -47,6 +52,18 @@ public class LevelManager : MonoBehaviour {
                 return "You LOSE!!!";
             case BoardStatus.Win:
                 return "You WIN!!!";
+        }
+        return "";
+    }
+
+    private string GetInputDeviceDescription(InputDevice device) {
+        switch (device) {
+            case InputDevice.Keyboard:
+                return "ARROWS to move selection," + Environment.NewLine + "CTRL to mark as bomb," + Environment.NewLine + "SPACE to reveal ...";
+            case InputDevice.Touch:
+                return "TOUCH to reveal," + Environment.NewLine + "TOUCH to mark as bomb if mark button is pressed ...";
+            case InputDevice.Mouse:
+                return "LEFT CLICK to reveal," + Environment.NewLine + "RIGHT CLICK to mark as bomb ...";
         }
         return "";
     }
@@ -66,7 +83,7 @@ public class LevelManager : MonoBehaviour {
     public void LoadMenu() {
         DestroyPrevGame();
 
-        _text.text = "";
+        _statusText.text = "";
         _gamePanel.SetActive(false);
 
         _menuPanel.SetActive(true);
@@ -77,9 +94,11 @@ public class LevelManager : MonoBehaviour {
 
         UpdateInputDevice();
 
-        _text.text = "";
-        _gamePanel.SetActive(false);
+        UpdateBombsLeft(Size);
 
+        _statusText.text = "";
+        _gamePanel.SetActive(true);
+        _gameOverPanel.SetActive(false);
         _menuPanel.SetActive(false);
 
         Instantiate(_gamePrefab);
@@ -89,6 +108,7 @@ public class LevelManager : MonoBehaviour {
         ResetColors();
         _keyboardButtonImage.color = new Color(0, 1, 0, 0.25f);
         _selectedInputDevice = InputDevice.Keyboard;
+        _helpText.text = GetInputDeviceDescription(_selectedInputDevice);
         _playButton.SetActive(true);
     }
 
@@ -96,6 +116,7 @@ public class LevelManager : MonoBehaviour {
         ResetColors();
         _mouseButtonImage.color = new Color(0, 1, 0, 0.25f);
         _selectedInputDevice = InputDevice.Mouse;
+        _helpText.text = GetInputDeviceDescription(_selectedInputDevice);
         _playButton.SetActive(true);
     }
 
@@ -103,10 +124,15 @@ public class LevelManager : MonoBehaviour {
         ResetColors();
         _touchButtonImage.color = new Color(0, 1, 0, 0.25f);
         _selectedInputDevice = InputDevice.Touch;
+        _helpText.text = GetInputDeviceDescription(_selectedInputDevice);
         _playButton.SetActive(true);
     }
 
     public void Exit() {
         Application.Quit();
+    }
+
+    public void UpdateBombsLeft(int left) {
+        _bombsLeftText.text = left.ToString();
     }
 }

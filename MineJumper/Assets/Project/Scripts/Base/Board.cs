@@ -8,7 +8,8 @@ namespace Base {
         public int Size;
         public int Bombs;
 
-        public event Action<Board, BoardStatus> OnBoardStatusChanged = delegate { };
+        public event Action<int> MarkedCardsChanged = delegate { };
+        public event Action<Board, BoardStatus> BoardStatusChanged = delegate { };
 
         public int BoardSize { get { return (int)Math.Pow(Size, Dim); } }
 
@@ -46,6 +47,7 @@ namespace Base {
         }
 
         private void OnMark(Card card) {
+            MarkedCardsChanged(Cards.Count(item => item.IsMarked));
             if (card.IsMarked && Cards.Where(item => item.HasBomb).All(item => item.IsMarked))
                 ChangeBoardStatus(BoardStatus.Win);
         }
@@ -99,7 +101,7 @@ namespace Base {
         }
 
         private void ChangeBoardStatus(BoardStatus status) {
-            OnBoardStatusChanged(this, status);
+            BoardStatusChanged(this, status);
 
             foreach (var card in Cards) {
                 card.OnReveal -= OnReveal;
