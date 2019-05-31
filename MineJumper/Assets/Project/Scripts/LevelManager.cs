@@ -10,7 +10,9 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] public int Size;
     [SerializeField] public int Bombs;
 
-    [SerializeField] private GameObject _panel;
+    [SerializeField] private GameObject _menuPanel;
+
+    [SerializeField] private GameObject _gamePanel;
     [SerializeField] private TMPro.TMP_Text _text;
 
 
@@ -28,15 +30,30 @@ public class LevelManager : MonoBehaviour {
 
     internal void OnBoardStatusChanged(BoardStatus status) {
         BoardStatus = status;
-        _text.text = status.ToString();
-        _panel.SetActive(true);
+        _text.text = GetDescription(status);
+        _gamePanel.SetActive(true);
     }
 
     public void LoadMenu() {
+        _text.text = "";
+        _gamePanel.SetActive(false);
         SceneManager.LoadScene(0);
     }
 
     public void LoadLevel() {
+        _text.text = "";
+        _gamePanel.SetActive(false);
+        BoardStatus = BoardStatus.Active;
         SceneManager.LoadScene(1);
+    }
+
+    public string GetDescription(BoardStatus status) {
+        switch (status) {
+            case BoardStatus.Lose:
+                return "You LOSE!!!";
+            case BoardStatus.Win:
+                return "You WIN!!!";
+        }
+        return "";
     }
 }
