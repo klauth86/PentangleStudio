@@ -195,10 +195,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1317360043755698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fc6faa0d071f3f41b9496773583e3b1, type: 3}
+  m_Script: {fileID: 11500000, guid: fadf857da5b580f47a9525d5a7fdc76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsRotating: 1
+  _isRotating: 1
   _rotationVelocity: 360
   _unrevealedMaterial: {fileID: 2100000, guid: 166f2b54120a38e4495eebb53fa7a3c4, type: 2}
   _markedMaterial: {fileID: 2100000, guid: 945d8f59b9907ff4593f5cb1fb23d4de, type: 2}
@@ -213,7 +213,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: fa22aee4c86d8a441b14062cdc030637, type: 2}
   - {fileID: 2100000, guid: d680a7103c89fe14e8adcc89b599728c, type: 2}
   - {fileID: 2100000, guid: 44d539a80834dd84f9799d5fddeba451, type: 2}
-  _stiffnessKoefficient: 100
   _coroutineTimeStep: 0.0125
   _collapseTime: 0.5
   SelectionObject: {fileID: 1465334126979750}

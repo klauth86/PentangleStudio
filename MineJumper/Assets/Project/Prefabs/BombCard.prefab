@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4670361842675458}
   - component: {fileID: 33568334522693320}
   - component: {fileID: 23438230430720022}
-  - component: {fileID: 114728752942544814}
   m_Layer: 5
   m_Name: BombCard
   m_TagString: Untagged
@@ -84,15 +83,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1188274964371908}
   m_Mesh: {fileID: 4300000, guid: 72f624de3ce50384d8c6a94439607ae7, type: 3}
---- !u!114 &114728752942544814
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1188274964371908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f120bf6ecc552b4a807759e1d5ececa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotationVelocity: 360
