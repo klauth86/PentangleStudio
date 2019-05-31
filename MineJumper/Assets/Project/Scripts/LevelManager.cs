@@ -33,9 +33,12 @@ public class LevelManager : MonoBehaviour {
 
     private InputDevice _selectedInputDevice;
 
+    private AudioManager _audioManager;
+
     // Use this for initialization
     void Start() {
         Instance = this;
+        _audioManager = GetComponent<AudioManager>();
     }
 
     internal void OnBoardStatusChanged(BoardStatus status) {
@@ -83,6 +86,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void LoadMenu() {
+        _audioManager.PlayButtonAudio();
         DestroyPrevGame();
 
         _statusText.text = "";
@@ -92,6 +96,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void LoadLevel() {
+        _audioManager.PlayButtonAudio();
         DestroyPrevGame();
 
         UpdateInputDevice();
@@ -107,6 +112,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void SetKeyboardDevice() {
+        _audioManager.PlayButtonAudio();
         ResetColors();
         _keyboardButtonImage.color = new Color(0, 1, 0, 0.25f);
         _selectedInputDevice = InputDevice.Keyboard;
@@ -115,6 +121,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void SetMouseDevice() {
+        _audioManager.PlayButtonAudio();
         ResetColors();
         _mouseButtonImage.color = new Color(0, 1, 0, 0.25f);
         _selectedInputDevice = InputDevice.Mouse;
@@ -123,6 +130,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void SetTouchDevice() {
+        _audioManager.PlayButtonAudio();
         ResetColors();
         _touchButtonImage.color = new Color(0, 1, 0, 0.25f);
         _selectedInputDevice = InputDevice.Touch;
@@ -131,6 +139,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void Exit() {
+        _audioManager.PlayButtonAudio();
         Application.Quit();
     }
 

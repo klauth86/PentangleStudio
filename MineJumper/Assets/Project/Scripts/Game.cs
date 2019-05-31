@@ -17,8 +17,8 @@ public class Game : MonoBehaviour {
     // Use this for initialization
     private void Start() {
         var board = new Board(2, LevelManager.Instance.Size, LevelManager.Instance.Bombs);
-        board.BoardStatusChanged += OnBoardStatusChanged;
         board.MarkedCardsChanged += OnMarkedCardsChanged;
+        board.BoardStatusChanged += OnBoardStatusChanged;
         var gameBoard = CreateBoard(board);
         AdjustCamera90();
         StartCoroutine(PlayerTurnRoutine(gameBoard));
@@ -154,6 +154,7 @@ public class Game : MonoBehaviour {
     }
 
     internal void OnBoardStatusChanged(Board board, BoardStatus status) {
+        board.MarkedCardsChanged -= OnMarkedCardsChanged;
         board.BoardStatusChanged -= OnBoardStatusChanged;
         LevelManager.Instance.OnBoardStatusChanged(status);
     }
