@@ -1,5 +1,6 @@
 ﻿using Base;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
@@ -29,5 +30,13 @@ public class LevelManager : MonoBehaviour {
         BoardStatus = status;
         _text.text = status.ToString();
         _panel.SetActive(true);
+    }
+
+    public void LoadMenu() {
+        SceneManager.LoadScene(0);
+    }
+
+    public void LoadLevel() {
+        SceneManager.LoadScene(1);
     }
 }
