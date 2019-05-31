@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
 
@@ -21,7 +20,7 @@ public class AudioManager : MonoBehaviour {
     }
 
     public void PlayCollapseClip() {
-        PlayAudio(_collapseClip);
+        //PlayAudio(_collapseClip);
     }
 
     private void PlayAudio(AudioClip clip) {

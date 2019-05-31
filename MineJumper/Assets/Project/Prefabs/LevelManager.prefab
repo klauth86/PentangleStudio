@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputDevice: 1
   Size: 9
-  Bombs: 1
+  Bombs: 10
   BombsLeft: 0
   _gamePrefab: {fileID: 114284725373344874, guid: c2a288714ddb2b84d8592a970b0c0c8b,
     type: 2}

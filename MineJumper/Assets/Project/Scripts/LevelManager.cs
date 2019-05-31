@@ -84,7 +84,7 @@ public class LevelManager : MonoBehaviour {
         _bombsLeftText.text = left.ToString();
     }
 
-    internal void OnBoardStatusChanged(BoardStatus status) {
+    public void OnBoardStatusChanged(BoardStatus status) {
         InputDevice = InputDevice.None;
         _statusText.text = GetBoardStatusDescription(status);
         _gameOverPanel.SetActive(true);
