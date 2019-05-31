@@ -1,5 +1,4 @@
-﻿using System;
-using Base;
+﻿using Base;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
@@ -17,6 +16,14 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private GameObject _gamePanel;
     [SerializeField] private TMPro.TMP_Text _text;
 
+    [SerializeField] private TMPro.TMP_Text _keyboardText;
+    [SerializeField] private TMPro.TMP_Text _mouseText;
+    [SerializeField] private TMPro.TMP_Text _touchText;
+
+    [SerializeField] private GameObject _playButton;
+
+    private InputDevice _selectedInputDevice;
+
     // Use this for initialization
     void Start() {
         Instance = this;
@@ -25,6 +32,20 @@ public class LevelManager : MonoBehaviour {
     internal void OnBoardStatusChanged(BoardStatus status) {
         _text.text = GetBoardStatusDescription(status);
         _gamePanel.SetActive(true);
+    }
+
+    private void UpdateInputDevice() {
+        InputDevice = _selectedInputDevice;
+    }
+
+    private string GetBoardStatusDescription(BoardStatus status) {
+        switch (status) {
+            case BoardStatus.Lose:
+                return "You LOSE!!!";
+            case BoardStatus.Win:
+                return "You WIN!!!";
+        }
+        return "";
     }
 
     public void LoadMenu() {
@@ -47,17 +68,25 @@ public class LevelManager : MonoBehaviour {
         Instantiate(_gamePrefab);
     }
 
-    private void UpdateInputDevice() {
-        throw new NotImplementedException();
+    public void SetKeyboardDevice() {
+        _keyboardText.color = Color.green;
+        _selectedInputDevice = InputDevice.Keyboard;
+        _playButton.SetActive(true);
     }
 
-    private string GetBoardStatusDescription(BoardStatus status) {
-        switch (status) {
-            case BoardStatus.Lose:
-                return "You LOSE!!!";
-            case BoardStatus.Win:
-                return "You WIN!!!";
-        }
-        return "";
+    public void SetMouseDevice() {
+        _mouseText.color = Color.green;
+        _selectedInputDevice = InputDevice.Mouse;
+        _playButton.SetActive(true);
+    }
+
+    public void SetTouchDevice() {
+        _touchText.color = Color.green;
+        _selectedInputDevice = InputDevice.Touch;
+        _playButton.SetActive(true);
+    }
+
+    public void Exit() {
+        Application.Quit();
     }
 }
