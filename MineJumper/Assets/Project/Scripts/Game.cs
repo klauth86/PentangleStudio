@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Linq;
 using Base;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class Game : MonoBehaviour {
     // Use this for initialization
     private void Start() {
         var board = new Board(2, LevelManager.Instance.Size, LevelManager.Instance.Bombs);
-        board.OnBoardStatusChanged += LevelManager.Instance.OnBoardStatusChanged;
+        board.OnBoardStatusChanged += OnBoardStatusChanged;
 
         var gameBoard = CreateBoard(board);
         AdjustCamera90();
@@ -62,12 +63,6 @@ public class Game : MonoBehaviour {
         return gameBoard;
     }
 
-    //private void AdjustCamera45(Board board) {
-    //    var offset = _scaleFactor * board.Size / 2 * (1 + Mathf.Tan(Mathf.PI / 12)) + 0.5f;
-    //    Camera.main.transform.position = new Vector3(0, offset, -offset);
-    //    Camera.main.transform.LookAt(Vector3.zero);
-    //}
-
     private void AdjustCamera90() {
         var offset = _scaleFactor * LevelManager.Instance.Size / 2 / Mathf.Tan(Mathf.PI / 6) + 2.5f;
         if (Camera.main.aspect < 1)
@@ -85,72 +80,89 @@ public class Game : MonoBehaviour {
             yield return new WaitForSeconds(_coroutineTimeStep);
             inputTimeout -= Time.deltaTime;
 
-            if (InputDevice.Keyboard == LevelManager.Instance.InputDevice) {
-                var x = CrossPlatformInputManager.GetAxisRaw("Horizontal");
-                var y = CrossPlatformInputManager.GetAxisRaw("Vertical");
-                var fire = CrossPlatformInputManager.GetButton("Fire1");
+            bool resetInputTimeout = false;
 
-                if (x != 0 || y != 0 || fire) {
-                    if (inputTimeout <= 0) {
-                        inputTimeout = _axisTimeSensitivity;
+            if (InputDevice.Keyboard == LevelManager.Instance.InputDevice)
+                resetInputTimeout = resetInputTimeout || ProcessKeyboardInput(ref inputTimeout, gameBoard, ref selected);
 
-                        if (selected == null) {
-                            selected = gameBoard.First(item => item != null);
-                        }
-                        else {
-                            if (x != 0) {
-                                selected.SelectionObject.SetActive(false);
-                                selected = (x > 0 ? selected.right : selected.left) ?? selected;
-                                selected.SelectionObject.SetActive(true);
-                            }
-                            else if (y != 0) {
-                                selected.SelectionObject.SetActive(false);
-                                selected = (y > 0 ? selected.up : selected.down) ?? selected;
-                                selected.SelectionObject.SetActive(true);
-                            }
-                            else if (CrossPlatformInputManager.GetButton("Fire1")) {
-                                selected.Card.Mark();
-                            }
-                        }                        
-                    }
-                }
-                else {
-                    inputTimeout = 0;
-                }
-
-                if (selected != null && CrossPlatformInputManager.GetButton("Jump")) {
-                    if (selected.Card.Reveal())
-                        selected = null;
-                }
-            }           
-
-            if (InputDevice.Touch == LevelManager.Instance.InputDevice && Input.touchCount > 0) {
-
-                var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit)) {
-                    if (inputTimeout <= 0) {
-                        inputTimeout = _axisTimeSensitivity;
-
-                        var gameCard = hit.collider.GetComponent<GameCard>();
-                        if (gameCard) {
-                            if (isMarking)
-                                gameCard.Card.Mark();
-                            else
-                                gameCard.Card.Reveal();
-                        }
-                        else {
-                            isMarking = !isMarking;
-                            _markedCard.ChangeState(isMarking);
-                        }
-                    }
-                }
-                else {
-                    inputTimeout = 0;
-                }
+            if (InputDevice.Touch == LevelManager.Instance.InputDevice) {
+                resetInputTimeout = resetInputTimeout || ProcessTouchInput(ref inputTimeout, ref isMarking);
             }
+
+            if (resetInputTimeout)
+                inputTimeout = 0;
         }
+
         if (selected != null)
             selected.SelectionObject.SetActive(false);
+    }
+
+    private bool ProcessTouchInput(ref float inputTimeout, ref bool isMarking) {
+        if (Input.touchCount > 0) {
+            var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit)) {
+                if (inputTimeout <= 0) {
+                    inputTimeout = _axisTimeSensitivity;
+
+                    var gameCard = hit.collider.GetComponent<GameCard>();
+                    if (gameCard) {
+                        if (isMarking)
+                            gameCard.Card.Mark();
+                        else
+                            gameCard.Card.Reveal();
+                    }
+                    else {
+                        isMarking = !isMarking;
+                        _markedCard.ChangeState(isMarking);
+                    }
+                }
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private bool ProcessKeyboardInput(ref float inputTimeout, GameCard[] gameBoard, ref GameCard selected) {
+        var x = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+        var y = CrossPlatformInputManager.GetAxisRaw("Vertical");
+        var fire = CrossPlatformInputManager.GetButton("Fire1");
+
+        if (x != 0 || y != 0 || fire) {
+            if (inputTimeout <= 0) {
+                inputTimeout = _axisTimeSensitivity;
+
+                if (selected == null) {
+                    selected = gameBoard.First(item => item != null);
+                }
+                else {
+                    if (x != 0) {
+                        selected.SelectionObject.SetActive(false);
+                        selected = (x > 0 ? selected.right : selected.left) ?? selected;
+                        selected.SelectionObject.SetActive(true);
+                    }
+                    else if (y != 0) {
+                        selected.SelectionObject.SetActive(false);
+                        selected = (y > 0 ? selected.up : selected.down) ?? selected;
+                        selected.SelectionObject.SetActive(true);
+                    }
+                    else if (CrossPlatformInputManager.GetButton("Fire1")) {
+                        selected.Card.Mark();
+                    }
+                }
+            }
+            return false;            
+        }
+        if (selected != null && CrossPlatformInputManager.GetButton("Jump")) {
+            if (selected.Card.Reveal())
+                selected = null;
+        }
+        return true;
+    }
+
+    internal void OnBoardStatusChanged(Board board, BoardStatus status) {
+        board.OnBoardStatusChanged -= OnBoardStatusChanged;
+        LevelManager.Instance.OnBoardStatusChanged(status);
+
     }
 }

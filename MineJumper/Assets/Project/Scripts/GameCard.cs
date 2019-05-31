@@ -138,4 +138,8 @@ public class GameCard : MonoBehaviour {
         _isRotating = isMarking;
         MeshRenderer.material.color = isMarking ? Color.white : Color.gray;
     }
+
+    private void OnDisable() {
+        Card = null;
+    }
 }
