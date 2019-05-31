@@ -90,7 +90,7 @@ namespace Cards {
         }
 
         private void OnMouseOver() {
-            if (InputDevice.Mouse != LevelManager.Instance.InputDevice || LevelManager.Instance.BoardStatus != BoardStatus.Active)
+            if (InputDevice.Mouse != LevelManager.Instance.InputDevice)
                 return;
 
             if (Input.GetMouseButtonDown(0)) {

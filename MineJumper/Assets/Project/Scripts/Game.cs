@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Linq;
 using Base;
 using Cards;
@@ -72,7 +71,7 @@ public class Game : MonoBehaviour {
         bool isMarking = false;
         GameCard selected = null;
 
-        while (LevelManager.Instance.BoardStatus == BoardStatus.Active) {
+        while (gameObject.activeSelf) {
             yield return new WaitForSeconds(_coroutineTimeStep);
             inputTimeout -= Time.deltaTime;
 
@@ -88,9 +87,6 @@ public class Game : MonoBehaviour {
             if (resetInputTimeout)
                 inputTimeout = 0;
         }
-
-        if (selected != null)
-            selected.SelectionObject.SetActive(false);
     }
 
     private bool ProcessTouchInput(ref float inputTimeout, ref bool isMarking) {
@@ -159,6 +155,5 @@ public class Game : MonoBehaviour {
     internal void OnBoardStatusChanged(Board board, BoardStatus status) {
         board.OnBoardStatusChanged -= OnBoardStatusChanged;
         LevelManager.Instance.OnBoardStatusChanged(status);
-
     }
 }
