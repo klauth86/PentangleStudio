@@ -49,6 +49,8 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void LoadMenu() {
+        Destroy(FindObjectOfType<Game>().gameObject);
+
         InputDevice = InputDevice.None;
 
         _text.text = "";
@@ -58,6 +60,8 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void LoadLevel() {
+        Destroy(FindObjectOfType<Game>().gameObject);
+
         UpdateInputDevice();
 
         _text.text = "";
