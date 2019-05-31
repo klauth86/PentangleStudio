@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 222695798626281788}
   - component: {fileID: 114726921804737588}
   m_Layer: 5
-  m_Name: TextMeshPro Text
+  m_Name: TouchTextMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 222231511710505196}
   - component: {fileID: 114431827235735680}
   m_Layer: 5
-  m_Name: TextMeshPro Text
+  m_Name: MouseTextMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 222276116141942064}
   - component: {fileID: 114276716260160446}
   m_Layer: 5
-  m_Name: TextMeshPro Text
+  m_Name: KeyboardTextMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 222919349364610568}
   - component: {fileID: 114930070863325374}
   m_Layer: 5
-  m_Name: TextMeshPro Text
+  m_Name: TitleTextMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 222930833231527784}
   - component: {fileID: 114125143352828484}
   m_Layer: 5
-  m_Name: TextMeshPro Text
+  m_Name: ExitTextMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 222055959917476292}
   - component: {fileID: 114957539438371682}
   m_Layer: 5
-  m_Name: TextMeshPro Text
+  m_Name: PlayTextMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -906,8 +906,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 54
-  m_fontSizeBase: 54
+  m_fontSize: 81
+  m_fontSizeBase: 81
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1406,9 +1406,9 @@ MonoBehaviour:
   _menuPanel: {fileID: 1725496102287704}
   _gamePanel: {fileID: 1960559639118468}
   _text: {fileID: 114184042387735410}
-  _keyboardText: {fileID: 114276716260160446}
-  _mouseText: {fileID: 114431827235735680}
-  _touchText: {fileID: 114726921804737588}
+  _keyboardButtonImage: {fileID: 114283115167023442}
+  _mouseButtonImage: {fileID: 114720445951671632}
+  _touchButtonImage: {fileID: 114363851257264240}
   _playButton: {fileID: 1835492192722728}
 --- !u!114 &114426042950680410
 MonoBehaviour:
@@ -1761,8 +1761,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 54
-  m_fontSizeBase: 54
+  m_fontSize: 81
+  m_fontSizeBase: 81
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2016,8 +2016,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 54
-  m_fontSizeBase: 54
+  m_fontSize: 81
+  m_fontSizeBase: 81
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2532,11 +2532,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 2
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -3168,7 +3168,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 831.28436, y: -916.08826}
-  m_SizeDelta: {x: 512, y: 256}
+  m_SizeDelta: {x: 768, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224722014606833512
 RectTransform:
@@ -3299,7 +3299,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 831.28436, y: -688.08826}
-  m_SizeDelta: {x: 512, y: 256}
+  m_SizeDelta: {x: 768, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224933703791854476
 RectTransform:

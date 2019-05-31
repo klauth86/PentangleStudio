@@ -1,5 +1,7 @@
-﻿using Base;
+﻿using System;
+using Base;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
@@ -16,9 +18,9 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] private GameObject _gamePanel;
     [SerializeField] private TMPro.TMP_Text _text;
 
-    [SerializeField] private TMPro.TMP_Text _keyboardText;
-    [SerializeField] private TMPro.TMP_Text _mouseText;
-    [SerializeField] private TMPro.TMP_Text _touchText;
+    [SerializeField] private Image _keyboardButtonImage;
+    [SerializeField] private Image _mouseButtonImage;
+    [SerializeField] private Image _touchButtonImage;
 
     [SerializeField] private GameObject _playButton;
 
@@ -30,6 +32,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     internal void OnBoardStatusChanged(BoardStatus status) {
+        InputDevice = InputDevice.None;
         _text.text = GetBoardStatusDescription(status);
         _gamePanel.SetActive(true);
     }
@@ -48,10 +51,20 @@ public class LevelManager : MonoBehaviour {
         return "";
     }
 
-    public void LoadMenu() {
-        Destroy(FindObjectOfType<Game>().gameObject);
+    private void DestroyPrevGame() {
+        var prevGame = FindObjectOfType<Game>();
+        if (prevGame)
+            Destroy(prevGame.gameObject);
+    }
 
-        InputDevice = InputDevice.None;
+    private void ResetColors() {;
+        _keyboardButtonImage.color = new Color(1, 1, 1, 0.25f);
+        _mouseButtonImage.color = new Color(1, 1, 1, 0.25f);
+        _touchButtonImage.color = new Color(1, 1, 1, 0.25f);
+    }
+
+    public void LoadMenu() {
+        DestroyPrevGame();
 
         _text.text = "";
         _gamePanel.SetActive(false);
@@ -60,7 +73,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void LoadLevel() {
-        Destroy(FindObjectOfType<Game>().gameObject);
+        DestroyPrevGame();
 
         UpdateInputDevice();
 
@@ -73,19 +86,22 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void SetKeyboardDevice() {
-        _keyboardText.color = Color.green;
+        ResetColors();
+        _keyboardButtonImage.color = new Color(0, 1, 0, 0.25f);
         _selectedInputDevice = InputDevice.Keyboard;
         _playButton.SetActive(true);
     }
 
     public void SetMouseDevice() {
-        _mouseText.color = Color.green;
+        ResetColors();
+        _mouseButtonImage.color = new Color(0, 1, 0, 0.25f);
         _selectedInputDevice = InputDevice.Mouse;
         _playButton.SetActive(true);
     }
 
     public void SetTouchDevice() {
-        _touchText.color = Color.green;
+        ResetColors();
+        _touchButtonImage.color = new Color(0, 1, 0, 0.25f);
         _selectedInputDevice = InputDevice.Touch;
         _playButton.SetActive(true);
     }
