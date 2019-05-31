@@ -24,11 +24,6 @@ public class LevelManager : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     internal void OnBoardStatusChanged(BoardStatus status) {
         BoardStatus = status;

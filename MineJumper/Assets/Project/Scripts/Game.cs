@@ -2,18 +2,16 @@
 using System.Collections;
 using System.Linq;
 using Base;
+using Cards;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Game : MonoBehaviour {
 
     [SerializeField] private GameObject _gameCardPrefab;
-
-    [SerializeField] private RotatingCard _markedCard;
-    [SerializeField] private Player _player;
+    [SerializeField] private MarkingCard _markedCard;
 
     [SerializeField] private float _scaleFactor;
-
     [SerializeField] private float _coroutineTimeStep;
     [SerializeField] private float _axisTimeSensitivity;
 
@@ -21,7 +19,6 @@ public class Game : MonoBehaviour {
     private void Start() {
         var board = new Board(2, LevelManager.Instance.Size, LevelManager.Instance.Bombs);
         board.OnBoardStatusChanged += OnBoardStatusChanged;
-
         var gameBoard = CreateBoard(board);
         AdjustCamera90();
         StartCoroutine(PlayerTurnRoutine(gameBoard));
@@ -43,7 +40,6 @@ public class Game : MonoBehaviour {
                 _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity, transform).GetComponent<GameCard>();
             gameCard.Card = board.Cards[i];
             gameBoard[i] = gameCard;
-            gameCard.ChangeState(true);
         }
 
         for (int i = 0; i < board.BoardSize; i++) {
