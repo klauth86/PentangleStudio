@@ -20,7 +20,9 @@ namespace Base {
 
         public event Action<Card> OnMark = delegate { };
 
-        public void Mark() {
+        public void Mark(int left) {
+            if (!IsMarked && left <= 0)
+                return;
             IsMarked = !IsMarked;
             OnMark(this);
         }

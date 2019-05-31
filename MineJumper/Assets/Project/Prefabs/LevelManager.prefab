@@ -1485,11 +1485,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputDevice: 1
   Size: 9
-  Bombs: 10
+  Bombs: 1
+  BombsLeft: 0
   _gamePrefab: {fileID: 114284725373344874, guid: c2a288714ddb2b84d8592a970b0c0c8b,
     type: 2}
   _menuPanel: {fileID: 1725496102287704}
-  _gamePanel: {fileID: 1960559639118468}
+  _gamePanel: {fileID: 1666962056064746}
   _bombsLeftText: {fileID: 114851956796008932}
   _gameOverPanel: {fileID: 1960559639118468}
   _statusText: {fileID: 114184042387735410}

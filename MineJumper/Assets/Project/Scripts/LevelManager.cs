@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] public int Size;
     [SerializeField] public int Bombs;
 
+    public int BombsLeft;
+
     [SerializeField] private Game _gamePrefab;
 
     [SerializeField] private GameObject _menuPanel;
@@ -94,7 +96,7 @@ public class LevelManager : MonoBehaviour {
 
         UpdateInputDevice();
 
-        UpdateBombsLeft(Size);
+        UpdateBombsLeft(Bombs);
 
         _statusText.text = "";
         _gamePanel.SetActive(true);
@@ -133,6 +135,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void UpdateBombsLeft(int left) {
+        BombsLeft = left;
         _bombsLeftText.text = left.ToString();
     }
 }

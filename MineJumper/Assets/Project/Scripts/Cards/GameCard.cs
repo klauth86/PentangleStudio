@@ -98,7 +98,7 @@ namespace Cards {
             }
 
             if (Input.GetMouseButtonDown(1)) {
-                card.Mark();
+                card.Mark(LevelManager.Instance.BombsLeft);
             }
         }
 

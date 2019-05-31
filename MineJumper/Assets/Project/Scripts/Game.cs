@@ -101,7 +101,7 @@ public class Game : MonoBehaviour {
                     var gameCard = hit.collider.GetComponent<GameCard>();
                     if (gameCard) {
                         if (isMarking)
-                            gameCard.Card.Mark();
+                            gameCard.Card.Mark(LevelManager.Instance.BombsLeft);
                         else
                             gameCard.Card.Reveal();
                     }
@@ -140,7 +140,7 @@ public class Game : MonoBehaviour {
                         selected.SelectionObject.SetActive(true);
                     }
                     else if (CrossPlatformInputManager.GetButton("Fire1")) {
-                        selected.Card.Mark();
+                        selected.Card.Mark(LevelManager.Instance.BombsLeft);
                     }
                 }
             }

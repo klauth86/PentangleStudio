@@ -47,7 +47,7 @@ namespace Base {
         }
 
         private void OnMark(Card card) {
-            MarkedCardsChanged(Cards.Count(item => item.IsMarked));
+            MarkedCardsChanged(Cards.Count(item => item.HasBomb) - Cards.Count(item => item.IsMarked));
             if (card.IsMarked && Cards.Where(item => item.HasBomb).All(item => item.IsMarked))
                 ChangeBoardStatus(BoardStatus.Win);
         }
