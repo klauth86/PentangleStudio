@@ -33,18 +33,12 @@ public class LevelManager : MonoBehaviour {
 
     private InputDevice _selectedInputDevice;
 
-    private AudioManager _audioManager;
+    public AudioManager AudioManager;
 
     // Use this for initialization
     void Start() {
         Instance = this;
-        _audioManager = GetComponent<AudioManager>();
-    }
-
-    internal void OnBoardStatusChanged(BoardStatus status) {
-        InputDevice = InputDevice.None;
-        _statusText.text = GetBoardStatusDescription(status);
-        _gameOverPanel.SetActive(true);
+        AudioManager = GetComponent<AudioManager>();
     }
 
     private void UpdateInputDevice() {
@@ -85,8 +79,27 @@ public class LevelManager : MonoBehaviour {
         _touchButtonImage.color = new Color(1, 1, 1, 0.25f);
     }
 
+    public void UpdateBombsLeft(int left) {
+        BombsLeft = left;
+        _bombsLeftText.text = left.ToString();
+    }
+
+    internal void OnBoardStatusChanged(BoardStatus status) {
+        InputDevice = InputDevice.None;
+        _statusText.text = GetBoardStatusDescription(status);
+        _gameOverPanel.SetActive(true);
+
+        if (status == BoardStatus.Win)
+            AudioManager.PlayWinAudio();
+
+        if (status == BoardStatus.Lose)
+            AudioManager.PlayWinAudio();
+    }
+
+    #region Button click
+
     public void LoadMenu() {
-        _audioManager.PlayButtonAudio();
+        AudioManager.PlayButtonAudio();
         DestroyPrevGame();
 
         _statusText.text = "";
@@ -96,7 +109,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void LoadLevel() {
-        _audioManager.PlayButtonAudio();
+        AudioManager.PlayButtonAudio();
         DestroyPrevGame();
 
         UpdateInputDevice();
@@ -112,7 +125,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void SetKeyboardDevice() {
-        _audioManager.PlayButtonAudio();
+        AudioManager.PlayButtonAudio();
         ResetColors();
         _keyboardButtonImage.color = new Color(0, 1, 0, 0.25f);
         _selectedInputDevice = InputDevice.Keyboard;
@@ -121,7 +134,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void SetMouseDevice() {
-        _audioManager.PlayButtonAudio();
+        AudioManager.PlayButtonAudio();
         ResetColors();
         _mouseButtonImage.color = new Color(0, 1, 0, 0.25f);
         _selectedInputDevice = InputDevice.Mouse;
@@ -130,7 +143,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void SetTouchDevice() {
-        _audioManager.PlayButtonAudio();
+        AudioManager.PlayButtonAudio();
         ResetColors();
         _touchButtonImage.color = new Color(0, 1, 0, 0.25f);
         _selectedInputDevice = InputDevice.Touch;
@@ -139,12 +152,9 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void Exit() {
-        _audioManager.PlayButtonAudio();
+        AudioManager.PlayButtonAudio();
         Application.Quit();
     }
 
-    public void UpdateBombsLeft(int left) {
-        BombsLeft = left;
-        _bombsLeftText.text = left.ToString();
-    }
+    #endregion
 }

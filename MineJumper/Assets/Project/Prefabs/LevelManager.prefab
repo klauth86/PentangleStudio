@@ -957,6 +957,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buttonClip: {fileID: 8300000, guid: 041198f38c4ef9b419007c5ed78d70e6, type: 3}
+  _winClip: {fileID: 8300000, guid: 0e5318cc4de482149a4043f8531d3ac4, type: 3}
+  _loseClip: {fileID: 8300000, guid: e7f9aaad5ad32a34581370184b5e4259, type: 3}
+  _collapseClip: {fileID: 8300000, guid: 16c1abbc2952e094ab86acf8d807caf6, type: 3}
 --- !u!114 &114184042387735410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1512,6 +1515,7 @@ MonoBehaviour:
   _touchButtonImage: {fileID: 114363851257264240}
   _playButton: {fileID: 1835492192722728}
   _helpText: {fileID: 114777189754949714}
+  _audioManager: {fileID: 0}
 --- !u!114 &114426042950680410
 MonoBehaviour:
   m_ObjectHideFlags: 1

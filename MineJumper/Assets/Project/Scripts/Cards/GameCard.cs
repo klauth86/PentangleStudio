@@ -81,6 +81,7 @@ namespace Cards {
         }
 
         private IEnumerator CollapseRoutine() {
+            LevelManager.Instance.AudioManager.PlayCollapseClip();
             var n = _collapseTime / _coroutineTimeStep;
             for (int i = 1; i <= n; i++) {
                 transform.localScale = (transform.localScale * (n - i)) / n;
