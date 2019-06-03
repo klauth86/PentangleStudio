@@ -1,5 +1,4 @@
-﻿using Base;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace Cards {
@@ -20,60 +19,29 @@ namespace Cards {
             }
         }
 
-        private Card card;
-        public Card Card {
-            get {
-                return card;
-            }
-
-            set {
-                Unsubscribe(card);
-                card = value;
-                InitAndSubscribe(card);
-            }
-        }
-
-        private void InitAndSubscribe(Card card) {
-            if (card == null)
-                return;
-
+        // Use this for initialization
+        void Start() {
             MeshRenderer.material = _unrevealedMaterial;
-
-            card.OnMark += OnMark;
-            card.OnReveal += OnReveal;
         }
 
-        private void Unsubscribe(Card card) {
-            if (card == null)
-                return;
-
-            card.OnMark -= OnMark;
-            card.OnReveal -= OnReveal;
+        private void Mark(bool isMarked) {
+            MeshRenderer.material = isMarked ? _markedMaterial : _unrevealedMaterial;
         }
 
-        private void OnMark(Card card) {
-            MeshRenderer.material = card.IsMarked ? _markedMaterial : _unrevealedMaterial;
-        }
-
-        private void OnReveal(Card card) {
-            MeshRenderer.material = _indexMaterials[card.BombIndex];
-            if (card.BombIndex == 0) {
+        private void Reveal(int bombIndex) {
+            MeshRenderer.material = _indexMaterials[bombIndex];
+            if (bombIndex == 0) {
                 StartCoroutine(CollapseRoutine());
             }
         }
 
         private IEnumerator CollapseRoutine() {
-            LevelManager.Instance.AudioManager.PlayCollapseClip();
             var n = _collapseTime / _coroutineTimeStep;
             for (int i = 1; i <= n; i++) {
                 transform.localScale = (transform.localScale * (n - i)) / n;
                 yield return new WaitForSeconds(_coroutineTimeStep);
             }
             Destroy(gameObject);
-        }
-
-        private void OnDisable() {
-            Card = null;
         }
     }
 }

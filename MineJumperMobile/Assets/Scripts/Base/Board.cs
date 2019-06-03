@@ -6,10 +6,15 @@ namespace Base {
     public class Board {
         public int Dim;
         public int Size;
+
         public int Bombs;
+        public int Marks;
 
         public event Action<int> MarkedCardsChanged = delegate { };
         public event Action<Board, BoardStatus> BoardStatusChanged = delegate { };
+
+        public event Action<Card> CardRevealed = delegate { };
+        public event Action<Card> CardMarked = delegate { };
 
         public int BoardSize { get { return (int)Math.Pow(Size, Dim); } }
 
@@ -19,6 +24,7 @@ namespace Base {
             Dim = dim;
             Size = size;
             Bombs = bombs;
+            Marks = bombs;
 
             Cards = new Card[BoardSize];
 
@@ -27,29 +33,39 @@ namespace Base {
                 if (i < bombs)
                     card.HasBomb = true;
                 Cards[i] = card;
-                Cards[i].OnReveal += OnReveal;
-                Cards[i].OnMark += OnMark;
             }
 
             Shuffle();
             CountIndexes();
         }
 
-        private void OnReveal(Card card) {
+        private void RevealCard(Card card) {
+            if (card.IsMarked)
+                return;
+
+            card.IsRevealed = true;
+
             if (card.HasBomb) {
                 ChangeBoardStatus(BoardStatus.Lose);
             }
             else if (card.BombIndex == 0)
                 foreach (var item in GetNeighbourCards(card)) {
                     if (!item.IsRevealed)
-                        item.Reveal();
+                        RevealCard(item);
                 }
+
+            CardRevealed(card);
         }
 
-        private void OnMark(Card card) {
-            MarkedCardsChanged(Cards.Count(item => item.HasBomb) - Cards.Count(item => item.IsMarked));
-            if (card.IsMarked && Cards.Where(item => item.HasBomb).All(item => item.IsMarked))
+        private void MarkCard(Card card) {
+            card.IsMarked = !card.IsMarked;
+
+            Marks = Marks + (card.IsMarked ? -1 : 1);
+
+            if (Cards.Where(item => item.HasBomb).All(item => item.IsMarked))
                 ChangeBoardStatus(BoardStatus.Win);
+
+            CardMarked(card);
         }
 
         private void Shuffle() {
@@ -102,11 +118,6 @@ namespace Base {
 
         private void ChangeBoardStatus(BoardStatus status) {
             BoardStatusChanged(this, status);
-
-            foreach (var card in Cards) {
-                card.OnReveal -= OnReveal;
-                card.OnMark -= OnMark;
-            }
         }
     }
 }
