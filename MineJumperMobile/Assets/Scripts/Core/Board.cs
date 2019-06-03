@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Events;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Base {
+namespace Core {
     public class Board {
         public int Dim;
         public int Size;
@@ -10,11 +11,11 @@ namespace Base {
         public int Bombs;
         public int Marks;
 
-        public event Action<int> MarkedCardsChanged = delegate { };
-        public event Action<Board, BoardStatus> BoardStatusChanged = delegate { };
+        public event GameAction<int> MarkedCardsChanged = delegate { };
+        public event GameAction<Board, BoardStatus> BoardStatusChanged = delegate { };
 
-        public event Action<Card> CardRevealed = delegate { };
-        public event Action<Card> CardMarked = delegate { };
+        public event GameAction<Card> CardRevealed = delegate { };
+        public event GameAction<Card> CardMarked = delegate { };
 
         public int BoardSize { get { return (int)Math.Pow(Size, Dim); } }
 

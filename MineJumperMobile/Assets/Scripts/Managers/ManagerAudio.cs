@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 
 namespace Managers {
+    public enum AudioClipType {
+        ButtonClick, Collapse, Explode, Lose, Win
+    }
+
     [RequireComponent(typeof(Master))]
     public class ManagerAudio : MonoBehaviour {
 
@@ -18,30 +22,44 @@ namespace Managers {
 
         #region Manager Methods
 
-        public void PlayButtonClickAudio() {
-            if (_buttonClickClip)
-                PlayAudio(_buttonClickClip);
-        }
+        public void PlayAudio(AudioClipType clipType) {
+            switch (clipType) {
+                case AudioClipType.ButtonClick:
+                    if (_buttonClickClip)
+                        PlayAudio(_buttonClickClip);
+                    else
+                        Debug.LogWarning("ButtonClickClip is not set up in Inspector");
+                    break;
 
-        public void PlayWinAudio() {
-            if (_winClip)
-                PlayAudio(_winClip);
-        }
+                case AudioClipType.Collapse:
+                    if (_collapseClip)
+                        PlayAudio(_collapseClip);
+                    else
+                        Debug.LogWarning("CollapseClip is not set up in Inspector");
+                    break;
 
-        public void PlayLoseAudio() {
-            if (_loseClip)
-                PlayAudio(_loseClip);
-        }
+                case AudioClipType.Explode:
+                    if (_explodeClip)
+                        PlayAudio(_explodeClip);
+                    else
+                        Debug.LogWarning("ExplodeClip is not set up in Inspector");
+                    break;
 
-        public void PlayCollapseAudio() {
-            if (_collapseClip)
-                PlayAudio(_collapseClip);
-        }
+                case AudioClipType.Lose:
+                    if (_loseClip)
+                        PlayAudio(_loseClip);
+                    else
+                        Debug.LogWarning("LoseClip is not set up in Inspector");
+                    break;
 
-        public void PlayExplodeAudio() {
-            if (_explodeClip)
-                PlayAudio(_explodeClip);
-        }
+                case AudioClipType.Win:
+                    if (_winClip)
+                        PlayAudio(_winClip);
+                    else
+                        Debug.LogWarning("WinClip is not set up in Inspector");
+                    break;
+            }
+        }        
 
         #endregion        
     }

@@ -1,4 +1,5 @@
-﻿using Base;
+﻿using Core;
+using Events;
 using UnityEngine;
 
 namespace Managers {
@@ -13,6 +14,12 @@ namespace Managers {
         [SerializeField] private TMPro.TMP_Text _statusText;
 
         [SerializeField] private GameObject _playButton;
+
+        #region Events
+        
+        public event GameAction ButtonClick
+
+        #endregion
 
         #region Manager Methods
 
@@ -34,6 +41,19 @@ namespace Managers {
                     text = "WIN !!!";
                     break;
             }
+        }
+
+        #endregion
+
+        #region UI Handlers
+
+        public void OnPlayButtonClick() {
+            ButtonClick();
+            ShowGameUI();
+        }
+
+        public void OnExitButtonClick() {
+
         }
 
         #endregion
