@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Core;
+using System.Collections;
 using UnityEngine;
 
 namespace Cards {
@@ -18,6 +19,8 @@ namespace Cards {
                 return _rigidbody ?? (_rigidbody = GetComponent<Rigidbody>());
             }
         }
+
+        public Card Card { get; set; }
 
         // Use this for initialization
         void Start() {

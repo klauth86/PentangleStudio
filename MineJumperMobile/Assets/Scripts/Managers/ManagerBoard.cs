@@ -7,12 +7,16 @@ using UnityEngine;
 namespace Managers {
     public class ManagerBoard : Base {
 
+        #region Inspector
+
         [SerializeField] private MarkingCard _markedCard;
         [SerializeField] private GameObject _gameCardPrefab;
 
         [SerializeField] private float _scaleFactor;
         [SerializeField] private float _coroutineTimeStep;
         [SerializeField] private float _axisTimeSensitivity;
+
+        #endregion
 
         private GameCard[] CreateBoard(Board board) {
             _markedCard.ChangeState(false);
@@ -23,24 +27,21 @@ namespace Managers {
                 var gameCard = Instantiate(_gameCardPrefab,
                     new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset + 1), 0,
                     _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity, transform).GetComponent<GameCard>();
-
-
-
                 gameCard.Card = board.Cards[i];
                 gameBoard[i] = gameCard;
             }
             return gameBoard;
         }
 
-        private void AdjustCamera90() {
-            var offset = _scaleFactor * LevelManager.Instance.Size / 2 / Mathf.Tan(Mathf.PI / 6) + 2.5f;
+        private void AdjustCamera90(Board board) {
+            var offset = _scaleFactor * board.Size / 2 / Mathf.Tan(Mathf.PI / 6) + 2.5f;
             if (Camera.main.aspect < 1)
                 offset /= Camera.main.aspect;
             Camera.main.transform.position = new Vector3(0, offset, 0);
             Camera.main.transform.LookAt(Vector3.zero);
         }
 
-        private IEnumerator PlayerTurnRoutine(GameCard[] gameBoard) {
+        private IEnumerator PlayerTurnRoutine(Board board) {
             float inputTimeout = 0;
             bool isMark = false;
 
@@ -48,12 +49,12 @@ namespace Managers {
                 yield return new WaitForSeconds(_coroutineTimeStep);
                 inputTimeout -= Time.deltaTime;
 
-                if (ProcessTouchInput(ref inputTimeout, ref isMark))
+                if (ProcessTouchInput(board, ref inputTimeout, ref isMark))
                     inputTimeout = 0;
             }
         }
 
-        private bool ProcessTouchInput(ref float inputTimeout, ref bool isMark) {
+        private bool ProcessTouchInput(Board board, ref float inputTimeout, ref bool isMark) {
             if (Input.touchCount > 0) {
                 var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hit;
@@ -64,9 +65,9 @@ namespace Managers {
                         var gameCard = hit.collider.GetComponent<GameCard>();
                         if (gameCard) {
                             if (isMark)
-                                gameCard.Card.Mark(LevelManager.Instance.BombsLeft);
+                                board.MarkCard(gameCard.Card);
                             else
-                                gameCard.Card.Reveal();
+                                board.RevealCard(gameCard.Card);
                         }
                         else {
                             isMark = !isMark;
@@ -77,16 +78,6 @@ namespace Managers {
                 }
             }
             return true;
-        }
-
-        private void OnBoardStatusChanged(Board board, BoardStatus status) {
-            board.MarkedCardsChanged -= OnMarkedCardsChanged;
-            board.StatusChanged -= OnBoardStatusChanged;
-            LevelManager.Instance.OnBoardStatusChanged(status);
-        }
-
-        private void OnMarkedCardsChanged(int count) {
-            LevelManager.Instance.UpdateBombsLeft(count);
         }
 
         private void OnStatusChanged(Board board, BoardStatus status) {
@@ -103,12 +94,9 @@ namespace Managers {
 
         public void CreateBoard(int size, int bombs) {
             var board = new Board(2, size, bombs);
-
-            board.StatusChanged += OnStatusChanged;
-
-            var gameBoard = CreateBoard(board);
-            AdjustCamera90();
-            StartCoroutine(PlayerTurnRoutine(gameBoard));
+            CreateBoard(board);
+            AdjustCamera90(board);
+            StartCoroutine(PlayerTurnRoutine(board));
         }
 
         #endregion

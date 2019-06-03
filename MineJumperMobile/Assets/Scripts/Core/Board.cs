@@ -38,7 +38,7 @@ namespace Core {
             CountIndexes();
         }
 
-        private void RevealCard(Card card) {
+        public void RevealCard(Card card) {
             if (card.IsMarked)
                 return;
 
@@ -56,7 +56,7 @@ namespace Core {
             CardRevealed(this, card);
         }
 
-        private void MarkCard(Card card) {
+        public void MarkCard(Card card) {
             card.IsMarked = !card.IsMarked;
 
             Marks = Marks + (card.IsMarked ? -1 : 1);
