@@ -14,7 +14,7 @@ namespace Managers {
             _boardManager = GetComponent<ManagerBoard>();
             _uiManager = GetComponent<ManagerUI>();
 
-            _uiManager.ButtonClicked += _audioManager.PlayAudio(AudioClipType.ButtonClick);
+            _uiManager.ButtonClicked += o => _audioManager.PlayAudio(AudioClipType.ButtonClick);
         }
     }
 }

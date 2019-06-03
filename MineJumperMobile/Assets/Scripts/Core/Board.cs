@@ -11,8 +11,7 @@ namespace Core {
         public int Bombs;
         public int Marks;
 
-        public event GameAction<int> MarkedCardsChanged = delegate { };
-        public event GameAction<Board, BoardStatus> BoardStatusChanged = delegate { };
+        public event GameAction<BoardStatus> StatusChanged = delegate { };
 
         public event GameAction<Card> CardRevealed = delegate { };
         public event GameAction<Card> CardMarked = delegate { };
@@ -55,7 +54,7 @@ namespace Core {
                         RevealCard(item);
                 }
 
-            CardRevealed(card);
+            CardRevealed(this, card);
         }
 
         private void MarkCard(Card card) {
@@ -66,7 +65,7 @@ namespace Core {
             if (Cards.Where(item => item.HasBomb).All(item => item.IsMarked))
                 ChangeBoardStatus(BoardStatus.Win);
 
-            CardMarked(card);
+            CardMarked(this, card);
         }
 
         private void Shuffle() {
@@ -118,7 +117,7 @@ namespace Core {
         }
 
         private void ChangeBoardStatus(BoardStatus status) {
-            BoardStatusChanged(this, status);
+            StatusChanged(this, status);
         }
     }
 }

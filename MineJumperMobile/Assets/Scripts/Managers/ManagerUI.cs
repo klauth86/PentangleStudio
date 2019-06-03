@@ -16,8 +16,8 @@ namespace Managers {
         [SerializeField] private GameObject _playButton;
 
         #region Events
-        
-        public event GameAction ButtonClick
+
+        public event GameAction ButtonClick = delegate { };
 
         #endregion
 
@@ -48,12 +48,13 @@ namespace Managers {
         #region UI Handlers
 
         public void OnPlayButtonClick() {
-            ButtonClick();
+            ButtonClick(this);
             ShowGameUI();
         }
 
         public void OnExitButtonClick() {
-
+            ButtonClick(this);
+            Application.Quit();
         }
 
         #endregion

@@ -20,25 +20,13 @@ namespace Managers {
             var offset = board.Size % 2 == 0 ? 0.5f : 0.0f;
             for (int i = 0; i < board.BoardSize; i++) {
                 var gameCard = Instantiate(_gameCardPrefab,
-                    new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset + (notTouch ? 0 : 1)), 0,
+                    new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset + 1), 0,
                     _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity, transform).GetComponent<GameCard>();
+
+
+
                 gameCard.Card = board.Cards[i];
                 gameBoard[i] = gameCard;
-            }
-
-            for (int i = 0; i < board.BoardSize; i++) {
-                if (i - board.Size >= 0) {
-                    gameBoard[i].down = gameBoard[i - board.Size];
-                }
-                if (i + board.Size < board.BoardSize) {
-                    gameBoard[i].up = gameBoard[i + board.Size];
-                }
-                if (i - 1 >= 0 && (i - 1) / board.Size == i / board.Size) {
-                    gameBoard[i].left = gameBoard[i - 1];
-                }
-                if (i + 1 < board.BoardSize && (i + 1) / board.Size == i / board.Size) {
-                    gameBoard[i].right = gameBoard[i + 1];
-                }
             }
             return gameBoard;
         }
@@ -92,7 +80,7 @@ namespace Managers {
 
         private void OnBoardStatusChanged(Board board, BoardStatus status) {
             board.MarkedCardsChanged -= OnMarkedCardsChanged;
-            board.BoardStatusChanged -= OnBoardStatusChanged;
+            board.StatusChanged -= OnBoardStatusChanged;
             LevelManager.Instance.OnBoardStatusChanged(status);
         }
 
@@ -106,7 +94,7 @@ namespace Managers {
             var board = new Board(2, size, bombs);
 
             board.MarkedCardsChanged += OnMarkedCardsChanged;
-            board.BoardStatusChanged += OnBoardStatusChanged;
+            board.StatusChanged += OnBoardStatusChanged;
 
             var gameBoard = CreateBoard(board);
             AdjustCamera90();
