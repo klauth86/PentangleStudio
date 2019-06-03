@@ -2,9 +2,7 @@
 using UnityEngine;
 
 namespace Managers {
-    public class UIManager : MonoBehaviour {
-
-        [SerializeField] private Game _gamePrefab;
+    public class ManagerUI : Base {
 
         [SerializeField] private GameObject _menuPanel;
 
@@ -15,6 +13,8 @@ namespace Managers {
         [SerializeField] private TMPro.TMP_Text _statusText;
 
         [SerializeField] private GameObject _playButton;
+
+        #region Manager Methods
 
         public void ShowMenuUI() {
 
@@ -28,12 +28,14 @@ namespace Managers {
             string text = "";
             switch (status) {
                 case BoardStatus.Lose:
-                    text = "You LOSE!!!";
+                    text = "LOSE !!!";
                     break;
                 case BoardStatus.Win:
-                    text = "You WIN!!!";
+                    text = "WIN !!!";
                     break;
             }
         }
+
+        #endregion
     }
 }
