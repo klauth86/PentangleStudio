@@ -3,7 +3,14 @@ using Events;
 using UnityEngine;
 
 namespace Managers {
+
     public class ManagerUI : Base {
+
+        public enum ButtonRole {
+            PlayButton, ExitButton
+        }
+
+        #region Inspector
 
         [SerializeField] private GameObject _menuPanel;
 
@@ -15,9 +22,14 @@ namespace Managers {
 
         [SerializeField] private GameObject _playButton;
 
+        #endregion
+
+        public int Size;
+        public int Bombs;
+
         #region Events
 
-        public event GameAction ButtonClick = delegate { };
+        public event GameAction<ButtonRole> ButtonClicked = delegate { };
 
         #endregion
 
@@ -48,15 +60,16 @@ namespace Managers {
         #region UI Handlers
 
         public void OnPlayButtonClick() {
-            ButtonClick(this);
+            ButtonClicked(ButtonRole.PlayButton);
             ShowGameUI();
         }
 
         public void OnExitButtonClick() {
-            ButtonClick(this);
+            ButtonClicked(ButtonRole.ExitButton);
             Application.Quit();
         }
 
         #endregion
     }
+
 }

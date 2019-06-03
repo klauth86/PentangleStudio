@@ -11,10 +11,9 @@ namespace Core {
         public int Bombs;
         public int Marks;
 
-        public event GameAction<BoardStatus> StatusChanged = delegate { };
-
-        public event GameAction<Card> CardRevealed = delegate { };
-        public event GameAction<Card> CardMarked = delegate { };
+        public event GameAction<Board, BoardStatus> StatusChanged = delegate { };
+        public event GameAction<Board, Card> CardRevealed = delegate { };
+        public event GameAction<Board, Card> CardMarked = delegate { };
 
         public int BoardSize { get { return (int)Math.Pow(Size, Dim); } }
 

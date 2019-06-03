@@ -1,5 +1,6 @@
 ﻿using Cards;
 using Core;
+using Events;
 using System.Collections;
 using UnityEngine;
 
@@ -88,13 +89,22 @@ namespace Managers {
             LevelManager.Instance.UpdateBombsLeft(count);
         }
 
+        private void OnStatusChanged(Board board, BoardStatus status) {
+            GameStatusChanged(status);
+        }
+
+        #region Events
+
+        public event GameAction<BoardStatus> GameStatusChanged = delegate { };
+
+        #endregion
+
         #region Manager Methods
 
         public void CreateBoard(int size, int bombs) {
             var board = new Board(2, size, bombs);
 
-            board.MarkedCardsChanged += OnMarkedCardsChanged;
-            board.StatusChanged += OnBoardStatusChanged;
+            board.StatusChanged += OnStatusChanged;
 
             var gameBoard = CreateBoard(board);
             AdjustCamera90();

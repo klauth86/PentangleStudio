@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 
 namespace Managers {
+
     [RequireComponent(typeof(Master))]
     public class Base : MonoBehaviour {
+
         protected Master _master;
 
         // Use this for initialization
@@ -10,4 +12,5 @@ namespace Managers {
             _master = GetComponent<Master>();
         }
     }
+
 }

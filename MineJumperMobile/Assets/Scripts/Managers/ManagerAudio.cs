@@ -1,20 +1,22 @@
 ﻿using UnityEngine;
 
 namespace Managers {
+
     public enum AudioClipType {
         ButtonClick, Collapse, Explode, Lose, Win
     }
 
-    [RequireComponent(typeof(Master))]
-    public class ManagerAudio : MonoBehaviour {
+    public class ManagerAudio : Base {
 
-        private Master _master;
+        #region Inspector
 
         [SerializeField] private AudioClip _buttonClickClip;
         [SerializeField] private AudioClip _winClip;
         [SerializeField] private AudioClip _loseClip;
         [SerializeField] private AudioClip _collapseClip;
         [SerializeField] private AudioClip _explodeClip;
+
+        #endregion
 
         private void PlayAudio(AudioClip clip) {
             AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
