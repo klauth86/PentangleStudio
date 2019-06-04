@@ -9,7 +9,7 @@ namespace Managers {
 
         #region Inspector
 
-        [SerializeField] private MarkingCard _markedCard;
+        [SerializeField] private GameObject _gameBoardPrefab;
         [SerializeField] private GameObject _gameCardPrefab;
 
         [SerializeField] private float _scaleFactor;
@@ -19,18 +19,17 @@ namespace Managers {
         #endregion
 
         private GameCard[] CreateBoard(Board board) {
-            _markedCard.ChangeState(false);
-
-            var gameBoard = new GameCard[board.BoardSize];
+            var gameBoard = Instantiate(_gameBoardPrefab);
+            var gameCards = new GameCard[board.BoardSize];
             var offset = board.Size % 2 == 0 ? 0.5f : 0.0f;
             for (int i = 0; i < board.BoardSize; i++) {
                 var gameCard = Instantiate(_gameCardPrefab,
                     new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset + 1), 0,
-                    _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity, transform).GetComponent<GameCard>();
+                    _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity, gameBoard.transform).GetComponent<GameCard>();
                 gameCard.Card = board.Cards[i];
-                gameBoard[i] = gameCard;
+                gameCards[i] = gameCard;
             }
-            return gameBoard;
+            return gameCards;
         }
 
         private void AdjustCamera90(Board board) {
