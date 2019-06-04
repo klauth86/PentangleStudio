@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 52ef5b8be91735d469182501efe98b6e
+guid: 9c8dd5f3cdc9f1b43b4d1c6195553582
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: RetopoGroup1
-    400000: //RootNode
-    400002: RetopoGroup1
+    100000: RetopoGroup1
+    100002: //RootNode
+    400000: RetopoGroup1
+    400002: //RootNode
     2100000: RetopoGroup1Mat
     2300000: RetopoGroup1
     3300000: RetopoGroup1
