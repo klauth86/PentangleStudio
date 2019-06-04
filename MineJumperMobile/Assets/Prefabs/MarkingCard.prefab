@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4280458121174886}
   - component: {fileID: 33081614395174478}
   - component: {fileID: 23076058250569382}
+  - component: {fileID: 135198798915120878}
   - component: {fileID: 114957746937850604}
   m_Layer: 5
   m_Name: MarkingCard
@@ -97,3 +98,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isRotating: 1
   _rotationVelocity: 360
+--- !u!135 &135198798915120878
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1905805414069038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

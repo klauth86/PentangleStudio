@@ -940,13 +940,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf54e778074d7274f8ba68fb90a08af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _markedCard: {fileID: 114957746937850604, guid: 04e2450d5f125f945ac24b73f4a6c26e,
+  _markingCardPrefab: {fileID: 1905805414069038, guid: 04e2450d5f125f945ac24b73f4a6c26e,
     type: 2}
   _gameCardPrefab: {fileID: 1317360043755698, guid: beba3fd1cc1a782488eec5bdb9531a28,
     type: 2}
   _scaleFactor: 1.2
-  _coroutineTimeStep: 0.0625
-  _axisTimeSensitivity: 0.25
+  _coroutineTimeStep: 0.0125
+  _axisTimeSensitivity: 0.075
 --- !u!114 &114038309137668194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2305,7 +2305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.2509804}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

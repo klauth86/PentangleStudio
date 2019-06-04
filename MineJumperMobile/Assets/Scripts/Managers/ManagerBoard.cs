@@ -1,6 +1,7 @@
 ﻿using Cards;
 using Core;
 using Events;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace Managers {
 
         #region Inspector
 
-        [SerializeField] private GameObject _gameBoardPrefab;
+        [SerializeField] private GameObject _markingCardPrefab;
         [SerializeField] private GameObject _gameCardPrefab;
 
         [SerializeField] private float _scaleFactor;
@@ -19,25 +20,26 @@ namespace Managers {
         #endregion
 
         private GameCard[] CreateBoard(Board board) {
-            var gameBoard = Instantiate(_gameBoardPrefab);
             var gameCards = new GameCard[board.BoardSize];
             var offset = board.Size % 2 == 0 ? 0.5f : 0.0f;
             for (int i = 0; i < board.BoardSize; i++) {
                 var gameCard = Instantiate(_gameCardPrefab,
                     new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset + 1), 0,
-                    _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity, gameBoard.transform).GetComponent<GameCard>();
+                    _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity).GetComponent<GameCard>();
                 gameCard.Card = board.Cards[i];
                 gameCards[i] = gameCard;
             }
             return gameCards;
         }
 
-        private void AdjustCamera90(Board board) {
+        private void AdjustCamera90AndCreateMarkingCard(Board board) {
             var offset = _scaleFactor * board.Size / 2 / Mathf.Tan(Mathf.PI / 6) + 2.5f;
             if (Camera.main.aspect < 1)
                 offset /= Camera.main.aspect;
             Camera.main.transform.position = new Vector3(0, offset, 0);
             Camera.main.transform.LookAt(Vector3.zero);
+
+            Instantiate(_markingCardPrefab, new Vector3(-_scaleFactor * board.Size / 2, offset / 2, 0), Quaternion.identity);
         }
 
         private IEnumerator PlayerTurnRoutine(Board board) {
@@ -48,35 +50,29 @@ namespace Managers {
                 yield return new WaitForSeconds(_coroutineTimeStep);
                 inputTimeout -= Time.deltaTime;
 
-                if (ProcessTouchInput(board, ref inputTimeout, ref isMark))
-                    inputTimeout = 0;
-            }
-        }
+                if (inputTimeout <= 0) {
+                    inputTimeout = _axisTimeSensitivity;
+                    if (Input.touchCount > 0) {
+                        var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                        RaycastHit hit;
+                        if (Physics.Raycast(ray, out hit)) {
+                            var gameCard = hit.collider.GetComponent<GameCard>();
+                            if (gameCard) {
+                                if (isMark)
+                                    board.MarkCard(gameCard.Card);
+                                else
+                                    board.RevealCard(gameCard.Card);
+                            }
 
-        private bool ProcessTouchInput(Board board, ref float inputTimeout, ref bool isMark) {
-            if (Input.touchCount > 0) {
-                var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit)) {
-                    if (inputTimeout <= 0) {
-                        inputTimeout = _axisTimeSensitivity;
-
-                        var gameCard = hit.collider.GetComponent<GameCard>();
-                        if (gameCard) {
-                            if (isMark)
-                                board.MarkCard(gameCard.Card);
-                            else
-                                board.RevealCard(gameCard.Card);
-                        }
-                        else {
-                            isMark = !isMark;
-                            _markedCard.ChangeState(isMark);
+                            var markingCard = hit.collider.GetComponent<MarkingCard>();
+                            if (markingCard) {
+                                isMark = !isMark;
+                                markingCard.ChangeState(isMark);
+                            }
                         }
                     }
-                    return false;
                 }
             }
-            return true;
         }
 
         private void OnStatusChanged(Board board, BoardStatus status) {
@@ -94,7 +90,7 @@ namespace Managers {
         public void CreateBoard(int size, int bombs) {
             var board = new Board(2, size, bombs);
             CreateBoard(board);
-            AdjustCamera90(board);
+            AdjustCamera90AndCreateMarkingCard(board);
             StartCoroutine(PlayerTurnRoutine(board));
         }
 
