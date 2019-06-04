@@ -11,7 +11,9 @@ namespace Core {
         public int Bombs;
         public int Marks;
 
-        public event GameAction<Board, BoardStatus> StatusChanged = delegate { };
+        public BoardStatus Status;
+
+        public event GameAction<Board> StatusChanged = delegate { };
         public event GameAction<Board, Card> CardRevealed = delegate { };
         public event GameAction<Board, Card> CardMarked = delegate { };
 
@@ -30,7 +32,7 @@ namespace Core {
             for (int i = 0; i < BoardSize; i++) {
                 var card = new Card();
                 if (i < bombs)
-                    card.HasBomb = true;
+                    card.IsBomb = true;
                 Cards[i] = card;
             }
 
@@ -44,7 +46,7 @@ namespace Core {
 
             card.IsRevealed = true;
 
-            if (card.HasBomb) {
+            if (card.IsBomb) {
                 ChangeBoardStatus(BoardStatus.Lose);
             }
             else if (card.BombIndex == 0)
@@ -61,7 +63,7 @@ namespace Core {
 
             Marks = Marks + (card.IsMarked ? -1 : 1);
 
-            if (Cards.Where(item => item.HasBomb).All(item => item.IsMarked))
+            if (Cards.Where(item => item.IsBomb).All(item => item.IsMarked))
                 ChangeBoardStatus(BoardStatus.Win);
 
             CardMarked(this, card);
@@ -80,13 +82,13 @@ namespace Core {
 
         private void CountIndexes() {
             for (int i = 0; i < BoardSize; i++) {
-                if (Cards[i].HasBomb) {
+                if (Cards[i].IsBomb) {
                     Cards[i].BombIndex = 9;
                     continue;
                 }
 
                 foreach (var item in GetNeighbourCards(Cards[i], true)) {
-                    if (item.HasBomb)
+                    if (item.IsBomb)
                         Cards[i].BombIndex++;
                 }                
             }            
@@ -116,7 +118,8 @@ namespace Core {
         }
 
         private void ChangeBoardStatus(BoardStatus status) {
-            StatusChanged(this, status);
+            Status = status;
+            StatusChanged(this);
         }
     }
 }

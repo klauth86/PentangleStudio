@@ -28,8 +28,8 @@ namespace Managers {
                     _boardManager.CreateBoard(_uiManager.Size, _uiManager.Bombs);
             };
 
-            _boardManager.GameStatusChanged += (s) => {
-                switch (s) {
+            _boardManager.GameStatusChanged += (b) => {
+                switch (b.Status) {
                     case Core.BoardStatus.Lose:
                         _audioManager.PlayAudio(AudioClipType.Lose);
                         break;
@@ -37,7 +37,7 @@ namespace Managers {
                         _audioManager.PlayAudio(AudioClipType.Win);
                         break;
                 }
-                _uiManager.ShowGameOverUI(s);
+                _uiManager.ShowGameOverUI(b.Status);
             };
         }
     }

@@ -20,18 +20,11 @@ namespace Cards {
             }
         }
 
-        public Card Card { get; set; }
-
-        // Use this for initialization
-        void Start() {
-            MeshRenderer.material = _unrevealedMaterial;
-        }
-
-        private void Mark(bool isMarked) {
+        public void Mark(bool isMarked) {
             MeshRenderer.material = isMarked ? _markedMaterial : _unrevealedMaterial;
         }
 
-        private void Reveal(int bombIndex) {
+        public void Reveal(int bombIndex) {
             MeshRenderer.material = _indexMaterials[bombIndex];
             if (bombIndex == 0) {
                 StartCoroutine(CollapseRoutine());

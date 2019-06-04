@@ -1,8 +1,9 @@
 ﻿using Cards;
 using Core;
 using Events;
-using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Managers {
@@ -19,34 +20,73 @@ namespace Managers {
 
         #endregion
 
-        private GameCard[] CreateBoard(Board board) {
-            var gameCards = new GameCard[board.BoardSize];
+        private Dictionary<GameCard, Card> CreateGameBoard(Board board) {
+            var gameCards = new Dictionary<GameCard, Card>(board.BoardSize);
+
+            #region GameBoard
+
             var offset = board.Size % 2 == 0 ? 0.5f : 0.0f;
             for (int i = 0; i < board.BoardSize; i++) {
                 var gameCard = Instantiate(_gameCardPrefab,
                     new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset + 1), 0,
                     _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity).GetComponent<GameCard>();
-                gameCard.Card = board.Cards[i];
-                gameCards[i] = gameCard;
+                gameCards.Add(gameCard, board.Cards[i]);
             }
+
+            #endregion
+
+            #region Camera
+
+            var cameraOffset = _scaleFactor * board.Size / 2 / Mathf.Tan(Mathf.PI / 6) + 2.5f;
+            if (Camera.main.aspect < 1)
+                cameraOffset /= Camera.main.aspect;
+            Camera.main.transform.position = new Vector3(0, cameraOffset, 0);
+            Camera.main.transform.LookAt(Vector3.zero);
+
+            var markingCard = Instantiate(_markingCardPrefab, new Vector3(-_scaleFactor * board.Size / 2, cameraOffset - 4, 0), Quaternion.identity);
+
+            #endregion
+
+            #region Subscribtions
+
+            GameAction<Board, Card> onCardMarked = (b, c) => {
+                var gameCard = gameCards.First(pair => pair.Value == c).Key;
+                gameCard.Mark(c.IsMarked);
+            };
+
+            GameAction<Board, Card> onCardRevealed = (b, c) => {
+                var gameCard = gameCards.First(pair => pair.Value == c).Key;
+                gameCard.Reveal(c.BombIndex);
+            };
+
+            board.CardMarked += onCardMarked;
+            board.CardRevealed += onCardRevealed;
+
+            GameAction<Board> onStatusChanged = null;
+            onStatusChanged = (b) => {
+                board.CardMarked -= onCardMarked;
+                board.CardRevealed -= onCardRevealed;
+
+                foreach (var item in gameCards) {
+                    Destroy(item.Key.gameObject, 0.5f);
+                }
+                Destroy(markingCard, 0.5f);
+                board.StatusChanged -= onStatusChanged;
+
+                GameStatusChanged(b);
+            };
+            board.StatusChanged += onStatusChanged; 
+
+            #endregion           
+
             return gameCards;
         }
 
-        private void AdjustCamera90AndCreateMarkingCard(Board board) {
-            var offset = _scaleFactor * board.Size / 2 / Mathf.Tan(Mathf.PI / 6) + 2.5f;
-            if (Camera.main.aspect < 1)
-                offset /= Camera.main.aspect;
-            Camera.main.transform.position = new Vector3(0, offset, 0);
-            Camera.main.transform.LookAt(Vector3.zero);
-
-            Instantiate(_markingCardPrefab, new Vector3(-_scaleFactor * board.Size / 2, offset / 2, 0), Quaternion.identity);
-        }
-
-        private IEnumerator PlayerTurnRoutine(Board board) {
+        private IEnumerator PlayerTurnRoutine(Dictionary<GameCard, Card> gameCards, Board board) {
             float inputTimeout = 0;
             bool isMark = false;
 
-            while (gameObject.activeSelf) {
+            while (board.Status == BoardStatus.Active) {
                 yield return new WaitForSeconds(_coroutineTimeStep);
                 inputTimeout -= Time.deltaTime;
 
@@ -59,9 +99,9 @@ namespace Managers {
                             var gameCard = hit.collider.GetComponent<GameCard>();
                             if (gameCard) {
                                 if (isMark)
-                                    board.MarkCard(gameCard.Card);
+                                    board.MarkCard(gameCards[gameCard]);
                                 else
-                                    board.RevealCard(gameCard.Card);
+                                    board.RevealCard(gameCards[gameCard]);
                             }
 
                             var markingCard = hit.collider.GetComponent<MarkingCard>();
@@ -75,13 +115,9 @@ namespace Managers {
             }
         }
 
-        private void OnStatusChanged(Board board, BoardStatus status) {
-            GameStatusChanged(status);
-        }
-
         #region Events
 
-        public event GameAction<BoardStatus> GameStatusChanged = delegate { };
+        public event GameAction<Board> GameStatusChanged = delegate { };
 
         #endregion
 
@@ -89,9 +125,8 @@ namespace Managers {
 
         public void CreateBoard(int size, int bombs) {
             var board = new Board(2, size, bombs);
-            CreateBoard(board);
-            AdjustCamera90AndCreateMarkingCard(board);
-            StartCoroutine(PlayerTurnRoutine(board));
+            var gameCards = CreateGameBoard(board);
+            StartCoroutine(PlayerTurnRoutine(gameCards, board));
         }
 
         #endregion
