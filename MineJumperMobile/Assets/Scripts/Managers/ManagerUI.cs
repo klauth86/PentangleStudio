@@ -1,5 +1,6 @@
 ﻿using Core;
 using Events;
+using System.Collections;
 using UnityEngine;
 
 namespace Managers {
@@ -13,6 +14,10 @@ namespace Managers {
         #region Inspector
 
         [SerializeField] private GameObject _menuPanel;
+        [SerializeField] private UnityEngine.UI.Slider _sizeSlider;
+        [SerializeField] private TMPro.TMP_Text _sizeText;
+        [SerializeField] private UnityEngine.UI.Slider _bombsSlider;
+        [SerializeField] private TMPro.TMP_Text _bombsText;
 
         [SerializeField] private GameObject _gamePanel;
         [SerializeField] private TMPro.TMP_Text _bombsLeftText;
@@ -63,11 +68,42 @@ namespace Managers {
         }
 
         public void OnExitButtonClick() {
-            ButtonClicked(ButtonRole.ExitButton);
-            Application.Quit();
+            StartCoroutine(QuitRoutine());
+        }
+
+        public void OnSizeSliderValueChanged() {
+            if (_sizeText) {
+                if (_sizeSlider) {
+                    _sizeText.text = _sizeSlider.value.ToString();
+                }
+                else {
+                    DebugMessage.LogNotSetupWarningMessage("SizeSlider");
+                }
+            }               
+            else
+                DebugMessage.LogNotSetupWarningMessage("SizeText");
+        }
+
+        public void OnBombsSliderValueChanged() {
+            if (_bombsText) {
+                if (_bombsSlider) {
+                    _bombsText.text = _bombsSlider.value.ToString();
+                }
+                else {
+                    DebugMessage.LogNotSetupWarningMessage("BombsSlider");
+                }
+            }
+            else
+                DebugMessage.LogNotSetupWarningMessage("BombsText");
         }
 
         #endregion
+
+        private IEnumerator QuitRoutine() {
+            ButtonClicked(ButtonRole.ExitButton);
+            yield return new WaitForSeconds(0.5f);
+            Application.Quit();
+        }
     }
 
 }

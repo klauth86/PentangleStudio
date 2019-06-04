@@ -30,35 +30,35 @@ namespace Managers {
                     if (_buttonClickClip)
                         PlayAudio(_buttonClickClip);
                     else
-                        Debug.LogWarning("ButtonClickClip is not set up in Inspector");
+                        DebugMessage.LogNotSetupWarningMessage("ButtonClickClip");
                     break;
 
                 case AudioClipType.Collapse:
                     if (_collapseClip)
                         PlayAudio(_collapseClip);
                     else
-                        Debug.LogWarning("CollapseClip is not set up in Inspector");
+                        DebugMessage.LogNotSetupWarningMessage("CollapseClip");
                     break;
 
                 case AudioClipType.Explode:
                     if (_explodeClip)
                         PlayAudio(_explodeClip);
                     else
-                        Debug.LogWarning("ExplodeClip is not set up in Inspector");
+                        DebugMessage.LogNotSetupWarningMessage("ExplodeClip");
                     break;
 
                 case AudioClipType.Lose:
                     if (_loseClip)
                         PlayAudio(_loseClip);
                     else
-                        Debug.LogWarning("LoseClip is not set up in Inspector");
+                        DebugMessage.LogNotSetupWarningMessage("LoseClip");
                     break;
 
                 case AudioClipType.Win:
                     if (_winClip)
                         PlayAudio(_winClip);
                     else
-                        Debug.LogWarning("WinClip is not set up in Inspector");
+                        DebugMessage.LogNotSetupWarningMessage("WinClip");
                     break;
             }
         }        
