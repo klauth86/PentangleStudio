@@ -20,8 +20,6 @@ namespace Managers {
         [SerializeField] private GameObject _gameOverPanel;
         [SerializeField] private TMPro.TMP_Text _statusText;
 
-        [SerializeField] private GameObject _playButton;
-
         #endregion
 
         public int Size;

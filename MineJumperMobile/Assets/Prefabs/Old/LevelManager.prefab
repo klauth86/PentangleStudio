@@ -852,7 +852,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4d0403008a56cdc46ba0800d8701f1d7, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21618357475608938, guid: 4d0403008a56cdc46ba0800d8701f1d7,
     type: 2}
   m_fontSharedMaterials: []
@@ -981,7 +981,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: WIN
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4d0403008a56cdc46ba0800d8701f1d7, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21618357475608938, guid: 4d0403008a56cdc46ba0800d8701f1d7,
     type: 2}
   m_fontSharedMaterials: []
@@ -1163,7 +1163,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Keyboard
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4d0403008a56cdc46ba0800d8701f1d7, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21618357475608938, guid: 4d0403008a56cdc46ba0800d8701f1d7,
     type: 2}
   m_fontSharedMaterials: []
@@ -1565,7 +1565,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Mouse
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4d0403008a56cdc46ba0800d8701f1d7, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21618357475608938, guid: 4d0403008a56cdc46ba0800d8701f1d7,
     type: 2}
   m_fontSharedMaterials: []
@@ -1896,7 +1896,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4d0403008a56cdc46ba0800d8701f1d7, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21618357475608938, guid: 4d0403008a56cdc46ba0800d8701f1d7,
     type: 2}
   m_fontSharedMaterials: []
@@ -2037,7 +2037,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Touch
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4d0403008a56cdc46ba0800d8701f1d7, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21618357475608938, guid: 4d0403008a56cdc46ba0800d8701f1d7,
     type: 2}
   m_fontSharedMaterials: []
@@ -2151,7 +2151,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Try again
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4d0403008a56cdc46ba0800d8701f1d7, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21618357475608938, guid: 4d0403008a56cdc46ba0800d8701f1d7,
     type: 2}
   m_fontSharedMaterials: []
@@ -2265,7 +2265,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4d0403008a56cdc46ba0800d8701f1d7, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21618357475608938, guid: 4d0403008a56cdc46ba0800d8701f1d7,
     type: 2}
   m_fontSharedMaterials: []
@@ -2459,7 +2459,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4d0403008a56cdc46ba0800d8701f1d7, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21618357475608938, guid: 4d0403008a56cdc46ba0800d8701f1d7,
     type: 2}
   m_fontSharedMaterials: []
@@ -2705,7 +2705,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: MINE JUMPER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4d0403008a56cdc46ba0800d8701f1d7, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21618357475608938, guid: 4d0403008a56cdc46ba0800d8701f1d7,
     type: 2}
   m_fontSharedMaterials: []
@@ -2846,7 +2846,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4d0403008a56cdc46ba0800d8701f1d7, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 21618357475608938, guid: 4d0403008a56cdc46ba0800d8701f1d7,
     type: 2}
   m_fontSharedMaterials: []
