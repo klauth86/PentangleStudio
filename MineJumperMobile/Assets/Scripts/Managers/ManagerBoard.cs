@@ -68,7 +68,8 @@ namespace Managers {
                 board.CardRevealed -= onCardRevealed;
 
                 foreach (var item in gameCards) {
-                    Destroy(item.Key.gameObject, 0.5f);
+                    if (item.Key)
+                        Destroy(item.Key.gameObject, 0.5f);
                 }
                 Destroy(markingCard, 0.5f);
                 board.StatusChanged -= onStatusChanged;
