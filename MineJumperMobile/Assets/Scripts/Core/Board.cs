@@ -45,17 +45,17 @@ namespace Core {
                 return;
 
             card.IsRevealed = true;
+            CardRevealed(this, card);
 
             if (card.IsBomb) {
                 ChangeBoardStatus(BoardStatus.Lose);
             }
-            else if (card.BombIndex == 0)
+
+            if (card.BombIndex == 0)
                 foreach (var item in GetNeighbourCards(card)) {
                     if (!item.IsRevealed)
                         RevealCard(item);
                 }
-
-            CardRevealed(this, card);
         }
 
         public void MarkCard(Card card) {

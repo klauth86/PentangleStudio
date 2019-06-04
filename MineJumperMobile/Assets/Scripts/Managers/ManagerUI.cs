@@ -51,13 +51,12 @@ namespace Managers {
         }
 
         public void ShowGameOverUI(BoardStatus status) {
-            string text = "";
             switch (status) {
                 case BoardStatus.Lose:
-                    text = "LOSE !!!";
+                    _statusText.text = "LOSE";
                     break;
                 case BoardStatus.Win:
-                    text = "WIN !!!";
+                    _statusText.text = "WIN";
                     break;
             }
             _menuPanel.SetActive(false);
