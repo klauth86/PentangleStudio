@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!224 &144424480 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224935530673946558, guid: def3325c02c646141af5dce53f35ac50,
+    type: 2}
+  m_PrefabInternal: {fileID: 285770121}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +521,7 @@ Prefab:
     - target: {fileID: 224935530673946558, guid: def3325c02c646141af5dce53f35ac50,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224286644325805892, guid: def3325c02c646141af5dce53f35ac50,
         type: 2}
@@ -536,6 +541,26 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 10.0000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 224859170604393038, guid: def3325c02c646141af5dce53f35ac50,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224511058304409942, guid: def3325c02c646141af5dce53f35ac50,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224991038335351230, guid: def3325c02c646141af5dce53f35ac50,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224950830418138304, guid: def3325c02c646141af5dce53f35ac50,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def3325c02c646141af5dce53f35ac50, type: 2}
@@ -563,11 +588,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 486351495}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2095125203}
+  m_Father: {fileID: 144424480}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -686,8 +711,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &2095125203 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224835767269829770, guid: def3325c02c646141af5dce53f35ac50,
-    type: 2}
-  m_PrefabInternal: {fileID: 285770121}
