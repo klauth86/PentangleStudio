@@ -8,7 +8,7 @@ namespace Managers {
     public class ManagerUI : Base {
 
         public enum ButtonRole {
-            PlayButton, ExitButton
+            PlayButton, ExitButton, MenuButton
         }
 
         #region Inspector
@@ -39,11 +39,15 @@ namespace Managers {
         #region Manager Methods
 
         public void ShowMenuUI() {
-
+            _menuPanel.SetActive(true);
+            _gamePanel.SetActive(false);
+            _gameOverPanel.SetActive(false);
         }
 
         public void ShowGameUI() {
-
+            _menuPanel.SetActive(false);
+            _gamePanel.SetActive(true);
+            _gameOverPanel.SetActive(false);
         }
 
         public void ShowGameOverUI(BoardStatus status) {
@@ -56,11 +60,19 @@ namespace Managers {
                     text = "WIN !!!";
                     break;
             }
+            _menuPanel.SetActive(false);
+            _gamePanel.SetActive(false);
+            _gameOverPanel.SetActive(true);
         }
 
         #endregion
 
         #region UI Handlers
+
+        public void OnMenuButtonClick() {
+            ButtonClicked(ButtonRole.MenuButton);
+            ShowMenuUI();
+        }
 
         public void OnPlayButtonClick() {
             ButtonClicked(ButtonRole.PlayButton);
@@ -74,6 +86,7 @@ namespace Managers {
         public void OnSizeSliderValueChanged() {
             if (_sizeText) {
                 if (_sizeSlider) {
+                    Size = (int)_sizeSlider.value;
                     _sizeText.text = _sizeSlider.value.ToString();
                 }
                 else {
@@ -87,6 +100,7 @@ namespace Managers {
         public void OnBombsSliderValueChanged() {
             if (_bombsText) {
                 if (_bombsSlider) {
+                    Bombs = (int)_bombsSlider.value;
                     _bombsText.text = _bombsSlider.value.ToString();
                 }
                 else {
@@ -105,5 +119,4 @@ namespace Managers {
             Application.Quit();
         }
     }
-
 }
