@@ -8,11 +8,19 @@ namespace BridgeMaster {
         private bool _isCharacterStatsOn;
 
         public event GameEventHandler<InputAction> InputKeyEvent;
+
         public event GameEventHandler<bool> ToggleMenuEvent;
         public event GameEventHandler<bool> ToggleInventoryEvent;
         public event GameEventHandler<bool> ToggleCharacterStatsEvent;
+
         public event GameEventHandler GameOverEvent;
+
+        public event GameEventHandler EnterLocationEvent;
         public event GameEventHandler<Location> ExitLocationEvent;
+
+        private void Start() {
+            EnterLocation();
+        }
 
         public void ToggleMenu() {
             _isMenuOn = !_isMenuOn;
@@ -29,12 +37,16 @@ namespace BridgeMaster {
             ToggleCharacterStatsEvent?.Invoke(_isCharacterStatsOn);
         }
 
+        public void InputKey(InputAction action) {
+            InputKeyEvent?.Invoke(action);
+        }
+
         public void GameOver() {
             GameOverEvent?.Invoke();
         }
 
-        public void InputKey(InputAction action) {
-            InputKeyEvent?.Invoke(action);
+        public void EnterLocation() {
+            EnterLocationEvent?.Invoke();
         }
 
         public void ExitLocation(Location location) {

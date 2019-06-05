@@ -1,6 +1,6 @@
 ﻿namespace BridgeMaster.Dicts {
-    // !!! CHECK THAT ALL UNITY SCENES ARE NAMED IN THIS MANNER !!!
+    // !!! Ints equivalents are selected to match Scenes build indexes !!!
     public enum Location {
-        None, Location1, Location2, Location3, Location4, Location5
+        Location1 = 0, Location2 = 1, Location3 = 2, Location4 = 3, Location5 = 4
     }
 }

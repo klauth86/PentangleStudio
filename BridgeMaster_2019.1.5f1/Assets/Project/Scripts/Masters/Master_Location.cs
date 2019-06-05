@@ -12,11 +12,13 @@ namespace BridgeMaster.Masters {
 
         private void OnEnable() {
             Master.GameOverEvent += RestartLocation;
+            Master.EnterLocationEvent += StartLocation;
             Master.ExitLocationEvent += LoadLocation;
         }
 
         private void OnDisable() {
             Master.GameOverEvent -= RestartLocation;
+            Master.EnterLocationEvent -= StartLocation;
             Master.ExitLocationEvent -= LoadLocation;
         }
 
@@ -24,17 +26,29 @@ namespace BridgeMaster.Masters {
             StartCoroutine(LoadLocationRoutine(SceneManager.GetActiveScene().buildIndex));
         }
 
+        private void StartLocation() {
+            StartCoroutine(StartLocationRoutine());
+        }
+
+        private IEnumerator StartLocationRoutine() {
+            if (_curtain) {
+                var delta = _fadingDuration / _fadingSteps;
+                for (int i = 1; i <= _fadingSteps; i++) {
+                    _curtain.color = new Color(_curtain.color.r, _curtain.color.g, _curtain.color.b, (1.0f * _fadingSteps - i) / _fadingSteps);
+                    yield return new WaitForSeconds(delta);
+                }
+            }
+        }
+
         private void LoadLocation(Location location) {
-            var sceneName = location.ToString();
-            var scene = SceneManager.GetSceneByName(sceneName);
-            StartCoroutine(LoadLocationRoutine(scene.buildIndex));
+            StartCoroutine(LoadLocationRoutine((int)location));
         }
 
         private IEnumerator LoadLocationRoutine(int buildIndex) {
             if (_curtain) {
                 var delta = _fadingDuration / _fadingSteps;
                 for (int i = 1; i <= _fadingSteps; i++) {
-                    _curtain.color = new Color(_curtain.color.r, _curtain.color.g, _curtain.color.b, (1.0f * _fadingSteps - i) / _fadingSteps);
+                    _curtain.color = new Color(_curtain.color.r, _curtain.color.g, _curtain.color.b, (1.0f * i) / _fadingSteps);
                     yield return new WaitForSeconds(delta);
                 }
             }            
