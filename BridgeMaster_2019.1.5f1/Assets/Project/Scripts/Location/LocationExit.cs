@@ -6,9 +6,10 @@ namespace BridgeMaster {
 
     public class LocationExit : MonoBehaviour {
         [SerializeField] private Master _master;
+        [SerializeField] private Location _nextLocation;
+
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private GameObject _locationExitVfx;
-        [SerializeField] private Location _nextLocation;
 
         private Transform _transform;
 
@@ -23,8 +24,8 @@ namespace BridgeMaster {
                 if (hit) {
                     if (_locationExitVfx) {
                         Instantiate(_locationExitVfx);
-                        _master.
                     }
+                    _master.ExitLocation(_nextLocation);
                 }
                 yield return new WaitForSeconds(0.0625f);
             }
