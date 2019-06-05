@@ -18,7 +18,9 @@ namespace Base {
         #region Ctor
 
         public MobBase() {
-            OnStart += () => { StartCoroutine(WalkRoutine); };
+            OnStart += () => {
+                OnUpdate += Walk;
+            };
 
             OnPause += ()=>{
                 OnUpdate -= Walk;
@@ -32,14 +34,10 @@ namespace Base {
 
         #region Walk
 
-        private IEnumerator WalkRoutine() {
+        private void Walk() {
             var direction = 0.0f;
             if (Target) {
                 direction = Mathf.Sign(Target.position.x - transform.position.x);
-            }
-
-            while(direction != 0) {
-
             }
 
             var isWalking = !_isAttacking && direction != 0.0f;
