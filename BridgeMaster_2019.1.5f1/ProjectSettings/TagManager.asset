@@ -13,11 +13,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Location Edge
+  - Location
+  - InteractiveObject
+  - Mobs
+  - Player
   - 
   - 
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1318104009
+    locked: 0
+  - name: Objects
+    uniqueID: 2940925349
+    locked: 0
+  - name: Characters
+    uniqueID: 2255198199
     locked: 0
