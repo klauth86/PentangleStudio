@@ -1,0 +1,1670 @@
+fileFormatVersion: 2
+guid: 46008f1570819a64782b1072420fd0be
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: JumpAndRunTileMap_0
+  - first:
+      213: 21300002
+    second: JumpAndRunTileMap_1
+  - first:
+      213: 21300004
+    second: JumpAndRunTileMap_2
+  - first:
+      213: 21300006
+    second: JumpAndRunTileMap_3
+  - first:
+      213: 21300008
+    second: JumpAndRunTileMap_4
+  - first:
+      213: 21300010
+    second: JumpAndRunTileMap_5
+  - first:
+      213: 21300012
+    second: JumpAndRunTileMap_6
+  - first:
+      213: 21300014
+    second: JumpAndRunTileMap_7
+  - first:
+      213: 21300016
+    second: JumpAndRunTileMap_8
+  - first:
+      213: 21300018
+    second: JumpAndRunTileMap_9
+  - first:
+      213: 21300020
+    second: JumpAndRunTileMap_10
+  - first:
+      213: 21300022
+    second: JumpAndRunTileMap_11
+  - first:
+      213: 21300024
+    second: JumpAndRunTileMap_12
+  - first:
+      213: 21300026
+    second: JumpAndRunTileMap_13
+  - first:
+      213: 21300028
+    second: JumpAndRunTileMap_14
+  - first:
+      213: 21300030
+    second: JumpAndRunTileMap_15
+  - first:
+      213: 21300032
+    second: JumpAndRunTileMap_16
+  - first:
+      213: 21300034
+    second: JumpAndRunTileMap_17
+  - first:
+      213: 21300036
+    second: JumpAndRunTileMap_18
+  - first:
+      213: 21300038
+    second: JumpAndRunTileMap_19
+  - first:
+      213: 21300040
+    second: JumpAndRunTileMap_20
+  - first:
+      213: 21300042
+    second: JumpAndRunTileMap_21
+  - first:
+      213: 21300044
+    second: JumpAndRunTileMap_22
+  - first:
+      213: 21300046
+    second: JumpAndRunTileMap_23
+  - first:
+      213: 21300048
+    second: JumpAndRunTileMap_24
+  - first:
+      213: 21300050
+    second: JumpAndRunTileMap_25
+  - first:
+      213: 21300052
+    second: JumpAndRunTileMap_26
+  - first:
+      213: 21300054
+    second: JumpAndRunTileMap_27
+  - first:
+      213: 21300056
+    second: JumpAndRunTileMap_28
+  - first:
+      213: 21300058
+    second: JumpAndRunTileMap_29
+  - first:
+      213: 21300060
+    second: JumpAndRunTileMap_30
+  - first:
+      213: 21300062
+    second: JumpAndRunTileMap_31
+  - first:
+      213: 21300064
+    second: JumpAndRunTileMap_32
+  - first:
+      213: 21300066
+    second: JumpAndRunTileMap_33
+  - first:
+      213: 21300068
+    second: JumpAndRunTileMap_34
+  - first:
+      213: 21300070
+    second: JumpAndRunTileMap_35
+  - first:
+      213: 21300072
+    second: JumpAndRunTileMap_36
+  - first:
+      213: 21300074
+    second: JumpAndRunTileMap_37
+  - first:
+      213: 21300076
+    second: JumpAndRunTileMap_38
+  - first:
+      213: 21300078
+    second: JumpAndRunTileMap_39
+  - first:
+      213: 21300080
+    second: JumpAndRunTileMap_40
+  - first:
+      213: 21300082
+    second: JumpAndRunTileMap_41
+  - first:
+      213: 21300084
+    second: JumpAndRunTileMap_42
+  - first:
+      213: 21300086
+    second: JumpAndRunTileMap_43
+  - first:
+      213: 21300088
+    second: JumpAndRunTileMap_44
+  - first:
+      213: 21300090
+    second: JumpAndRunTileMap_45
+  - first:
+      213: 21300092
+    second: JumpAndRunTileMap_46
+  - first:
+      213: 21300094
+    second: JumpAndRunTileMap_47
+  - first:
+      213: 21300096
+    second: JumpAndRunTileMap_48
+  - first:
+      213: 21300098
+    second: JumpAndRunTileMap_49
+  - first:
+      213: 21300100
+    second: JumpAndRunTileMap_50
+  - first:
+      213: 21300102
+    second: JumpAndRunTileMap_51
+  - first:
+      213: 21300104
+    second: JumpAndRunTileMap_52
+  - first:
+      213: 21300106
+    second: JumpAndRunTileMap_53
+  - first:
+      213: 21300108
+    second: JumpAndRunTileMap_54
+  - first:
+      213: 21300110
+    second: JumpAndRunTileMap_55
+  - first:
+      213: 21300112
+    second: JumpAndRunTileMap_56
+  - first:
+      213: 21300114
+    second: JumpAndRunTileMap_57
+  - first:
+      213: 21300116
+    second: JumpAndRunTileMap_58
+  - first:
+      213: 21300118
+    second: JumpAndRunTileMap_59
+  - first:
+      213: 21300120
+    second: JumpAndRunTileMap_60
+  - first:
+      213: 21300122
+    second: JumpAndRunTileMap_61
+  - first:
+      213: 21300124
+    second: JumpAndRunTileMap_62
+  - first:
+      213: 21300126
+    second: JumpAndRunTileMap_63
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_0
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 859
+        width: 61
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74afca08339c4ea4589b76b41f1f8755
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_1
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 859
+        width: 73
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38fac0c34dfce44459ffc571215d9f3d
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_2
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 858
+        width: 79
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d97c9393f718924c8aa601cbef0d0e0
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_3
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 858
+        width: 80
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab4dd4ccac02af49ac29be73884612a
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_4
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 859
+        width: 88
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3563c62266c70c64a9957705f54cdec1
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_5
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 860
+        width: 90
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 449b6aeae8868cc46b74d287719a1506
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_6
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 861
+        width: 72
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f1d1563d96ef994eb0b8ab65297eb12
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_7
+      rect:
+        serializedVersion: 2
+        x: 1254
+        y: 861
+        width: 52
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb11545d584250a4b92f9f6ae4fa422f
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_8
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 861
+        width: 47
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30697fce5e3a8264a9e29569b03ca723
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_9
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 861
+        width: 55
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc658c60c47f9e74b860c15bb0dd959c
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_10
+      rect:
+        serializedVersion: 2
+        x: 1766
+        y: 861
+        width: 71
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68e6ff08e4e17f4d896d8df90a489d9
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_11
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 694
+        width: 72
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b1aa74f2342a44a9520d10cd46506c
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_12
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 696
+        width: 67
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a180a743e27de4eaad9b1ff8bfc2d7
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_13
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 699
+        width: 58
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 983b75c4e8853a442a362fcebe1a615c
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_14
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 707
+        width: 50
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db7fe0b9a4b6cdb4ebb43a76727b89e6
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_15
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 717
+        width: 47
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76e5ee08580e8d4aac24630eb349eed
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_16
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 727
+        width: 47
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b75a05532dcc07b4d9a05fdcd7ca363a
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_17
+      rect:
+        serializedVersion: 2
+        x: 1075
+        y: 735
+        width: 46
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a5758b36c8cfe44a5ef74566c148f9
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_18
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 741
+        width: 46
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e2c9b60f8161741b606ef4c35fd540
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_19
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 744
+        width: 46
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11f95c6ab3f74b5469e058b96197076d
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_20
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 743
+        width: 47
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d77730af347da28458b5defa03059701
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_21
+      rect:
+        serializedVersion: 2
+        x: 1764
+        y: 742
+        width: 48
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d66da4dc2d41954da9fcb37d947780e
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_22
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 570
+        width: 49
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 603d6f91a9b93a548bc536debcd59d25
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_23
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 567
+        width: 51
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb315ddbc2df278488f5a805bc55d5e9
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_24
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 562
+        width: 53
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f884841adcc62c4c8a22b74b2db0f7e
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_25
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 556
+        width: 55
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2771c0d6f9695154e9440bff2006610f
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_26
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 549
+        width: 57
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e14353e0e1e922459c6ff484929d51e
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_27
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 543
+        width: 59
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f019755b65a1b534883be7e02658250d
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_28
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 537
+        width: 62
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f026e0dd69c2394b85e89ae09aad72e
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_29
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 531
+        width: 63
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd9ca0dd2b51d3745b67e83369995de0
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_30
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 527
+        width: 63
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84562380df0955a4181e3f1aeb6e90ea
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_31
+      rect:
+        serializedVersion: 2
+        x: 1584
+        y: 524
+        width: 63
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16b808fd2520804f8df7f2d6fb82786
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_32
+      rect:
+        serializedVersion: 2
+        x: 1751
+        y: 521
+        width: 69
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f90bfd4dea7f0404f9835b70ebc133cb
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_33
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 352
+        width: 78
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdfecdbca57c98b48adfb08822719956
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_34
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 353
+        width: 82
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be9373a0923c9d947ab62e424c96608d
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_35
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 353
+        width: 85
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f55c6bf869afadd49a73bc3d457a6a05
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_36
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 353
+        width: 83
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 457a2e3ecee512041bbaf3bbe45f1233
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_37
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 353
+        width: 84
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c3a36bec2b1a04caaf59bdffa961f4
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_38
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 352
+        width: 76
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec6b4f30ad265c64aa238b7395c3f87f
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_39
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 352
+        width: 64
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a83cdabb80c277441b58607a1277c0d5
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_40
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 352
+        width: 55
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df46071d112f9745a8230cba9b078fe
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_41
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 352
+        width: 53
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48caf3d123dd874b87b581296d87cc9
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_42
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 360
+        width: 47
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5449f86a863b27448a1df735ba450d00
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_43
+      rect:
+        serializedVersion: 2
+        x: 1775
+        y: 360
+        width: 56
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82e27d9be2ee08f43ba36009933f7e96
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_44
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 191
+        width: 67
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0483e139d2c930644a89ec840c28dd39
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_45
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 191
+        width: 75
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ff9f00d9cf2c17478ef4bb522740199
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_46
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 192
+        width: 78
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 201c6bf3f060be842acb67a5720374d8
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_47
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 197
+        width: 84
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbf9d9c490b29dc4893d05ab5be1df8e
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_48
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 199
+        width: 88
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d05b6a6b5ee721488bab7f989befe19
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_49
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 196
+        width: 82
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbf64d89e5dabd943b854f3652980687
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_50
+      rect:
+        serializedVersion: 2
+        x: 1066
+        y: 194
+        width: 71
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a26756e7a945364f8f313e1864b80bd
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_51
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 193
+        width: 58
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8c7d3ee21c26664fa4f5d388d930776
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_52
+      rect:
+        serializedVersion: 2
+        x: 1431
+        y: 193
+        width: 46
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879a3f11ced570b42a56a27f6256e445
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_53
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 193
+        width: 46
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8006b208b7f260c4bb661cbab2b789f9
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_54
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 193
+        width: 57
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47e8852d6e7e644bbcebc931a016f1e
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_55
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 25
+        width: 65
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb228168bb20cbe42bf475cd95198962
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_56
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 26
+        width: 77
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c38fb8dcb6d29145b93670a16b403a2
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_57
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 29
+        width: 84
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46f2e94a6a28a0b4dbbf7240612c76c3
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_58
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 28
+        width: 86
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd223373b2affe14faf56147bb156c61
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_59
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 26
+        width: 83
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c22db4ca10d067449f9970bdcbbbde4
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_60
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 24
+        width: 77
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81895e24b4a839d4eb28da66737e2f4c
+      internalID: 21300120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_61
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 22
+        width: 64
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578785e3527c82748a6b1e45970b6a8c
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_62
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 22
+        width: 49
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a9068500b782544963648c103cc00f
+      internalID: 21300124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpAndRunTileMap_63
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 22
+        width: 47
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24bd754be5aa944698ba4070f5fd3e3
+      internalID: 21300126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: d4b7db6802b416d47bd0e2bd083d8094
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
