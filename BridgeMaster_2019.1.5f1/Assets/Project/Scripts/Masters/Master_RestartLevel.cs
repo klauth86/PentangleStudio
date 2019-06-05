@@ -1,7 +1,7 @@
 ﻿using UnityEngine.SceneManagement;
 
 namespace BridgeMaster.Masters {
-    public class Master_RestartLevel : Master_Base {
+    public class Master_RestartLevel : Base {
 
         private void OnEnable() {
             Master.GameOverEvent += RestartLevel;

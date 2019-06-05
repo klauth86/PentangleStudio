@@ -1,32 +1,22 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BridgeMaster.Masters {
-    public class Master_ToggleInventory : Master_Base {
+    public class Master_ToggleInventory : Base {
         [SerializeField] private GameObject _inventory;
-        [SerializeField] private string _toggleInventoryButtonName;
-        [SerializeField] private float _coroutineDeltaTime;
 
         private void OnEnable() {
-            StartCoroutine(CheckForInputRequest());
+            Master.InputKeyEvent += ToggleInventory;
         }
 
         private void OnDisable() {
-            StopCoroutine(CheckForInputRequest());
+            Master.InputKeyEvent -= ToggleInventory;
         }
 
-        private IEnumerator CheckForInputRequest() {
-            while (true) {
-                if (Input.GetButtonUp(_toggleInventoryButtonName)) {
-                    ToggleInventory();
-                }
-                yield return new WaitForSeconds(_coroutineDeltaTime);
+        private void ToggleInventory(InputAction action) {
+            if (action == InputAction.ToggleInventoryAction) {
+                _inventory.SetActive(!_inventory.activeSelf);
+                Master.ToggleInventory();
             }
-        }
-
-        private void ToggleInventory() {
-            _inventory.SetActive(!_inventory.activeSelf);
-            Master.ToggleInventory();
         }
     }
 }

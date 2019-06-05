@@ -1,32 +1,22 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BridgeMaster.Masters {
-    public class Master_ToggleMenu : Master_Base {
+    public class Master_ToggleMenu : Base {
         [SerializeField] private GameObject _menu;
-        [SerializeField] private string _toggleMenuButtonName;
-        [SerializeField] private float _coroutineDeltaTime;
 
         private void OnEnable() {
-            StartCoroutine(CheckForInputRequest());
+            Master.InputKeyEvent += ToggleMenu;
         }
 
         private void OnDisable() {
-            StopCoroutine(CheckForInputRequest());
+            Master.InputKeyEvent -= ToggleMenu;
         }
 
-        private IEnumerator CheckForInputRequest() {
-            while (true) {
-                if (Input.GetButtonUp(_toggleMenuButtonName)) {
-                    ToggleMenu();
-                }
-                yield return new WaitForSeconds(_coroutineDeltaTime);
+        private void ToggleMenu(InputAction action) {
+            if (action == InputAction.ToggleMenuAction) {
+                _menu.SetActive(!_menu.activeSelf);
+                Master.ToggleMenu();
             }
-        }
-
-        private void ToggleMenu() {
-            _menu.SetActive(!_menu.activeSelf);
-            Master.ToggleMenu();
         }
     }
 }

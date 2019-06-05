@@ -5,6 +5,7 @@ namespace BridgeMaster {
         private bool _isMenuOn;
         private bool _isInventoryOn;
 
+        public event GameEventHandler<InputAction> InputKeyEvent;
         public event GameEventHandler<bool> ToggleMenuEvent;
         public event GameEventHandler<bool> ToggleInventoryEvent;
         public event GameEventHandler GameOverEvent;
@@ -21,6 +22,10 @@ namespace BridgeMaster {
 
         public void GameOver() {
             GameOverEvent?.Invoke();
+        }
+
+        public void InputKey(InputAction action) {
+            InputKeyEvent?.Invoke(action);
         }
     }
 }
