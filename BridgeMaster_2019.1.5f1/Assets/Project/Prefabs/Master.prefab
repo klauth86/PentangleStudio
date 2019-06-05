@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6312503487700263687}
   - component: {fileID: 6312503487700263692}
   - component: {fileID: 6312503487700263683}
-  - component: {fileID: 6312503487700263682}
   - component: {fileID: 750129490571722033}
+  - component: {fileID: 8003409976937441527}
+  - component: {fileID: 6312503487700263682}
   - component: {fileID: 6312503487700263681}
   - component: {fileID: 6312503487700263680}
   m_Layer: 0
@@ -60,6 +61,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48123ab70d8a18f4284c3ff29369c90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &750129490571722033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312503487700263686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc3f346ed97fd34fb9f362126ddf587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _toggleCharacterStatsKeyCode: 99
+  _toggleMenuKeyCode: 109
+  _toggleInventoryKeyCode: 105
+--- !u!114 &8003409976937441527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312503487700263686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f80c8702ef50d4db2b26121be92ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterStats: {fileID: 0}
 --- !u!114 &6312503487700263682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,20 +102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventory: {fileID: 0}
---- !u!114 &750129490571722033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6312503487700263686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bc3f346ed97fd34fb9f362126ddf587, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _toggleMenuKeyCode: 109
-  _toggleInventoryKeyCode: 105
 --- !u!114 &6312503487700263681
 MonoBehaviour:
   m_ObjectHideFlags: 0
