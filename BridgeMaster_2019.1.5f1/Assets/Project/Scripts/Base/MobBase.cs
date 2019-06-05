@@ -1,5 +1,4 @@
-﻿using Dicts;
-using System.Collections;
+﻿using BridgeMaster.Dicts;
 using UnityEngine;
 
 namespace Base {

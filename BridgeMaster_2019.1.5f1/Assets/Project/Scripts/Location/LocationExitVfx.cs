@@ -1,5 +1,5 @@
 ﻿using Base;
-using Dicts;
+using BridgeMaster.Dicts;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;

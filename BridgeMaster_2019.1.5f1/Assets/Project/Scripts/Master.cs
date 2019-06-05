@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using BridgeMaster.Dicts;
+using UnityEngine;
 
 namespace BridgeMaster {
     public class Master : MonoBehaviour {
@@ -11,6 +12,7 @@ namespace BridgeMaster {
         public event GameEventHandler<bool> ToggleInventoryEvent;
         public event GameEventHandler<bool> ToggleCharacterStatsEvent;
         public event GameEventHandler GameOverEvent;
+        public event GameEventHandler<Location> ExitLocationEvent;
 
         public void ToggleMenu() {
             _isMenuOn = !_isMenuOn;
@@ -33,6 +35,10 @@ namespace BridgeMaster {
 
         public void InputKey(InputAction action) {
             InputKeyEvent?.Invoke(action);
+        }
+
+        public void ExitLocation(Location location) {
+            ExitLocationEvent?.Invoke(location);
         }
     }
 }

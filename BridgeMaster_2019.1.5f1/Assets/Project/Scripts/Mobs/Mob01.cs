@@ -1,6 +1,5 @@
-﻿using System;
-using Base;
-using Dicts;
+﻿using Base;
+using BridgeMaster.Dicts;
 using UnityEngine;
 
 public class Mob01 : MobBase {

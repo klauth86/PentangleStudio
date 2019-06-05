@@ -1,4 +1,4 @@
-﻿namespace Dicts {
+﻿namespace BridgeMaster.Dicts {
     public static class AnimatorKey {
         public const string IsAttacking = "IsAttacking";
         public const string IsJumping = "IsJumping";

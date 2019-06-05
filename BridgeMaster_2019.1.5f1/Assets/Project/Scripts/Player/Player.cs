@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using Base;
-using Dicts;
+using BridgeMaster.Dicts;
 using UnityEngine;
 
 public class Player : CharacterWithPhysics {

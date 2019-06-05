@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Base;
-using Dicts;
+using BridgeMaster.Dicts;
 using UnityEngine;
 
 public class MobGroup : MonoBehaviour {

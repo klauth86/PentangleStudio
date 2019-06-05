@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using BridgeMaster.Dicts;
+using UnityEngine;
 
 namespace BridgeMaster.Masters {
     public class Master_ToggleCharacterStats : Base {

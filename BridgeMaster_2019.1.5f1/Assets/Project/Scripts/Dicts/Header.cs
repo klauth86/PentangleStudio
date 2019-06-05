@@ -1,4 +1,4 @@
-﻿namespace Dicts {
+﻿namespace BridgeMaster.Dicts {
     public static class Header {
         public const string Movement = "Movement";
         public const string Stats = "Stats";

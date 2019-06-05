@@ -1,4 +1,4 @@
-﻿using Dicts;
+﻿using BridgeMaster.Dicts;
 
 namespace Base {
     [System.Serializable]
