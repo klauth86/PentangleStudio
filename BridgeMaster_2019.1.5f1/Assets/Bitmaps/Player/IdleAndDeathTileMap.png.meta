@@ -1,0 +1,1570 @@
+fileFormatVersion: 2
+guid: a6ce4be306fba5a478d8f0b8e2850de1
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: IdleAndDeathTileMap_0
+    21300002: IdleAndDeathTileMap_1
+    21300004: IdleAndDeathTileMap_2
+    21300006: IdleAndDeathTileMap_3
+    21300008: IdleAndDeathTileMap_4
+    21300010: IdleAndDeathTileMap_5
+    21300012: IdleAndDeathTileMap_6
+    21300014: IdleAndDeathTileMap_7
+    21300016: IdleAndDeathTileMap_8
+    21300018: IdleAndDeathTileMap_9
+    21300020: IdleAndDeathTileMap_10
+    21300022: IdleAndDeathTileMap_11
+    21300024: IdleAndDeathTileMap_12
+    21300026: IdleAndDeathTileMap_13
+    21300028: IdleAndDeathTileMap_14
+    21300030: IdleAndDeathTileMap_15
+    21300032: IdleAndDeathTileMap_16
+    21300034: IdleAndDeathTileMap_17
+    21300036: IdleAndDeathTileMap_18
+    21300038: IdleAndDeathTileMap_19
+    21300040: IdleAndDeathTileMap_20
+    21300042: IdleAndDeathTileMap_21
+    21300044: IdleAndDeathTileMap_22
+    21300046: IdleAndDeathTileMap_23
+    21300048: IdleAndDeathTileMap_24
+    21300050: IdleAndDeathTileMap_25
+    21300052: IdleAndDeathTileMap_26
+    21300054: IdleAndDeathTileMap_27
+    21300056: IdleAndDeathTileMap_28
+    21300058: IdleAndDeathTileMap_29
+    21300060: IdleAndDeathTileMap_30
+    21300062: IdleAndDeathTileMap_31
+    21300064: IdleAndDeathTileMap_32
+    21300066: IdleAndDeathTileMap_33
+    21300068: IdleAndDeathTileMap_34
+    21300070: IdleAndDeathTileMap_35
+    21300072: IdleAndDeathTileMap_36
+    21300074: IdleAndDeathTileMap_37
+    21300076: IdleAndDeathTileMap_38
+    21300078: IdleAndDeathTileMap_39
+    21300080: IdleAndDeathTileMap_40
+    21300082: IdleAndDeathTileMap_41
+    21300084: IdleAndDeathTileMap_42
+    21300086: IdleAndDeathTileMap_43
+    21300088: IdleAndDeathTileMap_44
+    21300090: IdleAndDeathTileMap_45
+    21300092: IdleAndDeathTileMap_46
+    21300094: IdleAndDeathTileMap_47
+    21300096: IdleAndDeathTileMap_48
+    21300098: IdleAndDeathTileMap_49
+    21300100: IdleAndDeathTileMap_50
+    21300102: IdleAndDeathTileMap_51
+    21300104: IdleAndDeathTileMap_52
+    21300106: IdleAndDeathTileMap_53
+    21300108: IdleAndDeathTileMap_54
+    21300110: IdleAndDeathTileMap_55
+    21300112: IdleAndDeathTileMap_56
+    21300114: IdleAndDeathTileMap_57
+    21300116: IdleAndDeathTileMap_58
+    21300118: IdleAndDeathTileMap_59
+    21300120: IdleAndDeathTileMap_60
+    21300122: IdleAndDeathTileMap_61
+    21300124: IdleAndDeathTileMap_62
+    21300126: IdleAndDeathTileMap_63
+    21300128: IdleAndDeathTileMap_64
+    21300130: IdleAndDeathTileMap_65
+    21300132: IdleAndDeathTileMap_66
+    21300134: IdleAndDeathTileMap_67
+    21300136: IdleAndDeathTileMap_68
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 1033
+        width: 73
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a9f06b9c6836046b80a224994f4593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_1
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 1033
+        width: 73
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bcae5c778cea2e419b12b3c07315a43
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_2
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1033
+        width: 75
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d235820ead20be345b66cbae058b96df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_3
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 1032
+        width: 76
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900161757e2641143a9a0e059500605c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_4
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 1032
+        width: 75
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20bcd8c448dae64abcf9c1ebd976cca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 1032
+        width: 71
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 950297b3408200e4585feaec2be2e381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_6
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 1032
+        width: 66
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b7094501b5f8cd429e8e5e4d59f9e6c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_7
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 1032
+        width: 61
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecad1d55845af36449d6b52adfaa6f6e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_8
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 1032
+        width: 56
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4979572591a47d4468fd710ae3e8755f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_9
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 1032
+        width: 52
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d7369fc7b2a02647bb94d3342074df3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_10
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 863
+        width: 55
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6188561cf075a748867199f2bc0c453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_11
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 863
+        width: 58
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba69d865e7e981f40801d7457174530e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_12
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 863
+        width: 61
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 780ec6ce2ad994f4d9082af3918ff198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_13
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 863
+        width: 62
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 967dd72d6083aef419b10bd3fbe88204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_14
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 863
+        width: 64
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d66a87aef8e1d5140af5fbee4fae6db0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_15
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 863
+        width: 65
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c92b35c00295943a664966d38ae23a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_16
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 863
+        width: 66
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7db94627349d4bd44957e1536c6ba4ab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_17
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 863
+        width: 67
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b77dbd4351c08884b9d463f66bcd7e17
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_18
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 863
+        width: 67
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1968fe1add1fb9e4fa0e141ee1f51d51
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_19
+      rect:
+        serializedVersion: 2
+        x: 1635
+        y: 863
+        width: 67
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47306750ee5c6194db33b5654089aca3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_20
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 694
+        width: 66
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c7a7725ff9c2140803ab2ea0ad9bf0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_21
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 694
+        width: 66
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2448c80e62a8c540abada94da0e1508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_22
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 694
+        width: 65
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77f495e3871c7a445a0293b0e32392e7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_23
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 694
+        width: 65
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece7c92eb54cb7448b9e73a3e615808e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_24
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 694
+        width: 64
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b703a6c2f9fa97e4ba7402083a20dd3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_25
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 694
+        width: 63
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6217aaaf628c4a45bd22464caa4f558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_26
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 694
+        width: 62
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f58b0989dc7a6864fb3ac5491dc07f3d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_27
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 694
+        width: 61
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ba70a0c195a0e468c26ef1c1ca14bd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_28
+      rect:
+        serializedVersion: 2
+        x: 1469
+        y: 694
+        width: 60
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab0abcc9e8d898468978a013db267a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_29
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 694
+        width: 59
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc9a111ccc732b4eb8f94b177239246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_30
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 525
+        width: 59
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b2c39b8a8dfbe4195861e427343d9d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_31
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 525
+        width: 58
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e67e21c73ca84243a59d1f20b3f01ee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_32
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 525
+        width: 57
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1bd62ea444d6d94985bbcc50e16edd6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_33
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 525
+        width: 58
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b549f44a1cae784983d503f219af2e7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_34
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 525
+        width: 60
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b424d984af89bb04ba02c5b543e065ec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_35
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 525
+        width: 62
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56d2aae09a6deee4ba62409540160d29
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_36
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 525
+        width: 64
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d810ea72792f64da54df6cd686f39d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_37
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 525
+        width: 66
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c4ee2814d6d8d143867787f4cd4e5d7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_38
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 525
+        width: 69
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd06c6ca94fb0b4a96f34f15bca6bc9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_39
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 525
+        width: 71
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbcbbb1d8e50e704c80d7173b82a143a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_40
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 357
+        width: 75
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0daf90da085aeaf45a55a394c2fd686e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_41
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 357
+        width: 78
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c431ea50a6864a4fb3f8fe4b7b05571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_42
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 357
+        width: 82
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6da8e601b83c5694b9ca9a2a171028f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_43
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 355
+        width: 86
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c965514a4fb2b4fade41e225254201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_44
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 354
+        width: 93
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f93f82f1d239f654aa2f6fb0467bd7b2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_45
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 354
+        width: 98
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e0952c7b9fc1f4a9dc821b6b5fc3f1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_46
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 354
+        width: 103
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e43feaf714dae5428d902816991db73
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_47
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 355
+        width: 109
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6551e6def3bb5a419c4fd35821c33ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_48
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 354
+        width: 114
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9366bb96911711841a50827a56c6b049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_49
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 354
+        width: 119
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1b29841b94283c4189567d6752adcc3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_50
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 184
+        width: 124
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3186e3b46502ce642910b6c088689bc8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_51
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 179
+        width: 124
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2af77da8ec0844f9e8bad7cc2352fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_52
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 175
+        width: 122
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02b4f6bcfb739e142a99b076be82f5b9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_53
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 171
+        width: 120
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4712d71d129e26248a9de93acf7ec86f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_54
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 170
+        width: 117
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c590a43b3c02d884888aa90229cab898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_55
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 171
+        width: 114
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1012184f3aa03ba4ab4771197d3833b2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_56
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 172
+        width: 115
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29db13d47e936b241b6373bd116e3188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_57
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 174
+        width: 114
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1663d7c085054d447bf0a38482554a5c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_58
+      rect:
+        serializedVersion: 2
+        x: 1385
+        y: 175
+        width: 114
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a88e6cf721b3af45b9d976b41eeeff8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_59
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 175
+        width: 114
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2bd834cb96a06438f2fba44ba200a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 115
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6372064ebfa02b4eb59abae90aa9edf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_61
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 4
+        width: 115
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44ce9dc63387e784e99f200a6d0d4c7f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_62
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 3
+        width: 114
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f24c08caae46ac848a0b2c4e51e664bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_63
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 1
+        width: 114
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e455e6e043ea769468ec8de081a7dca4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_64
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 0
+        width: 113
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95016827699db82418cc5ad352ac4889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_65
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 0
+        width: 113
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1958d16cdf577942837abcef451bd29
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_66
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 0
+        width: 112
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8941cefb855e39244bd716e3421e670f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_67
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 0
+        width: 112
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f3e8eabc3725374584bc813506411ec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IdleAndDeathTileMap_68
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 2
+        width: 112
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ddf7d0c4ac7e124fa7fef9fd3c8ec34
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5bc6646b363eb344aba858f714df2841
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
