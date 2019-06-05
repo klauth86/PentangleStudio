@@ -26,8 +26,11 @@ namespace BridgeMaster {
                         Instantiate(_locationExitVfx);
                     }
                     _master.ExitLocation(_nextLocation);
+                    Destroy(gameObject);
                 }
-                yield return new WaitForSeconds(0.0625f);
+                else {
+                    yield return new WaitForSeconds(0.0625f);
+                }
             }
         }
     }

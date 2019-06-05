@@ -25,7 +25,9 @@ namespace BridgeMaster.Masters {
         }
 
         private void LoadLocation(Location location) {
-            StartCoroutine(LoadLocationRoutine(SceneManager.GetSceneByName(location.ToString()).buildIndex));
+            var sceneName = location.ToString();
+            var scene = SceneManager.GetSceneByName(sceneName);
+            StartCoroutine(LoadLocationRoutine(scene.buildIndex));
         }
 
         private IEnumerator LoadLocationRoutine(int buildIndex) {
