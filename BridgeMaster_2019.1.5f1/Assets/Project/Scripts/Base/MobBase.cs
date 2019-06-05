@@ -1,4 +1,5 @@
 ﻿using Dicts;
+using System.Collections;
 using UnityEngine;
 
 namespace Base {
@@ -17,7 +18,7 @@ namespace Base {
         #region Ctor
 
         public MobBase() {
-            OnUpdate += Walk;
+            OnStart += () => { StartCoroutine(WalkRoutine); };
 
             OnPause += ()=>{
                 OnUpdate -= Walk;
@@ -31,10 +32,14 @@ namespace Base {
 
         #region Walk
 
-        private void Walk() {
+        private IEnumerator WalkRoutine() {
             var direction = 0.0f;
             if (Target) {
                 direction = Mathf.Sign(Target.position.x - transform.position.x);
+            }
+
+            while(direction != 0) {
+
             }
 
             var isWalking = !_isAttacking && direction != 0.0f;
@@ -45,18 +50,6 @@ namespace Base {
                 Swap();
             }
         }
-
-        //private void Walk() {
-        //    if (Target && !_isAttacking) {
-        //        var direction = Mathf.Sign(Target.position.x - transform.position.x);
-        //        transform.position = new Vector3(transform.position.x + _velocity * direction * Time.deltaTime, transform.position.y, transform.position.z);
-        //        _animator.SetBool(AnimatorKey.IsWalking, true);
-
-        //        if (direction * transform.localScale.x < 0) {
-        //            Swap();
-        //        }
-        //    }
-        //}
 
         #endregion
 
