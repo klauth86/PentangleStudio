@@ -20,6 +20,7 @@ namespace Managers {
         [SerializeField] private TMPro.TMP_Text _sizeText;
         [SerializeField] private UnityEngine.UI.Slider _bombsSlider;
         [SerializeField] private TMPro.TMP_Text _bombsText;
+        [SerializeField] private Camera _depthCamera;
 
         [SerializeField] private GameObject _gamePanel;
         [SerializeField] private TMPro.TMP_Text _bombsLeftText;
@@ -72,14 +73,16 @@ namespace Managers {
 
         #region UI Handlers
 
-        public void OnMenuButtonClick() {
+        public void OnMenuButtonClick(bool fromPlayMode) {
             if (!_isPaused) {
+                _depthCamera.enabled = !fromPlayMode;
                 ButtonClicked(ButtonRole.MenuButton);
                 ShowMenuUI();
             }
         }
 
         public void OnPlayButtonClick() {
+            _depthCamera.enabled = false;
             ButtonClicked(ButtonRole.PlayButton);
             ShowGameUI();
         }
