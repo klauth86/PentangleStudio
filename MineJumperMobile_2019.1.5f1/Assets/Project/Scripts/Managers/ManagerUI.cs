@@ -110,6 +110,10 @@ namespace Managers {
                 DebugMessage.LogNotSetupWarningMessage("BombsText");
         }
 
+        public void TogglePause() {
+            Time.timeScale = 1 - Time.timeScale;
+        }
+
         #endregion
 
         private IEnumerator QuitRoutine() {
