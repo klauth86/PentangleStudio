@@ -122,6 +122,14 @@ namespace Managers {
             Time.timeScale = 1 - Time.timeScale;
         }
 
+        public bool ChangeBombsLeft(int delta) {
+            if (Bombs + delta < 0)
+                return false;
+            Bombs += delta;
+            _bombsLeftText.text = Bombs.ToString();
+            return true;
+        }
+
         #endregion
 
         private IEnumerator QuitRoutine() {

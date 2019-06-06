@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Managers {
 
@@ -39,6 +40,10 @@ namespace Managers {
                 }
                 _uiManager.ShowGameOverUI(b.Status);
             };
+        }
+
+        internal bool ChangeBombsLeft(bool isMarked) {
+           return  _uiManager.ChangeBombsLeft(isMarked ? -1 : +1);
         }
     }
 

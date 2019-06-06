@@ -266,11 +266,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2892180282887885978, guid: def3325c02c646141af5dce53f35ac50,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TogglePause
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def3325c02c646141af5dce53f35ac50, type: 3}
 --- !u!1 &534669902

@@ -50,6 +50,9 @@ namespace Managers {
             #region Subscribtions
 
             GameAction<Board, Card> onCardMarked = (b, c) => {
+                if (!_master.ChangeBombsLeft(c.IsMarked)) {
+                    c.IsMarked = !c.IsMarked;
+                }
                 var gameCard = gameCards.First(pair => pair.Value == c).Key;
                 gameCard.Mark(c.IsMarked);
             };

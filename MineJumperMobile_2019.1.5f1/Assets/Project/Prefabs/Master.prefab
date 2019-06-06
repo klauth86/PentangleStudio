@@ -1204,6 +1204,7 @@ MonoBehaviour:
   _bombsText: {fileID: 114825913470438980}
   _gamePanel: {fileID: 1254546125194848}
   _bombsLeftText: {fileID: 114688601626461538}
+  _pauseButtonText: {fileID: 5789985014274800420}
   _gameOverPanel: {fileID: 1289464319813642}
   _statusText: {fileID: 114738433588107876}
   Size: 4
