@@ -11,6 +11,8 @@ namespace Managers {
             PlayButton, ExitButton, MenuButton
         }
 
+        private bool _isPaused;
+
         #region Inspector
 
         [SerializeField] private GameObject _menuPanel;
@@ -21,6 +23,7 @@ namespace Managers {
 
         [SerializeField] private GameObject _gamePanel;
         [SerializeField] private TMPro.TMP_Text _bombsLeftText;
+        [SerializeField] private TMPro.TMP_Text _pauseButtonText;
 
         [SerializeField] private GameObject _gameOverPanel;
         [SerializeField] private TMPro.TMP_Text _statusText;
@@ -48,6 +51,7 @@ namespace Managers {
             _menuPanel.SetActive(false);
             _gamePanel.SetActive(true);
             _gameOverPanel.SetActive(false);
+            _bombsLeftText.text = Bombs.ToString();
         }
 
         public void ShowGameOverUI(BoardStatus status) {
@@ -69,8 +73,10 @@ namespace Managers {
         #region UI Handlers
 
         public void OnMenuButtonClick() {
-            ButtonClicked(ButtonRole.MenuButton);
-            ShowMenuUI();
+            if (!_isPaused) {
+                ButtonClicked(ButtonRole.MenuButton);
+                ShowMenuUI();
+            }
         }
 
         public void OnPlayButtonClick() {
@@ -111,6 +117,8 @@ namespace Managers {
         }
 
         public void TogglePause() {
+            _isPaused = !_isPaused;
+            _pauseButtonText.color = _isPaused ? Color.green : Color.white;
             Time.timeScale = 1 - Time.timeScale;
         }
 
