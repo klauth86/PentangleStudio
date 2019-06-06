@@ -1,5 +1,7 @@
-﻿using Core;
+﻿using Cards;
+using Core;
 using Events;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -75,6 +77,7 @@ namespace Managers {
 
         public void OnMenuButtonClick(bool fromPlayMode) {
             if (!_isPaused) {
+                ClearOldGame();
                 _depthCamera.enabled = !fromPlayMode;
                 ButtonClicked(ButtonRole.MenuButton);
                 ShowMenuUI();
@@ -82,9 +85,20 @@ namespace Managers {
         }
 
         public void OnPlayButtonClick() {
+            ClearOldGame();
             _depthCamera.enabled = false;
             ButtonClicked(ButtonRole.PlayButton);
             ShowGameUI();
+        }
+
+        private void ClearOldGame() {
+            foreach (var item in FindObjectsOfType<GameCard>()) {
+                Destroy(item.gameObject);
+            }
+
+            var markingCard = FindObjectOfType<MarkingCard>();
+            if (markingCard)
+                Destroy(markingCard.gameObject);
         }
 
         public void OnExitButtonClick() {
