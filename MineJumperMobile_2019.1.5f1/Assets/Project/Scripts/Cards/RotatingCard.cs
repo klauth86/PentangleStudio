@@ -4,6 +4,15 @@ using Random = UnityEngine.Random;
 namespace Cards {
     [RequireComponent(typeof(MeshRenderer))]
     public class RotatingCard : MonoBehaviour {
+        public static int Counter;
+
+        public int Id;
+
+        public RotatingCard() {
+            Id = Counter++;
+        }
+
+
         [SerializeField] protected bool _isRotating;
         [SerializeField] private float _rotationVelocity;
 

@@ -534,6 +534,26 @@ PrefabInstance:
       propertyPath: _depthCamera
       value: 
       objectReference: {fileID: 523225625}
+    - target: {fileID: 3183927085129583564, guid: def3325c02c646141af5dce53f35ac50,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183927085129583564, guid: def3325c02c646141af5dce53f35ac50,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183927085129583564, guid: def3325c02c646141af5dce53f35ac50,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183927085129583564, guid: def3325c02c646141af5dce53f35ac50,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3360900319286883716, guid: def3325c02c646141af5dce53f35ac50,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -712,6 +732,11 @@ PrefabInstance:
     - target: {fileID: 3361534238440527502, guid: def3325c02c646141af5dce53f35ac50,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182969197304183084, guid: def3325c02c646141af5dce53f35ac50,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
