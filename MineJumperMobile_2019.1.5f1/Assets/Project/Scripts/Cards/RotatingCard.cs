@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Cards {
+namespace MineJumperMobile_2019.Cards {
     [RequireComponent(typeof(MeshRenderer))]
     public class RotatingCard : MonoBehaviour {
         public static int Counter;

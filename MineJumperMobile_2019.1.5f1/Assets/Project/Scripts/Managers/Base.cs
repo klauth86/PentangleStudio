@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
 namespace Managers {
-
     [RequireComponent(typeof(Master))]
     public class Base : MonoBehaviour {
 

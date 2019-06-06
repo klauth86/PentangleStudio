@@ -1,8 +1,7 @@
-﻿using Core;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-namespace Cards {
+namespace MineJumperMobile_2019.Cards {
     [RequireComponent(typeof(Rigidbody))]
     public class GameCard : RotatingCard {
 

@@ -1,19 +1,13 @@
-﻿using Cards;
-using Core;
-using Core;
-using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-namespace Managers {
-
-    public class ManagerUI : Base {
-
-        public enum ButtonRole {
-            PlayButton, ExitButton, MenuButton
-        }
+namespace MineJumperMobile_2019.Masters {
+    class SubUI: Sub {
 
         private bool _isPaused;
+
+        public int Size;
+        public int Bombs;
 
         #region Inspector
 
@@ -33,72 +27,43 @@ namespace Managers {
 
         #endregion
 
-        public int Size;
-        public int Bombs;
+        private void ShowMenuUI() {
+            _gamePanel.SetActive(false);
+            _gameOverPanel.SetActive(false);
 
-        #region Events
-
-        public event GameAction<ButtonRole> ButtonClicked = delegate { };
-
-        #endregion
-
-        #region Manager Methods
-
-        public void ShowMenuUI() {
             _menuPanel.SetActive(true);
-            _gamePanel.SetActive(false);
-            _gameOverPanel.SetActive(false);
         }
 
-        public void ShowGameUI() {
+        private void ShowGameUI() {
             _menuPanel.SetActive(false);
-            _gamePanel.SetActive(true);
             _gameOverPanel.SetActive(false);
+
             _bombsLeftText.text = Bombs.ToString();
+            _gamePanel.SetActive(true);
         }
 
-        public void ShowGameOverUI(BoardStatus status) {
-            switch (status) {
-                case BoardStatus.Lose:
-                    _statusText.text = "LOSE";
-                    break;
-                case BoardStatus.Win:
-                    _statusText.text = "WIN";
-                    break;
-            }
+        private void ShowGameOverUI(string statusText) {
             _menuPanel.SetActive(false);
             _gamePanel.SetActive(false);
+
+            _statusText.text = statusText;
             _gameOverPanel.SetActive(true);
         }
-
-        #endregion
 
         #region UI Handlers
 
         public void OnMenuButtonClick(bool fromPlayMode) {
             if (!_isPaused) {
-                ClearOldGame();
+                Master.CallButtonActionEvent(Dicts.ButtonAction.MenuButtonAction);
                 _depthCamera.enabled = !fromPlayMode;
-                ButtonClicked(ButtonRole.MenuButton);
                 ShowMenuUI();
             }
         }
 
         public void OnPlayButtonClick() {
-            ClearOldGame();
+            Master.CallButtonActionEvent(Dicts.ButtonAction.PlayButtonAction);
             _depthCamera.enabled = false;
-            ButtonClicked(ButtonRole.PlayButton);
             ShowGameUI();
-        }
-
-        private void ClearOldGame() {
-            foreach (var item in FindObjectsOfType<GameCard>()) {
-                Destroy(item.gameObject);
-            }
-
-            var markingCard = FindObjectOfType<MarkingCard>();
-            if (markingCard)
-                Destroy(markingCard.gameObject);
         }
 
         public void OnExitButtonClick() {
@@ -114,7 +79,7 @@ namespace Managers {
                 else {
                     DebugMessage.LogNotSetupWarningMessage("SizeSlider");
                 }
-            }               
+            }
             else
                 DebugMessage.LogNotSetupWarningMessage("SizeText");
         }
@@ -150,9 +115,17 @@ namespace Managers {
         #endregion
 
         private IEnumerator QuitRoutine() {
-            ButtonClicked(ButtonRole.ExitButton);
+            Master.CallButtonActionEvent(Dicts.ButtonAction.ExitButtonAction);
             yield return new WaitForSeconds(0.5f);
             Application.Quit();
+        }
+
+        private void OnEnable() {
+            
+        }
+
+        private void OnDisable() {
+            
         }
     }
 }

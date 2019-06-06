@@ -1,4 +1,4 @@
-﻿namespace Events {
+﻿namespace MineJumperMobile_2019.Core {
     public delegate void GameAction();
 
     public delegate void GameAction<T>(T param);

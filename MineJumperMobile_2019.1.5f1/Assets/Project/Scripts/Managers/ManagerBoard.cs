@@ -1,6 +1,6 @@
 ﻿using Cards;
 using Core;
-using Events;
+using Core;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

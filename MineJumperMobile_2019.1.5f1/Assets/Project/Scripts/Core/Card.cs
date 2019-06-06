@@ -1,4 +1,4 @@
-﻿namespace Core {
+﻿namespace MineJumperMobile_2019.Core {
     public class Card {
         public int BombIndex;
         public bool IsBomb;

@@ -1,9 +1,8 @@
-﻿using Events;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Core {
+namespace MineJumperMobile_2019.Core {
     public class Board {
         public int Dim;
         public int Size;
