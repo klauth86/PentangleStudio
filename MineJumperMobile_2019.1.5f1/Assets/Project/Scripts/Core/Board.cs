@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace MineJumperMobile_2019.Core {
     public class Board {
@@ -56,9 +56,8 @@ namespace MineJumperMobile_2019.Core {
         }
 
         private void Shuffle() {
-            var rnd = new Random();
             for (int i = 0; i < _size * _size; i++) {
-                var index = rnd.Next(0, _size * _size);
+                var index = Random.Range(0, _size * _size);
 
                 var tmp = Cards[index];
                 Cards[index] = Cards[i];
@@ -81,7 +80,7 @@ namespace MineJumperMobile_2019.Core {
         }
 
         private IEnumerable<Card> GetNeighbourCards(Card card, bool withDiagonals = false) {
-            var i = Array.IndexOf(Cards, card);
+            var i = System.Array.IndexOf(Cards, card);
             if (i - 1 >= 0 && (i - 1)/_size == i /_size )
                 yield return Cards[i - 1];
             if (i + 1 < _size * _size && (i + 1) /_size  == i /_size )
