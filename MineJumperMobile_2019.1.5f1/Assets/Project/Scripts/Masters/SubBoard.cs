@@ -12,6 +12,8 @@ namespace MineJumperMobile_2019.Masters {
         private Board _board;
         private Dictionary<GameCard, Card> _gameCards;
         private MarkingCard _markingCard;
+        private GameCard _mouseClicked;
+        private MarkingCard _mouseClickedMarking;
 
         #region Inspector
 
@@ -105,10 +107,7 @@ namespace MineJumperMobile_2019.Masters {
                 if (Physics.Raycast(ray, out hit)) {
                     var gameCard = hit.collider.GetComponent<GameCard>();
                     if (gameCard) {
-                        if (_isMark)
-                            _board.MarkCard(_gameCards[gameCard]);
-                        else
-                            _board.RevealCard(_gameCards[gameCard]);
+                        ProcessCard(_gameCards[gameCard]);
                     }
 
                     var markingCard = hit.collider.GetComponent<MarkingCard>();
@@ -118,14 +117,42 @@ namespace MineJumperMobile_2019.Masters {
                     }
                 }
             }
+            else if (_mouseClicked) {
+                ProcessCard(_gameCards[_mouseClicked]);
+                _mouseClicked = null;
+            }
+            else if (_mouseClickedMarking) {
+                _isMark = !_isMark;
+                _mouseClickedMarking.ChangeState(_isMark);
+                _mouseClickedMarking = null;
+            }
+        }
+
+        private void ProcessCard(Card card) {
+            if (_isMark)
+                _board.MarkCard(card);
+            else
+                _board.RevealCard(card);
         }
 
         private void OnEnable() {
             Master.ButtonActionEvent += OnButtonActionEvent;
+            Master.GameCardMouseClickedEvent += OnGameCardMouseClickedEvent;
+            Master.MarkingCardMouseClickedEvent += OnMarkingCardMouseClickedEvent;
         }
 
         private void OnDisable() {
             Master.ButtonActionEvent -= OnButtonActionEvent;
+            Master.GameCardMouseClickedEvent -= OnGameCardMouseClickedEvent;
+            Master.MarkingCardMouseClickedEvent += OnMarkingCardMouseClickedEvent;
+        }
+
+        private void OnMarkingCardMouseClickedEvent(MarkingCard card) {
+            _mouseClickedMarking = card;
+        }
+
+        private void OnGameCardMouseClickedEvent(GameCard card) {
+            _mouseClicked = card;
         }
 
         private void OnButtonActionEvent(ButtonAction param) {

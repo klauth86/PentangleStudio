@@ -38,5 +38,9 @@ namespace MineJumperMobile_2019.Cards {
             }
             Destroy(gameObject);
         }
+
+        private void OnMouseDown() {
+            Masters.Master.Instance.CallGameCardMouseClickedEvent(this);
+        }
     }
 }

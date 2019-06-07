@@ -1,9 +1,18 @@
-﻿using MineJumperMobile_2019.Core;
+﻿using MineJumperMobile_2019.Cards;
+using MineJumperMobile_2019.Core;
 using MineJumperMobile_2019.Dicts;
 using UnityEngine;
 
 namespace MineJumperMobile_2019.Masters {
     public class Master : MonoBehaviour {
+
+        public static Master Instance;
+
+        public Master() {
+            Instance = this;
+        }
+        public event GameAction<MarkingCard> MarkingCardMouseClickedEvent;
+        public event GameAction<GameCard> GameCardMouseClickedEvent;
         public event GameAction<ButtonAction> ButtonActionEvent;
         public event GameAction<bool> GameOverEvent;
         public event GameAction<int> BombsLeftChangedEvent;
@@ -13,6 +22,14 @@ namespace MineJumperMobile_2019.Masters {
 
         public int Size;
         public int Bombs;
+
+        public void CallMarkingCardMouseClickedEvent(MarkingCard card) {
+            MarkingCardMouseClickedEvent?.Invoke(card);
+        }
+
+        public void CallGameCardMouseClickedEvent(GameCard card) {
+            GameCardMouseClickedEvent?.Invoke(card);
+        }
 
         public void CallButtonActionEvent(ButtonAction buttonAction) {
             ButtonActionEvent?.Invoke(buttonAction);

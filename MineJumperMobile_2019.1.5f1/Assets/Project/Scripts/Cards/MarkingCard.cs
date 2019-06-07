@@ -6,5 +6,9 @@ namespace MineJumperMobile_2019.Cards {
             _isRotating = isRotating;
             MeshRenderer.material.color = isRotating ? Color.white : Color.gray;
         }
+
+        private void OnMouseDown() {
+            Masters.Master.Instance.CallMarkingCardMouseClickedEvent(this);
+        }
     }
 }
