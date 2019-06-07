@@ -28,6 +28,7 @@ namespace MineJumperMobile_2019.Masters {
         private void CreateBoard(int size, int bombs) {
             _board = new Board(2, size, bombs);
             _gameCards = CreateGameBoard(_board);
+            Master.CallBombsLeftChangedEvent(Master.Bombs - _board.Cards.Count(card => card.IsMarked));
         }
 
         private Dictionary<GameCard, Card> CreateGameBoard(Board board) {
@@ -114,6 +115,7 @@ namespace MineJumperMobile_2019.Masters {
                     if (markingCard) {
                         _isMark = !_isMark;
                         markingCard.ChangeState(_isMark);
+                        Master.CallBombsLeftChangedEvent(Master.Bombs - _board.Cards.Count(card => card.IsMarked));
                     }
                 }
             }
@@ -124,6 +126,7 @@ namespace MineJumperMobile_2019.Masters {
             else if (_mouseClickedMarking) {
                 _isMark = !_isMark;
                 _mouseClickedMarking.ChangeState(_isMark);
+                Master.CallBombsLeftChangedEvent(Master.Bombs - _board.Cards.Count(card => card.IsMarked));
                 _mouseClickedMarking = null;
             }
         }
