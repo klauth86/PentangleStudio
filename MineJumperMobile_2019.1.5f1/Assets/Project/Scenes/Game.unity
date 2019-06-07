@@ -685,5 +685,14 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1157491484761623065, guid: def3325c02c646141af5dce53f35ac50,
+        type: 3}
+      propertyPath: m_text
+      value: "This tiny app is created to make fun and occupy you brains for several
+        minutes or maybe for years =) However, it just another Wayward son =) Wikipedia
+        claims,  that Its grandfather appeared first in OS/2 (Hail Robert Donner!)
+        and then moved to Microsoft Entertainment Pack 1 in 1990.\r\n\r\nI will be
+        happy if you can play it for some time =). You can contact me with whis link\n\nhttps://klauth86.itch.io"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def3325c02c646141af5dce53f35ac50, type: 3}

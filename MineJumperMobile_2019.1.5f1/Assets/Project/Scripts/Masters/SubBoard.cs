@@ -26,6 +26,7 @@ namespace MineJumperMobile_2019.Masters {
         private void CreateBoard(int size, int bombs) {
             _board = new Board(2, size, bombs);
             _gameCards = CreateGameBoard(_board);
+            Master.CallBombsLeftChangedEvent(bombs);
         }
 
         private Dictionary<GameCard, Card> CreateGameBoard(Board board) {
@@ -105,8 +106,13 @@ namespace MineJumperMobile_2019.Masters {
                 if (Physics.Raycast(ray, out hit)) {
                     var gameCard = hit.collider.GetComponent<GameCard>();
                     if (gameCard) {
-                        if (_isMark)
-                            _board.MarkCard(_gameCards[gameCard]);
+                        if (_isMark) {
+                            var bombsLeft = _board.Bombs - _board.Cards.Count(card => card.IsMarked);
+                            if (bombsLeft > 0 || _gameCards[gameCard].IsMarked) {
+                                _board.MarkCard(_gameCards[gameCard]);
+                                Master.CallBombsLeftChangedEvent(_board.Bombs - _board.Cards.Count(card => card.IsMarked));
+                            }
+                        }                            
                         else
                             _board.RevealCard(_gameCards[gameCard]);
                     }
