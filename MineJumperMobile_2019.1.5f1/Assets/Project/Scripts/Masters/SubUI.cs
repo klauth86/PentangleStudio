@@ -15,6 +15,8 @@ namespace MineJumperMobile_2019.Masters {
         [SerializeField] private TMPro.TMP_Text _bombsText;
         [SerializeField] private Camera _depthCamera;
 
+        [SerializeField] private GameObject _aboutPanel;
+
         [SerializeField] private GameObject _gamePanel;
         [SerializeField] private TMPro.TMP_Text _bombsLeftText;
         [SerializeField] private TMPro.TMP_Text _pauseButtonText;
@@ -27,13 +29,23 @@ namespace MineJumperMobile_2019.Masters {
         private void ShowMenuUI() {
             _gamePanel.SetActive(false);
             _gameOverPanel.SetActive(false);
+            _aboutPanel.SetActive(false);
 
             _menuPanel.SetActive(true);
+        }
+
+        private void ShowAboutUI() {
+            _menuPanel.SetActive(false);
+            _gameOverPanel.SetActive(false);
+            _gamePanel.SetActive(false);
+
+            _aboutPanel.SetActive(true);
         }
 
         private void ShowGameUI() {
             _menuPanel.SetActive(false);
             _gameOverPanel.SetActive(false);
+            _aboutPanel.SetActive(false);
 
             _gamePanel.SetActive(true);
         }
@@ -41,6 +53,7 @@ namespace MineJumperMobile_2019.Masters {
         private void ShowGameOverUI(string statusText) {
             _menuPanel.SetActive(false);
             _gamePanel.SetActive(false);
+            _aboutPanel.SetActive(false);
 
             _statusText.text = statusText;
             _gameOverPanel.SetActive(true);
@@ -64,6 +77,11 @@ namespace MineJumperMobile_2019.Masters {
 
         public void OnExitButtonClick() {
             StartCoroutine(QuitRoutine());
+        }
+
+        public void OnAboutButtonClick() {
+            Master.CallButtonActionEvent(Dicts.ButtonAction.PlayButtonAction);
+            ShowAboutUI();
         }
 
         public void OnSizeSliderValueChanged() {
