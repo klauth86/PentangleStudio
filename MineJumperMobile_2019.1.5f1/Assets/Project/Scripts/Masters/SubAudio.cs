@@ -1,5 +1,4 @@
-﻿using System;
-using MineJumperMobile_2019.Dicts;
+﻿using MineJumperMobile_2019.Dicts;
 using UnityEngine;
 
 namespace MineJumperMobile_2019.Masters {
