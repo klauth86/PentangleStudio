@@ -99,7 +99,7 @@ namespace MineJumperMobile_2019.Masters {
         }
 
         private void Update() {
-            if (Input.touchCount > 0) {
+            if (Input.touchCount > 0 && Time.timeScale>0) {
                 var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit)) {
