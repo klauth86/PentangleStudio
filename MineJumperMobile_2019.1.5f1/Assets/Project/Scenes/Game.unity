@@ -691,18 +691,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 124705400, guid: def3325c02c646141af5dce53f35ac50, type: 3}
       propertyPath: m_text
-      value: 'This tiny app is made to simply make fun and occupy you brains for a
+      value: "This tiny app is made to simply make fun and occupy you brains for a
         little bit or maybe for years =) However, it just another Wayward son =) Wikipedia
         claims,  that Its grandfather appeared first in OS/2 (Hail Robert Donner)
-        and then moved to WIN 3.1 in 1990.
-
-
-        Anyway I will be happy if you can by joyful and full of fun with it for some
-        time =)
-
-
-        My email is kehel@yandex.ru if you want to make new connections or maybe want
-        to donate smth with Paypal =)'
+        and then moved to WIN 3.1 in 1990.\r\n\r\nAnyway I will be happy if you can
+        be joyful and full of fun with it for some time =)\r\n\r\nMy email is kehel@yandex.ru
+        if you want to connect with me or maybe want to donate smth with Paypal"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def3325c02c646141af5dce53f35ac50, type: 3}
