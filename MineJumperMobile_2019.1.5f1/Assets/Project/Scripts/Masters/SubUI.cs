@@ -6,9 +6,6 @@ namespace MineJumperMobile_2019.Masters {
 
         private bool _isPaused;
 
-        public int Size;
-        public int Bombs;
-
         #region Inspector
 
         [SerializeField] private GameObject _menuPanel;
@@ -38,7 +35,6 @@ namespace MineJumperMobile_2019.Masters {
             _menuPanel.SetActive(false);
             _gameOverPanel.SetActive(false);
 
-            _bombsLeftText.text = Bombs.ToString();
             _gamePanel.SetActive(true);
         }
 
@@ -104,14 +100,6 @@ namespace MineJumperMobile_2019.Masters {
             Time.timeScale = 1 - Time.timeScale;
         }
 
-        public bool ChangeBombsLeft(int delta) {
-            if (Bombs + delta < 0)
-                return false;
-            Bombs += delta;
-            _bombsLeftText.text = Bombs.ToString();
-            return true;
-        }
-
         #endregion
 
         private IEnumerator QuitRoutine() {
@@ -121,11 +109,21 @@ namespace MineJumperMobile_2019.Masters {
         }
 
         private void OnEnable() {
-            
+            Master.BombsLeftChangedEvent += OnBombsLeftChangedEvent;
+            Master.GameOverEvent += OnGameOverEvent;
         }
 
         private void OnDisable() {
-            
+            Master.BombsLeftChangedEvent -= OnBombsLeftChangedEvent;
+            Master.GameOverEvent -= OnGameOverEvent;
+        }
+
+        private void OnGameOverEvent(bool win) {
+            ShowGameOverUI(win ? "WIN" : "LOSE");
+        }
+
+        private void OnBombsLeftChangedEvent(int bombsLeft) {
+            _bombsLeftText.text = bombsLeft.ToString();
         }
     }
 }

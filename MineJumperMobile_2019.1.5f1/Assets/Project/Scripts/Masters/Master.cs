@@ -8,6 +8,12 @@ namespace MineJumperMobile_2019.Masters {
         public event GameAction<bool> GameOverEvent;
         public event GameAction<int> BombsLeftChangedEvent;
 
+        public event GameAction<int> SizeChangedEvent;
+        public event GameAction<int> BombsChangedEvent;
+
+        public int Size;
+        public int Bombs;
+
         public void CallButtonActionEvent(ButtonAction buttonAction) {
             ButtonActionEvent?.Invoke(buttonAction);
         }
@@ -18,6 +24,16 @@ namespace MineJumperMobile_2019.Masters {
 
         public void CallBombsLeftChangedEvent(int bombsLeft) {
             BombsLeftChangedEvent?.Invoke(bombsLeft);
+        }
+
+        public void CallSizeChangedEvent(int size) {
+            Size = size;
+            SizeChangedEvent?.Invoke(size);
+        }
+
+        public void CallBombsChangedEvent(int bombs) {
+            Bombs = bombs;
+            BombsChangedEvent?.Invoke(bombs);
         }
     }
 }
