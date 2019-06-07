@@ -26,21 +26,21 @@ namespace MineJumperMobile_2019.Masters {
         #endregion
 
         private void CreateBoard(int size, int bombs) {
-            _board = new Board(2, size, bombs);
+            _board = new Board(size, bombs);
             _gameCards = CreateGameBoard(_board);
             Master.CallBombsLeftChangedEvent(bombs);
         }
 
         private Dictionary<GameCard, Card> CreateGameBoard(Board board) {
-            var gameCards = new Dictionary<GameCard, Card>(board.BoardSize);
+            var gameCards = new Dictionary<GameCard, Card>(Master.Size * Master.Size);
 
             #region GameBoard
 
-            var offset = board.Size % 2 == 0 ? 0.5f : 0.0f;
-            for (int i = 0; i < board.BoardSize; i++) {
+            var offset = Master.Size % 2 == 0 ? 0.5f : 0.0f;
+            for (int i = 0; i < Master.Size * Master.Size; i++) {
                 var gameCard = Instantiate(_gameCardPrefab,
-                    new Vector3(_scaleFactor * (i % board.Size - board.Size / 2 + offset + 1), 0,
-                    _scaleFactor * (i / board.Size - board.Size / 2 + offset)), Quaternion.identity).GetComponent<GameCard>();
+                    new Vector3(_scaleFactor * (i % Master.Size - Master.Size / 2 + offset + 1), 0,
+                    _scaleFactor * (i / Master.Size - Master.Size / 2 + offset)), Quaternion.identity).GetComponent<GameCard>();
                 gameCards.Add(gameCard, board.Cards[i]);
             }
 
@@ -48,7 +48,7 @@ namespace MineJumperMobile_2019.Masters {
 
             #region Camera
 
-            var cameraOffset = _scaleFactor * board.Size / 2 / Mathf.Tan(Mathf.PI / 6) + 2.5f;
+            var cameraOffset = _scaleFactor * Master.Size / 2 / Mathf.Tan(Mathf.PI / 6) + 2.5f;
             if (Camera.main.aspect < 1)
                 cameraOffset /= Camera.main.aspect;
             Camera.main.transform.position = new Vector3(0, cameraOffset, 0);
@@ -111,10 +111,10 @@ namespace MineJumperMobile_2019.Masters {
                     var gameCard = hit.collider.GetComponent<GameCard>();
                     if (gameCard) {
                         if (_isMark) {
-                            var bombsLeft = _board.Bombs - _board.Cards.Count(card => card.IsMarked);
+                            var bombsLeft = Master.Bombs - _board.Cards.Count(card => card.IsMarked);
                             if (bombsLeft > 0 || _gameCards[gameCard].IsMarked) {
                                 _board.MarkCard(_gameCards[gameCard]);
-                                Master.CallBombsLeftChangedEvent(_board.Bombs - _board.Cards.Count(card => card.IsMarked));
+                                Master.CallBombsLeftChangedEvent(Master.Bombs - _board.Cards.Count(card => card.IsMarked));
                             }
                         }                            
                         else
