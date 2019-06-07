@@ -2538,6 +2538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d228be2fafad26419aaf2bce84e8526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _touchDeadZoneDuration: 0.25
   _markingCardPrefab: {fileID: 8660990230033102377, guid: 04e2450d5f125f945ac24b73f4a6c26e,
     type: 3}
   _gameCardPrefab: {fileID: 1317360043755698, guid: beba3fd1cc1a782488eec5bdb9531a28,
@@ -5562,12 +5563,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "This tiny app is made to simply make fun and occupy you brains for a little
-    bit or maybe for years =) However, it just another Wayward son =) Wikipedia claims,
-    \ that Its grandfather appeared first in OS/2 (Hail Robert Donner) and then moved
-    to Microsoft Entertainment Pack 1 in 1990.\r\n\r\nAnyway I will be happy if you
-    can be joyful and full of fun with it for some time =)\r\n\r\nMy email is kehel@yandex.ru
-    if you want to connect with me or maybe want to donate smth with Paypal"
+  m_text: "This tiny app is created to make fun and occupy you brains for several
+    minutes or maybe for years =) However, it just another Wayward son =) Wikipedia
+    claims,  that Its grandfather appeared first in OS/2 (Hail Robert Donner!) and
+    then moved to Microsoft Entertainment Pack 1 in 1990.\r\n\r\nI will be happy if
+    you can play it for some time =). You can contact me with whis link\n\nhttps://klauth86.itch.io"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}

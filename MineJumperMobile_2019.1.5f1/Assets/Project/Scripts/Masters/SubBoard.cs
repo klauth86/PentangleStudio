@@ -15,11 +15,13 @@ namespace MineJumperMobile_2019.Masters {
 
         #region Inspector
 
+        [SerializeField] private float _touchDeadZoneDuration;
         [SerializeField] private GameObject _markingCardPrefab;
         [SerializeField] private GameObject _gameCardPrefab;
         [SerializeField] private float _scaleFactor;
 
         private int _bombsLeft;
+        private float _touchDeadZone;
 
         #endregion
 
@@ -100,7 +102,9 @@ namespace MineJumperMobile_2019.Masters {
         }
 
         private void Update() {
-            if (Input.touchCount > 0 && Time.timeScale>0) {
+            _touchDeadZone -= Time.deltaTime;
+            if (Input.touchCount > 0 && Time.timeScale > 0 && _touchDeadZone <= 0) {
+                _touchDeadZone = _touchDeadZoneDuration;
                 var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit)) {
