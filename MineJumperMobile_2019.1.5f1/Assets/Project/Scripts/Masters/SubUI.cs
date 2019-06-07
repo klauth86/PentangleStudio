@@ -80,7 +80,7 @@ namespace MineJumperMobile_2019.Masters {
         }
 
         public void OnAboutButtonClick() {
-            Master.CallButtonActionEvent(Dicts.ButtonAction.PlayButtonAction);
+            Master.CallButtonActionEvent(Dicts.ButtonAction.AboutButtonAction);
             ShowAboutUI();
         }
 
