@@ -25,7 +25,7 @@ namespace MineJumperMobile_2019.Masters {
         }
 
         private void OnButtonActionEvent(ButtonAction param) {
-            PlayAudio(_buttonClip)
+            PlayAudio(_buttonClip);
         }
 
         private void OnGameOverEvent(bool win) {

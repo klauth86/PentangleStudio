@@ -69,7 +69,7 @@ namespace MineJumperMobile_2019.Masters {
         public void OnSizeSliderValueChanged() {
             if (_sizeText) {
                 if (_sizeSlider) {
-                    Size = (int)_sizeSlider.value;
+                    Master.CallSizeChangedEvent((int)_sizeSlider.value);
                     _sizeText.text = _sizeSlider.value.ToString();
                 }
                 else {
@@ -83,7 +83,7 @@ namespace MineJumperMobile_2019.Masters {
         public void OnBombsSliderValueChanged() {
             if (_bombsText) {
                 if (_bombsSlider) {
-                    Bombs = (int)_bombsSlider.value;
+                    Master.CallBombsChangedEvent((int)_bombsSlider.value);
                     _bombsText.text = _bombsSlider.value.ToString();
                 }
                 else {
