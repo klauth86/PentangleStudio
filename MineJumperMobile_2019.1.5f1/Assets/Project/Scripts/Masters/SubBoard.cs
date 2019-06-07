@@ -115,7 +115,6 @@ namespace MineJumperMobile_2019.Masters {
                     if (markingCard) {
                         _isMark = !_isMark;
                         markingCard.ChangeState(_isMark);
-                        Master.CallBombsLeftChangedEvent(Master.Bombs - _board.Cards.Count(card => card.IsMarked));
                     }
                 }
             }
@@ -126,16 +125,20 @@ namespace MineJumperMobile_2019.Masters {
             else if (_mouseClickedMarking) {
                 _isMark = !_isMark;
                 _mouseClickedMarking.ChangeState(_isMark);
-                Master.CallBombsLeftChangedEvent(Master.Bombs - _board.Cards.Count(card => card.IsMarked));
                 _mouseClickedMarking = null;
             }
         }
 
-        private void ProcessCard(Card card) {
-            if (_isMark)
-                _board.MarkCard(card);
+        private void ProcessCard(Card cardToprocess) {
+            if (_isMark) {
+                var left = Master.Bombs - _board.Cards.Count(card => card.IsMarked);
+                if (left>0 || cardToprocess.IsMarked) {
+                    _board.MarkCard(cardToprocess);
+                    Master.CallBombsLeftChangedEvent(Master.Bombs - _board.Cards.Count(card => card.IsMarked));
+                }
+            }
             else
-                _board.RevealCard(card);
+                _board.RevealCard(cardToprocess);
         }
 
         private void OnEnable() {

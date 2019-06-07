@@ -11,6 +11,7 @@ namespace MineJumperMobile_2019.Masters {
         public Master() {
             Instance = this;
         }
+
         public event GameAction<MarkingCard> MarkingCardMouseClickedEvent;
         public event GameAction<GameCard> GameCardMouseClickedEvent;
         public event GameAction<ButtonAction> ButtonActionEvent;
@@ -41,6 +42,7 @@ namespace MineJumperMobile_2019.Masters {
 
         public void CallBombsLeftChangedEvent(int bombsLeft) {
             BombsLeftChangedEvent?.Invoke(bombsLeft);
+            Debug.Log(bombsLeft);
         }
 
         public void CallSizeChangedEvent(int size) {
