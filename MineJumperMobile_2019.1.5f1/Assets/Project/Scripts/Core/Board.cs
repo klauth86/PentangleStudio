@@ -60,10 +60,10 @@ namespace MineJumperMobile_2019.Core {
 
             Marks = Marks + (card.IsMarked ? -1 : 1);
 
+            CardMarked(this, card);
+
             if (Cards.Where(item => item.IsBomb).All(item => item.IsMarked))
                 ChangeBoardStatus(true);
-
-            CardMarked(this, card);
         }
 
         private void Shuffle() {
