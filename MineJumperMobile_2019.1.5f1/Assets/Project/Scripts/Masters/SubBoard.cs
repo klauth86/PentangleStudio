@@ -70,12 +70,13 @@ namespace MineJumperMobile_2019.Masters {
             board.CardMarked += onCardMarked;
             board.CardRevealed += onCardRevealed;
 
-            GameAction<Board> onStatusChanged = null;
+            GameAction<bool> onStatusChanged = null;
             onStatusChanged = (b) => {
                 board.CardMarked -= onCardMarked;
                 board.CardRevealed -= onCardRevealed;
                 board.StatusChanged -= onStatusChanged;
-                Clear();
+
+                Master.CallGameOverEvent(b);
             };
             board.StatusChanged += onStatusChanged;
 
@@ -128,7 +129,11 @@ namespace MineJumperMobile_2019.Masters {
         }
 
         private void OnButtonActionEvent(ButtonAction param) {
-            if (param == ButtonAction.PlayButtonAction || param == ButtonAction.MenuButtonAction) {
+            if (param == ButtonAction.PlayButtonAction) {
+                Clear();
+                CreateBoard(Master.Size, Master.Bombs);
+            }
+            if (param == ButtonAction.MenuButtonAction) {
                 Clear();
             }
         }

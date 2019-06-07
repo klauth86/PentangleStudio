@@ -10,9 +10,7 @@ namespace MineJumperMobile_2019.Core {
         public int Bombs;
         public int Marks;
 
-        public BoardStatus Status;
-
-        public event GameAction<Board> StatusChanged = delegate { };
+        public event GameAction<bool> StatusChanged = delegate { };
         public event GameAction<Board, Card> CardRevealed = delegate { };
         public event GameAction<Board, Card> CardMarked = delegate { };
 
@@ -47,7 +45,7 @@ namespace MineJumperMobile_2019.Core {
             CardRevealed(this, card);
 
             if (card.IsBomb) {
-                ChangeBoardStatus(BoardStatus.Lose);
+                ChangeBoardStatus(false);
             }
 
             if (card.BombIndex == 0)
@@ -63,7 +61,7 @@ namespace MineJumperMobile_2019.Core {
             Marks = Marks + (card.IsMarked ? -1 : 1);
 
             if (Cards.Where(item => item.IsBomb).All(item => item.IsMarked))
-                ChangeBoardStatus(BoardStatus.Win);
+                ChangeBoardStatus(true);
 
             CardMarked(this, card);
         }
@@ -116,9 +114,8 @@ namespace MineJumperMobile_2019.Core {
             }
         }
 
-        private void ChangeBoardStatus(BoardStatus status) {
-            Status = status;
-            StatusChanged(this);
+        private void ChangeBoardStatus(bool win) {
+            StatusChanged(win);
         }
     }
 }
