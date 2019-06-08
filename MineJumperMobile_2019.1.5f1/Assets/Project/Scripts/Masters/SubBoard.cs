@@ -106,23 +106,31 @@ namespace MineJumperMobile_2019.Masters {
         private void Update() {
             _touchDeadZone -= Time.deltaTime;
 
-            if (Input.touchCount > 0 && Time.timeScale > 0 && _touchDeadZone <= 0) {
-                var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit)) {
-                    var gameCard = hit.collider.GetComponent<GameCard>();
-                    if (gameCard && (_touchDeadZone = _touchDeadZoneDuration)>0 || _mouseClicked) {
-                        ProcessCard(_gameCards[gameCard ?? _mouseClicked]);
-                        _mouseClicked = null;
-                    }
+            if (Time.timeScale == 0) return;
 
-                    var markingCard = hit.collider.GetComponent<MarkingCard>();
-                    if (markingCard && (_touchDeadZone = _touchDeadZoneDuration) > 0 || _mouseClickedMarking) {
-                        _isMark = !_isMark;
-                        markingCard.ChangeState(_isMark);
-                        _mouseClickedMarking = null;
+            if (Input.touchCount > 0) {
+                if (_touchDeadZone <= 0) {
+                    _touchDeadZone = _touchDeadZoneDuration;
+                    var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit)) {
+                        if (!_mouseClicked)
+                            _mouseClicked = hit.collider.GetComponent<GameCard>();
+                        
+                        if (!_mouseClickedMarking)
+                            _mouseClickedMarking = hit.collider.GetComponent<MarkingCard>();                        
                     }
                 }
+            }
+
+            if (_mouseClicked) {
+                ProcessCard(_gameCards[_mouseClicked]);
+                _mouseClicked = null;
+            }
+            if (_mouseClickedMarking) {
+                _isMark = !_isMark;
+                _mouseClickedMarking.ChangeState(_isMark);
+                _mouseClickedMarking = null;
             }
         }
 
