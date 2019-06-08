@@ -106,33 +106,23 @@ namespace MineJumperMobile_2019.Masters {
         private void Update() {
             _touchDeadZone -= Time.deltaTime;
 
-            if (Time.timeScale == 0) return;
-
-            if (Input.touchCount > 0 && _touchDeadZone <= 0) {
-                _touchDeadZone = _touchDeadZoneDuration;
+            if (Input.touchCount > 0 && Time.timeScale > 0 && _touchDeadZone <= 0) {
                 var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit)) {
                     var gameCard = hit.collider.GetComponent<GameCard>();
-                    if (gameCard) {
-                        ProcessCard(_gameCards[gameCard]);
+                    if (gameCard && (_touchDeadZone = _touchDeadZoneDuration)>0 || _mouseClicked) {
+                        ProcessCard(_gameCards[gameCard ?? _mouseClicked]);
+                        _mouseClicked = null;
                     }
 
                     var markingCard = hit.collider.GetComponent<MarkingCard>();
-                    if (markingCard) {
+                    if (markingCard && (_touchDeadZone = _touchDeadZoneDuration) > 0 || _mouseClickedMarking) {
                         _isMark = !_isMark;
                         markingCard.ChangeState(_isMark);
+                        _mouseClickedMarking = null;
                     }
                 }
-            }
-            else if (_mouseClicked) {
-                ProcessCard(_gameCards[_mouseClicked]);
-                _mouseClicked = null;
-            }
-            else if (_mouseClickedMarking) {
-                _isMark = !_isMark;
-                _mouseClickedMarking.ChangeState(_isMark);
-                _mouseClickedMarking = null;
             }
         }
 
