@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b0f4ebb7f76f240b24b9e7ee8602b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velocity: 10
+  _velocity: 8
   _jump: 8
   HitPoints: 100
   _healthImage: {fileID: 0}

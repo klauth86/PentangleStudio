@@ -97,10 +97,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  _cameraFollowDuration: 0.0125
+  _cameraFollowTimeoutDuration: 0.015625
+  _cameraFollowLerpDuration: 0.0625
   _vertOffsetInPercent: 0.1
   _horOffsetInPercent: 0.1
-  _leftEdge: 0
+  _leftEdge: -8.75
+  _rightEdge: 8.75
   _upEdge: 0
-  _rightEdge: 0
   _downEdge: 0
