@@ -2,7 +2,7 @@
 
 namespace BridgeMaster.Game {
     [RequireComponent(typeof(Game_Master))]
-    public abstract class Base : MonoBehaviour {
+    public abstract class Game_Base : MonoBehaviour {
         private Game_Master _master;
         protected Game_Master Master {
             get {

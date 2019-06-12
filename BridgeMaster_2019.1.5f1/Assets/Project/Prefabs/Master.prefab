@@ -79,6 +79,9 @@ MonoBehaviour:
   _toggleCharacterStatsKeyCode: 99
   _toggleMenuKeyCode: 109
   _toggleInventoryKeyCode: 105
+  _runAxisName: Horizontal
+  _jumpButtonName: Fire1
+  _castSpellButtonName: Fire2
 --- !u!114 &8003409976937441527
 MonoBehaviour:
   m_ObjectHideFlags: 0

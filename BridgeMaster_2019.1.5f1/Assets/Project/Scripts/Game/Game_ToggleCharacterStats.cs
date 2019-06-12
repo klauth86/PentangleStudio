@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Game {
-    public class Game_ToggleCharacterStats : Base {
+    public class Game_ToggleCharacterStats : Game_Base {
         [SerializeField] private GameObject _characterStats;
 
         private void OnEnable() {

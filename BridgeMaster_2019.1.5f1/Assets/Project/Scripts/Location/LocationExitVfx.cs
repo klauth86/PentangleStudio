@@ -1,4 +1,4 @@
-﻿using Base;
+﻿using BridgeMaster.Characters;
 using BridgeMaster.Dicts;
 using System.Collections;
 using UnityEngine;
@@ -13,8 +13,8 @@ public class LocationExitVfx : MonoBehaviour {
     [SerializeField] private int _iterationsCount;
 
     public void LoadLocation(Location nextLocation) {
-        foreach (var character in FindObjectsOfType<CharacterBase>()) {
-            character.PauseCharacter();
+        foreach (var character in FindObjectsOfType<Character_Master>()) {
+            character.Freeze();
         }
         StartCoroutine(FocusOnPlayerRoutine(nextLocation));
     }

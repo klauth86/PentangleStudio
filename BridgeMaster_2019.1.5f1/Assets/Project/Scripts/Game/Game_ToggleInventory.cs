@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Game {
-    public class Game_ToggleInventory : Base {
+    public class Game_ToggleInventory : Game_Base {
         [SerializeField] private GameObject _inventory;
 
         private void OnEnable() {

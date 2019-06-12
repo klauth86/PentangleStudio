@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 namespace BridgeMaster.Game {
-    public class Game_Location : Base {
+    public class Game_Location : Game_Base {
         [SerializeField] private Image _curtain;
         [SerializeField] private float _fadingDuration;
         [SerializeField] private int _fadingSteps;
