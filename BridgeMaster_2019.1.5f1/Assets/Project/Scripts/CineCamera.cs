@@ -41,7 +41,7 @@ namespace BridgeMaster {
         }
 
         IEnumerator FollowRoutine() {
-            while (true) {
+            while (_target) {
                 var camx = _transform.position.x;
                 var camy = _transform.position.y;
 
@@ -61,6 +61,6 @@ namespace BridgeMaster {
                     _transform.position.z), _cameraFollowLerpDuration);
                 yield return new WaitForSeconds(_cameraFollowTimeoutDuration);
             }
-        }
+        }        
     }
 }

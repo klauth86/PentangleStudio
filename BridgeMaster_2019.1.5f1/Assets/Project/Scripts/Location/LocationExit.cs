@@ -1,4 +1,5 @@
-﻿using BridgeMaster.Dicts;
+﻿using BridgeMaster.Characters;
+using BridgeMaster.Dicts;
 using BridgeMaster.Game;
 using System.Collections;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace BridgeMaster {
 
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private GameObject _locationExitVfx;
+        [SerializeField] private float _checkInterval;
 
         private Transform _transform;
 
@@ -26,11 +28,14 @@ namespace BridgeMaster {
                     if (_locationExitVfx) {
                         Instantiate(_locationExitVfx);
                     }
+                    foreach (var character in FindObjectsOfType<Character_Master>()) {
+                        character.Freeze();
+                    }
                     _master.ExitLocation(_nextLocation);
                     Destroy(gameObject);
                 }
                 else {
-                    yield return new WaitForSeconds(0.0625f);
+                    yield return new WaitForSeconds(_checkInterval);
                 }
             }
         }
