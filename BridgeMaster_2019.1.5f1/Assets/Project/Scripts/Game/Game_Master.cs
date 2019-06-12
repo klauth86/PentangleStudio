@@ -1,8 +1,8 @@
 ﻿using BridgeMaster.Dicts;
 using UnityEngine;
 
-namespace BridgeMaster {
-    public class Master : MonoBehaviour {
+namespace BridgeMaster.Game {
+    public class Game_Master : MonoBehaviour {
         private bool _isMenuOn;
         private bool _isInventoryOn;
         private bool _isCharacterStatsOn;

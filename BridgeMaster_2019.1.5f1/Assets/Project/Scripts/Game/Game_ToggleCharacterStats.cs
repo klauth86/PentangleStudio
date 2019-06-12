@@ -1,8 +1,8 @@
 ﻿using BridgeMaster.Dicts;
 using UnityEngine;
 
-namespace BridgeMaster.Masters {
-    public class Master_ToggleCharacterStats : Base {
+namespace BridgeMaster.Game {
+    public class Game_ToggleCharacterStats : Base {
         [SerializeField] private GameObject _characterStats;
 
         private void OnEnable() {

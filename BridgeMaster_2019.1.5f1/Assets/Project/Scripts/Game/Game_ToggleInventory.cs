@@ -1,8 +1,8 @@
 ﻿using BridgeMaster.Dicts;
 using UnityEngine;
 
-namespace BridgeMaster.Masters {
-    public class Master_ToggleInventory : Base {
+namespace BridgeMaster.Game {
+    public class Game_ToggleInventory : Base {
         [SerializeField] private GameObject _inventory;
 
         private void OnEnable() {

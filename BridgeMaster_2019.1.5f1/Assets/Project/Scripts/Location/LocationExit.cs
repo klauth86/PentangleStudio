@@ -1,11 +1,12 @@
 ﻿using BridgeMaster.Dicts;
+using BridgeMaster.Game;
 using System.Collections;
 using UnityEngine;
 
 namespace BridgeMaster {
 
     public class LocationExit : MonoBehaviour {
-        [SerializeField] private Master _master;
+        [SerializeField] private Game_Master _master;
         [SerializeField] private Location _nextLocation;
 
         [SerializeField] private LayerMask _playerLayer;

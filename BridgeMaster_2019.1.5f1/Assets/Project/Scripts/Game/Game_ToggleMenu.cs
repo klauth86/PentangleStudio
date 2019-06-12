@@ -1,8 +1,8 @@
 ﻿using BridgeMaster.Dicts;
 using UnityEngine;
 
-namespace BridgeMaster.Masters {
-    public class Master_ToggleMenu : Base {
+namespace BridgeMaster.Game {
+    public class Game_ToggleMenu : Base {
         [SerializeField] private GameObject _menu;
 
         private void OnEnable() {

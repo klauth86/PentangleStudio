@@ -1,8 +1,8 @@
 ﻿using BridgeMaster.Dicts;
 using UnityEngine;
 
-namespace BridgeMaster.Masters {
-    public class Master_Input : Base {
+namespace BridgeMaster.Game {
+    public class Game_Input : Base {
         [SerializeField] private KeyCode _toggleCharacterStatsKeyCode;
         [SerializeField] private KeyCode _toggleMenuKeyCode;
         [SerializeField] private KeyCode _toggleInventoryKeyCode;
