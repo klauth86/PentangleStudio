@@ -1,12 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace HAS.Atom {
     public class Atom_UI : Atom_SubBase {
         [SerializeField] TMPro.TMP_Text _N_TextMP;
         [SerializeField] TMPro.TMP_Text _L_TextMP;
         [SerializeField] TMPro.TMP_Text _K_TextMP;
-
         [SerializeField] TMPro.TMP_Text _lambda_TextMP;
 
         private void OnEnable() {
@@ -53,7 +51,7 @@ namespace HAS.Atom {
         private void OnChangeLambdaEvent(double lambda) {
             if (_lambda_TextMP) {
                 _lambda_TextMP.text = lambda.ToString();
-                _lambda_TextMP.color = ColorConverter.Global.Convert(lambda); 
+                _lambda_TextMP.color = ColorConverter.Global.ConvertWavelengthToColor(lambda); 
             }
             else {
                 Debug.LogWarning("_lambda_TextMP is not set in the inspector!");

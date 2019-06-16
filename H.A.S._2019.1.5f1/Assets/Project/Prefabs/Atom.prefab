@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 7465437051252814748}
   - component: {fileID: 7465437051252814723}
   - component: {fileID: 7465437051252814722}
-  - component: {fileID: 7465437051252814721}
   - component: {fileID: 7465437051252814720}
+  - component: {fileID: 4509854145057967879}
+  - component: {fileID: 7465437051252814721}
   - component: {fileID: 7465437051252814726}
   - component: {fileID: 7465437051252814725}
-  - component: {fileID: 4509854145057967879}
   m_Layer: 0
   m_Name: Atom
   m_TagString: Untagged
@@ -96,20 +96,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7465437051252814721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7465437051252814724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0c8a821d8f07764e9290e946260e4cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonName: Fire1
-  _processRate: 0.0125
 --- !u!114 &7465437051252814720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +111,36 @@ MonoBehaviour:
   n: 1
   l: 0
   k: 0
+--- !u!114 &4509854145057967879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7465437051252814724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27d086cae7d0ea418b045a3a0585323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _N_TextMP: {fileID: 0}
+  _L_TextMP: {fileID: 0}
+  _K_TextMP: {fileID: 0}
+  _lambda_TextMP: {fileID: 0}
+--- !u!114 &7465437051252814721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7465437051252814724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c8a821d8f07764e9290e946260e4cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonName: Fire1
+  _processRate: 0.0125
 --- !u!114 &7465437051252814726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,19 +165,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecafaf22c8ad0dd4fadcbd8bc26e2dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4509854145057967879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7465437051252814724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a27d086cae7d0ea418b045a3a0585323, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _N_TextMP: {fileID: 0}
-  _L_TextMP: {fileID: 0}
-  _K_TextMP: {fileID: 0}
-  _lambda_TextMP: {fileID: 0}

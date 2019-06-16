@@ -24,6 +24,9 @@ namespace HAS.Atom {
                 i++;
             }
 
+            var currentE = R * h / n / n;
+            var newE = R * h / i / i;
+
             Master.CallChangeNEvent(n, i);
             Master.CallEmmitPhotonEvent(E - R * h / n / n + R * h / (i + 1) / (i + 1), true);
         }

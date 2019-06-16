@@ -477,27 +477,6 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 626173308, guid: e0af3cdb50626ec4397ae6ad041ded5b, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4,
-        type: 2}
-    - target: {fileID: 626173308, guid: e0af3cdb50626ec4397ae6ad041ded5b, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-    - target: {fileID: 626173308, guid: e0af3cdb50626ec4397ae6ad041ded5b, type: 3}
-      propertyPath: m_textInfo.materialCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1854635104, guid: e0af3cdb50626ec4397ae6ad041ded5b, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1854635104, guid: e0af3cdb50626ec4397ae6ad041ded5b, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0af3cdb50626ec4397ae6ad041ded5b, type: 3}
 --- !u!114 &5656185574916333472 stripped

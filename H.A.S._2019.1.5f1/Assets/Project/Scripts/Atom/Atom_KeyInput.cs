@@ -15,29 +15,32 @@ namespace HAS.Atom {
         }
 
         private IEnumerator ProcessKeyInputRoutine() {
+            yield return new WaitForSeconds(_processRate);
             bool isGrowing = false; ;
-            double currentLambda = ColorConverter.Global.minLambda;
-            Master.CallChangeLambdaEvent(currentLambda);
+            double currentLambda;
+            UpdateLambda(out currentLambda, ColorConverter.Global.minLambda);
 
             while (true) {
                 if (Input.GetButtonDown(_buttonName)) {
                     isGrowing = true; ;
                 }
-
                 if (Input.GetButtonUp(_buttonName)) {
-                    Master.CallDevourPhotonEvent(Constants.c*2*Mathf.PI/ currentLambda);
                     isGrowing = false;
-                    currentLambda = ColorConverter.Global.minLambda;
-                    Master.CallChangeLambdaEvent(currentLambda);
+                    Master.CallDevourPhotonEvent(Constants.c * 2E9 * Mathf.PI / currentLambda);
+                    UpdateLambda(out currentLambda, ColorConverter.Global.minLambda);
                 }
 
-                if (isGrowing && currentLambda < ColorConverter.Global.maxLambda+1) {
-                    currentLambda += 1;
-                    Master.CallChangeLambdaEvent(currentLambda);
-                }                  
+                if (isGrowing && currentLambda < ColorConverter.Global.maxLambda + 1) {
+                    UpdateLambda(out currentLambda, currentLambda + 1);
+                }
 
                 yield return new WaitForSeconds(_processRate);
             }
+        }
+
+        private void UpdateLambda(out double currentLambda, double value) {
+            currentLambda = value;
+            Master.CallChangeLambdaEvent(currentLambda);
         }
     }
 }

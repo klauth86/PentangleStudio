@@ -4,6 +4,6 @@
         public const double m0 = 9.10938356E-31;
         public const double e0 = 1.60217662E-19;
         public const double h = 1.05457180E-34;
-        public const double c = 3E-8;
+        public const double c = 3E8;
     }
 }

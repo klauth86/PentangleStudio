@@ -198,7 +198,7 @@ namespace HAS.ColorConverter {
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="z"></param>
-        public static void spectrum_to_xyz(ProcessDelegate spec_intens, ref double x, ref double y, ref double z) {
+        public static void spectrum_to_xyz(SpectrumDelegate spec_intens, ref double x, ref double y, ref double z) {
             int i;
             double lambda, X = 0, Y = 0, Z = 0, XYZ;
 
@@ -267,20 +267,24 @@ namespace HAS.ColorConverter {
         /// </summary>
         /// <param name="wavelength"></param>
         /// <returns></returns>
-        public static double bb_spectrum(double wavelength) {
+        public static double BlackBodySpectrum(double wavelength) {
             double wlm = wavelength * 1e-9;   /* Wavelength in meters */
             return (3.74183e-16 * System.Math.Pow(wlm, -5.0)) /
                    (System.Math.Exp(1.4388e-2 / (wlm * 5000)) - 1.0);
         }
 
-        public static ProcessDelegate get_delta_spectrum_process(double lambda) {
-            return new ProcessDelegate(wavelength => {
+        public static SpectrumDelegate GenerateDeltaSpectrum(double lambda) {
+            return new SpectrumDelegate(wavelength => {
                 return 4 * System.Math.Exp(-16 * System.Math.Pow(wavelength - lambda, 2)) / System.Math.Sqrt(System.Math.PI);
             });
         }
 
-        public static Color Convert(double w) {
-            var lambda = w;//Constants.c / w * 2 * System.Math.PI;
+        /// <summary>
+        /// Convert wavelength in nm to color
+        /// </summary>
+        /// <param name="lambda"></param>
+        /// <returns></returns>
+        public static Color ConvertWavelengthToColor(double lambda) {
             double x = 0;
             double y = 0;
             double z = 0;
@@ -288,7 +292,7 @@ namespace HAS.ColorConverter {
             double g = 0;
             double b = 0;
 
-            spectrum_to_xyz(get_delta_spectrum_process(lambda), ref x, ref y, ref z);
+            spectrum_to_xyz(GenerateDeltaSpectrum(lambda), ref x, ref y, ref z);
             xyz_to_rgb(ColourSystem.SMPTEsystem, x, y, z, ref r, ref g, ref b);
             if (constrain_rgb(ref r, ref g, ref b) > 0) {
                 norm_rgb(ref r, ref g, ref b);
