@@ -1,6 +1,4 @@
-﻿using BridgeMaster.Dicts;
-
-namespace BridgeMaster.Characters {
+﻿namespace BridgeMaster.Characters {
     public class Master : GameObjectSubscriber<Game.Master> {
         public event GameEventHandler DieEvent;
 
@@ -78,32 +76,6 @@ namespace BridgeMaster.Characters {
 
         public void Unfreeze() {
             UnfreezeEvent?.Invoke();
-        }
-
-        private void OnEnable() {
-            Target.InputKeyEvent += OnInputKeyEvent;
-        }
-
-        private void OnDisable() {
-            Target.InputKeyEvent -= OnInputKeyEvent;
-        }
-
-        private void OnInputKeyEvent(InputAction action, InputActionState state, float axis) {
-            switch (action) {
-                case InputAction.RunAxisAction:
-                    StartRun(axis);
-                    break;
-                case InputAction.JumpButton:
-                    if (state == InputActionState.KeyDown)
-                        StartJump();
-                    break;
-                case InputAction.CastSpellButton:
-                    if (state == InputActionState.KeyDown)
-                        StartCastSpell();
-                    else
-                        EndCastSpell();
-                    break;
-            }
         }
     }
 }
