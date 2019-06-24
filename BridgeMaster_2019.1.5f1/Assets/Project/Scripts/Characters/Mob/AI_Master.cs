@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace BridgeMaster.Characters.Mob {
-    [RequireComponent(typeof(Character_Master))]
+    [RequireComponent(typeof(Master))]
     public class AI_Master:MonoBehaviour {
         public event GameEventHandler<Player.Player> FindTargetEvent;
         public event GameEventHandler LostTargetEvent;

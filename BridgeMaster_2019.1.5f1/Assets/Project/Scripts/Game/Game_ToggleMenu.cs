@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Game {
-    public class Game_ToggleMenu : Game_Base {
+    public class Game_ToggleMenu : ComponentSubscriber<Master> {
         [SerializeField] private GameObject _menu;
 
         private void OnEnable() {
@@ -13,7 +13,7 @@ namespace BridgeMaster.Game {
             Master.InputKeyEvent -= ToggleMenu;
         }
 
-        private void ToggleMenu(InputAction action) {
+        private void ToggleMenu(InputAction action, InputActionState state, float axis) {
             if (action == InputAction.ToggleMenuAction) {
                 _menu.SetActive(!_menu.activeSelf);
                 Master.ToggleMenu();

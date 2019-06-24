@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace BridgeMaster.Characters.Mob {
-    [RequireComponent(typeof(Character_Master), typeof(AI_Master))]
+    [RequireComponent(typeof(Master), typeof(AI_Master))]
     public abstract class AI_Base : MonoBehaviour {
         private AI_Master _ai;
         protected AI_Master AI {
@@ -10,10 +10,10 @@ namespace BridgeMaster.Characters.Mob {
             }
         }
 
-        private Character_Master _master;
-        protected Character_Master Master {
+        private Master _master;
+        protected Master Master {
             get {
-                return _master ?? (_master = GetComponent<Character_Master>());
+                return _master ?? (_master = GetComponent<Master>());
             }
         }
 

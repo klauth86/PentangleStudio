@@ -1,18 +1,17 @@
-﻿using BridgeMaster.Characters;
-using BridgeMaster.Dicts;
-using BridgeMaster.Game;
+﻿using BridgeMaster.Dicts;
 using System.Collections;
 using UnityEngine;
 
-namespace BridgeMaster {
+namespace BridgeMaster.Game {
 
-    public class LocationExit : MonoBehaviour {
-        [SerializeField] private Game_Master _master;
+    public class Game_LocationExit : GameObjectSubscriber<Master> {
+
         [SerializeField] private Location _nextLocation;
+        [SerializeField] private GameObject _exitVfx;
+        [SerializeField] private float _exitVfxDuration;
 
         [SerializeField] private LayerMask _playerLayer;
-        [SerializeField] private GameObject _locationExitVfx;
-        [SerializeField] private float _checkInterval;
+        [SerializeField] private float _checkRate;
 
         private Transform _transform;
 
@@ -25,20 +24,21 @@ namespace BridgeMaster {
             while (isActiveAndEnabled) {
                 var hit = Physics2D.CapsuleCast(new Vector2(_transform.position.x, _transform.position.y), new Vector2(2, 7), CapsuleDirection2D.Vertical, 0, Vector2.zero, 0, _playerLayer);
                 if (hit) {
-                    if (_locationExitVfx) {
-                        Instantiate(_locationExitVfx);
+                    if (_exitVfx) {
+                        var vfx = Instantiate(_exitVfx);
+                        yield return new WaitForSeconds(_exitVfxDuration);
+                        Destroy(vfx);
                     }
-                    foreach (var character in FindObjectsOfType<Character_Master>()) {
+                    foreach (var character in FindObjectsOfType<Characters.Master>()) {
                         character.Freeze();
                     }
-                    _master.ExitLocation(_nextLocation);
+                    Target.ExitLocation(_nextLocation);
                     Destroy(gameObject);
                 }
                 else {
-                    yield return new WaitForSeconds(_checkInterval);
+                    yield return new WaitForSeconds(_checkRate);
                 }
             }
         }
     }
-
 }

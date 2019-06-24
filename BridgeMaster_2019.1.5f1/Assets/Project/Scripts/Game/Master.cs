@@ -2,12 +2,12 @@
 using UnityEngine;
 
 namespace BridgeMaster.Game {
-    public class Game_Master : MonoBehaviour {
+    public class Master : MonoBehaviour {
         private bool _isMenuOn;
         private bool _isInventoryOn;
         private bool _isCharacterStatsOn;
 
-        public event GameEventHandler<InputAction> InputKeyEvent;
+        public event GameEventHandler<InputAction, InputActionState, float> InputKeyEvent;
 
         public event GameEventHandler<bool> ToggleMenuEvent;
         public event GameEventHandler<bool> ToggleInventoryEvent;
@@ -37,8 +37,8 @@ namespace BridgeMaster.Game {
             ToggleCharacterStatsEvent?.Invoke(_isCharacterStatsOn);
         }
 
-        public void InputKey(InputAction action) {
-            InputKeyEvent?.Invoke(action);
+        public void InputKey(InputAction action, InputActionState state, float axis) {
+            InputKeyEvent?.Invoke(action, state, axis);
         }
 
         public void GameOver() {

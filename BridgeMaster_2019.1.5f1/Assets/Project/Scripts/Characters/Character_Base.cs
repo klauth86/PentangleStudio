@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(Character_Master))]
-    public abstract class Character_Base : MonoBehaviour {
+    [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
+    public abstract class Character_Base : ComponentSubscriber<Master> {
         private Rigidbody2D _rigidbody;
         protected Rigidbody2D Rigidbody {
             get {
@@ -17,20 +17,13 @@ namespace BridgeMaster.Characters {
             }
         }
 
-        private Character_Master _master;
-        protected Character_Master Master {
-            get {
-                return _master ?? (_master = GetComponent<Character_Master>());
-            }
-        }
-
         private void Awake() {
             Master.DieEvent += DisableIfDie;
         }
 
         void DisableIfDie() {
-            enabled = false;
             Master.DieEvent -= DisableIfDie;
+            enabled = false;
         }
     }
 }

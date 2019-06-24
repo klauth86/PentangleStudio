@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace BridgeMaster.Game {
-    public class Game_TogglePause : Game_Base {
+    public class Game_TogglePause : ComponentSubscriber<Master> {
 
         private void OnEnable() {
             Master.ToggleMenuEvent += TogglePause;

@@ -2,6 +2,11 @@
     public enum InputAction {
         ToggleMenuAction,
         ToggleInventoryAction,
-        ToggleCharacterStatsAction
+        ToggleCharacterStatsAction,
+
+        RunAxisAction,
+
+        JumpButton,
+        CastSpellButton,
     }
 }

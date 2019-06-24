@@ -17,9 +17,6 @@ namespace BridgeMaster.Characters {
         }
 
         private void StartJump() {
-            if (!_isJumping) {
-
-            }
             _isJumping = true;
             Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, _jump);
             Animator.SetBool(AnimatorKey.IsJumping, true);
