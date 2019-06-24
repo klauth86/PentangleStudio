@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    class Character_Run : Character_Base {
+    class Character_Run : Character_Base<Master> {
         [SerializeField] private float _velocity;
 
         private void OnEnable() {
@@ -16,13 +16,13 @@ namespace BridgeMaster.Characters {
         }
 
         private void StartRun(float axis) {
-            Rigidbody.velocity = new Vector2(_velocity * axis, Rigidbody.velocity.y);
-            Animator.SetBool(AnimatorKey.IsRunning, axis != 0);
+            Master.Rigidbody.velocity = new Vector2(_velocity * axis, Master.Rigidbody.velocity.y);
+            Master.Animator.SetBool(AnimatorKey.IsRunning, axis != 0);
             Swap(axis);
         }
 
         private void EndRun() {
-            Animator.SetBool(AnimatorKey.IsRunning, false);
+            Master.Animator.SetBool(AnimatorKey.IsRunning, false);
         }
 
         void Swap(float axis) {

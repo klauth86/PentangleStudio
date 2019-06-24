@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    class Character_Freeze : Character_Base {
+    class Character_Freeze : Character_Base<Master> {
         private void OnEnable() {
             Master.FreezeEvent += Freeze;
             Master.UnfreezeEvent += Unfreeze;
@@ -13,13 +13,13 @@ namespace BridgeMaster.Characters {
         }
 
         private void Unfreeze() {
-            Rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-            Animator.speed = 1;
+            Master.Rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            Master.Animator.speed = 1;
         }
 
         private void Freeze() {
-            Rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
-            Animator.speed = 0;
+            Master.Rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+            Master.Animator.speed = 0;
         }
     }
 }

@@ -1,8 +1,7 @@
 ﻿using BridgeMaster.Dicts;
-using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    class Character_CastSpell : Character_Base {
+    class Character_CastSpell : Character_Base<Master> {
         private void OnEnable() {
             Master.StartCastSpellEvent += StartCastSpell;
             Master.EndCastSpellEvent += EndCastSpell;
@@ -14,11 +13,11 @@ namespace BridgeMaster.Characters {
         }
 
         private void StartCastSpell() {
-            Animator.SetBool(AnimatorKey.IsCastingSpell, true);
+            Master.Animator.SetBool(AnimatorKey.IsCastingSpell, true);
         }
 
         private void EndCastSpell() {
-            Animator.SetBool(AnimatorKey.IsCastingSpell, false);
+            Master.Animator.SetBool(AnimatorKey.IsCastingSpell, false);
         }
     }
 }

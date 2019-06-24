@@ -1,5 +1,30 @@
-﻿namespace BridgeMaster.Characters {
+﻿using UnityEngine;
+
+namespace BridgeMaster.Characters {
+    [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
     public class Master : GameObjectSubscriber<Game.Master> {
+
+        private Transform _myTransform;
+        public Transform MyTransform {
+            get {
+                return _myTransform ?? (_myTransform = GetComponent<Transform>());
+            }
+        }
+
+        private Rigidbody2D _rigidbody;
+        public Rigidbody2D Rigidbody {
+            get {
+                return _rigidbody ?? (_rigidbody = GetComponent<Rigidbody2D>());
+            }
+        }
+
+        private Animator _animator;
+        public Animator Animator {
+            get {
+                return _animator ?? (_animator = GetComponent<Animator>());
+            }
+        }
+
         public event GameEventHandler DieEvent;
 
         public event GameEventHandler<float> ChangeHealthEvent;

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    class Character_Jump : Character_Base {
+    class Character_Jump : Character_Base<Master> {
         [SerializeField] private float _jump;
         private bool _isJumping;
 
@@ -18,8 +18,8 @@ namespace BridgeMaster.Characters {
 
         private void StartJump() {
             _isJumping = true;
-            Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, _jump);
-            Animator.SetBool(AnimatorKey.IsJumping, true);
+            Master.Rigidbody.velocity = new Vector2(Master.Rigidbody.velocity.x, _jump);
+            Master.Animator.SetBool(AnimatorKey.IsJumping, true);
         }
 
         private void EndJump() {
@@ -29,7 +29,7 @@ namespace BridgeMaster.Characters {
         private void OnCollisionEnter2D(Collision2D collision) {
             if (_isJumping) {
                 _isJumping = false;
-                Animator.SetBool(AnimatorKey.IsJumping, false);
+                Master.Animator.SetBool(AnimatorKey.IsJumping, false);
             }
         }
     }
