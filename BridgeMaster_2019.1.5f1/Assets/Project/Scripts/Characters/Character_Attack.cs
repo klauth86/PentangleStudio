@@ -1,4 +1,4 @@
-﻿using BridgeMaster.Dicts;
+﻿using UnityEngine;
 
 namespace BridgeMaster.Characters {
     class Character_Attack : Base<Master> {
@@ -13,12 +13,12 @@ namespace BridgeMaster.Characters {
         }
 
 
-        private void StartAttack() {
-            Master.Animator.SetBool(AnimatorKey.IsAttacking, true);
+        private void StartAttack(Transform target) {
+
         }
 
-        private void EndAttack() {
-            Master.Animator.SetBool(AnimatorKey.IsAttacking, false);
+        private void EndAttack(Transform target) {
+
         }
     }
 }

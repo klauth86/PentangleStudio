@@ -13,11 +13,13 @@ namespace BridgeMaster.Characters {
         }
 
         private void Unfreeze() {
+            Master.IsFreezed = false;
             Master.Rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
             Master.Animator.speed = 1;
         }
 
         private void Freeze() {
+            Master.IsFreezed = true;
             Master.Rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
             Master.Animator.speed = 0;
         }

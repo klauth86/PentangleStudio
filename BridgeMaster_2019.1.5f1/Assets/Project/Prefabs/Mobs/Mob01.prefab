@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7307810813908879106}
   - component: {fileID: 8807639748041275654}
   - component: {fileID: 5439228936535120379}
-  - component: {fileID: 3635850515343948503}
   - component: {fileID: 5365355901281973542}
   - component: {fileID: 7307810813908879135}
   - component: {fileID: 2482760799919952125}
@@ -109,8 +108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70bbbbc17fe6dc48b36a1d841a770e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsChasing: 0
-  IsAttacking: 0
+  IsFreezed: 0
+  IsChasing: 1
+  IsAttacking: 1
   State: 1
 --- !u!114 &8807639748041275654
 MonoBehaviour:
@@ -136,19 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581af83a8d28bab4a8ff1fa29942a33e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3635850515343948503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7307810813908879107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0901ed40a22b7f04b99fc0cda36f8552, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _jump: 10
 --- !u!114 &5365355901281973542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _velocity: 8
+  _jump: 8
 --- !u!114 &7307810813908879135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,8 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkRate: 0.125
-  _wanderingPrecision: 1
-  _pointsOfWandering:
+  _reachRange: 1
+  _points:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -193,10 +181,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkRate: 0.025
+  _chasingRange: 4
   _targetLayerMask:
     serializedVersion: 2
     m_Bits: 4096
-  _chasingRange: 4
 --- !u!1 &7307810814181596775
 GameObject:
   m_ObjectHideFlags: 0

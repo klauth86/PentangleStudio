@@ -4,6 +4,8 @@ namespace BridgeMaster.Characters {
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
     public class Master : GameObjectSubscriber<Game.Master> {
 
+        public bool IsFreezed;
+
         private Transform _myTransform;
         public Transform MyTransform {
             get {
@@ -37,8 +39,8 @@ namespace BridgeMaster.Characters {
         public event GameEventHandler StartJumpEvent;
         public event GameEventHandler EndJumpEvent;
 
-        public event GameEventHandler StartAttackEvent;
-        public event GameEventHandler EndAttackEvent;
+        public event GameEventHandler<Transform> StartAttackEvent;
+        public event GameEventHandler<Transform> EndAttackEvent;
 
         public event GameEventHandler StartCastSpellEvent;
         public event GameEventHandler EndCastSpellEvent;
@@ -79,12 +81,12 @@ namespace BridgeMaster.Characters {
             EndJumpEvent?.Invoke();
         }
 
-        public void StartAttack() {
-            StartAttackEvent?.Invoke();
+        public void StartAttack(Transform target) {
+            StartAttackEvent?.Invoke(target);
         }
 
-        public void EndAttack() {
-            EndAttackEvent?.Invoke();
+        public void EndAttack(Transform target) {
+            EndAttackEvent?.Invoke(target);
         }
 
         public void StartCastSpell() {
