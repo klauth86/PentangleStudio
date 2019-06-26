@@ -3,8 +3,11 @@ using UnityEngine;
 
 namespace BridgeMaster.Characters.AI {
     public class AI : Master {
+
+        public bool IsWandering;
         public bool IsChasing;
         public bool IsAttacking;
+
         public AIState State;
 
         public event GameEventHandler StartWanderingEvent;

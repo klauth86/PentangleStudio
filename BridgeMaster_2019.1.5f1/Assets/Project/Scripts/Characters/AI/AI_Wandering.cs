@@ -16,28 +16,23 @@ namespace BridgeMaster.Characters.AI {
             StopAllCoroutines();
         }
 
-        private void OnStartWanderingEvent() {
-            StartCoroutine(WanderingRoutine());
-        }
-
-        private void OnEndWanderingEvent() {
-            StopAllCoroutines();
-        }
-
         private IEnumerator WanderingRoutine() {
             int i = 0;
             while (true) {
-                if (Master.State == AIState.Wandering && _points != null && _points.Length > 0) {
+                if (Master.IsWandering && _points != null && _points.Length > 0) {
 
-                    var point = _points[i];
-                    var distance = point.position.x - Master.MyTransform.position.x;
+                    if (Master.State == AIState.Wandering) {
 
-                    if (Mathf.Abs(distance) < _reachRange) {
-                        i = (i + 1) % _points.Length;
-                        continue;
+                        var point = _points[i];
+                        var distance = point.position.x - Master.MyTransform.position.x;
+
+                        if (Mathf.Abs(distance) < _reachRange) {
+                            i = (i + 1) % _points.Length;
+                            continue;
+                        }
+
+                        Master.StartRun(Mathf.Sign(distance));
                     }
-
-                    Master.StartRun(Mathf.Sign(distance));
                 }
                 yield return new WaitForSeconds(_checkRate);
             }

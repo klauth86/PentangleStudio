@@ -175,12 +175,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7307810813908879107}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e77bf2615604614da6dc6c9c7e1dadd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkRate: 0.025
+  _checkRate: 0.125
   _chasingRange: 4
   _targetLayerMask:
     serializedVersion: 2
