@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    class Character_Freeze : Character_Base<Master> {
+    class Character_Freeze : Base<Master> {
         private void OnEnable() {
             Master.FreezeEvent += Freeze;
             Master.UnfreezeEvent += Unfreeze;

@@ -1,7 +1,7 @@
 ﻿using BridgeMaster.Dicts;
 
 namespace BridgeMaster.Characters {
-    class Character_CastSpell : Character_Base<Master> {
+    class Character_CastSpell : Base<Master> {
         private void OnEnable() {
             Master.StartCastSpellEvent += StartCastSpell;
             Master.EndCastSpellEvent += EndCastSpell;

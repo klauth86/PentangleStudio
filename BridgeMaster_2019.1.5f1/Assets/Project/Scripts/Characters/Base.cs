@@ -1,5 +1,5 @@
 ﻿namespace BridgeMaster.Characters {
-    public abstract class Character_Base<T> : ComponentSubscriber<T> where T : Master {
+    public abstract class Base<T> : ComponentSubscriber<T> where T : Master {
         private void Awake() {
             Master.DieEvent += DisableIfDie;
         }

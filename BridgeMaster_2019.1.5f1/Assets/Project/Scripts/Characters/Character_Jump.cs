@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    class Character_Jump : Character_Base<Master> {
+    class Character_Jump : Base<Master> {
         [SerializeField] private float _jump;
         private bool _isJumping;
 

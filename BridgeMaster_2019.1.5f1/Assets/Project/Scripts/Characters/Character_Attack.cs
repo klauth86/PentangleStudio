@@ -1,7 +1,7 @@
 ﻿using BridgeMaster.Dicts;
 
 namespace BridgeMaster.Characters {
-    class Character_Attack : Character_Base<Master> {
+    class Character_Attack : Base<Master> {
         private void OnEnable() {
             Master.StartAttackEvent += StartAttack;
             Master.EndAttackEvent += EndAttack;
