@@ -1,5 +1,4 @@
-﻿using System;
-using BridgeMaster.Dicts;
+﻿using BridgeMaster.Dicts;
 using UnityEngine;
 
 namespace BridgeMaster.Characters {

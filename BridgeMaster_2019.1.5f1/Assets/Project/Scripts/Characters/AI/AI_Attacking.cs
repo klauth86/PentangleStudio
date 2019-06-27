@@ -11,6 +11,8 @@ namespace BridgeMaster.Characters.AI {
         [SerializeField] private float _attackRange;
         [SerializeField] private float _attackDamage;
 
+        [SerializeField] private float _attackCost = 10;
+
         private void OnEnable() {
             StartCoroutine(ChaseIfTargetInRangeRoutine());
         }
@@ -64,7 +66,7 @@ namespace BridgeMaster.Characters.AI {
         }
 
         public void Attack() {
-            Master.ChangeEndurance(-10);
+            Master.ChangeEndurance(-_attackCost);
             if (Master.Player) {
                 Master.Player.ChangeHealth(-_attackDamage);
                 if (Master.Player.IsDead)

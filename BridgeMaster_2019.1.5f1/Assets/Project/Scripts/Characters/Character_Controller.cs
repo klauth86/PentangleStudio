@@ -1,10 +1,12 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BridgeMaster.Characters {
     class Character_Controller : Base<Master> {
         [SerializeField] private float _velocity;
         [SerializeField] private float _jump;
+
+        [SerializeField] private float _runEnduranceCost = 5;
+        [SerializeField] private float _jumpEnduranceCost = 10;
 
         private float _enduranceKoefficient = 1.0f;
 
@@ -34,6 +36,7 @@ namespace BridgeMaster.Characters {
 
         private void StartRun(float axis) {
             if (!Master.IsFreezed) {
+                Master.ChangeEndurance(-_runEnduranceCost * axis);
                 Master.Rigidbody.velocity = new Vector2(_enduranceKoefficient * _velocity * axis, Master.Rigidbody.velocity.y);
                 Swap(axis);
             }
@@ -48,6 +51,7 @@ namespace BridgeMaster.Characters {
             if (!Master.IsFreezed) {
                 if (!_isJumping) {
                     _isJumping = true;
+                    Master.ChangeEndurance(-_jumpEnduranceCost);
                     Master.Rigidbody.velocity = new Vector2(Master.Rigidbody.velocity.x, _enduranceKoefficient * _jump);
                 }
             }
