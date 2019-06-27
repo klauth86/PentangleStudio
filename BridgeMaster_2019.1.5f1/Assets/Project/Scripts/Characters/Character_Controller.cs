@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace BridgeMaster.Characters {
     class Character_Controller : Base<Master> {
@@ -18,7 +19,7 @@ namespace BridgeMaster.Characters {
 
         private void StartRun(float axis) {
             if (!Master.IsFreezed) {
-                Master.Rigidbody.velocity = new Vector2(_velocity * axis, Master.Rigidbody.velocity.y);
+                Master.Rigidbody.velocity = new Vector2(Master.Speed * _velocity * axis, Master.Rigidbody.velocity.y);
                 Swap(axis);
             }
         }
@@ -32,7 +33,7 @@ namespace BridgeMaster.Characters {
             if (!Master.IsFreezed) {
                 if (!_isJumping) {
                     _isJumping = true;
-                    Master.Rigidbody.velocity = new Vector2(Master.Rigidbody.velocity.x, _jump);
+                    Master.Rigidbody.velocity = new Vector2(Master.Rigidbody.velocity.x, Master.Speed * _jump);
                 }
             }
         }

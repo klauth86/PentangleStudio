@@ -16,7 +16,7 @@ namespace BridgeMaster.Game {
         private void ToggleCharacterStats(InputAction action, InputActionState state, float axis) {
             if (action == InputAction.ToggleCharacterStatsAction) {
                 _characterStats.SetActive(!_characterStats.activeSelf);
-                Master.ToggleCharacterStats();
+                Master.ToggleCharacterStats(_characterStats.activeSelf);
             }
         }
     }

@@ -16,7 +16,7 @@ namespace BridgeMaster.Game {
         private void ToggleMenu(InputAction action, InputActionState state, float axis) {
             if (action == InputAction.ToggleMenuAction) {
                 _menu.SetActive(!_menu.activeSelf);
-                Master.ToggleMenu();
+                Master.ToggleMenu(_menu.activeSelf);
             }
         }
     }

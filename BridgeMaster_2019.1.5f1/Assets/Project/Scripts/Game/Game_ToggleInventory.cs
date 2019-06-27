@@ -16,7 +16,7 @@ namespace BridgeMaster.Game {
         private void ToggleInventory(InputAction action, InputActionState state, float axis) {
             if (action == InputAction.ToggleInventoryAction) {
                 _inventory.SetActive(!_inventory.activeSelf);
-                Master.ToggleInventory();
+                Master.ToggleInventory(_inventory.activeSelf);
             }
         }
     }

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5365355901281973542}
   - component: {fileID: 7307810813908879135}
   - component: {fileID: 2482760799919952125}
+  - component: {fileID: 853340070}
   m_Layer: 13
   m_Name: Mob01
   m_TagString: Untagged
@@ -108,7 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c70bbbbc17fe6dc48b36a1d841a770e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDead: 0
   IsFreezed: 0
+  IsWandering: 1
   IsChasing: 1
   IsAttacking: 1
   State: 1
@@ -185,6 +188,24 @@ MonoBehaviour:
   _targetLayerMask:
     serializedVersion: 2
     m_Bits: 4096
+--- !u!114 &853340070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7307810813908879107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7364f860e3e3cc746a93146ab8616f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _checkRate: 0.125
+  _targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  _attackRange: 3
+  _attackDamage: 30
 --- !u!1 &7307810814181596775
 GameObject:
   m_ObjectHideFlags: 0

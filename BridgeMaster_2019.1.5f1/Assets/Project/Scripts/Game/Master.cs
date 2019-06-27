@@ -3,9 +3,6 @@ using UnityEngine;
 
 namespace BridgeMaster.Game {
     public class Master : MonoBehaviour {
-        private bool _isMenuOn;
-        private bool _isInventoryOn;
-        private bool _isCharacterStatsOn;
 
         public event GameEventHandler<InputAction, InputActionState, float> InputKeyEvent;
 
@@ -22,19 +19,16 @@ namespace BridgeMaster.Game {
             EnterLocation();
         }
 
-        public void ToggleMenu() {
-            _isMenuOn = !_isMenuOn;
-            ToggleMenuEvent?.Invoke(_isMenuOn);
+        public void ToggleMenu(bool isMenuOn) {
+            ToggleMenuEvent?.Invoke(isMenuOn);
         }
 
-        public void ToggleInventory() {
-            _isInventoryOn = !_isInventoryOn;
-            ToggleInventoryEvent?.Invoke(_isInventoryOn);
+        public void ToggleInventory(bool isInventoryOn) {
+            ToggleInventoryEvent?.Invoke(isInventoryOn);
         }
 
-        public void ToggleCharacterStats() {
-            _isCharacterStatsOn = !_isCharacterStatsOn;
-            ToggleCharacterStatsEvent?.Invoke(_isCharacterStatsOn);
+        public void ToggleCharacterStats(bool isCharacterStatsOn) {
+            ToggleCharacterStatsEvent?.Invoke(isCharacterStatsOn);
         }
 
         public void InputKey(InputAction action, InputActionState state, float axis) {

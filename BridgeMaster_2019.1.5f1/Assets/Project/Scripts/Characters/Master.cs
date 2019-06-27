@@ -3,8 +3,9 @@
 namespace BridgeMaster.Characters {
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
     public class Master : GameObjectSubscriber<Game.Master> {
-
+        public bool IsDead;
         public bool IsFreezed;
+        public float Speed = 1;
 
         private Transform _myTransform;
         public Transform MyTransform {
@@ -32,6 +33,7 @@ namespace BridgeMaster.Characters {
         public event GameEventHandler<float> ChangeHealthEvent;
         public event GameEventHandler<float> ChangeManaEvent;
         public event GameEventHandler<float> ChangeIronEvent;
+        public event GameEventHandler<float> ChangeSpeedEvent;
 
         public event GameEventHandler<float> StartRunEvent;
         public event GameEventHandler EndRunEvent;
@@ -39,8 +41,8 @@ namespace BridgeMaster.Characters {
         public event GameEventHandler StartJumpEvent;
         public event GameEventHandler EndJumpEvent;
 
-        public event GameEventHandler<Transform> StartAttackEvent;
-        public event GameEventHandler<Transform> EndAttackEvent;
+        public event GameEventHandler<Master> StartAttackEvent;
+        public event GameEventHandler<Master> EndAttackEvent;
 
         public event GameEventHandler StartCastSpellEvent;
         public event GameEventHandler EndCastSpellEvent;
@@ -50,6 +52,7 @@ namespace BridgeMaster.Characters {
 
         public void Die() {
             DieEvent?.Invoke();
+            IsDead = true;
             enabled = false;
         }
 
@@ -63,6 +66,11 @@ namespace BridgeMaster.Characters {
 
         public void ChangeIron(float value) {
             ChangeIronEvent?.Invoke(value);
+        }
+
+        public void ChangeSpeed(float value) {
+            Speed *= value;
+            ChangeSpeedEvent?.Invoke(Speed);
         }
 
         public void StartRun(float axis) {
@@ -81,11 +89,11 @@ namespace BridgeMaster.Characters {
             EndJumpEvent?.Invoke();
         }
 
-        public void StartAttack(Transform target) {
+        public void StartAttack(Master target) {
             StartAttackEvent?.Invoke(target);
         }
 
-        public void EndAttack(Transform target) {
+        public void EndAttack(Master target) {
             EndAttackEvent?.Invoke(target);
         }
 

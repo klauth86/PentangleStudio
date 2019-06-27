@@ -1,4 +1,5 @@
-﻿using BridgeMaster.Dicts;
+﻿using System;
+using BridgeMaster.Dicts;
 using UnityEngine;
 
 namespace BridgeMaster.Characters {
@@ -13,9 +14,14 @@ namespace BridgeMaster.Characters {
             Master.StartCastSpellEvent += StartCastSpell;
             Master.EndCastSpellEvent += EndCastSpell;
 
+            Master.StartAttackEvent += StartAttack;
+            Master.EndAttackEvent += EndAttack;
+
             Master.ChangeHealthEvent += ChangeHealthEvent;
 
             Master.DieEvent += Die;
+
+            Master.ChangeSpeedEvent += ChangeSpeed;
         }
 
         private void OnDisable() {
@@ -28,9 +34,18 @@ namespace BridgeMaster.Characters {
             Master.StartCastSpellEvent -= StartCastSpell;
             Master.EndCastSpellEvent -= EndCastSpell;
 
+            Master.StartAttackEvent -= StartAttack;
+            Master.EndAttackEvent -= EndAttack;
+
             Master.ChangeHealthEvent -= ChangeHealthEvent;
 
             Master.DieEvent -= Die;
+
+            Master.ChangeSpeedEvent -= ChangeSpeed;
+        }
+
+        private void ChangeSpeed(float speed) {
+            Master.Animator.speed *= speed;
         }
 
         private void StartJump() {
@@ -55,6 +70,14 @@ namespace BridgeMaster.Characters {
 
         private void EndCastSpell() {
             Master.Animator.SetBool(AnimatorKey.IsCastingSpell, false);
+        }
+
+        private void StartAttack(Master target) {
+            Master.Animator.SetBool(AnimatorKey.IsAttacking, true);
+        }
+
+        private void EndAttack(Master target) {
+            Master.Animator.SetBool(AnimatorKey.IsAttacking, false);
         }
 
         private void Die() {

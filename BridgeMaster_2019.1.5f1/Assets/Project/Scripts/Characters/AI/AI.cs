@@ -9,6 +9,7 @@ namespace BridgeMaster.Characters.AI {
         public bool IsAttacking;
 
         public AIState State;
+        public Master Player;
 
         public event GameEventHandler StartWanderingEvent;
         public event GameEventHandler EndWanderingEvent;
@@ -35,6 +36,7 @@ namespace BridgeMaster.Characters.AI {
         }
 
         public void SetTarget(Transform target) {
+            Player = target?.GetComponent<Master>();
             SetTargetEvent?.Invoke(target);
         }
     }
