@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 4187256764176039615}
   - component: {fileID: 818282522134683202}
   - component: {fileID: 743807229420450463}
-  - component: {fileID: 1419974859351424183}
+  - component: {fileID: 3734155621446058432}
+  - component: {fileID: 4493993298859154677}
   m_Layer: 12
   m_Name: Player
   m_TagString: Untagged
@@ -226,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _velocity: 8
   _jump: 8
---- !u!114 &1419974859351424183
+--- !u!114 &3734155621446058432
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,3 +241,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _max: 100
   _health: 100
+  _recoveryRate: 1
+  _recoveryAmount: 2
+--- !u!114 &4493993298859154677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687968721682563258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93055fb9e64cbe42a2041b2019e3abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _max: 100
+  _endurance: 100
+  _recoveryRate: 0.04
+  _recoveryAmount: 1

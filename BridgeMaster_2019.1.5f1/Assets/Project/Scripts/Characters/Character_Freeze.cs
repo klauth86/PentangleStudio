@@ -1,27 +1,8 @@
-﻿using UnityEngine;
-
-namespace BridgeMaster.Characters {
+﻿namespace BridgeMaster.Characters {
     class Character_Freeze : Base<Master> {
-        private void OnEnable() {
-            Master.FreezeEvent += Freeze;
-            Master.UnfreezeEvent += Unfreeze;
-        }
-
-        private void OnDisable() {
-            Master.FreezeEvent -= Freeze;
-            Master.UnfreezeEvent -= Unfreeze;
-        }
-
-        private void Unfreeze() {
-            Master.IsFreezed = false;
-            Master.Rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-            Master.Animator.speed = 1;
-        }
-
-        private void Freeze() {
-            Master.IsFreezed = true;
-            Master.Rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
-            Master.Animator.speed = 0;
+        public void ToggleFreeze() {
+            Master.IsFreezed = !Master.IsFreezed;
+            Master.ToggleFreeze();
         }
     }
 }

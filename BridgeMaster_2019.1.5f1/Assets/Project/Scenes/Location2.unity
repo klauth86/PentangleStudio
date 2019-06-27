@@ -466,6 +466,11 @@ PrefabInstance:
       propertyPath: _checkRate
       value: 0.0125
       objectReference: {fileID: 0}
+    - target: {fileID: 8199575267015132772, guid: 723bce450e455314bb4b3c3566601487,
+        type: 3}
+      propertyPath: _recoveryAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 723bce450e455314bb4b3c3566601487, type: 3}
 --- !u!1001 &806443139482581002

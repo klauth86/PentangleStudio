@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    class Character_Endurance : Base<Master> {
+    class Character_StatEndurance : Base<Master> {
         [SerializeField] private float _max = 100;
         [SerializeField] private float _endurance;
 
@@ -22,9 +22,9 @@ namespace BridgeMaster.Characters {
         }
 
         private IEnumerator RecoveryRoutine() {
-            while (_endurance < _max) {
-                ChangeEndurance(_recoveryAmount);
+            while (_endurance < _max && !Master.IsFreezed) {
                 yield return new WaitForSeconds(_recoveryRate);
+                ChangeEndurance(_recoveryAmount);
             }
 
             _recoveryCoroutine = null;
@@ -44,6 +44,11 @@ namespace BridgeMaster.Characters {
             }
 
             Master.EnduranceChanged(_endurance, _max);
+        }
+
+        public static float EnduranceKoefficient(float value, float max) {
+            var x = value / max;
+            return 2*x / (1 + x);
         }
     }
 }

@@ -54,8 +54,7 @@ namespace BridgeMaster.Characters {
         public event GameEventHandler StartCastSpellEvent;
         public event GameEventHandler EndCastSpellEvent;
 
-        public event GameEventHandler FreezeEvent;
-        public event GameEventHandler UnfreezeEvent;
+        public event GameEventHandler ToggleFreezeEvent;
 
         public void Die() {
             IsDead = true;
@@ -126,12 +125,8 @@ namespace BridgeMaster.Characters {
             EndCastSpellEvent?.Invoke();
         }
 
-        public void Freeze() {
-            FreezeEvent?.Invoke();
-        }
-
-        public void Unfreeze() {
-            UnfreezeEvent?.Invoke();
+        public void ToggleFreeze() {
+            ToggleFreezeEvent?.Invoke();
         }
     }
 }

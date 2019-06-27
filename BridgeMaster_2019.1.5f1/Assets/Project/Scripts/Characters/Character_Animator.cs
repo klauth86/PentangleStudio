@@ -1,8 +1,12 @@
-﻿using BridgeMaster.Dicts;
+﻿using System;
+using BridgeMaster.Dicts;
 using UnityEngine;
 
 namespace BridgeMaster.Characters {
     class Character_Animator : Base<Master> {
+
+        private float _prevSpeed = -1;
+
         private void OnEnable() {
             Master.StartRunEvent += StartRun;
             Master.EndRunEvent += EndRun;
@@ -18,7 +22,8 @@ namespace BridgeMaster.Characters {
 
             Master.ChangeHealthEvent += ChangeHealthEvent;
 
-            Master.ChangeEnduranceEvent += ChangeSpeed;
+            Master.EnduranceChangedEvent += EnduranceChanged;
+            Master.ToggleFreezeEvent += ToggleFreeze;
 
             Master.DieEvent += Die;
         }
@@ -38,13 +43,24 @@ namespace BridgeMaster.Characters {
 
             Master.ChangeHealthEvent -= ChangeHealthEvent;
 
-            Master.ChangeEnduranceEvent -= ChangeSpeed;
+            Master.EnduranceChangedEvent -= EnduranceChanged;
+            Master.ToggleFreezeEvent -= ToggleFreeze;
 
             Master.DieEvent -= Die;
         }
 
-        private void ChangeSpeed(float speed) {
-            Master.Animator.speed *= speed;
+        private void ToggleFreeze() {
+            if (Master.IsFreezed) {
+                _prevSpeed = Master.Animator.speed;
+            }
+            else {
+                Master.Animator.speed = _prevSpeed;
+                _prevSpeed = -1;
+            }
+        }
+
+        private void EnduranceChanged(float value, float max) {
+            Master.Animator.speed = Character_StatEndurance.EnduranceKoefficient(value, max);
         }
 
         private void StartJump() {

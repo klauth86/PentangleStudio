@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    class Character_Health : Base<Master> {
+    class Character_StatHealth : Base<Master> {
         [SerializeField] private float _max;
         [SerializeField] private float _health;
 
@@ -22,7 +22,7 @@ namespace BridgeMaster.Characters {
         }
 
         private IEnumerator RecoveryRoutine() {
-            while (_health < _max) {
+            while (_health < _max && !Master.IsFreezed) {
                 ChangeHealth(_recoveryAmount);
                 yield return new WaitForSeconds(_recoveryRate);
             }

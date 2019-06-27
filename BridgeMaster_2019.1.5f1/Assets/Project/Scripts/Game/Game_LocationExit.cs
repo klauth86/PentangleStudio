@@ -29,8 +29,8 @@ namespace BridgeMaster.Game {
                         yield return new WaitForSeconds(_exitVfxDuration);
                         Destroy(vfx);
                     }
-                    foreach (var character in FindObjectsOfType<Characters.Master>()) {
-                        character.Freeze();
+                    foreach (var character in FindObjectsOfType<Characters.Character_Freeze>()) {
+                        character.ToggleFreeze();
                     }
                     Target.ExitLocation(_nextLocation);
                     Destroy(gameObject);
