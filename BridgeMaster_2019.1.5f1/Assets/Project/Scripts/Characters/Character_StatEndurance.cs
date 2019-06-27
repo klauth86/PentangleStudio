@@ -48,7 +48,7 @@ namespace BridgeMaster.Characters {
 
         public static float EnduranceKoefficient(float value, float max) {
             var x = value / max;
-            return 2*x / (1 + x);
+            return Mathf.Max(2*x / (1 + x), 0.2f);
         }
     }
 }

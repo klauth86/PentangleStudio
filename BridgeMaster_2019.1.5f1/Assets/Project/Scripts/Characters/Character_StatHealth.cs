@@ -23,8 +23,8 @@ namespace BridgeMaster.Characters {
 
         private IEnumerator RecoveryRoutine() {
             while (_health < _max && !Master.IsFreezed) {
-                ChangeHealth(_recoveryAmount);
                 yield return new WaitForSeconds(_recoveryRate);
+                ChangeHealth(_recoveryAmount);
             }
 
             _recoveryCoroutine = null;
