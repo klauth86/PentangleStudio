@@ -64,7 +64,7 @@ namespace BridgeMaster.Characters.AI {
         }
 
         public void Attack() {
-            Master.ChangeSpeed(0.5f);
+            Master.ChangeEndurance(0.5f);
             if (Master.Player) {
                 Master.Player.ChangeHealth(-_attackDamage);
                 if (Master.Player.IsDead)

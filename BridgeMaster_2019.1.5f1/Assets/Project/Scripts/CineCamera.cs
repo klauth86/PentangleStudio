@@ -5,6 +5,7 @@ namespace BridgeMaster {
     [RequireComponent(typeof(Camera))]
     public class CineCamera : MonoBehaviour {
         [SerializeField] private Transform _target;
+
         [SerializeField] private float _cameraFollowTimeoutDuration;
         [SerializeField] private float _cameraFollowLerpDuration;
 
@@ -26,7 +27,7 @@ namespace BridgeMaster {
                     Mathf.Clamp(_target.position.y, _downEdge, _upEdge), transform.position.z);
             }
             else {
-                Debug.LogWarning("_transform is not init in Inspector!");
+                Debug.LogWarning("_target is not init in Inspector!");
             }
             _transform = transform;
             _camera = GetComponent<Camera>();

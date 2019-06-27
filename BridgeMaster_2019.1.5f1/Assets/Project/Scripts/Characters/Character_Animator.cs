@@ -1,5 +1,4 @@
-﻿using System;
-using BridgeMaster.Dicts;
+﻿using BridgeMaster.Dicts;
 using UnityEngine;
 
 namespace BridgeMaster.Characters {
@@ -19,9 +18,9 @@ namespace BridgeMaster.Characters {
 
             Master.ChangeHealthEvent += ChangeHealthEvent;
 
-            Master.DieEvent += Die;
+            Master.ChangeEnduranceEvent += ChangeSpeed;
 
-            Master.ChangeSpeedEvent += ChangeSpeed;
+            Master.DieEvent += Die;
         }
 
         private void OnDisable() {
@@ -39,9 +38,9 @@ namespace BridgeMaster.Characters {
 
             Master.ChangeHealthEvent -= ChangeHealthEvent;
 
-            Master.DieEvent -= Die;
+            Master.ChangeEnduranceEvent -= ChangeSpeed;
 
-            Master.ChangeSpeedEvent -= ChangeSpeed;
+            Master.DieEvent -= Die;
         }
 
         private void ChangeSpeed(float speed) {

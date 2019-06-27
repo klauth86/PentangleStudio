@@ -3,9 +3,9 @@
 namespace BridgeMaster.Characters {
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
     public class Master : GameObjectSubscriber<Game.Master> {
+
         public bool IsDead;
         public bool IsFreezed;
-        public float Speed = 1;
 
         private Transform _myTransform;
         public Transform MyTransform {
@@ -31,9 +31,16 @@ namespace BridgeMaster.Characters {
         public event GameEventHandler DieEvent;
 
         public event GameEventHandler<float> ChangeHealthEvent;
+        public event GameEventHandler<float, float> HealthChangedEvent;
+
         public event GameEventHandler<float> ChangeManaEvent;
+        public event GameEventHandler<float, float> ManaChangedEvent;
+
         public event GameEventHandler<float> ChangeIronEvent;
-        public event GameEventHandler<float> ChangeSpeedEvent;
+        public event GameEventHandler<float, float> IronChangedEvent;
+
+        public event GameEventHandler<float> ChangeEnduranceEvent;
+        public event GameEventHandler<float, float> EnduranceChangedEvent;
 
         public event GameEventHandler<float> StartRunEvent;
         public event GameEventHandler EndRunEvent;
@@ -51,26 +58,40 @@ namespace BridgeMaster.Characters {
         public event GameEventHandler UnfreezeEvent;
 
         public void Die() {
-            DieEvent?.Invoke();
             IsDead = true;
-            enabled = false;
+            DieEvent?.Invoke();
         }
 
         public void ChangeHealth(float value) {
             ChangeHealthEvent?.Invoke(value);
         }
 
+        public void HealthChanged(float value, float max) {
+            HealthChangedEvent?.Invoke(value, max);
+        }
+
         public void ChangeMana(float value) {
             ChangeManaEvent?.Invoke(value);
+        }
+
+        public void ManaChanged(float value, float max) {
+            ManaChangedEvent?.Invoke(value, max);
         }
 
         public void ChangeIron(float value) {
             ChangeIronEvent?.Invoke(value);
         }
 
-        public void ChangeSpeed(float value) {
-            Speed *= value;
-            ChangeSpeedEvent?.Invoke(Speed);
+        public void IronChanged(float value, float max) {
+            IronChangedEvent?.Invoke(value, max);
+        }
+
+        public void ChangeEndurance(float amount) {
+            ChangeEnduranceEvent?.Invoke(amount);
+        }
+
+        public void EnduranceChanged(float value, float max) {
+            EnduranceChangedEvent?.Invoke(value, max);
         }
 
         public void StartRun(float axis) {

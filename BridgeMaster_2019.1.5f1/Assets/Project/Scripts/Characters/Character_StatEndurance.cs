@@ -1,0 +1,49 @@
+﻿using System.Collections;
+using UnityEngine;
+
+namespace BridgeMaster.Characters {
+    class Character_Endurance : Base<Master> {
+        [SerializeField] private float _max = 100;
+        [SerializeField] private float _endurance;
+
+        [SerializeField] private float _recoveryRate;
+        [SerializeField] private float _recoveryAmount;
+
+        private Coroutine _recoveryCoroutine;
+
+        private void OnEnable() {
+            Master.ChangeEnduranceEvent += ChangeEndurance;
+        }
+
+        private void OnDisable() {
+            Master.ChangeHealthEvent -= ChangeEndurance;
+            StopAllCoroutines();
+            _recoveryCoroutine = null;
+        }
+
+        private IEnumerator RecoveryRoutine() {
+            while (_endurance < _max) {
+                ChangeEndurance(_recoveryAmount);
+                yield return new WaitForSeconds(_recoveryRate);
+            }
+
+            _recoveryCoroutine = null;
+        }
+
+        private void ChangeEndurance(float amount) {
+            _endurance += amount * (1 + (_max - _endurance) / _max);
+
+            if (_endurance > _max)
+                _endurance = _max;
+
+            if (_endurance < 0)
+                _endurance = 0;
+
+            if (_endurance < _max && _recoveryCoroutine == null) {
+                _recoveryCoroutine = StartCoroutine(RecoveryRoutine());
+            }
+
+            Master.EnduranceChanged(_endurance, _max);
+        }
+    }
+}
