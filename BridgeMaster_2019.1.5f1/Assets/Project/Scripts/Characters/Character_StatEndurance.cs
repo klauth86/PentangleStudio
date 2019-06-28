@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace BridgeMaster.Characters {
     class Character_StatEndurance : Base<Master> {
-        [SerializeField] private float _max = 100;
+        [SerializeField] private float _max;
         [SerializeField] private float _endurance;
 
         [SerializeField] private float _recoveryRate;
@@ -48,7 +48,7 @@ namespace BridgeMaster.Characters {
 
         public static float EnduranceKoefficient(float value, float max) {
             var x = value / max;
-            return Mathf.Max(2*x / (1 + x), 0.2f);
+            return Mathf.Max(2 * x / (1 + x), 0.2f);
         }
     }
 }

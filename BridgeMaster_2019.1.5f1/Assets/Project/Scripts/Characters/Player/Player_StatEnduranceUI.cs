@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 
 namespace BridgeMaster.Characters.Player {
-    class Player_StatHealthUI : Base<Master> {
+    class Player_StatEnduranceUI : Base<Master> {
         [SerializeField] private RectTransform _indicator;
         [SerializeField] private float _indicatorFullWidth;
         
         private void OnEnable() {
-            Master.HealthChangedEvent += HealthChanged;
+            Master.EnduranceChangedEvent += EnduranceChanged;
         }
 
         private void OnDisable() {
-            Master.HealthChangedEvent -= HealthChanged;
+            Master.EnduranceChangedEvent -= EnduranceChanged;
         }
 
-        private void HealthChanged(float value, float max) {
+        private void EnduranceChanged(float value, float max) {
             _indicator.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _indicatorFullWidth * value / max);
         }
     }
