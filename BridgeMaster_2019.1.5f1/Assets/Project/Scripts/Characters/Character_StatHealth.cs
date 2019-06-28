@@ -36,15 +36,16 @@ namespace BridgeMaster.Characters {
             if (_health > _max)
                 _health = _max;
 
-            else if (_health < 0) {
+            else if (_health <= 0) {
                 _health = 0;
-                Master.Die();
             }
             else if (_health < _max && _recoveryCoroutine == null) {
                 _recoveryCoroutine = StartCoroutine(RecoveryRoutine());
             }
 
             Master.HealthChanged(_health, _max);
+            if (_health == 0)
+                Master.Die();
         }
     }
 }

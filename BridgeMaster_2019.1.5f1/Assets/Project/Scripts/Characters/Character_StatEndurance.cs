@@ -16,7 +16,7 @@ namespace BridgeMaster.Characters {
         }
 
         private void OnDisable() {
-            Master.ChangeHealthEvent -= ChangeEndurance;
+            Master.ChangeEnduranceEvent -= ChangeEndurance;
             StopAllCoroutines();
             _recoveryCoroutine = null;
         }

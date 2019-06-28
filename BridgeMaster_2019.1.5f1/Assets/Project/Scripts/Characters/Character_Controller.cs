@@ -36,7 +36,7 @@ namespace BridgeMaster.Characters {
 
         private void StartRun(float axis) {
             if (!Master.IsFreezed) {
-                Master.ChangeEndurance(-_runEnduranceCost * axis);
+                Master.ChangeEndurance(-_runEnduranceCost * Mathf.Abs(axis));
                 Master.Rigidbody.velocity = new Vector2(_enduranceKoefficient * _velocity * axis, Master.Rigidbody.velocity.y);
                 Swap(axis);
             }

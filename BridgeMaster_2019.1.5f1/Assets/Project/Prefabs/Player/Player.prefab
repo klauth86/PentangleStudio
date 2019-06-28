@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 818282522134683202}
   - component: {fileID: 743807229420450463}
   - component: {fileID: 3734155621446058432}
+  - component: {fileID: 8692326449544751383}
   - component: {fileID: 4493993298859154677}
   m_Layer: 12
   m_Name: Player
@@ -245,6 +246,20 @@ MonoBehaviour:
   _health: 100
   _recoveryRate: 1
   _recoveryAmount: 2
+--- !u!114 &8692326449544751383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687968721682563258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc25a27f3fd8d394fbb0ff465e15c153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hpIndicator: {fileID: 0}
+  _hpIndicatorFullWidth: 260
 --- !u!114 &4493993298859154677
 MonoBehaviour:
   m_ObjectHideFlags: 0
