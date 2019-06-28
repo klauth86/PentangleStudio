@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using BridgeMaster.Characters.Stat;
+using UnityEngine;
 
 namespace BridgeMaster.Characters {
     class Character_Controller : Base<Master> {

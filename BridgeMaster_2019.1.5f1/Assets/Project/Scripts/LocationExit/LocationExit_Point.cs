@@ -1,10 +1,11 @@
 ﻿using BridgeMaster.Dicts;
+using BridgeMaster.Game;
 using System.Collections;
 using UnityEngine;
 
-namespace BridgeMaster.Game {
+namespace BridgeMaster.LocationExit {
 
-    public class Game_LocationExit : GameObjectSubscriber<Master> {
+    public class LocationExit_Point : GameObjectSubscriber<Master> {
 
         [SerializeField] private Location _nextLocation;
         [SerializeField] private GameObject _exitVfx;

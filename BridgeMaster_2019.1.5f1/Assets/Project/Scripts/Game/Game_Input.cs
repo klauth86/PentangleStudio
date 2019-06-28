@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Game {
-    public class Game_Input : ComponentSubscriber<Master> {
+    public class Game_Input : Base {
         [SerializeField] private KeyCode _toggleCharacterStatsKeyCode;
         [SerializeField] private KeyCode _toggleMenuKeyCode;
         [SerializeField] private KeyCode _toggleInventoryKeyCode;

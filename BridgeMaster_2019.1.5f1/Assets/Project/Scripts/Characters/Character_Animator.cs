@@ -1,4 +1,5 @@
-﻿using BridgeMaster.Dicts;
+﻿using BridgeMaster.Characters.Stat;
+using BridgeMaster.Dicts;
 using UnityEngine;
 
 namespace BridgeMaster.Characters {

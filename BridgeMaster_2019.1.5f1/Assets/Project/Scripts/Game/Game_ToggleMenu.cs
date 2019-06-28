@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Game {
-    public class Game_ToggleMenu : ComponentSubscriber<Master> {
+    public class Game_ToggleMenu : Base {
         [SerializeField] private GameObject _menu;
 
         private void OnEnable() {
