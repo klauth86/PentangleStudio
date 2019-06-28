@@ -227,6 +227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _velocity: 8
   _jump: 8
+  _runEnduranceCost: 1
+  _jumpEnduranceCost: 5
 --- !u!114 &3734155621446058432
 MonoBehaviour:
   m_ObjectHideFlags: 0
