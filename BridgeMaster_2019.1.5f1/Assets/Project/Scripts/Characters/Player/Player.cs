@@ -2,6 +2,7 @@
 
 namespace BridgeMaster.Characters.Player {
     public class Player:Master {
+
         private void OnEnable() {
             Target.InputKeyEvent += OnInputKeyEvent;
         }

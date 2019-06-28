@@ -4,6 +4,19 @@ using UnityEngine;
 namespace BridgeMaster.Game {
     public class Master : MonoBehaviour {
 
+        public static Master GameInstance;
+
+        private void Awake() {
+            if (GameInstance == null) {
+                GameInstance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else {
+                gameObject.SetActive(false);
+                Destroy(gameObject);
+            }
+        }
+
         public event GameEventHandler<InputAction, InputActionState, float> InputKeyEvent;
 
         public event GameEventHandler<bool> ToggleMenuEvent;
