@@ -1,8 +1,8 @@
 ﻿using BridgeMaster.Dicts;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 namespace BridgeMaster.Game {
     public class Game_Location : ComponentSubscriber<Master> {

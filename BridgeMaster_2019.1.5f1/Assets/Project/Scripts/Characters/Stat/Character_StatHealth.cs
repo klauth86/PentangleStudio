@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace BridgeMaster.Characters {
+namespace BridgeMaster.Characters.Stat {
     class Character_StatHealth : Base<Master> {
         [SerializeField] private float _max;
         [SerializeField] private float _health;
