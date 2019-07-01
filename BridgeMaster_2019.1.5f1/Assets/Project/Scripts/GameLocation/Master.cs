@@ -29,13 +29,13 @@ namespace BridgeMaster.GameLocation {
             LocationExitedEvent?.Invoke(CurrentLocation, nextLocation);
         }
 
-        public static Master Session;
-
         #region SINGLE SESSION
 
+        public static Master LocationSession;
+
         private void Awake() {
-            if (Session == null) {
-                Session = this;
+            if (LocationSession == null) {
+                LocationSession = this;
                 DontDestroyOnLoad(gameObject);
             }
             else {

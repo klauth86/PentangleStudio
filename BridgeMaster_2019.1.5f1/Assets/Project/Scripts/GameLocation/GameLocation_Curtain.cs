@@ -10,14 +10,14 @@ namespace BridgeMaster.GameLocation {
         [SerializeField] private int _fadingSteps;
 
         private void OnEnable() {
-            Master.Session.EnterLocationEvent += EnterLocation;
-            Master.Session.ExitLocationEvent += ExitLocation;
+            Master.LocationSession.EnterLocationEvent += EnterLocation;
+            Master.LocationSession.ExitLocationEvent += ExitLocation;
         }
 
         private void OnDisable() {
             StopAllCoroutines();
-            Master.Session.EnterLocationEvent -= EnterLocation;
-            Master.Session.ExitLocationEvent -= ExitLocation;
+            Master.LocationSession.EnterLocationEvent -= EnterLocation;
+            Master.LocationSession.ExitLocationEvent -= ExitLocation;
         }
 
         private void EnterLocation() {
@@ -42,9 +42,9 @@ namespace BridgeMaster.GameLocation {
             }
 
             if (nextLocation == Dicts.Location.None)
-                Master.Session.LocationEntered();
+                Master.LocationSession.LocationEntered();
             else
-                Master.Session.LocationExited(nextLocation);
+                Master.LocationSession.LocationExited(nextLocation);
         }
     }
 }

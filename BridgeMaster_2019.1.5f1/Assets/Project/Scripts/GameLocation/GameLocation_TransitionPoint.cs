@@ -3,10 +3,14 @@ using UnityEngine;
 
 namespace BridgeMaster.GameLocation {
 
-    public class GameLocation_Exit : MonoBehaviour {
-        [SerializeField] private Dicts.Location _nextLocation;
+    public class GameLocation_TransitionPoint : MonoBehaviour {
+
+        public Dicts.Location NextLocation;
+
         [SerializeField] private LayerMask _playerLayer;
-        [SerializeField] private float _checkRate;
+        [SerializeField] private float _checkRate = 0.125f;
+
+        private bool _hasPrevHit;
 
         private void OnEnable() {
             StartCoroutine(CheckIfPlayerIsInLocationExit());
@@ -20,21 +24,27 @@ namespace BridgeMaster.GameLocation {
             yield return new WaitForSeconds(Random.Range(0, _checkRate));
 
             var myTransform = transform;
-            var hasPrevHit = false;
 
             while (isActiveAndEnabled) {
 
                 var hit = Physics2D.CapsuleCast(new Vector2(myTransform.position.x, myTransform.position.y),
                     new Vector2(2, 7), CapsuleDirection2D.Vertical, 0, Vector2.zero, 0, _playerLayer);
 
-                if (hit && !hasPrevHit) {
-                    hasPrevHit = false;
-                    Master.Session.ExitLocation(_nextLocation);                    
+                if (hit && !_hasPrevHit) {
+                    _hasPrevHit = true;
+                    Master.LocationSession.ExitLocation(NextLocation);
                 }
+                else {
+                    if (!hit && _hasPrevHit)
+                        _hasPrevHit = false;
 
-                hasPrevHit = true;
-                yield return new WaitForSeconds(_checkRate);
+                    yield return new WaitForSeconds(_checkRate);
+                }
             }
+        }
+
+        public void SetPreviousHit() {
+            _hasPrevHit = true;
         }
     }
 }

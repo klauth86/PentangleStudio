@@ -7,15 +7,15 @@ namespace BridgeMaster.GameLocation {
     public class GameLocation_Loader : MonoBehaviour {
 
         private void OnEnable() {
-            Master.Session.LocationExitedEvent += LocationExited;
+            Master.LocationSession.LocationExitedEvent += LocationExited;
         }
 
         private void OnDisable() {
-            Master.Session.LocationExitedEvent -= LocationExited;
+            Master.LocationSession.LocationExitedEvent -= LocationExited;
         }
 
         private void LocationExited(Location currentLocation, Location nextLocation) {
-            Master.Session.PreviousLocation = currentLocation;
+            Master.LocationSession.PreviousLocation = currentLocation;
             SceneManager.LoadScene((int)nextLocation);
         }
     }

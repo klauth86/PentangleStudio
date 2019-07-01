@@ -28,5 +28,22 @@ namespace BridgeMaster.Characters.Player {
                     break;
             }
         }
+
+        #region SINGLE SESSION
+
+        public static Player PlayerSession;
+
+        private void Awake() {
+            if (PlayerSession == null) {
+                PlayerSession = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else {
+                gameObject.SetActive(false);
+                Destroy(gameObject);
+            }
+        }
+
+        #endregion
     }
 }
