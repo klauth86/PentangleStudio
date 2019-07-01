@@ -4,8 +4,6 @@ using UnityEngine;
 namespace BridgeMaster.Game {
     public class Master : MonoBehaviour {
 
-        public static Master GameInstance;
-
         public event GameEventHandler<InputAction, InputActionState, float> InputKeyEvent;
 
         public event GameEventHandler<bool> ToggleMenuEvent;
@@ -16,17 +14,6 @@ namespace BridgeMaster.Game {
 
         public event GameEventHandler<Location> EnterLocationEvent;
         public event GameEventHandler<Location> ExitLocationEvent;
-
-        private void Awake() {
-            if (GameInstance == null) {
-                GameInstance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else {
-                gameObject.SetActive(false);
-                Destroy(gameObject);
-            }
-        }
 
         public void ToggleMenu(bool isMenuOn) {
             ToggleMenuEvent?.Invoke(isMenuOn);
@@ -55,5 +42,22 @@ namespace BridgeMaster.Game {
         public void ExitLocation(Location location) {
             ExitLocationEvent?.Invoke(location);
         }
+
+        #region SINGLE INSTANCE
+
+        public static Master Instance;
+
+        private void Awake() {
+            if (Instance == null) {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else {
+                gameObject.SetActive(false);
+                Destroy(gameObject);
+            }
+        }
+
+        #endregion
     }
 }

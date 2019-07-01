@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 
 namespace BridgeMaster.Game {
-    public class Game_TogglePause : Base {
+    public class Game_TogglePause : MonoBehaviour {
 
         private void OnEnable() {
-            Master.ToggleMenuEvent += TogglePause;
+            Master.Instance.ToggleMenuEvent += TogglePause;
         }
 
         private void OnDisable() {
-            Master.ToggleMenuEvent -= TogglePause;
+            Master.Instance.ToggleMenuEvent -= TogglePause;
         }
 
         private void TogglePause(bool isPaused) {

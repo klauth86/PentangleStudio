@@ -1,20 +1,20 @@
 ﻿using BridgeMaster.Characters.Player;
 using UnityEngine;
 
-namespace BridgeMaster.Game {
-    class UI_Mana : MonoBehaviour {
+namespace BridgeMaster.UI {
+    class Indicator_Health : MonoBehaviour {
         [SerializeField] private RectTransform _indicator;
         [SerializeField] private float _indicatorFullWidth;
         
         private void OnEnable() {
-            Player.PlayerSession.ManaChangedEvent += ManaChanged;
+            Player.PlayerSession.HealthChangedEvent += HealthChanged;
         }
 
         private void OnDisable() {
-            Player.PlayerSession.ManaChangedEvent -= ManaChanged;
+            Player.PlayerSession.HealthChangedEvent -= HealthChanged;
         }
 
-        private void ManaChanged(float value, float max) {
+        private void HealthChanged(float value, float max) {
             _indicator.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _indicatorFullWidth * value / max);
         }
     }

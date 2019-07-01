@@ -1,8 +1,8 @@
 ﻿using BridgeMaster.Characters.Player;
 using UnityEngine;
 
-namespace BridgeMaster.Game {
-    public class UI_Endurance : MonoBehaviour {
+namespace BridgeMaster.UI {
+    public class Indicator_Endurance : MonoBehaviour {
         [SerializeField] private RectTransform _indicator;
         [SerializeField] private float _indicatorFullWidth;
 

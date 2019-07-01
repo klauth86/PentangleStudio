@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using BridgeMaster.GameLocation;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BridgeMaster.GameLocation {
+namespace BridgeMaster.UI {
 
-    public class GameLocation_Curtain : MonoBehaviour {
+    public class Location_Curtain : MonoBehaviour {
         [SerializeField] private Image _curtain;
         [SerializeField] private float _fadingDuration;
         [SerializeField] private int _fadingSteps;
