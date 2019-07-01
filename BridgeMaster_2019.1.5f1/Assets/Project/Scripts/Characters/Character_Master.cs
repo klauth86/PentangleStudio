@@ -2,7 +2,7 @@
 
 namespace BridgeMaster.Characters {
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
-    public class Master : GameObjectSubscriber<Game.Game_Master> {
+    public class Character_Master : GameObjectSubscriber<Game.Game_Master> {
 
         public bool IsDead;
         public bool IsFreezed;
@@ -48,8 +48,8 @@ namespace BridgeMaster.Characters {
         public event GameEventHandler StartJumpEvent;
         public event GameEventHandler EndJumpEvent;
 
-        public event GameEventHandler<Master> StartAttackEvent;
-        public event GameEventHandler<Master> EndAttackEvent;
+        public event GameEventHandler<Character_Master> StartAttackEvent;
+        public event GameEventHandler<Character_Master> EndAttackEvent;
 
         public event GameEventHandler StartCastSpellEvent;
         public event GameEventHandler EndCastSpellEvent;
@@ -109,11 +109,11 @@ namespace BridgeMaster.Characters {
             EndJumpEvent?.Invoke();
         }
 
-        public void StartAttack(Master target) {
+        public void StartAttack(Character_Master target) {
             StartAttackEvent?.Invoke(target);
         }
 
-        public void EndAttack(Master target) {
+        public void EndAttack(Character_Master target) {
             EndAttackEvent?.Invoke(target);
         }
 

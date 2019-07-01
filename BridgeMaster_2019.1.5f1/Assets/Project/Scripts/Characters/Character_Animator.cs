@@ -3,7 +3,7 @@ using BridgeMaster.Dicts;
 using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    class Character_Animator : Base<Master> {
+    class Character_Animator : Base<Character_Master> {
 
         private float _prevSpeed = -1;
 
@@ -87,11 +87,11 @@ namespace BridgeMaster.Characters {
             Master.Animator.SetBool(AnimatorKey.IsCastingSpell, false);
         }
 
-        private void StartAttack(Master target) {
+        private void StartAttack(Character_Master target) {
             Master.Animator.SetBool(AnimatorKey.IsAttacking, true);
         }
 
-        private void EndAttack(Master target) {
+        private void EndAttack(Character_Master target) {
             Master.Animator.SetBool(AnimatorKey.IsAttacking, false);
         }
 

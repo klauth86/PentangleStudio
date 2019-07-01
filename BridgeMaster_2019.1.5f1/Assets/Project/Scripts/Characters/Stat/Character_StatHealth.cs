@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Characters.Stat {
-    class Character_StatHealth : Base<Master> {
+    class Character_StatHealth : Base<Character_Master> {
         [SerializeField] private float _max;
         [SerializeField] private float _health;
 

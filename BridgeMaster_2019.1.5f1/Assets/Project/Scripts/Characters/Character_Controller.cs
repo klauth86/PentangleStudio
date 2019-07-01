@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    class Character_Controller : Base<Master> {
+    class Character_Controller : Base<Character_Master> {
         [SerializeField] private float _velocity;
         [SerializeField] private float _jump;
 
