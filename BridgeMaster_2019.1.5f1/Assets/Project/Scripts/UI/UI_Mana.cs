@@ -1,16 +1,17 @@
-﻿using UnityEngine;
+﻿using BridgeMaster.Characters.Player;
+using UnityEngine;
 
-namespace BridgeMaster.Characters.Player {
-    class Player_StatManaUI : Base<Master> {
+namespace BridgeMaster.Game {
+    class UI_Mana : MonoBehaviour {
         [SerializeField] private RectTransform _indicator;
         [SerializeField] private float _indicatorFullWidth;
         
         private void OnEnable() {
-            Master.ManaChangedEvent += ManaChanged;
+            Player.PlayerSession.ManaChangedEvent += ManaChanged;
         }
 
         private void OnDisable() {
-            Master.ManaChangedEvent -= ManaChanged;
+            Player.PlayerSession.ManaChangedEvent -= ManaChanged;
         }
 
         private void ManaChanged(float value, float max) {

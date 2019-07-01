@@ -1,16 +1,17 @@
-﻿using UnityEngine;
+﻿using BridgeMaster.Characters.Player;
+using UnityEngine;
 
-namespace BridgeMaster.Characters.Player {
-    class Player_StatHealthUI : Base<Master> {
+namespace BridgeMaster.Game {
+    class UI_Health : MonoBehaviour {
         [SerializeField] private RectTransform _indicator;
         [SerializeField] private float _indicatorFullWidth;
         
         private void OnEnable() {
-            Master.HealthChangedEvent += HealthChanged;
+            Player.PlayerSession.HealthChangedEvent += HealthChanged;
         }
 
         private void OnDisable() {
-            Master.HealthChangedEvent -= HealthChanged;
+            Player.PlayerSession.HealthChangedEvent -= HealthChanged;
         }
 
         private void HealthChanged(float value, float max) {

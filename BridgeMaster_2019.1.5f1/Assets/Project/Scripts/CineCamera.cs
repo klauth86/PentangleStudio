@@ -1,11 +1,10 @@
-﻿using System.Collections;
+﻿using BridgeMaster.Characters.Player;
+using System.Collections;
 using UnityEngine;
 
 namespace BridgeMaster {
     [RequireComponent(typeof(Camera))]
     public class CineCamera : MonoBehaviour {
-        [SerializeField] private Transform _target;
-
         [SerializeField] private float _cameraFollowTimeoutDuration;
         [SerializeField] private float _cameraFollowLerpDuration;
 
@@ -17,18 +16,17 @@ namespace BridgeMaster {
         [SerializeField] private float _upEdge;
         [SerializeField] private float _downEdge;
 
+        private Transform _target;
         private Transform _transform;
         private Camera _camera;
 
         private void Awake() {
-            if (_target) {
-                transform.position = new Vector3(
-                    Mathf.Clamp(_target.position.x, _leftEdge, _rightEdge),
-                    Mathf.Clamp(_target.position.y, _downEdge, _upEdge), transform.position.z);
-            }
-            else {
-                Debug.LogWarning("_target is not init in Inspector!");
-            }
+            _target = Player.PlayerSession.transform;
+
+            transform.position = new Vector3(
+                Mathf.Clamp(_target.position.x, _leftEdge, _rightEdge),
+                Mathf.Clamp(_target.position.y, _downEdge, _upEdge), transform.position.z);
+
             _transform = transform;
             _camera = GetComponent<Camera>();
         }
@@ -42,7 +40,7 @@ namespace BridgeMaster {
         }
 
         IEnumerator FollowRoutine() {
-            while (_target) {
+            while (isActiveAndEnabled) {
                 var camx = _transform.position.x;
                 var camy = _transform.position.y;
 

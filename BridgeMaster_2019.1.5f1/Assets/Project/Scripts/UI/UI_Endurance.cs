@@ -1,16 +1,17 @@
-﻿using UnityEngine;
+﻿using BridgeMaster.Characters.Player;
+using UnityEngine;
 
-namespace BridgeMaster.Characters.Player {
-    class Player_StatEnduranceUI : Base<Master> {
+namespace BridgeMaster.Game {
+    public class UI_Endurance : MonoBehaviour {
         [SerializeField] private RectTransform _indicator;
         [SerializeField] private float _indicatorFullWidth;
-        
+
         private void OnEnable() {
-            Master.EnduranceChangedEvent += EnduranceChanged;
+            Player.PlayerSession.EnduranceChangedEvent += EnduranceChanged;
         }
 
         private void OnDisable() {
-            Master.EnduranceChangedEvent -= EnduranceChanged;
+            Player.PlayerSession.EnduranceChangedEvent -= EnduranceChanged;
         }
 
         private void EnduranceChanged(float value, float max) {
