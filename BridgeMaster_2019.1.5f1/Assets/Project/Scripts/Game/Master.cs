@@ -6,6 +6,17 @@ namespace BridgeMaster.Game {
 
         public static Master GameInstance;
 
+        public event GameEventHandler<InputAction, InputActionState, float> InputKeyEvent;
+
+        public event GameEventHandler<bool> ToggleMenuEvent;
+        public event GameEventHandler<bool> ToggleInventoryEvent;
+        public event GameEventHandler<bool> ToggleCharacterStatsEvent;
+
+        public event GameEventHandler GameOverEvent;
+
+        public event GameEventHandler<Location> EnterLocationEvent;
+        public event GameEventHandler<Location> ExitLocationEvent;
+
         private void Awake() {
             if (GameInstance == null) {
                 GameInstance = this;
@@ -15,21 +26,6 @@ namespace BridgeMaster.Game {
                 gameObject.SetActive(false);
                 Destroy(gameObject);
             }
-        }
-
-        public event GameEventHandler<InputAction, InputActionState, float> InputKeyEvent;
-
-        public event GameEventHandler<bool> ToggleMenuEvent;
-        public event GameEventHandler<bool> ToggleInventoryEvent;
-        public event GameEventHandler<bool> ToggleCharacterStatsEvent;
-
-        public event GameEventHandler GameOverEvent;
-
-        public event GameEventHandler EnterLocationEvent;
-        public event GameEventHandler<Location> ExitLocationEvent;
-
-        private void Start() {
-            EnterLocation();
         }
 
         public void ToggleMenu(bool isMenuOn) {
@@ -52,8 +48,8 @@ namespace BridgeMaster.Game {
             GameOverEvent?.Invoke();
         }
 
-        public void EnterLocation() {
-            EnterLocationEvent?.Invoke();
+        public void EnterLocation(Location location) {
+            EnterLocationEvent?.Invoke(location);
         }
 
         public void ExitLocation(Location location) {
