@@ -32,7 +32,7 @@ namespace BridgeMaster.GameLocation {
 
                 if (hit && !_hasPrevHit) {
                     _hasPrevHit = true;
-                    Master.LocationSession.ExitLocation(NextLocation);
+                    GameLocation_Master.LocationSession.ExitLocation(NextLocation);
                 }
                 else {
                     if (!hit && _hasPrevHit)

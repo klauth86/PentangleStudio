@@ -10,9 +10,9 @@ namespace BridgeMaster.GameLocation {
         [SerializeField] private Location _currentLocation;
 
         private void Start() {
-            Master.LocationSession.CurrentLocation = _currentLocation;
-            PlaceThePlayer(Master.LocationSession.PreviousLocation);
-            Master.LocationSession.EnterLocation();
+            GameLocation_Master.LocationSession.CurrentLocation = _currentLocation;
+            PlaceThePlayer(GameLocation_Master.LocationSession.PreviousLocation);
+            GameLocation_Master.LocationSession.EnterLocation();
         }
 
         private void PlaceThePlayer(Location previousLocation) {

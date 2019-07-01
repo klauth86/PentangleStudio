@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.GameLocation {
-    public class Master : MonoBehaviour {
+    public class GameLocation_Master : MonoBehaviour {
 
         public Location PreviousLocation;
         public Location CurrentLocation;
@@ -31,7 +31,7 @@ namespace BridgeMaster.GameLocation {
 
         #region SINGLE SESSION
 
-        public static Master LocationSession;
+        public static GameLocation_Master LocationSession;
 
         private void Awake() {
             if (LocationSession == null) {

@@ -7,17 +7,17 @@ namespace BridgeMaster.UI {
         [SerializeField] private GameObject _inventory;
 
         private void OnEnable() {
-            Master.Instance.InputKeyEvent += ToggleInventory;
+            Game_Master.Instance.InputKeyEvent += ToggleInventory;
         }
 
         private void OnDisable() {
-            Master.Instance.InputKeyEvent -= ToggleInventory;
+            Game_Master.Instance.InputKeyEvent -= ToggleInventory;
         }
 
         private void ToggleInventory(InputAction action, InputActionState state, float axis) {
             if (action == InputAction.ToggleInventoryAction) {
                 _inventory.SetActive(!_inventory.activeSelf);
-                Master.Instance.ToggleInventory(_inventory.activeSelf);
+                Game_Master.Instance.ToggleInventory(_inventory.activeSelf);
             }
         }
     }

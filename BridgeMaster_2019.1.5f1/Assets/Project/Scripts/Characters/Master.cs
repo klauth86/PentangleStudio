@@ -2,7 +2,7 @@
 
 namespace BridgeMaster.Characters {
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
-    public class Master : GameObjectSubscriber<Game.Master> {
+    public class Master : GameObjectSubscriber<Game.Game_Master> {
 
         public bool IsDead;
         public bool IsFreezed;

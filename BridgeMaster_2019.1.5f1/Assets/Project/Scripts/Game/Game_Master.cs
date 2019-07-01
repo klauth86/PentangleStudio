@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BridgeMaster.Game {
-    public class Master : MonoBehaviour {
+    public class Game_Master : MonoBehaviour {
 
         public event GameEventHandler<InputAction, InputActionState, float> InputKeyEvent;
 
@@ -45,7 +45,7 @@ namespace BridgeMaster.Game {
 
         #region SINGLE INSTANCE
 
-        public static Master Instance;
+        public static Game_Master Instance;
 
         private void Awake() {
             if (Instance == null) {
