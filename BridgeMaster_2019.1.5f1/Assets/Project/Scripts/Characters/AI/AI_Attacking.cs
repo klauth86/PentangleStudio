@@ -23,7 +23,7 @@ namespace BridgeMaster.Characters.AI {
 
         private IEnumerator ChaseIfTargetInRangeRoutine() {
             while (true) {
-                if (Master.IsAttacking && Master.Player != null && !Master.Player.IsDead) {
+                if (Master.IsAttacking && Master.Player != null) {
 
                     if (Master.State == AIState.Attacking) {
 
@@ -69,7 +69,7 @@ namespace BridgeMaster.Characters.AI {
             Master.ChangeEndurance(-_attackCost);
             if (Master.Player) {
                 Master.Player.ChangeHealth(-_attackDamage);
-                if (Master.Player.IsDead)
+                if (Master.Player)
                     StopAttacking(true);
             }
         }

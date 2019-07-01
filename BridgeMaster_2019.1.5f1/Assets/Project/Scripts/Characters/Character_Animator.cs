@@ -7,7 +7,7 @@ namespace BridgeMaster.Characters {
 
         private float _prevSpeed = -1;
 
-        private void OnEnable() {
+        protected override void Subscribe() {
             Master.StartRunEvent += StartRun;
             Master.EndRunEvent += EndRun;
 
@@ -26,9 +26,11 @@ namespace BridgeMaster.Characters {
             Master.ToggleFreezeEvent += ToggleFreeze;
 
             Master.DieEvent += Die;
+
+            base.Subscribe();
         }
 
-        private void OnDisable() {
+        protected override void Unsubscribe() {
             Master.StartRunEvent -= StartRun;
             Master.EndRunEvent -= EndRun;
 
@@ -47,6 +49,8 @@ namespace BridgeMaster.Characters {
             Master.ToggleFreezeEvent -= ToggleFreeze;
 
             Master.DieEvent -= Die;
+
+            base.Unsubscribe();
         }
 
         private void ToggleFreeze() {

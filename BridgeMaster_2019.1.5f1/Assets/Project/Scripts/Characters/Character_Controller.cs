@@ -13,22 +13,28 @@ namespace BridgeMaster.Characters {
 
         private bool _isJumping;
 
-        private void OnEnable() {
+        protected override void Subscribe() {
             Master.StartRunEvent += StartRun;
             Master.StartJumpEvent += StartJump;
             Master.EnduranceChangedEvent += EnduranceChanged;
             Master.ToggleFreezeEvent += ToggleFreeze;
+
+            base.Subscribe();
         }
 
-        private void OnDisable() {
+        protected override void Unsubscribe() {
             Master.StartRunEvent -= StartRun;
             Master.StartJumpEvent -= StartJump;
             Master.EnduranceChangedEvent -= EnduranceChanged;
             Master.ToggleFreezeEvent -= ToggleFreeze;
+
+            base.Unsubscribe();
         }
 
         private void ToggleFreeze() {
-            Master.Rigidbody.constraints = Master.IsFreezed ? RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.FreezeRotation;
+            Master.Rigidbody.constraints = Master.IsFreezed
+                ? RigidbodyConstraints2D.FreezeAll
+                : RigidbodyConstraints2D.FreezeRotation;
         }
 
         private void EnduranceChanged(float value, float max) {

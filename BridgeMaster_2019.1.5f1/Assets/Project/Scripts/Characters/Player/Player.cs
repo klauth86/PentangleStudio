@@ -1,7 +1,7 @@
 ﻿using BridgeMaster.Dicts;
 
 namespace BridgeMaster.Characters.Player {
-    public class Player:Character_Master {
+    public class Player : Character_Master {
 
         private void OnEnable() {
             Target.InputKeyEvent += OnInputKeyEvent;

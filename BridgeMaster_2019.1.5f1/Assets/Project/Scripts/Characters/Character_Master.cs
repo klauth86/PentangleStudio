@@ -4,7 +4,6 @@ namespace BridgeMaster.Characters {
     [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
     public class Character_Master : GameObjectSubscriber<Game.Game_Master> {
 
-        public bool IsDead;
         public bool IsFreezed;
 
         private Transform _myTransform;
@@ -32,13 +31,8 @@ namespace BridgeMaster.Characters {
 
         public event GameEventHandler<float> ChangeHealthEvent;
         public event GameEventHandler<float, float> HealthChangedEvent;
-
         public event GameEventHandler<float> ChangeManaEvent;
         public event GameEventHandler<float, float> ManaChangedEvent;
-
-        public event GameEventHandler<float> ChangeIronEvent;
-        public event GameEventHandler<float, float> IronChangedEvent;
-
         public event GameEventHandler<float> ChangeEnduranceEvent;
         public event GameEventHandler<float, float> EnduranceChangedEvent;
 
@@ -57,7 +51,6 @@ namespace BridgeMaster.Characters {
         public event GameEventHandler ToggleFreezeEvent;
 
         public void Die() {
-            IsDead = true;
             DieEvent?.Invoke();
         }
 
@@ -67,22 +60,6 @@ namespace BridgeMaster.Characters {
 
         public void HealthChanged(float value, float max) {
             HealthChangedEvent?.Invoke(value, max);
-        }
-
-        public void ChangeMana(float value) {
-            ChangeManaEvent?.Invoke(value);
-        }
-
-        public void ManaChanged(float value, float max) {
-            ManaChangedEvent?.Invoke(value, max);
-        }
-
-        public void ChangeIron(float value) {
-            ChangeIronEvent?.Invoke(value);
-        }
-
-        public void IronChanged(float value, float max) {
-            IronChangedEvent?.Invoke(value, max);
         }
 
         public void ChangeEndurance(float amount) {

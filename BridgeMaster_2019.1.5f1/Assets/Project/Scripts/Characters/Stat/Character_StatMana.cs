@@ -12,11 +12,11 @@ namespace BridgeMaster.Characters.Stat {
         private Coroutine _recoveryCoroutine;
 
         private void OnEnable() {
-            Master.ChangeHealthEvent += ChangeHealth;
+            Master.ChangeHealthEvent += ChangeMana;
         }
 
         private void OnDisable() {
-            Master.ChangeHealthEvent -= ChangeHealth;
+            Master.ChangeHealthEvent -= ChangeMana;
             StopAllCoroutines();
             _recoveryCoroutine = null;
         }
@@ -24,13 +24,13 @@ namespace BridgeMaster.Characters.Stat {
         private IEnumerator RecoveryRoutine() {
             while (_mana < _max && !Master.IsFreezed) {
                 yield return new WaitForSeconds(_recoveryRate);
-                ChangeHealth(_recoveryAmount);
+                ChangeMana(_recoveryAmount);
             }
 
             _recoveryCoroutine = null;
         }
 
-        private void ChangeHealth(float amount) {
+        private void ChangeMana(float amount) {
             _mana += amount;
 
             if (_mana > _max)
