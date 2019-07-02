@@ -44,6 +44,8 @@ namespace BridgeMaster.GameLocation {
             }
         }
 
+        private GameLocation_Master() {}
+
         #endregion
     }
 }

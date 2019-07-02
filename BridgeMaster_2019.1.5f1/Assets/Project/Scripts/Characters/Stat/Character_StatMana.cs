@@ -3,22 +3,24 @@ using UnityEngine;
 
 namespace BridgeMaster.Characters.Stat {
     class Character_StatMana : Base<Character_Master> {
-        [SerializeField] private float _max;
-        [SerializeField] private float _mana;
+        [SerializeField] private float _max = 100;
+        [SerializeField] private float _mana = 100;
 
-        [SerializeField] private float _recoveryRate;
-        [SerializeField] private float _recoveryAmount;
+        [SerializeField] private float _recoveryRate = 1;
+        [SerializeField] private float _recoveryAmount = 2;
 
         private Coroutine _recoveryCoroutine;
 
-        private void OnEnable() {
+        protected override void Subscribe() {
             Master.ChangeHealthEvent += ChangeMana;
+            base.Subscribe();
         }
 
-        private void OnDisable() {
+        protected override void Unsubscribe() {
             Master.ChangeHealthEvent -= ChangeMana;
             StopAllCoroutines();
             _recoveryCoroutine = null;
+            base.Unsubscribe();
         }
 
         private IEnumerator RecoveryRoutine() {

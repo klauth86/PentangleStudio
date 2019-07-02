@@ -1,41 +1,42 @@
-﻿using Assets.Project.Scripts.Dicts;
-using System.Collections;
+﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace BridgeMaster.Characters.AI {
     public class AI_Wandering : Base<AI> {
         private int _i;
+        [SerializeField] private Transform[] _wanderingPoints;
+        [SerializeField] private float _standingRate = 1;
 
-        [SerializeField] private float _checkRate;
-        [SerializeField] private float _reachRange;
-        [SerializeField] private Transform[] _points;
-
-        private void OnEnable() {
-            StartCoroutine(WanderingRoutine());
+        protected override void Subscribe() {
+            Master.SetTargetEvent += SetTarget;
+            Master.ReachTargetEvent += ReachTarget;
+            base.Subscribe();
         }
 
-        private void OnDisable() {
-            StopAllCoroutines();
+        protected override void Unsubscribe() {
+            Master.SetTargetEvent -= SetTarget;
+            Master.ReachTargetEvent -= ReachTarget;
+            base.Unsubscribe();
         }
 
-        private IEnumerator WanderingRoutine() {
-            while (true) {
-                if (Master.IsWandering && _points != null && _points.Length > 0) {
+        private void ReachTarget(Transform transform) {
+            if (_wanderingPoints.Any(p => p == transform)) {
+                StartCoroutine(ToTheNextPointRoutine());
+            }
+        }
 
-                    if (Master.State == AIState.Wandering) {
+        private IEnumerator ToTheNextPointRoutine() {
+            yield return new WaitForSeconds(_standingRate);
+            _i = (_i + 1) % _wanderingPoints.Length;
+            Master.SetTarget(_wanderingPoints[_i]);
+            Debug.Log(_i);
+        }
 
-                        var point = _points[_i];
-                        var distance = point.position.x - Master.MyTransform.position.x;
-
-                        if (Mathf.Abs(distance) < _reachRange) {
-                            _i = (_i + 1) % _points.Length;
-                            continue;
-                        }
-
-                        Master.StartRun(Mathf.Sign(distance));
-                    }
-                }
-                yield return new WaitForSeconds(_checkRate);
+        private void SetTarget(Transform transform) {
+            if (transform == null) {
+                _i = 0;
+                Master.SetTarget(_wanderingPoints[_i]);
             }
         }
     }

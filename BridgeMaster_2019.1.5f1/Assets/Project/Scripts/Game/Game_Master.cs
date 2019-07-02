@@ -58,6 +58,8 @@ namespace BridgeMaster.Game {
             }
         }
 
+        private Game_Master() {}
+
         #endregion
     }
 }

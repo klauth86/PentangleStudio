@@ -3,22 +3,24 @@ using UnityEngine;
 
 namespace BridgeMaster.Characters.Stat {
     class Character_StatEndurance : Base<Character_Master> {
-        [SerializeField] private float _max;
-        [SerializeField] private float _endurance;
+        [SerializeField] private float _max = 100;
+        [SerializeField] private float _endurance = 100;
 
-        [SerializeField] private float _recoveryRate;
-        [SerializeField] private float _recoveryAmount;
+        [SerializeField] private float _recoveryRate = 0.1f;
+        [SerializeField] private float _recoveryAmount= 1;
 
         private Coroutine _recoveryCoroutine;
 
-        private void OnEnable() {
+        protected override void Subscribe() {
             Master.ChangeEnduranceEvent += ChangeEndurance;
+            base.Subscribe();
         }
 
-        private void OnDisable() {
+        protected override void Unsubscribe() {
             Master.ChangeEnduranceEvent -= ChangeEndurance;
             StopAllCoroutines();
             _recoveryCoroutine = null;
+            base.Unsubscribe();
         }
 
         private IEnumerator RecoveryRoutine() {
