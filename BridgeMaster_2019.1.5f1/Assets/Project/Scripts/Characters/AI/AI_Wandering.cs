@@ -20,8 +20,16 @@ namespace BridgeMaster.Characters.AI {
             base.Unsubscribe();
         }
 
-        private void ReachTarget(Transform transform) {
-            if (_wanderingPoints.Any(p => p == transform)) {
+        private void SetTarget(Transform transform) {
+            if (transform == null) {
+                _i = -1;
+                StartCoroutine(ToTheNextPointRoutine());
+            }
+        }
+
+        private void ReachTarget() {
+            if (_wanderingPoints.Any(p => p == Master.Target)) {
+                Master.Target = null;
                 StartCoroutine(ToTheNextPointRoutine());
             }
         }
@@ -30,14 +38,6 @@ namespace BridgeMaster.Characters.AI {
             yield return new WaitForSeconds(_standingRate);
             _i = (_i + 1) % _wanderingPoints.Length;
             Master.SetTarget(_wanderingPoints[_i]);
-            Debug.Log(_i);
-        }
-
-        private void SetTarget(Transform transform) {
-            if (transform == null) {
-                _i = 0;
-                Master.SetTarget(_wanderingPoints[_i]);
-            }
         }
     }
 }

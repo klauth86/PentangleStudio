@@ -3,15 +3,17 @@
 namespace BridgeMaster.Characters.AI {
     public class AI : Character_Master {
 
+        public Transform Target;
+        
         public event GameEventHandler<Transform> SetTargetEvent;
-        public event GameEventHandler<Transform> ReachTargetEvent;
+        public event GameEventHandler ReachTargetEvent;
 
         public void SetTarget(Transform target) {
             SetTargetEvent?.Invoke(target);
         }
 
-        public void ReachTarget(Transform target) {
-            ReachTargetEvent?.Invoke(target);
+        public void ReachTarget() {
+            ReachTargetEvent?.Invoke();
         }
 
         private void Start() {

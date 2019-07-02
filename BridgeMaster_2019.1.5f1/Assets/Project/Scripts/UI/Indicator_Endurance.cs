@@ -7,11 +7,11 @@ namespace BridgeMaster.UI {
         [SerializeField] private float _indicatorFullWidth;
 
         private void OnEnable() {
-            Player.PlayerSession.EnduranceChangedEvent += EnduranceChanged;
+            Player.PlayerInstance.EnduranceChangedEvent += EnduranceChanged;
         }
 
         private void OnDisable() {
-            Player.PlayerSession.EnduranceChangedEvent -= EnduranceChanged;
+            Player.PlayerInstance.EnduranceChangedEvent -= EnduranceChanged;
         }
 
         private void EnduranceChanged(float value, float max) {

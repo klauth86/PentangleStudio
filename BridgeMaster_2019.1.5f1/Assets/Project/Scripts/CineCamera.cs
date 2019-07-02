@@ -21,7 +21,7 @@ namespace BridgeMaster {
         private Camera _camera;
 
         private void Awake() {
-            _target = Player.PlayerSession.transform;
+            _target = Player.PlayerInstance.transform;
 
             transform.position = new Vector3(
                 Mathf.Clamp(_target.position.x, _leftEdge, _rightEdge),

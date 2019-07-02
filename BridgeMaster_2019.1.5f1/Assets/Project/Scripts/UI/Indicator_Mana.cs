@@ -7,11 +7,11 @@ namespace BridgeMaster.UI {
         [SerializeField] private float _indicatorFullWidth;
         
         private void OnEnable() {
-            Player.PlayerSession.ManaChangedEvent += ManaChanged;
+            Player.PlayerInstance.ManaChangedEvent += ManaChanged;
         }
 
         private void OnDisable() {
-            Player.PlayerSession.ManaChangedEvent -= ManaChanged;
+            Player.PlayerInstance.ManaChangedEvent -= ManaChanged;
         }
 
         private void ManaChanged(float value, float max) {

@@ -32,11 +32,11 @@ namespace BridgeMaster.Characters.Player {
 
         #region SINGLE SESSION
 
-        public static Player PlayerSession;
+        public static Player PlayerInstance;
 
         private void Awake() {
-            if (PlayerSession == null) {
-                PlayerSession = this;
+            if (PlayerInstance == null) {
+                PlayerInstance = this;
                 DontDestroyOnLoad(gameObject);
             }
             else {
