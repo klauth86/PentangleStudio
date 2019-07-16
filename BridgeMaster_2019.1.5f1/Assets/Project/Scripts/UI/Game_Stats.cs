@@ -14,8 +14,8 @@ namespace BridgeMaster.UI {
             Game_Master.Instance.InputKeyEvent -= ToggleCharacterStats;
         }
 
-        private void ToggleCharacterStats(InputAction action, InputActionState state, float axis) {
-            if (action == InputAction.ToggleCharacterStatsAction) {
+        private void ToggleCharacterStats(InputActions action, InputActionStates state, float axis) {
+            if (action == InputActions.ToggleCharacterStatsAction) {
                 _characterStats.SetActive(!_characterStats.activeSelf);
                 Game_Master.Instance.ToggleCharacterStats(_characterStats.activeSelf);
             }

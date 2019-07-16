@@ -7,11 +7,11 @@ namespace BridgeMaster.UI {
         [SerializeField] private float _indicatorFullWidth;
         
         private void OnEnable() {
-            Player.PlayerInstance.HealthChangedEvent += HealthChanged;
+            Player.Instance.HealthChangedEvent += HealthChanged;
         }
 
         private void OnDisable() {
-            Player.PlayerInstance.HealthChangedEvent -= HealthChanged;
+            Player.Instance.HealthChangedEvent -= HealthChanged;
         }
 
         private void HealthChanged(float value, float max) {

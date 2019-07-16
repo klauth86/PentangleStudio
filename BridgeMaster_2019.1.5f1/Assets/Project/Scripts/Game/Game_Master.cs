@@ -1,19 +1,20 @@
-﻿using BridgeMaster.Dicts;
+﻿using BridgeMaster.Base;
+using BridgeMaster.Dicts;
 using UnityEngine;
 
 namespace BridgeMaster.Game {
     public class Game_Master : MonoBehaviour {
 
-        public event GameEventHandler<InputAction, InputActionState, float> InputKeyEvent;
+        public event EventHandler<InputActions, InputActionStates, float> InputKeyEvent;
 
-        public event GameEventHandler<bool> ToggleMenuEvent;
-        public event GameEventHandler<bool> ToggleInventoryEvent;
-        public event GameEventHandler<bool> ToggleCharacterStatsEvent;
+        public event EventHandler<bool> ToggleMenuEvent;
+        public event EventHandler<bool> ToggleInventoryEvent;
+        public event EventHandler<bool> ToggleCharacterStatsEvent;
 
-        public event GameEventHandler GameOverEvent;
+        public event EventHandler GameOverEvent;
 
-        public event GameEventHandler<Location> EnterLocationEvent;
-        public event GameEventHandler<Location> ExitLocationEvent;
+        public event EventHandler<Locations> EnterLocationEvent;
+        public event EventHandler<Locations> ExitLocationEvent;
 
         public void ToggleMenu(bool isMenuOn) {
             ToggleMenuEvent?.Invoke(isMenuOn);
@@ -27,7 +28,7 @@ namespace BridgeMaster.Game {
             ToggleCharacterStatsEvent?.Invoke(isCharacterStatsOn);
         }
 
-        public void InputKey(InputAction action, InputActionState state, float axis) {
+        public void InputKey(InputActions action, InputActionStates state, float axis) {
             InputKeyEvent?.Invoke(action, state, axis);
         }
 
@@ -35,15 +36,15 @@ namespace BridgeMaster.Game {
             GameOverEvent?.Invoke();
         }
 
-        public void EnterLocation(Location location) {
+        public void EnterLocation(Locations location) {
             EnterLocationEvent?.Invoke(location);
         }
 
-        public void ExitLocation(Location location) {
+        public void ExitLocation(Locations location) {
             ExitLocationEvent?.Invoke(location);
         }
 
-        #region SINGLE INSTANCE
+        #region SINGLETON
 
         public static Game_Master Instance;
 

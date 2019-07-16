@@ -14,8 +14,8 @@ namespace BridgeMaster.UI {
             Game_Master.Instance.InputKeyEvent -= ToggleInventory;
         }
 
-        private void ToggleInventory(InputAction action, InputActionState state, float axis) {
-            if (action == InputAction.ToggleInventoryAction) {
+        private void ToggleInventory(InputActions action, InputActionStates state, float axis) {
+            if (action == InputActions.ToggleInventoryAction) {
                 _inventory.SetActive(!_inventory.activeSelf);
                 Game_Master.Instance.ToggleInventory(_inventory.activeSelf);
             }

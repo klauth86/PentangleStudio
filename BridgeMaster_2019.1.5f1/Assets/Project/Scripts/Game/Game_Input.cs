@@ -13,26 +13,26 @@ namespace BridgeMaster.Game {
 
         private void Update() {
             if (Input.GetKeyUp(_toggleCharacterStatsKeyCode))
-                Game_Master.Instance.InputKey(InputAction.ToggleCharacterStatsAction, InputActionState.KeyUp, 0);
+                Game_Master.Instance.InputKey(InputActions.ToggleCharacterStatsAction, InputActionStates.KeyUp, 0);
 
             if (Input.GetKeyUp(_toggleInventoryKeyCode))
-                Game_Master.Instance.InputKey(InputAction.ToggleInventoryAction, InputActionState.KeyUp, 0);
+                Game_Master.Instance.InputKey(InputActions.ToggleInventoryAction, InputActionStates.KeyUp, 0);
 
             if (Input.GetKeyUp(_toggleMenuKeyCode))
-                Game_Master.Instance.InputKey(InputAction.ToggleMenuAction, InputActionState.KeyUp, 0);
+                Game_Master.Instance.InputKey(InputActions.ToggleMenuAction, InputActionStates.KeyUp, 0);
 
 
             var axis = Input.GetAxis(_runAxisName);
-            Game_Master.Instance.InputKey(InputAction.RunAxisAction, InputActionState.Unknown, axis);
+            Game_Master.Instance.InputKey(InputActions.RunAxisAction, InputActionStates.Unknown, axis);
 
             if (Input.GetButtonDown(_jumpButtonName))
-                Game_Master.Instance.InputKey(InputAction.JumpButton, InputActionState.KeyDown, 0);
+                Game_Master.Instance.InputKey(InputActions.JumpButton, InputActionStates.KeyDown, 0);
 
             if (Input.GetButtonDown(_castSpellButtonName))
-                Game_Master.Instance.InputKey(InputAction.CastSpellButton, InputActionState.KeyDown, 0);
+                Game_Master.Instance.InputKey(InputActions.CastSpellButton, InputActionStates.KeyDown, 0);
 
             if (Input.GetButtonUp(_castSpellButtonName))
-                Game_Master.Instance.InputKey(InputAction.CastSpellButton, InputActionState.KeyUp, 0);
+                Game_Master.Instance.InputKey(InputActions.CastSpellButton, InputActionStates.KeyUp, 0);
         }
     }
 }

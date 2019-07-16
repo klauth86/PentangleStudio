@@ -1,5 +1,5 @@
 ﻿namespace BridgeMaster.Dicts {
-    public enum InputActionState {
+    public enum InputActionStates {
         Unknown,
         KeyDown,
         KeyUp

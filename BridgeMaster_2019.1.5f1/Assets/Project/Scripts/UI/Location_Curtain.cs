@@ -1,4 +1,4 @@
-﻿using BridgeMaster.GameLocation;
+﻿using BridgeMaster.Location;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,29 +11,29 @@ namespace BridgeMaster.UI {
         [SerializeField] private int _fadingSteps;
 
         private void OnEnable() {
-            GameLocation_Master.LocationSession.EnterLocationEvent += EnterLocation;
-            GameLocation_Master.LocationSession.ExitLocationEvent += ExitLocation;
+            Location_Master.LocationSession.EnterLocationEvent += EnterLocation;
+            Location_Master.LocationSession.ExitLocationEvent += ExitLocation;
         }
 
         private void OnDisable() {
             StopAllCoroutines();
-            GameLocation_Master.LocationSession.EnterLocationEvent -= EnterLocation;
-            GameLocation_Master.LocationSession.ExitLocationEvent -= ExitLocation;
+            Location_Master.LocationSession.EnterLocationEvent -= EnterLocation;
+            Location_Master.LocationSession.ExitLocationEvent -= ExitLocation;
         }
 
         private void EnterLocation() {
-            StartCoroutine(LocationRoutine(Dicts.Location.None));
+            StartCoroutine(LocationRoutine(Dicts.Locations.None));
         }
 
-        private void ExitLocation(Dicts.Location from, Dicts.Location to) {
+        private void ExitLocation(Dicts.Locations from, Dicts.Locations to) {
             StartCoroutine(LocationRoutine(to));
         }
 
-        private IEnumerator LocationRoutine(Dicts.Location nextLocation) {
+        private IEnumerator LocationRoutine(Dicts.Locations nextLocation) {
             if (_curtain) {
                 for (int i = 1; i <= _fadingSteps; i++) {
 
-                    var step = nextLocation == Dicts.Location.None
+                    var step = nextLocation == Dicts.Locations.None
                         ? (1.0f * _fadingSteps - i)
                         : (1.0f * i);
 
@@ -42,10 +42,10 @@ namespace BridgeMaster.UI {
                 }
             }
 
-            if (nextLocation == Dicts.Location.None)
-                GameLocation_Master.LocationSession.LocationEntered();
+            if (nextLocation == Dicts.Locations.None)
+                Location_Master.LocationSession.LocationEntered();
             else
-                GameLocation_Master.LocationSession.LocationExited(nextLocation);
+                Location_Master.LocationSession.LocationExited(nextLocation);
         }
     }
 }

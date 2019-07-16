@@ -1,5 +1,5 @@
 ﻿namespace BridgeMaster.Dicts {
-    public enum InputAction {
+    public enum InputActions {
         ToggleMenuAction,
         ToggleInventoryAction,
         ToggleCharacterStatsAction,
