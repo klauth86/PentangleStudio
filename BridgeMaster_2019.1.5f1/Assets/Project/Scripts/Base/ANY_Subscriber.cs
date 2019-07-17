@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace BridgeMaster.Base {
+﻿namespace BridgeMaster.Base {
     public abstract class ANY_Subscriber<T> : ANY_Handler<T> where T : EventRoot {
 
         protected bool _isSubscribed;
@@ -12,22 +10,29 @@ namespace BridgeMaster.Base {
         #endregion
 
         protected virtual void Subscribe() {
-            Master.isDisablingEvent += TargetOrSubsciberIsDisabling;
-            _isSubscribed = true;
+            if (!_isSubscribed) {
+                Master.isDisablingEvent += TargetOrSubsciberIsDisabling;
+                _isSubscribed = true;
+            }
         }
 
         protected virtual void Unsubscribe() {
-            Master.isDisablingEvent -= TargetOrSubsciberIsDisabling;
-            _isSubscribed = false;
-        }
-
-        private void OnDisable() {
-            TargetOrSubsciberIsDisabling();
+            if (_isSubscribed) {
+                Master.isDisablingEvent -= TargetOrSubsciberIsDisabling;
+                _isSubscribed = false;
+            }
         }
 
         protected virtual void TargetOrSubsciberIsDisabling() {
-            if (_isSubscribed)
-                Unsubscribe();
+            Unsubscribe();
+        }
+
+        private void OnEnable() {
+            Subscribe();
+        }
+
+        private void OnDisable() {
+            Unsubscribe();
         }
     }
 }
