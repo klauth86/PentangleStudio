@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PreviousLocation: -1
-  CurrentLocation: -1
+  CurrentLocation: 0

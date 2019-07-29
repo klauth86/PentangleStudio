@@ -18,7 +18,7 @@ namespace BridgeMaster.Location {
             Master.CurrentLocation = (Locations)SceneManager.GetActiveScene().buildIndex;
 
             PlaceThePlayer(Master.PreviousLocation);
-            LocationMaster.Instance.EnterLocation();
+            Master.EnterLocation();
         }
 
         protected override void Subscribe() {

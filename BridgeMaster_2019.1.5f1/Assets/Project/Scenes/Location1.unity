@@ -782,12 +782,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &465978347 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3581739931974912396, guid: d7371970548f7d241ad9ac271a565a85,
-    type: 3}
-  m_PrefabInstance: {fileID: 3581739932339931751}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &468442182
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,12 +861,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &664710755 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3581739932985238532, guid: d7371970548f7d241ad9ac271a565a85,
-    type: 3}
-  m_PrefabInstance: {fileID: 3581739932339931751}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &676519307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,12 +1888,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1200417986 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3581739931375560357, guid: d7371970548f7d241ad9ac271a565a85,
-    type: 3}
-  m_PrefabInstance: {fileID: 3581739932339931751}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1207250887
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,12 +3845,7 @@ PrefabInstance:
     - target: {fileID: 7465509129305840768, guid: bea576d998c520c4a9fff4d657a78f16,
         type: 3}
       propertyPath: m_Name
-      value: LocationSession
-      objectReference: {fileID: 0}
-    - target: {fileID: 7465509129305840768, guid: bea576d998c520c4a9fff4d657a78f16,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: LocationMaster
       objectReference: {fileID: 0}
     - target: {fileID: 8650939478182235278, guid: bea576d998c520c4a9fff4d657a78f16,
         type: 3}
@@ -3925,11 +3902,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 522244161872181657, guid: bea576d998c520c4a9fff4d657a78f16,
-        type: 3}
-      propertyPath: CurrentLocation
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea576d998c520c4a9fff4d657a78f16, type: 3}
 --- !u!1001 &1746056095960462317
@@ -3942,7 +3914,7 @@ PrefabInstance:
     - target: {fileID: 412418265640550598, guid: c29768bc5a1dd364794419be15d92d35,
         type: 3}
       propertyPath: m_Name
-      value: Master
+      value: GameMaster
       objectReference: {fileID: 0}
     - target: {fileID: 412418265640550617, guid: c29768bc5a1dd364794419be15d92d35,
         type: 3}
@@ -4262,21 +4234,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3581739931109094063, guid: d7371970548f7d241ad9ac271a565a85,
-        type: 3}
-      propertyPath: _menuPanel
-      value: 
-      objectReference: {fileID: 664710755}
-    - target: {fileID: 3581739931109094048, guid: d7371970548f7d241ad9ac271a565a85,
-        type: 3}
-      propertyPath: _inventoryPanel
-      value: 
-      objectReference: {fileID: 1200417986}
-    - target: {fileID: 3581739931109094049, guid: d7371970548f7d241ad9ac271a565a85,
-        type: 3}
-      propertyPath: _characterPanel
-      value: 
-      objectReference: {fileID: 465978347}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7371970548f7d241ad9ac271a565a85, type: 3}
 --- !u!61 &4702820784524084874
