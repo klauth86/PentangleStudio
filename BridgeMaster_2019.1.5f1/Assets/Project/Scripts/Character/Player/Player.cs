@@ -5,11 +5,11 @@ namespace BridgeMaster.Characters.Player {
     public class Player : Character_Master {
 
         private void OnEnable() {
-            Master.Instance.InputKeyEvent += OnInputKeyEvent;
+            GameMaster.Instance.InputKeyEvent += OnInputKeyEvent;
         }
 
         private void OnDisable() {
-            Master.Instance.InputKeyEvent -= OnInputKeyEvent;
+            GameMaster.Instance.InputKeyEvent -= OnInputKeyEvent;
         }
 
         private void OnInputKeyEvent(InputActions action, InputActionStates state, float axis) {
