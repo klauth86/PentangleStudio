@@ -11,28 +11,28 @@
 
         protected virtual void Subscribe() {
             if (!_isSubscribed) {
-                Master.isDisablingEvent += TargetOrSubsciberIsDisabling;
+                Master.OnEnableEvent += Subscribe;
+                Master.OnDisableEvent += Unsubscribe;
                 _isSubscribed = true;
             }
         }
 
         protected virtual void Unsubscribe() {
             if (_isSubscribed) {
-                Master.isDisablingEvent -= TargetOrSubsciberIsDisabling;
+                Master.OnEnableEvent -= Subscribe;
+                Master.OnDisableEvent -= Unsubscribe;
                 _isSubscribed = false;
             }
         }
 
-        protected virtual void TargetOrSubsciberIsDisabling() {
-            Unsubscribe();
-        }
-
-        private void OnEnable() {
+        protected override sealed void CallOnEnableEvent() {
             Subscribe();
+            base.CallOnEnableEvent();
         }
 
-        private void OnDisable() {
+        protected override sealed void CallOnDisableEvent() {
             Unsubscribe();
+            base.CallOnDisableEvent();
         }
     }
 }
