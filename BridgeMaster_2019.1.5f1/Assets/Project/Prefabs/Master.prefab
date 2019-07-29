@@ -57,12 +57,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc3f346ed97fd34fb9f362126ddf587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attackButtonName: Fire1
+  _castSpellButtonName: Fire2
+  _jumpButtonName: Jump
+  _runAxisName: Horizontal
   _toggleCharacterStatsKeyCode: 99
   _toggleMenuKeyCode: 109
   _toggleInventoryKeyCode: 105
-  _runAxisName: Horizontal
-  _jumpButtonName: Fire1
-  _castSpellButtonName: Fire2
 --- !u!114 &412418265640550592
 MonoBehaviour:
   m_ObjectHideFlags: 0

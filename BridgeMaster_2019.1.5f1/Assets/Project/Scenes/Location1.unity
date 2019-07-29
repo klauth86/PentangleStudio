@@ -782,6 +782,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!224 &422948017 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3581739931950753494, guid: d7371970548f7d241ad9ac271a565a85,
+    type: 3}
+  m_PrefabInstance: {fileID: 3581739932339931751}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &468442182
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,6 +2757,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1466104003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3581739931109094052, guid: d7371970548f7d241ad9ac271a565a85,
+    type: 3}
+  m_PrefabInstance: {fileID: 3581739932339931751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1466104004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466104003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df879131238ddd438232bbe226e8a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _indicator: {fileID: 422948017}
+  _indicatorFullWidth: 260
 --- !u!1 &1466380141
 GameObject:
   m_ObjectHideFlags: 0
@@ -4115,7 +4141,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8371862626379016546, guid: 0ced61c7a6fe5b24fb06eb19586509d0, type: 3}
+    - {fileID: 5221819460357898336, guid: 0ced61c7a6fe5b24fb06eb19586509d0, type: 3}
+    - {fileID: 9084829603140067623, guid: 0ced61c7a6fe5b24fb06eb19586509d0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ced61c7a6fe5b24fb06eb19586509d0, type: 3}
 --- !u!1001 &3581739932339931751
 PrefabInstance:
@@ -4234,7 +4263,9 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3581739931109094050, guid: d7371970548f7d241ad9ac271a565a85, type: 3}
+    - {fileID: 3581739931109094051, guid: d7371970548f7d241ad9ac271a565a85, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d7371970548f7d241ad9ac271a565a85, type: 3}
 --- !u!61 &4702820784524084874
 BoxCollider2D:

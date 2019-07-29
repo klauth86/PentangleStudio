@@ -1,15 +1,18 @@
 ﻿using BridgeMaster.Dicts;
+using BridgeMaster.Engine;
 using BridgeMaster.Game;
 
 namespace BridgeMaster.Characters.Player {
-    public class Player : Character_Master {
+    public class Player : CharacterMaster {
 
-        private void OnEnable() {
+        protected override void CallOnEnableEvent() {
             GameMaster.Instance.InputKeyEvent += OnInputKeyEvent;
+            base.CallOnEnableEvent();
         }
 
-        private void OnDisable() {
+        protected override void CallOnDisableEvent() {
             GameMaster.Instance.InputKeyEvent -= OnInputKeyEvent;
+            base.CallOnDisableEvent();
         }
 
         private void OnInputKeyEvent(InputActions action, InputActionStates state, float axis) {
@@ -45,7 +48,7 @@ namespace BridgeMaster.Characters.Player {
             }
         }
 
-        private Player() {}
+        private Player():base(CharacterStateFactory.GetPlayerState()) {}
 
         #endregion
     }
