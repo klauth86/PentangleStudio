@@ -1,12 +1,13 @@
 ﻿namespace BridgeMaster.Dicts {
     public enum InputActions {
-        ToggleMenuAction,
-        ToggleInventoryAction,
-        ToggleCharacterStatsAction,
-
-        RunAxisAction,
+        AttackButton,
+        CastSpellButton,
 
         JumpButton,
-        CastSpellButton,
+        RunAxisAction,
+
+        ToggleCharacterStatsAction,
+        ToggleInventoryAction,
+        ToggleMenuAction,
     }
 }

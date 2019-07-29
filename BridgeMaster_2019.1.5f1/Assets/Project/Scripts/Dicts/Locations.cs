@@ -1,5 +1,5 @@
 ﻿namespace BridgeMaster.Dicts {
-    // !!! Ints equivalents are selected to match Scenes build indexes !!!
+    // !!! Int equivalents are selected to match Scenes build indexes !!!
     public enum Locations {
         None = -1,
         Location1 = 0,
