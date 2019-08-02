@@ -20,7 +20,7 @@
                 Velocity = 7,
                 VelocityCost = 0.01f,
 
-                Jump = 5,
+                Jump = 10,
                 JumpCost = 1,
             };
         }

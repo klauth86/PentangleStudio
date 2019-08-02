@@ -20,10 +20,6 @@ namespace BridgeMaster.Characters {
             Master.StartAttackEvent += StartAttack;
             Master.EndAttackEvent += EndAttack;
 
-            Master.ChangeHealthEvent += ChangeHealthEvent;
-
-            Master.DieEvent += Die;
-
             base.Subscribe();
         }
 
@@ -39,8 +35,6 @@ namespace BridgeMaster.Characters {
 
             Master.StartAttackEvent -= StartAttack;
             Master.EndAttackEvent -= EndAttack;
-
-            Master.DieEvent -= Die;
 
             base.Unsubscribe();
         }
@@ -75,15 +69,6 @@ namespace BridgeMaster.Characters {
 
         private void EndAttack(CharacterMaster target) {
             Master.Animator.SetBool(AnimatorKeys.IsAttacking, false);
-        }
-
-        private void Die() {
-            Master.Animator.SetTrigger(AnimatorKeys.IsDead);
-        }
-
-        private void ChangeHealthEvent(float amount) {
-            if (amount < 0)
-                Debug.Log("Play hurt animation");
         }
     }
 }

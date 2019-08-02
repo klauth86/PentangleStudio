@@ -3,14 +3,18 @@ using BridgeMaster.Engine;
 using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    [RequireComponent(typeof(Rigidbody2D), typeof(Animator))]
+    [RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(Collider2D))]
     public abstract class CharacterMaster : EventRoot {
 
         public readonly CharacterState CharacterState;
 
+        #region CTOR
+
         public CharacterMaster(CharacterState state) {
             CharacterState = state;
         }
+
+        #endregion
 
         private Transform _myTransform;
         public Transform MyTransform {
@@ -33,30 +37,6 @@ namespace BridgeMaster.Characters {
             }
         }
 
-        #region STATS EVENTS
-
-        public event EventHandler<float> ChangeHealthEvent;
-        public event EventHandler<float, float> HealthChangedEvent;
-
-        public event EventHandler<float> ChangeEnduranceEvent;
-        public event EventHandler<float, float> EnduranceChangedEvent;
-
-        public void ChangeHealth(float value) {
-            ChangeHealthEvent?.Invoke(value);
-        }
-        public void HealthChanged(float value, float max) {
-            HealthChangedEvent?.Invoke(value, max);
-        }
-
-        public void ChangeEndurance(float amount) {
-            ChangeEnduranceEvent?.Invoke(amount);
-        }
-        public void EnduranceChanged(float value, float max) {
-            EnduranceChangedEvent?.Invoke(value, max);
-        }
-
-        #endregion
-
         #region CHARACTER EVENTS
 
         public event EventHandler<float> StartRunEvent;
@@ -71,7 +51,7 @@ namespace BridgeMaster.Characters {
         public event EventHandler StartCastSpellEvent;
         public event EventHandler EndCastSpellEvent;
 
-        public event EventHandler DieEvent;
+        public event EventHandler GetHurtEvent;
 
         public void StartRun(float axis) {
             StartRunEvent?.Invoke(axis);
@@ -101,8 +81,8 @@ namespace BridgeMaster.Characters {
             EndCastSpellEvent?.Invoke();
         }
 
-        public void Die() {
-            DieEvent?.Invoke();
+        public void GetHurt() {
+            GetHurtEvent?.Invoke();
         }
 
         #endregion

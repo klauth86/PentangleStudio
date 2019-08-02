@@ -10,7 +10,7 @@ namespace BridgeMaster.Base {
             get {
                 return _master ??
                     (_master = _accessFunctor?.Invoke(this) ??
-                    throw new System.Exception($"{GetType().Name} Component of {gameObject.name} GameObject doesn't find Object of {typeof(T).Name} Type on the Scene")
+                    throw new System.Exception($"{GetType().Name} Component of {gameObject.name} GameObject doesn't find Object of {typeof(T).Name} Type on the Scene with current access Functor")
                     );
             }
         }
