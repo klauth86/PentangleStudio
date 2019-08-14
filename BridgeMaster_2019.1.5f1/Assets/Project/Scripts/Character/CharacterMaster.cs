@@ -16,10 +16,10 @@ namespace BridgeMaster.Characters {
 
         #endregion
 
-        private Transform _myTransform;
-        public Transform MyTransform {
+        private Transform _transform;
+        public Transform Transform {
             get {
-                return _myTransform ?? (_myTransform = GetComponent<Transform>());
+                return _transform ?? (_transform = GetComponent<Transform>());
             }
         }
 
@@ -45,8 +45,8 @@ namespace BridgeMaster.Characters {
         public event EventHandler StartJumpEvent;
         public event EventHandler EndJumpEvent;
 
-        public event EventHandler<CharacterMaster> StartAttackEvent;
-        public event EventHandler<CharacterMaster> EndAttackEvent;
+        public event EventHandler StartAttackEvent;
+        public event EventHandler EndAttackEvent;
 
         public event EventHandler StartCastSpellEvent;
         public event EventHandler EndCastSpellEvent;
@@ -67,11 +67,11 @@ namespace BridgeMaster.Characters {
             EndJumpEvent?.Invoke();
         }
 
-        public void StartAttack(CharacterMaster target) {
-            StartAttackEvent?.Invoke(target);
+        public void StartAttack() {
+            StartAttackEvent?.Invoke();
         }
-        public void EndAttack(CharacterMaster target) {
-            EndAttackEvent?.Invoke(target);
+        public void EndAttack() {
+            EndAttackEvent?.Invoke();
         }
 
         public void StartCastSpell() {

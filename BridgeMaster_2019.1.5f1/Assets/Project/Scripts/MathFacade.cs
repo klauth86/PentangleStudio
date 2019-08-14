@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace BridgeMaster {
     public static class MathFacade {
@@ -8,6 +9,10 @@ namespace BridgeMaster {
 
         public static float Max(params float[] values) {
             return Mathf.Max(values);
+        }
+
+        public static float Sign(float value) {
+            return Mathf.Sign(value);
         }
     }
 }

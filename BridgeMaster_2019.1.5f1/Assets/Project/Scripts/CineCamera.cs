@@ -18,7 +18,7 @@ namespace BridgeMaster {
 
         private Transform _target;
         public Transform Target {
-            get { return _target ?? (_target = Player.Instance.transform); }
+            get { return _target ?? (_target = PlayerMaster.Instance.transform); }
         }
 
         private Transform _transform;

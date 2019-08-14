@@ -33,7 +33,8 @@ namespace BridgeMaster.Location {
 
         public static LocationMaster Instance;
 
-        private void Awake() {
+        protected override void CallOnAwakeEvent() {
+
             if (Instance == null) {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
@@ -42,6 +43,8 @@ namespace BridgeMaster.Location {
                 gameObject.SetActive(false);
                 Destroy(gameObject);
             }
+
+            base.CallOnAwakeEvent();
         }
 
         private LocationMaster() {}

@@ -18,9 +18,12 @@ namespace BridgeMaster.UI {
 
         #endregion
 
-        private void Awake() {
+        protected override void CallOnAwakeEvent() {
+
             if (!_curtain)
                 Logger.LogIsNotSetInInspectorError(nameof(_curtain), name, gameObject.name);
+
+            base.CallOnAwakeEvent();
         }
 
         protected override void Subscribe() {

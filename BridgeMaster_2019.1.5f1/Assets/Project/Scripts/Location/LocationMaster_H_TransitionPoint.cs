@@ -11,7 +11,12 @@ namespace BridgeMaster.Location {
 
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private float _checkRate = 0.125f;
-        [SerializeField] private Vector2 _checkCapsuleSize = new Vector2(2, 7);
+        [SerializeField] private float _checkRadius = 2.5f;
+
+        private Transform _transform;
+        public Transform Transform {
+            get { return _transform ?? (_transform = transform); }
+        }
 
         #region CTOR
 
@@ -33,12 +38,9 @@ namespace BridgeMaster.Location {
 
             yield return new WaitForSeconds(Random.Range(0, _checkRate));
 
-            var myTransform = transform;
-
             while (true) {
 
-                var hit = Physics2D.CapsuleCast(new Vector2(myTransform.position.x, myTransform.position.y),
-                    _checkCapsuleSize, CapsuleDirection2D.Vertical, 0, Vector2.zero, 0, _playerLayer);
+                var hit = Physics2D.CircleCast(Transform.position, _checkRadius, Vector2.zero, 0, _playerLayer);
 
                 if (hit && !HasPrevHit) {
                     break;
@@ -53,5 +55,11 @@ namespace BridgeMaster.Location {
 
             Master.ExitLocation(NextLocation);
         }
+
+#if UNITY_EDITOR
+        private void OnDrawGizmos() {
+            Gizmos.DrawWireSphere(Transform.position, _checkRadius);
+        }
+#endif
     }
 }

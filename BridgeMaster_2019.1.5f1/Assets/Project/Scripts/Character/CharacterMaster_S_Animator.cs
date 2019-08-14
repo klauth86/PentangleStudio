@@ -1,11 +1,8 @@
 ﻿using BridgeMaster.Base;
 using BridgeMaster.Dicts;
-using UnityEngine;
 
 namespace BridgeMaster.Characters {
     class CharacterMaster_S_Animator : COM_Subscriber<CharacterMaster> {
-
-        private float _prevSpeed = -1;
 
         protected override void Subscribe() {
             Master.StartRunEvent += StartRun;
@@ -63,11 +60,11 @@ namespace BridgeMaster.Characters {
             Master.Animator.SetBool(AnimatorKeys.IsCastingSpell, false);
         }
 
-        private void StartAttack(CharacterMaster target) {
+        private void StartAttack() {
             Master.Animator.SetBool(AnimatorKeys.IsAttacking, true);
         }
 
-        private void EndAttack(CharacterMaster target) {
+        private void EndAttack() {
             Master.Animator.SetBool(AnimatorKeys.IsAttacking, false);
         }
     }

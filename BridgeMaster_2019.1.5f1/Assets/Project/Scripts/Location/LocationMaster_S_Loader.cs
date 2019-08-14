@@ -46,8 +46,8 @@ namespace BridgeMaster.Location {
             var startPoint = tPoints.FirstOrDefault(e => e.NextLocation == previousLocation);
             if (startPoint) {
                 startPoint.HasPrevHit = true;
-                Player.Instance.MyTransform.position = startPoint.transform.position;
-                Player.Instance.MyTransform.localScale = startPoint.transform.localScale;
+                PlayerMaster.Instance.Transform.position = startPoint.transform.position;
+                PlayerMaster.Instance.Transform.localScale = startPoint.transform.localScale;
             }
         }
     }

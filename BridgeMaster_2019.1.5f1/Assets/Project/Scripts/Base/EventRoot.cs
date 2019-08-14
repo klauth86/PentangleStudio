@@ -25,5 +25,17 @@ namespace BridgeMaster.Base {
         private void OnDisable() {
             CallOnDisableEvent();
         }
+
+
+
+        public event EventHandler OnAwakeEvent;
+
+        protected virtual void CallOnAwakeEvent() {
+            OnAwakeEvent?.Invoke();
+        }
+
+        private void Awake() {
+            CallOnAwakeEvent();
+        }
     }
 }

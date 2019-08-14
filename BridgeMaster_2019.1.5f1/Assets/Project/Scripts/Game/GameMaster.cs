@@ -30,7 +30,8 @@ namespace BridgeMaster.Game {
 
         public static GameMaster Instance;
 
-        private void Awake() {
+        protected override void CallOnAwakeEvent() {
+
             if (Instance == null) {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
@@ -39,6 +40,8 @@ namespace BridgeMaster.Game {
                 gameObject.SetActive(false);
                 Destroy(gameObject);
             }
+
+            base.CallOnAwakeEvent();
         }
 
         private GameMaster() { }

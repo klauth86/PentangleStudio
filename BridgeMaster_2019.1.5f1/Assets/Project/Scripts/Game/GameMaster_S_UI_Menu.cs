@@ -14,7 +14,10 @@ namespace BridgeMaster.UI {
 
         #endregion
 
-        private void Awake() {
+        protected override void CallOnAwakeEvent() {
+
+            base.CallOnAwakeEvent();
+
             if (!_menuPanel)
                 Logger.LogIsNotSetInInspectorError(nameof(_menuPanel), name, gameObject.name);
         }
