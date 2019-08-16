@@ -18,7 +18,7 @@ namespace BridgeMaster.Characters.Player {
         private void OnInputKeyEvent(InputActions action, InputActionStates state, float axis) {
             switch (action) {
                 case InputActions.RunAxisAction:
-                    StartRun(axis);
+                    SetRun(axis);
                     break;
                 case InputActions.JumpButton:
                     if (state == InputActionStates.KeyDown)

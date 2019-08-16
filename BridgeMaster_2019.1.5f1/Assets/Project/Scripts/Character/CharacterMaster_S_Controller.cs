@@ -10,7 +10,7 @@ namespace BridgeMaster.Characters {
 
         protected override void Subscribe() {
             if (!_isSubscribed) {
-                Master.StartRunEvent += StartRun;
+                Master.SetRunEvent += StartRun;
                 Master.StartJumpEvent += StartJump;
                 Master.FlipEvent += Flip;
 
@@ -20,7 +20,7 @@ namespace BridgeMaster.Characters {
 
         protected override void Unsubscribe() {
             if (_isSubscribed) {
-                Master.StartRunEvent -= StartRun;
+                Master.SetRunEvent -= StartRun;
                 Master.StartJumpEvent -= StartJump;
                 Master.FlipEvent -= Flip;
 

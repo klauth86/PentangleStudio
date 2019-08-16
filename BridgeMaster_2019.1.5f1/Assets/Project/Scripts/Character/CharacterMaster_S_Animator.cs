@@ -8,8 +8,7 @@ namespace BridgeMaster.Characters {
 
         protected override void Subscribe() {
             if (!_isSubscribed) {
-                Master.StartRunEvent += StartRun;
-                Master.EndRunEvent += EndRun;
+                Master.SetRunEvent += SetRun;
 
                 Master.StartJumpEvent += StartJump;
                 Master.EndJumpEvent += EndJump;
@@ -26,8 +25,7 @@ namespace BridgeMaster.Characters {
 
         protected override void Unsubscribe() {
             if (_isSubscribed) {
-                Master.StartRunEvent -= StartRun;
-                Master.EndRunEvent -= EndRun;
+                Master.SetRunEvent -= SetRun;
 
                 Master.StartJumpEvent -= StartJump;
                 Master.EndJumpEvent -= EndJump;
@@ -50,7 +48,7 @@ namespace BridgeMaster.Characters {
             Master.Animator.SetBool(AnimatorKeys.IsJumping, false);
         }
 
-        private void StartRun(float axis) {
+        private void SetRun(float axis) {
             Master.Animator.SetBool(AnimatorKeys.IsRunning, axis != 0);
         }
 

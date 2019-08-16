@@ -39,14 +39,9 @@ namespace BridgeMaster.Characters {
 
         #region MASTER EVENTS
 
-        public event EventHandler<float> StartRunEvent;
-        public void StartRun(float axis) {
-            StartRunEvent?.Invoke(axis);
-        }
-
-        public event EventHandler EndRunEvent;
-        public void EndRun() {
-            EndRunEvent?.Invoke();
+        public event EventHandler<float> SetRunEvent;
+        public void SetRun(float axis) {
+            SetRunEvent?.Invoke(axis);
         }
 
 

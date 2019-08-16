@@ -27,10 +27,10 @@ namespace BridgeMaster.Characters.AI {
             while (true) {
                 if (Physics2D.Raycast(Master.Transform.position, -Master.Transform.right, _attackRadius / 2, _playerLayer)) {
                     Master.Flip();
-                    //Master.IsReadyForAttack = true;
+                    Master.IsReadyForAttack = true;
                 }
                 else {
-                    //Master.IsReadyForAttack = Physics2D.Raycast(Master.Transform.position, Master.Transform.right, _attackRadius, _playerLayer);
+                    Master.IsReadyForAttack = Physics2D.Raycast(Master.Transform.position, Master.Transform.right, _attackRadius, _playerLayer);
                 }
                 yield return new WaitForSeconds(_checkRate);
             }

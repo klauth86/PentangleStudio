@@ -13,17 +13,17 @@ namespace BridgeMaster.Characters.AI {
         #endregion
 
         private void Update() {
-            var direction = Target
-                ? MathFacade.Sign(Target.Transform.position.x - Transform.position.x)
-                : 0.0f;
 
-            if (!IsReadyForAttack && _isChasing) {
-                if (direction != 0.0f)
-                    StartRun(direction);
-                else
-                    EndRun();
+            if (!IsReadyForAttack) {
+                if (_isChasing) {
+                    var direction = Target
+                        ? MathFacade.Sign(Target.Transform.position.x - Transform.position.x)
+                        : 0.0f; // TODO PATROLING
+
+                    SetRun(direction);
+                }
             }
-        }
+        }        
 
         private CharacterMaster _target;
         public CharacterMaster Target {
@@ -64,8 +64,10 @@ namespace BridgeMaster.Characters.AI {
 
                 _isReadyForAttack = value;
 
-                if (_isReadyForAttack)
+                if (_isReadyForAttack) {
+                    SetRun(0);
                     StartAttack();
+                }
                 else
                     EndAttack();
             }
