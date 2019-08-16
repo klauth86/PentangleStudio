@@ -12,6 +12,8 @@ namespace BridgeMaster.Characters {
 
         public CharacterMaster(CharacterState state) {
             CharacterState = state;
+
+            state.DieEvent += IsDying;
         }
 
         #endregion
@@ -87,11 +89,24 @@ namespace BridgeMaster.Characters {
             GetHurtEvent?.Invoke();
         }
 
+
+
         public event EventHandler FlipEvent;
         public void Flip() {
             FlipEvent?.Invoke();
         }
 
+
+
+        public event EventHandler IsDyingEvent;
+        public void IsDying() {
+            IsDyingEvent?.Invoke();
+        }
+
         #endregion
+
+        protected abstract void Attack();
+
+        protected abstract void Die();
     }
 }

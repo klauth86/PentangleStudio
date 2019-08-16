@@ -44,16 +44,14 @@ namespace BridgeMaster.Engine {
         }
 
         public float MinVelocityState;
+
         public float MinJumpState;
 
-        public float AttackRating;
-        public float SpellRating;
+        public float MinAttackState;
+
+        public float MinSpellState;
 
         // All below are positive floats to describe max values
-        public float Endurance;
-        public float Health;
-        public float Mana;
-
         public float Velocity;
         public float VelocityCost;
         public float GetVelocityState() {
@@ -72,6 +70,31 @@ namespace BridgeMaster.Engine {
         }
         public float GetJump() {
             return Jump * GetJumpState();
+        }
+
+        public float Attack;
+        public float AttackCost;
+        public float GetAttackState() {
+            EnduranceState = (Endurance * EnduranceState - AttackCost) / Endurance;
+            return MathFacade.Max(MinAttackState, 2 * EnduranceState / (EnduranceState + 1));
+        }
+        public float GetAttack() {
+            return Attack * GetAttackState();
+        }
+
+        public float Health;
+        public void ChangeHealth(float amount) {
+            HealthState = (Health * HealthState + amount) / Health;
+        }
+
+        public float Endurance;
+        public void ChangeEndurance(float amount) {
+            EnduranceState = (Endurance * EnduranceState + amount) / Endurance;
+        }
+
+        public float Mana;
+        public void ChangeMana(float amount) {
+            ManaState = (Mana * ManaState + amount) / Mana;
         }
 
         public event EventHandler DieEvent; 

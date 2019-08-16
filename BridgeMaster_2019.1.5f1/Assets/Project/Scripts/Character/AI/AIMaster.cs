@@ -2,13 +2,14 @@
 using UnityEngine;
 
 namespace BridgeMaster.Characters.AI {
-    public class AIMaster : CharacterMaster {
+    public abstract class AIMaster : CharacterMaster {
 
-        [SerializeField] private bool _isChasing;
+        [SerializeField] protected bool _isChasing;
+        [SerializeField] protected float _attackRadius = 7;
 
         #region CTOR
 
-        public AIMaster() : base(CharacterStateFactory.GetPlayerState()) { }
+        public AIMaster(CharacterState state) : base(state) { }
 
         #endregion
 
@@ -43,17 +44,16 @@ namespace BridgeMaster.Characters.AI {
         }
 
         private void SubscribeToTarget(CharacterMaster target) {
-            target.CharacterState.DieEvent += Die;
+            target.IsDyingEvent += TargetIsDying;
         }
 
         private void UnsubscribeFromTarget(CharacterMaster target) {
-            target.CharacterState.DieEvent -= Die;
+            target.IsDyingEvent -= TargetIsDying;
         }
 
-        private void Die() {
-            EndAttack();
+        private void TargetIsDying() {
+            IsReadyForAttack = false;
         }
-
 
         private bool _isReadyForAttack;
         public bool IsReadyForAttack {
@@ -73,8 +73,23 @@ namespace BridgeMaster.Characters.AI {
             }
         }
 
-        public void Attack() {
 
+
+        protected override void Attack() {
+            if ((Target.Transform.position.x - Transform.position.x) * Transform.right.x > 0 &&
+                Target.Transform.position.x - Transform.position.x < _attackRadius)
+                Target.CharacterState.ChangeHealth(CharacterState.GetAttack());
         }
+
+        protected override void Die() {
+        }
+
+        #region GIZMO
+#if UNITY_EDITOR
+        private void OnDrawGizmos() {
+            Gizmos.DrawLine(Transform.position, Transform.position + Transform.right * _attackRadius);
+        }
+#endif
+        #endregion
     }
 }

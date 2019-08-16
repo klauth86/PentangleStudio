@@ -12,7 +12,10 @@ namespace BridgeMaster.Characters {
             if (!_isSubscribed) {
                 Master.SetRunEvent += StartRun;
                 Master.StartJumpEvent += StartJump;
+
                 Master.FlipEvent += Flip;
+
+                Master.IsDyingEvent += Die;
 
                 base.Subscribe();
             }
@@ -22,7 +25,10 @@ namespace BridgeMaster.Characters {
             if (_isSubscribed) {
                 Master.SetRunEvent -= StartRun;
                 Master.StartJumpEvent -= StartJump;
+
                 Master.FlipEvent -= Flip;
+
+                Master.IsDyingEvent -= Die;
 
                 base.Unsubscribe();
             }
@@ -34,15 +40,19 @@ namespace BridgeMaster.Characters {
                 Flip();
         }
 
-        private void Flip() {
-            Master.Transform.Rotate(Vector3.up, 180);
-        }
-
         private void StartJump() {
             if (!_isJumping) {
                 _isJumping = true;
                 Master.Rigidbody.velocity = new Vector2(Master.Rigidbody.velocity.x, Master.CharacterState.GetJump());
             }
+        }
+
+        private void Flip() {
+            Master.Transform.Rotate(Vector3.up, 180);
+        }
+
+        private void Die() {
+            Master.Rigidbody.velocity = Vector3.zero;
         }
 
         #endregion

@@ -35,10 +35,12 @@ namespace BridgeMaster.Characters.AI {
             }
         }
 
+        #region GIZMO
 #if UNITY_EDITOR
         private void OnDrawGizmos() {
             Gizmos.DrawWireSphere(Master.Transform.position, _detectionRadius);
         }
 #endif
+        #endregion
     }
 }

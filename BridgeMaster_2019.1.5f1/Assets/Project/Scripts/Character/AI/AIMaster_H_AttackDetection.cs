@@ -8,7 +8,7 @@ namespace BridgeMaster.Characters.AI {
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private float _checkRate = 0.125f;
 
-        [SerializeField] private float _attackRadius = 7;
+        [SerializeField] private float _isReadyForAttackRadius = 7;
 
         protected override void CallOnEnableEvent() {
             StartCoroutine(AttackRoutine());
@@ -25,22 +25,24 @@ namespace BridgeMaster.Characters.AI {
             yield return new WaitForSeconds(Random.Range(0, _checkRate));
 
             while (true) {
-                if (Physics2D.Raycast(Master.Transform.position, -Master.Transform.right, _attackRadius / 2, _playerLayer)) {
+                if (Physics2D.Raycast(Master.Transform.position, -Master.Transform.right, _isReadyForAttackRadius / 2, _playerLayer)) {
                     Master.Flip();
                     Master.IsReadyForAttack = true;
                 }
                 else {
-                    Master.IsReadyForAttack = Physics2D.Raycast(Master.Transform.position, Master.Transform.right, _attackRadius, _playerLayer);
+                    Master.IsReadyForAttack = Physics2D.Raycast(Master.Transform.position, Master.Transform.right, _isReadyForAttackRadius, _playerLayer);
                 }
                 yield return new WaitForSeconds(_checkRate);
             }
         }
 
+        #region GIZMO
 #if UNITY_EDITOR
         private void OnDrawGizmos() {
-            Gizmos.DrawLine(Master.Transform.position, Master.Transform.position + Master.Transform.right * _attackRadius);
-            Gizmos.DrawLine(Master.Transform.position, Master.Transform.position - Master.Transform.right * _attackRadius / 2);
+            Gizmos.DrawLine(Master.Transform.position, Master.Transform.position + Master.Transform.right * _isReadyForAttackRadius);
+            Gizmos.DrawLine(Master.Transform.position, Master.Transform.position - Master.Transform.right * _isReadyForAttackRadius / 2);
         }
 #endif
+        #endregion
     }
 }

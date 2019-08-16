@@ -5,6 +5,28 @@ using BridgeMaster.Game;
 namespace BridgeMaster.Characters.Player {
     public class PlayerMaster : CharacterMaster {
 
+        #region SINGLETON
+
+        public static PlayerMaster Instance;
+
+        protected override void CallOnAwakeEvent() {
+
+            if (Instance == null) {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else {
+                gameObject.SetActive(false);
+                Destroy(gameObject);
+            }
+
+            base.CallOnAwakeEvent();
+        }
+
+        private PlayerMaster() : base(CharacterStateFactory.GetPlayerState()) { }
+
+        #endregion
+
         protected override void CallOnEnableEvent() {
             GameMaster.Instance.InputKeyEvent += OnInputKeyEvent;
             base.CallOnEnableEvent();
@@ -33,26 +55,12 @@ namespace BridgeMaster.Characters.Player {
             }
         }
 
-        #region SINGLETON
 
-        public static PlayerMaster Instance;
 
-        protected override void CallOnAwakeEvent() {
-
-            if (Instance == null) {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else {
-                gameObject.SetActive(false);
-                Destroy(gameObject);
-            }
-
-            base.CallOnAwakeEvent();
+        protected override void Attack() {
         }
 
-        private PlayerMaster():base(CharacterStateFactory.GetPlayerState()) {}
-
-        #endregion
+        protected override void Die() {
+        }
     }
 }

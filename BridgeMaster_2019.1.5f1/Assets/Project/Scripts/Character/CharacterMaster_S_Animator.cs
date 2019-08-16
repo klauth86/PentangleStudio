@@ -19,6 +19,8 @@ namespace BridgeMaster.Characters {
                 Master.StartAttackEvent += StartAttack;
                 Master.EndAttackEvent += EndAttack;
 
+                Master.IsDyingEvent += Die;
+
                 base.Subscribe();
             }
         }
@@ -35,6 +37,8 @@ namespace BridgeMaster.Characters {
 
                 Master.StartAttackEvent -= StartAttack;
                 Master.EndAttackEvent -= EndAttack;
+
+                Master.IsDyingEvent -= Die;
 
                 base.Unsubscribe();
             }
@@ -70,6 +74,10 @@ namespace BridgeMaster.Characters {
 
         private void EndAttack() {
             Master.Animator.SetBool(AnimatorKeys.IsAttacking, false);
+        }
+
+        private void Die() {
+            Master.Animator.SetTrigger(AnimatorKeys.IsDying);
         }
 
         #endregion
