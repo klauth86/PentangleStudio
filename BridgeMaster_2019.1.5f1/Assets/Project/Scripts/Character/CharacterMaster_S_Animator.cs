@@ -4,36 +4,42 @@ using BridgeMaster.Dicts;
 namespace BridgeMaster.Characters {
     class CharacterMaster_S_Animator : COM_Subscriber<CharacterMaster> {
 
+        #region EVENTS
+
         protected override void Subscribe() {
-            Master.StartRunEvent += StartRun;
-            Master.EndRunEvent += EndRun;
+            if (!_isSubscribed) {
+                Master.StartRunEvent += StartRun;
+                Master.EndRunEvent += EndRun;
 
-            Master.StartJumpEvent += StartJump;
-            Master.EndJumpEvent += EndJump;
+                Master.StartJumpEvent += StartJump;
+                Master.EndJumpEvent += EndJump;
 
-            Master.StartCastSpellEvent += StartCastSpell;
-            Master.EndCastSpellEvent += EndCastSpell;
+                Master.StartCastSpellEvent += StartCastSpell;
+                Master.EndCastSpellEvent += EndCastSpell;
 
-            Master.StartAttackEvent += StartAttack;
-            Master.EndAttackEvent += EndAttack;
+                Master.StartAttackEvent += StartAttack;
+                Master.EndAttackEvent += EndAttack;
 
-            base.Subscribe();
+                base.Subscribe();
+            }
         }
 
         protected override void Unsubscribe() {
-            Master.StartRunEvent -= StartRun;
-            Master.EndRunEvent -= EndRun;
+            if (_isSubscribed) {
+                Master.StartRunEvent -= StartRun;
+                Master.EndRunEvent -= EndRun;
 
-            Master.StartJumpEvent -= StartJump;
-            Master.EndJumpEvent -= EndJump;
+                Master.StartJumpEvent -= StartJump;
+                Master.EndJumpEvent -= EndJump;
 
-            Master.StartCastSpellEvent -= StartCastSpell;
-            Master.EndCastSpellEvent -= EndCastSpell;
+                Master.StartCastSpellEvent -= StartCastSpell;
+                Master.EndCastSpellEvent -= EndCastSpell;
 
-            Master.StartAttackEvent -= StartAttack;
-            Master.EndAttackEvent -= EndAttack;
+                Master.StartAttackEvent -= StartAttack;
+                Master.EndAttackEvent -= EndAttack;
 
-            base.Unsubscribe();
+                base.Unsubscribe();
+            }
         }
 
         private void StartJump() {
@@ -67,5 +73,7 @@ namespace BridgeMaster.Characters {
         private void EndAttack() {
             Master.Animator.SetBool(AnimatorKeys.IsAttacking, false);
         }
+
+        #endregion
     }
 }

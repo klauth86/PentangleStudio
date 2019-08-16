@@ -13,11 +13,13 @@ namespace BridgeMaster.UI {
 
         #endregion
 
+        #region EVENTS
+
         protected override void Subscribe() {
             if (!_isSubscribed) {
                 Master.CharacterState.EnduranceStateChangedEvent += EnduranceStateChanged;
                 base.Subscribe();
-            }            
+            }
         }
 
         protected override void Unsubscribe() {
@@ -30,5 +32,7 @@ namespace BridgeMaster.UI {
         private void EnduranceStateChanged(float enduranceState) {
             _indicator.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _indicatorFullWidth * enduranceState);
         }
+
+        #endregion
     }
 }

@@ -23,6 +23,8 @@ namespace BridgeMaster.Game {
 
         protected override void CallOnAwakeEvent() {
 
+            base.CallOnAwakeEvent();
+
             if (string.IsNullOrEmpty(_runAxisName))
                 Logger.LogIsNotSetInInspectorError(nameof(_runAxisName), name, gameObject.name);
 
@@ -31,8 +33,6 @@ namespace BridgeMaster.Game {
 
             if (string.IsNullOrEmpty(_castSpellButtonName))
                 Logger.LogIsNotSetInInspectorError(nameof(_castSpellButtonName), name, gameObject.name);
-
-            base.CallOnAwakeEvent();
         }
 
         private void Update() {

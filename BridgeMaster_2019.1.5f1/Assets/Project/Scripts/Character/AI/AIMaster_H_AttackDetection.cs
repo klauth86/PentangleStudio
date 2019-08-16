@@ -25,16 +25,21 @@ namespace BridgeMaster.Characters.AI {
             yield return new WaitForSeconds(Random.Range(0, _checkRate));
 
             while (true) {
-
-                Master.IsReadyForAttack = Physics2D.Raycast(Master.Transform.position, Master.Transform.right, _attackRadius, _playerLayer);
-
+                if (Physics2D.Raycast(Master.Transform.position, -Master.Transform.right, _attackRadius / 2, _playerLayer)) {
+                    Master.Flip();
+                    //Master.IsReadyForAttack = true;
+                }
+                else {
+                    //Master.IsReadyForAttack = Physics2D.Raycast(Master.Transform.position, Master.Transform.right, _attackRadius, _playerLayer);
+                }
                 yield return new WaitForSeconds(_checkRate);
             }
         }
 
 #if UNITY_EDITOR
         private void OnDrawGizmos() {
-            Gizmos.DrawLine(Master.Transform.position, Master.Transform.position+ Master.Transform.right * _attackRadius);
+            Gizmos.DrawLine(Master.Transform.position, Master.Transform.position + Master.Transform.right * _attackRadius);
+            Gizmos.DrawLine(Master.Transform.position, Master.Transform.position - Master.Transform.right * _attackRadius / 2);
         }
 #endif
     }

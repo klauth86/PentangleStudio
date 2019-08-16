@@ -14,12 +14,7 @@ namespace BridgeMaster.Location {
 
         #endregion
 
-        private void Start() {
-            Master.CurrentLocation = (Locations)SceneManager.GetActiveScene().buildIndex;
-
-            PlaceThePlayer(Master.PreviousLocation);
-            Master.EnterLocation();
-        }
+        #region EVENTS
 
         protected override void Subscribe() {
             if (!_isSubscribed) {
@@ -41,13 +36,21 @@ namespace BridgeMaster.Location {
             SceneManager.LoadScene((int)nextLocation);
         }
 
+        #endregion
+
+        private void Start() {
+            Master.CurrentLocation = (Locations)SceneManager.GetActiveScene().buildIndex;
+
+            PlaceThePlayer(Master.PreviousLocation);
+            Master.EnterLocation();
+        }
+
         private void PlaceThePlayer(Locations previousLocation) {
             var tPoints = transform.root.GetComponentsInChildren<LocationMaster_H_TransitionPoint>();
             var startPoint = tPoints.FirstOrDefault(e => e.NextLocation == previousLocation);
             if (startPoint) {
                 startPoint.HasPrevHit = true;
                 PlayerMaster.Instance.Transform.position = startPoint.transform.position;
-                PlayerMaster.Instance.Transform.localScale = startPoint.transform.localScale;
             }
         }
     }

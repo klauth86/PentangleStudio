@@ -4,27 +4,29 @@ using BridgeMaster.Dicts;
 namespace BridgeMaster.Game {
     public class GameMaster : EventRoot {
 
-        public event EventHandler<InputActions, InputActionStates, float> InputKeyEvent;
+        #region MASTER EVENTS
 
         public event EventHandler<bool> ToggleMenuEvent;
-        public event EventHandler<bool> ToggleInventoryEvent;
-        public event EventHandler<bool> ToggleCharacterStatsEvent;
-
         public void ToggleMenu(bool isMenuOn) {
             ToggleMenuEvent?.Invoke(isMenuOn);
         }
 
+        public event EventHandler<bool> ToggleInventoryEvent;
         public void ToggleInventory(bool isInventoryOn) {
             ToggleInventoryEvent?.Invoke(isInventoryOn);
         }
 
+        public event EventHandler<bool> ToggleCharacterStatsEvent;
         public void ToggleCharacterStats(bool isCharacterStatsOn) {
             ToggleCharacterStatsEvent?.Invoke(isCharacterStatsOn);
         }
 
+        public event EventHandler<InputActions, InputActionStates, float> InputKeyEvent;
         public void InputKey(InputActions action, InputActionStates state, float axis) {
             InputKeyEvent?.Invoke(action, state, axis);
         }
+
+        #endregion
 
         #region SINGLETON
 

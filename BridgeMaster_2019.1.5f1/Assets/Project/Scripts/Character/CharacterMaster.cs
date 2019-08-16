@@ -37,52 +37,64 @@ namespace BridgeMaster.Characters {
             }
         }
 
-        #region CHARACTER EVENTS
+        #region MASTER EVENTS
 
         public event EventHandler<float> StartRunEvent;
-        public event EventHandler EndRunEvent;
-
-        public event EventHandler StartJumpEvent;
-        public event EventHandler EndJumpEvent;
-
-        public event EventHandler StartAttackEvent;
-        public event EventHandler EndAttackEvent;
-
-        public event EventHandler StartCastSpellEvent;
-        public event EventHandler EndCastSpellEvent;
-
-        public event EventHandler GetHurtEvent;
-
         public void StartRun(float axis) {
             StartRunEvent?.Invoke(axis);
         }
+
+        public event EventHandler EndRunEvent;
         public void EndRun() {
             EndRunEvent?.Invoke();
         }
 
+
+
+        public event EventHandler StartJumpEvent;
         public void StartJump() {
             StartJumpEvent?.Invoke();
         }
+
+        public event EventHandler EndJumpEvent;
         public void EndJump() {
             EndJumpEvent?.Invoke();
         }
 
+
+
+        public event EventHandler StartAttackEvent;
         public void StartAttack() {
             StartAttackEvent?.Invoke();
         }
+
+        public event EventHandler EndAttackEvent;
         public void EndAttack() {
             EndAttackEvent?.Invoke();
         }
 
+
+
+        public event EventHandler StartCastSpellEvent;
         public void StartCastSpell() {
             StartCastSpellEvent?.Invoke();
         }
+
+        public event EventHandler EndCastSpellEvent;
         public void EndCastSpell() {
             EndCastSpellEvent?.Invoke();
         }
 
+
+
+        public event EventHandler GetHurtEvent;
         public void GetHurt() {
             GetHurtEvent?.Invoke();
+        }
+
+        public event EventHandler FlipEvent;
+        public void Flip() {
+            FlipEvent?.Invoke();
         }
 
         #endregion

@@ -56,10 +56,12 @@ namespace BridgeMaster.Location {
             Master.ExitLocation(NextLocation);
         }
 
+        #region GIZMO
 #if UNITY_EDITOR
         private void OnDrawGizmos() {
             Gizmos.DrawWireSphere(Transform.position, _checkRadius);
         }
 #endif
+        #endregion
     }
 }

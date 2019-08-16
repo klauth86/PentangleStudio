@@ -10,6 +10,8 @@ namespace BridgeMaster.Game {
 
         #endregion
 
+        #region EVENTS
+
         protected override void Subscribe() {
             if (!_isSubscribed) {
                 Master.ToggleMenuEvent += TogglePause;
@@ -27,5 +29,7 @@ namespace BridgeMaster.Game {
         private void TogglePause(bool isPaused) {
             Time.timeScale = isPaused ? 0 : 1;
         }
+
+        #endregion
     }
 }

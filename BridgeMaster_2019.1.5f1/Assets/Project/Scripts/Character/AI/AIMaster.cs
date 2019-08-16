@@ -6,6 +6,25 @@ namespace BridgeMaster.Characters.AI {
 
         [SerializeField] private bool _isChasing;
 
+        #region CTOR
+
+        public AIMaster() : base(CharacterStateFactory.GetPlayerState()) { }
+
+        #endregion
+
+        private void Update() {
+            var direction = Target
+                ? MathFacade.Sign(Target.Transform.position.x - Transform.position.x)
+                : 0.0f;
+
+            if (!IsReadyForAttack && _isChasing) {
+                if (direction != 0.0f)
+                    StartRun(direction);
+                else
+                    EndRun();
+            }
+        }
+
         private CharacterMaster _target;
         public CharacterMaster Target {
             get { return _target; }
@@ -14,27 +33,26 @@ namespace BridgeMaster.Characters.AI {
                     return;
 
                 if (_target != null)
-                    Unsubscribe(_target);
+                    UnsubscribeFromTarget(_target);
 
                 _target = value;
 
                 if (_target != null)
-                    Subscribe(_target);
+                    SubscribeToTarget(_target);
             }
         }
 
-        private void Unsubscribe(CharacterMaster target) {
-            target.CharacterState.DieEvent -= Die;
+        private void SubscribeToTarget(CharacterMaster target) {
+            target.CharacterState.DieEvent += Die;
         }
 
-        private void Subscribe(CharacterMaster target) {
-            target.CharacterState.DieEvent += Die;
+        private void UnsubscribeFromTarget(CharacterMaster target) {
+            target.CharacterState.DieEvent -= Die;
         }
 
         private void Die() {
             EndAttack();
         }
-
 
 
         private bool _isReadyForAttack;
@@ -53,27 +71,8 @@ namespace BridgeMaster.Characters.AI {
             }
         }
 
-        private void Update() {
-            var direction = Target
-                ? MathFacade.Sign(Target.Transform.position.x - Transform.position.x)
-                : 0.0f;
-
-            if (!IsReadyForAttack && _isChasing) {
-                if (direction != 0.0f)
-                    StartRun(direction);
-                else
-                    EndRun();
-            }
-        }
-
         public void Attack() {
-            
+
         }
-
-        #region CTOR
-
-        public AIMaster() : base(CharacterStateFactory.GetPlayerState()) { }
-
-        #endregion
     }
 }

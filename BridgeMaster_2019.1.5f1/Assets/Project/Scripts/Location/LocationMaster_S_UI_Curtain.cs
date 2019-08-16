@@ -18,13 +18,7 @@ namespace BridgeMaster.UI {
 
         #endregion
 
-        protected override void CallOnAwakeEvent() {
-
-            if (!_curtain)
-                Logger.LogIsNotSetInInspectorError(nameof(_curtain), name, gameObject.name);
-
-            base.CallOnAwakeEvent();
-        }
+        #region EVENTS
 
         protected override void Subscribe() {
             if (!_isSubscribed) {
@@ -48,6 +42,15 @@ namespace BridgeMaster.UI {
 
         private void ExitLocation(Dicts.Locations to) {
             StartCoroutine(LocationRoutine(to));
+        }
+
+        #endregion
+
+        protected override void CallOnAwakeEvent() {
+            base.CallOnAwakeEvent();
+
+            if (!_curtain)
+                Logger.LogIsNotSetInInspectorError(nameof(_curtain), name, gameObject.name);
         }
 
         private IEnumerator LocationRoutine(Dicts.Locations nextLocation) {

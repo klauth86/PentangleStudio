@@ -14,13 +14,7 @@ namespace BridgeMaster.UI {
 
         #endregion
 
-        protected override void CallOnAwakeEvent() {
-
-            base.CallOnAwakeEvent();
-
-            if (!_menuPanel)
-                Logger.LogIsNotSetInInspectorError(nameof(_menuPanel), name, gameObject.name);
-        }
+        #region EVENTS
 
         protected override void Subscribe() {
             if (!_isSubscribed) {
@@ -41,6 +35,16 @@ namespace BridgeMaster.UI {
                 _menuPanel.SetActive(!_menuPanel.activeSelf);
                 GameMaster.Instance.ToggleMenu(_menuPanel.activeSelf);
             }
+        }
+
+        #endregion
+
+        protected override void CallOnAwakeEvent() {
+
+            base.CallOnAwakeEvent();
+
+            if (!_menuPanel)
+                Logger.LogIsNotSetInInspectorError(nameof(_menuPanel), name, gameObject.name);
         }
     }
 }

@@ -6,28 +6,36 @@ namespace BridgeMaster.Characters {
 
         private bool _isJumping;
 
-        protected override void Subscribe() {
-            Master.StartRunEvent += StartRun;
-            Master.StartJumpEvent += StartJump;
+        #region EVENTS
 
-            base.Subscribe();
+        protected override void Subscribe() {
+            if (!_isSubscribed) {
+                Master.StartRunEvent += StartRun;
+                Master.StartJumpEvent += StartJump;
+                Master.FlipEvent += Flip;
+
+                base.Subscribe();
+            }
         }
 
         protected override void Unsubscribe() {
-            Master.StartRunEvent -= StartRun;
-            Master.StartJumpEvent -= StartJump;
+            if (_isSubscribed) {
+                Master.StartRunEvent -= StartRun;
+                Master.StartJumpEvent -= StartJump;
+                Master.FlipEvent -= Flip;
 
-            base.Unsubscribe();
+                base.Unsubscribe();
+            }
         }
 
         private void StartRun(float axis) {
             Master.Rigidbody.velocity = new Vector2(Master.CharacterState.GetVelocity() * axis, Master.Rigidbody.velocity.y);
-            Swap(axis);
+            if (axis * Master.Transform.right.x < 0)
+                Flip();
         }
 
-        void Swap(float axis) {
-            if (Mathf.Abs(axis) > float.Epsilon)
-                transform.localScale = new Vector3(Mathf.Sign(axis), 1, 1);
+        private void Flip() {
+            Master.Transform.Rotate(Vector3.up, 180);
         }
 
         private void StartJump() {
@@ -36,6 +44,8 @@ namespace BridgeMaster.Characters {
                 Master.Rigidbody.velocity = new Vector2(Master.Rigidbody.velocity.x, Master.CharacterState.GetJump());
             }
         }
+
+        #endregion
 
         private void OnCollisionEnter2D(Collision2D collision) {
             if (_isJumping) {
