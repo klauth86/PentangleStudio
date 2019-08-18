@@ -14,5 +14,9 @@ namespace BridgeMaster {
         public static float Sign(float value) {
             return Mathf.Sign(value);
         }
+
+        public static float Abs(float value) {
+            return Mathf.Abs(value);
+        }
     }
 }

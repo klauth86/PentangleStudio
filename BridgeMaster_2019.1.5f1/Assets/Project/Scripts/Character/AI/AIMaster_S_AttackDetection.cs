@@ -6,8 +6,7 @@ namespace BridgeMaster.Characters.AI {
 
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private float _checkRate = 0.125f;
-
-        [SerializeField] private float _isReadyForAttackRadius = 7;
+        [SerializeField] private float _isReadyForAttackRadius = 1.25f;
 
         #region EVENTS
 

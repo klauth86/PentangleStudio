@@ -7,6 +7,11 @@ namespace BridgeMaster.Characters.AI {
         [SerializeField] protected bool _isChasing;
         [SerializeField] protected float _attackRadius = 7;
 
+        [SerializeField] protected Transform[] _checkPoints;
+        [SerializeField] protected float _checkPointRadius = 0.25f;
+
+        private int _lastCheckPointIndex;
+
         #region CTOR
 
         public AIMaster(CharacterState state) : base(state) { }
@@ -16,12 +21,16 @@ namespace BridgeMaster.Characters.AI {
         private void Update() {
 
             if (!IsReadyForAttack) {
-                if (_isChasing) {
-                    var direction = Target
-                        ? MathFacade.Sign(Target.Transform.position.x - Transform.position.x)
-                        : 0.0f; // TODO PATROLING
+                if (_isChasing && Target) {
+                    SetRun(MathFacade.Sign(Target.Transform.position.x - Transform.position.x));
+                }
+                else {
+                    if (_checkPoints != null && _checkPoints.Length > 0) {
+                        if (MathFacade.Abs(_checkPoints[_lastCheckPointIndex].position.x - Transform.position.x) < _checkPointRadius)
+                            _lastCheckPointIndex = (_lastCheckPointIndex + 1) % _checkPoints.Length;
 
-                    SetRun(direction);
+                        SetRun(MathFacade.Sign(_checkPoints[_lastCheckPointIndex].position.x - Transform.position.x));
+                    }
                 }
             }
         }        
@@ -83,13 +92,18 @@ namespace BridgeMaster.Characters.AI {
             }
         }
 
-        protected override void Die() {
-        }
+        protected override void Die() {}
 
         #region GIZMO
 #if UNITY_EDITOR
         private void OnDrawGizmos() {
             Gizmos.DrawLine(Transform.position, Transform.position + Transform.right * _attackRadius);
+
+            if (_checkPoints != null)
+                foreach (var item in _checkPoints) {
+                    if (item)
+                        Gizmos.DrawWireSphere(item.position, _checkPointRadius);
+                }
         }
 #endif
         #endregion

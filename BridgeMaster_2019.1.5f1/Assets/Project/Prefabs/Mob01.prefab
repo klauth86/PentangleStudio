@@ -109,7 +109,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isChasing: 0
-  _attackRadius: 7
+  _attackRadius: 1
+  _checkPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  _checkPointRadius: 0.25
 --- !u!114 &2012502666797088283
 MonoBehaviour:
   m_ObjectHideFlags: 0
