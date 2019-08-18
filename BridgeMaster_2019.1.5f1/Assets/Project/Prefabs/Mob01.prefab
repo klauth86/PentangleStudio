@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7337962739073949536}
   - component: {fileID: 5787937590647540005}
   - component: {fileID: 6972010368711387162}
+  - component: {fileID: 7147440227506503250}
   m_Layer: 13
   m_Name: Mob01
   m_TagString: Untagged
@@ -167,6 +168,19 @@ MonoBehaviour:
     m_Bits: 4096
   _checkRate: 0.125
   _isReadyForAttackRadius: 1.25
+--- !u!114 &7147440227506503250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2692165963730952895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fca5db6e81a3ae47b55a89c6a4b1c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _checkRate: 0.25
 --- !u!1 &6636198419386040812
 GameObject:
   m_ObjectHideFlags: 0

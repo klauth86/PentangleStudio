@@ -3,8 +3,13 @@
 
         public static CharacterState GetPlayerState() {
             return new CharacterState() {
+                EnduranceStateRecovery = 1f/100,
                 EnduranceState = 1,
+
+                HealthStateRecovery = 1f/1200,
                 HealthState = 1,
+
+                ManaStateRecovery = 1f / 600,
                 ManaState = 1,
 
                 MinVelocityState = 0.35f,
@@ -13,13 +18,13 @@
                 MinSpellState = 0.35f,
 
                 Velocity = 7,
-                VelocityCost = 0.01f,
+                VelocityCost = 1f,
 
                 Jump = 10,
-                JumpCost = 1,
+                JumpCost = 20,
 
                 Attack = 10,
-                AttackCost = 5,            
+                AttackCost = 50,            
 
                 Health = 100,
                 Mana = 100,

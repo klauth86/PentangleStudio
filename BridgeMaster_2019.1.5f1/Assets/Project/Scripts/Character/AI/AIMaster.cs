@@ -79,7 +79,7 @@ namespace BridgeMaster.Characters.AI {
             if (Target) {
                 if ((Target.Transform.position.x - Transform.position.x) * Transform.right.x > 0 &&
                     Target.Transform.position.x - Transform.position.x < _attackRadius)
-                    Target.CharacterState.ChangeHealth(CharacterState.GetAttack());
+                    Target.CharacterState.ChangeHealth(-CharacterState.GetAttack());
             }
         }
 

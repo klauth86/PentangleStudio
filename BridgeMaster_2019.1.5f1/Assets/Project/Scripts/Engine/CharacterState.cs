@@ -4,6 +4,7 @@ namespace BridgeMaster.Engine {
     public class CharacterState {
 
         // All below are from [0, 1] interval
+        public float EnduranceStateRecovery;
         public event EventHandler<float> EnduranceStateChangedEvent;
         private float _enduranceState;
         public float EnduranceState {
@@ -11,11 +12,14 @@ namespace BridgeMaster.Engine {
                 return _enduranceState;
             }
             set {
+                value = Norm(value);
+
                 _enduranceState = value;
                 EnduranceStateChangedEvent?.Invoke(value);
             }
         }
 
+        public float HealthStateRecovery;
         public event EventHandler<float> HealthStateChangedEvent;
         private float _healthState;
         public float HealthState {
@@ -23,7 +27,9 @@ namespace BridgeMaster.Engine {
                 return _healthState;
             }
             set {
-                _healthState = MathFacade.Min(value, 0);
+                value = Norm(value);
+
+                _healthState = value;
                 HealthStateChangedEvent?.Invoke(value);
 
                 if (_healthState == 0)
@@ -31,6 +37,7 @@ namespace BridgeMaster.Engine {
             }
         }
 
+        public float ManaStateRecovery;
         public event EventHandler<float> ManaStateChangedEvent;
         private float _manaState;
         public float ManaState {
@@ -38,6 +45,8 @@ namespace BridgeMaster.Engine {
                 return _manaState;
             }
             set {
+                value = Norm(value);
+
                 _manaState = value;
                 ManaStateChangedEvent?.Invoke(value);
             }
@@ -82,14 +91,14 @@ namespace BridgeMaster.Engine {
             return Attack * GetAttackState();
         }
 
-        public float Health;
-        public void ChangeHealth(float amount) {
-            HealthState = (Health * HealthState + amount) / Health;
-        }
-
         public float Endurance;
         public void ChangeEndurance(float amount) {
             EnduranceState = (Endurance * EnduranceState + amount) / Endurance;
+        }
+
+        public float Health;
+        public void ChangeHealth(float amount) {
+            HealthState = (Health * HealthState + amount) / Health;
         }
 
         public float Mana;
@@ -97,6 +106,22 @@ namespace BridgeMaster.Engine {
             ManaState = (Mana * ManaState + amount) / Mana;
         }
 
-        public event EventHandler DieEvent; 
+        public event EventHandler DieEvent;
+
+        public void Recover() {
+            EnduranceState += EnduranceStateRecovery;
+            HealthState += HealthStateRecovery;
+            ManaState += ManaStateRecovery;
+        }
+
+        private float Norm(float value) {
+            if (value < 0)
+                return 0;
+
+            if (value > 1)
+                return 1;
+
+            return value;
+        }
     }
 }

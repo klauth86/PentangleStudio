@@ -9,7 +9,7 @@ namespace BridgeMaster.Characters {
 
         protected override void Subscribe() {
             if (!_isSubscribed) {
-                Master.SetRunEvent += StartRun;
+                Master.SetRunEvent += SetRun;
                 Master.StartJumpEvent += StartJump;
 
                 Master.FlipEvent += Flip;
@@ -20,7 +20,7 @@ namespace BridgeMaster.Characters {
 
         protected override void Unsubscribe() {
             if (_isSubscribed) {
-                Master.SetRunEvent -= StartRun;
+                Master.SetRunEvent -= SetRun;
                 Master.StartJumpEvent -= StartJump;
 
                 Master.FlipEvent -= Flip;
@@ -29,10 +29,14 @@ namespace BridgeMaster.Characters {
             }
         }
 
-        private void StartRun(float axis) {
-            Master.Rigidbody.velocity = new Vector2(Master.CharacterState.GetVelocity() * axis, Master.Rigidbody.velocity.y);
-            if (axis * Master.Transform.right.x < 0)
-                Flip();
+        private void SetRun(float axis) {
+            if (axis != 0) {
+                Master.Rigidbody.velocity = new Vector2(Master.CharacterState.GetVelocity() * axis, Master.Rigidbody.velocity.y);
+                if (axis * Master.Transform.right.x < 0)
+                    Flip();
+            }
+            else
+                Master.Rigidbody.velocity = new Vector2(0, Master.Rigidbody.velocity.y);
         }
 
         private void StartJump() {

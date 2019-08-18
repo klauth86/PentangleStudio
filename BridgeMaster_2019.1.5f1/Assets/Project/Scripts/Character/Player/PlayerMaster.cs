@@ -59,8 +59,5 @@ namespace BridgeMaster.Characters.Player {
 
         protected override void Attack() {
         }
-
-        protected override void Die() {
-        }
     }
 }
