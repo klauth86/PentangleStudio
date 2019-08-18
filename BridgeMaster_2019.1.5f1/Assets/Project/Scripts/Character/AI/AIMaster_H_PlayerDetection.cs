@@ -1,23 +1,24 @@
-﻿using BridgeMaster.Base;
-using BridgeMaster.Characters.Player;
+﻿using BridgeMaster.Characters.Player;
 using System.Collections;
 using UnityEngine;
 
 namespace BridgeMaster.Characters.AI {
-    public class AIMaster_H_PlayerDetection : COM_Handler<AIMaster> {
+    public class AIMaster_H_PlayerDetection : CharacterMaster_Subscriber<AIMaster> {
 
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private float _checkRate = 0.125f;
         [SerializeField] private float _detectionRadius = 7;
 
-        protected override void CallOnEnableEvent() {
+        #region EVENTS
+
+        protected override void Subscribe() {
             StartCoroutine(PlayerDetectionRoutine());
-            base.CallOnEnableEvent();
+            base.Subscribe();
         }
 
-        protected override void CallOnDisableEvent() {
+        protected override void Unsubscribe() {
             StopAllCoroutines();
-            base.CallOnDisableEvent();
+            base.Unsubscribe();
         }
 
         private IEnumerator PlayerDetectionRoutine() {
@@ -34,6 +35,8 @@ namespace BridgeMaster.Characters.AI {
                 yield return new WaitForSeconds(_checkRate);
             }
         }
+
+        #endregion
 
         #region GIZMO
 #if UNITY_EDITOR

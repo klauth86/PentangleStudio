@@ -1,8 +1,7 @@
-﻿using BridgeMaster.Base;
-using BridgeMaster.Dicts;
+﻿using BridgeMaster.Dicts;
 
 namespace BridgeMaster.Characters {
-    class CharacterMaster_S_Animator : COM_Subscriber<CharacterMaster> {
+    class CharacterMaster_S_Animator : CharacterMaster_Subscriber<CharacterMaster> {
 
         #region EVENTS
 
@@ -18,8 +17,6 @@ namespace BridgeMaster.Characters {
 
                 Master.StartAttackEvent += StartAttack;
                 Master.EndAttackEvent += EndAttack;
-
-                Master.IsDyingEvent += Die;
 
                 base.Subscribe();
             }
@@ -37,8 +34,6 @@ namespace BridgeMaster.Characters {
 
                 Master.StartAttackEvent -= StartAttack;
                 Master.EndAttackEvent -= EndAttack;
-
-                Master.IsDyingEvent -= Die;
 
                 base.Unsubscribe();
             }
@@ -76,8 +71,9 @@ namespace BridgeMaster.Characters {
             Master.Animator.SetBool(AnimatorKeys.IsAttacking, false);
         }
 
-        private void Die() {
+        protected override void IsDead() {
             Master.Animator.SetTrigger(AnimatorKeys.IsDying);
+            base.IsDead();
         }
 
         #endregion

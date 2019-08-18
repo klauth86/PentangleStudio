@@ -1,8 +1,7 @@
-﻿using BridgeMaster.Base;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace BridgeMaster.Characters {
-    class CharacterMaster_S_Controller : COM_Subscriber<CharacterMaster> {
+    class CharacterMaster_S_Controller : CharacterMaster_Subscriber<CharacterMaster> {
 
         private bool _isJumping;
 
@@ -15,8 +14,6 @@ namespace BridgeMaster.Characters {
 
                 Master.FlipEvent += Flip;
 
-                Master.IsDyingEvent += Die;
-
                 base.Subscribe();
             }
         }
@@ -27,8 +24,6 @@ namespace BridgeMaster.Characters {
                 Master.StartJumpEvent -= StartJump;
 
                 Master.FlipEvent -= Flip;
-
-                Master.IsDyingEvent -= Die;
 
                 base.Unsubscribe();
             }
@@ -51,10 +46,10 @@ namespace BridgeMaster.Characters {
             Master.Transform.Rotate(Vector3.up, 180);
         }
 
-        private void Die() {
+        protected override void IsDead() {
             Master.Rigidbody.velocity = Vector3.zero;
+            base.IsDead();
         }
-
         #endregion
 
         private void OnCollisionEnter2D(Collision2D collision) {

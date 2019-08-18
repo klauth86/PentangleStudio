@@ -1,23 +1,24 @@
-﻿using BridgeMaster.Base;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace BridgeMaster.Characters.AI {
-    public class AIMaster_H_AttackDetection : COM_Handler<AIMaster> {
+    public class AIMaster_H_AttackDetection : CharacterMaster_Subscriber<AIMaster> {
 
         [SerializeField] private LayerMask _playerLayer;
         [SerializeField] private float _checkRate = 0.125f;
 
         [SerializeField] private float _isReadyForAttackRadius = 7;
 
-        protected override void CallOnEnableEvent() {
+        #region EVENTS
+
+        protected override void Subscribe() {
             StartCoroutine(AttackRoutine());
-            base.CallOnEnableEvent();
+            base.Subscribe();
         }
 
-        protected override void CallOnDisableEvent() {
+        protected override void Unsubscribe() {
             StopAllCoroutines();
-            base.CallOnDisableEvent();
+            base.Unsubscribe();
         }
 
         private IEnumerator AttackRoutine() {
@@ -35,6 +36,8 @@ namespace BridgeMaster.Characters.AI {
                 yield return new WaitForSeconds(_checkRate);
             }
         }
+
+        #endregion
 
         #region GIZMO
 #if UNITY_EDITOR

@@ -44,14 +44,14 @@ namespace BridgeMaster.Characters.AI {
         }
 
         private void SubscribeToTarget(CharacterMaster target) {
-            target.IsDyingEvent += TargetIsDying;
+            target.CharacterState.DieEvent += TargetDies;
         }
 
         private void UnsubscribeFromTarget(CharacterMaster target) {
-            target.IsDyingEvent -= TargetIsDying;
+            target.CharacterState.DieEvent -= TargetDies;
         }
 
-        private void TargetIsDying() {
+        private void TargetDies() {
             IsReadyForAttack = false;
         }
 
@@ -76,9 +76,11 @@ namespace BridgeMaster.Characters.AI {
 
 
         protected override void Attack() {
-            if ((Target.Transform.position.x - Transform.position.x) * Transform.right.x > 0 &&
-                Target.Transform.position.x - Transform.position.x < _attackRadius)
-                Target.CharacterState.ChangeHealth(CharacterState.GetAttack());
+            if (Target) {
+                if ((Target.Transform.position.x - Transform.position.x) * Transform.right.x > 0 &&
+                    Target.Transform.position.x - Transform.position.x < _attackRadius)
+                    Target.CharacterState.ChangeHealth(CharacterState.GetAttack());
+            }
         }
 
         protected override void Die() {
