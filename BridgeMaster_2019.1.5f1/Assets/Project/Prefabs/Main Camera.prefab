@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3862434797416403612}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -100,7 +100,7 @@ MonoBehaviour:
   _cameraFollowLerpDuration: 0.0625
   _vertOffsetInPercent: 0.1
   _horOffsetInPercent: 0.1
-  _leftEdge: -8.75
-  _rightEdge: 8.75
+  _leftEdge: -8
+  _rightEdge: 8
   _upEdge: 0
   _downEdge: 0

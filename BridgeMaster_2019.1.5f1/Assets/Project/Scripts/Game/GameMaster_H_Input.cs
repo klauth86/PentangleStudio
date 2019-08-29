@@ -10,6 +10,7 @@ namespace BridgeMaster.Game {
 
         [SerializeField] private string _jumpButtonName;
         [SerializeField] private string _runAxisName;
+        [SerializeField] private string _crossAxisName;
 
         [SerializeField] private KeyCode _toggleCharacterStatsKeyCode;
         [SerializeField] private KeyCode _toggleMenuKeyCode;
@@ -25,14 +26,20 @@ namespace BridgeMaster.Game {
 
             base.CallOnAwakeEvent();
 
-            if (string.IsNullOrEmpty(_runAxisName))
-                Logger.LogIsNotSetInInspectorError(nameof(_runAxisName), name, gameObject.name);
+            if (string.IsNullOrEmpty(_attackButtonName))
+                Logger.LogIsNotSetInInspectorError(nameof(_attackButtonName), name, gameObject.name);
+
+            if (string.IsNullOrEmpty(_castSpellButtonName))
+                Logger.LogIsNotSetInInspectorError(nameof(_castSpellButtonName), name, gameObject.name);
 
             if (string.IsNullOrEmpty(_jumpButtonName))
                 Logger.LogIsNotSetInInspectorError(nameof(_jumpButtonName), name, gameObject.name);
 
-            if (string.IsNullOrEmpty(_castSpellButtonName))
-                Logger.LogIsNotSetInInspectorError(nameof(_castSpellButtonName), name, gameObject.name);
+            if (string.IsNullOrEmpty(_runAxisName))
+                Logger.LogIsNotSetInInspectorError(nameof(_runAxisName), name, gameObject.name);
+
+            if (string.IsNullOrEmpty(_crossAxisName))
+                Logger.LogIsNotSetInInspectorError(nameof(_crossAxisName), name, gameObject.name);
         }
 
         private void Update() {
@@ -49,17 +56,14 @@ namespace BridgeMaster.Game {
             if (Input.GetButtonUp(_castSpellButtonName))
                 Master.InputKey(InputActions.CastSpellButton, InputActionStates.KeyUp, 0);
 
-
-
-
             if (Input.GetButtonDown(_jumpButtonName))
                 Master.InputKey(InputActions.JumpButton, InputActionStates.KeyDown, 0);
 
             var axis = Input.GetAxis(_runAxisName);
             Master.InputKey(InputActions.RunAxisAction, InputActionStates.Unknown, axis);
 
-
-
+            axis = Input.GetAxis(_crossAxisName);
+            Master.InputKey(InputActions.CrossAxisAction, InputActionStates.Unknown, axis);
 
             if (Input.GetKeyUp(_toggleCharacterStatsKeyCode))
                 Master.InputKey(InputActions.ToggleCharacterStatsAction, InputActionStates.KeyUp, 0);

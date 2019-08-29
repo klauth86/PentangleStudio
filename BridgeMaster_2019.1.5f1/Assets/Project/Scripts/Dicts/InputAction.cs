@@ -5,6 +5,7 @@
 
         JumpButton,
         RunAxisAction,
+        CrossAxisAction,
 
         ToggleCharacterStatsAction,
         ToggleInventoryAction,

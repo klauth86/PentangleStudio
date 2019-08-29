@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 412418265640550620}
   - component: {fileID: 412418265640550592}
   m_Layer: 0
-  m_Name: Master
+  m_Name: GameMaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,6 +61,7 @@ MonoBehaviour:
   _castSpellButtonName: Fire2
   _jumpButtonName: Jump
   _runAxisName: Horizontal
+  _crossAxisName: Vertical
   _toggleCharacterStatsKeyCode: 99
   _toggleMenuKeyCode: 109
   _toggleInventoryKeyCode: 105
